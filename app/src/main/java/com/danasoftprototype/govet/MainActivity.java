@@ -2,6 +2,7 @@ package com.danasoftprototype.govet;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -23,23 +24,38 @@ public class MainActivity extends AppCompatActivity {
         MaterialButton loginbtn = (MaterialButton) findViewById(R.id.loginbtn);
         MaterialButton register = (MaterialButton) findViewById(R.id.register);
 
+        DBHelper DB;
+        DB = new DBHelper(this);
+
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (username.getText().toString().equals("admin") && password.getText().toString().equals("admin") )
-                {
-                    //correct user
-                    Toast.makeText(MainActivity.this,"Login Successful",Toast.LENGTH_SHORT).show();
+
+                String user = username.getText().toString();
+                String pass = password.getText().toString();
+
+                if (user.equals("")||pass.equals("")){
+                    Toast.makeText(MainActivity.this,"Please enter all fields", Toast.LENGTH_SHORT).show();
                 }
-                else
-                {
-                    //incorrect
-                    Toast.makeText(MainActivity.this,"No such account, try again",Toast.LENGTH_SHORT).show();
+                else{
+                    Boolean checkuserpass = DB.checkusernamepassword(user, pass);
+                    if(checkuserpass==true){
+                        Toast.makeText(MainActivity.this,"Sign in successful", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
+                        startActivity(intent);
+                    }
                 }
+
+
             }
         });
 
-
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,register.class));
+            }
+        });
 
 
     }

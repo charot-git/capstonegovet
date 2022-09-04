@@ -22,22 +22,25 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/signin"
+        android:id="@+id/registertext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/welcome"
-        android:layout_margin="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:gravity="center"
-        android:text="Sign in"
+        android:text="Register"
         android:textColor="@android:color/white"
         android:textSize="25dp"
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/usernamereg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/signin"
+        android:layout_below="@id/registertext"
         android:layout_marginStart="50dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="50dp"
@@ -51,14 +54,31 @@
         android:textColorHint="@color/white" />
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/emailreg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/username"
+        android:layout_below="@id/usernamereg"
         android:layout_marginStart="50dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="50dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/rounded_corner"
+        android:drawableLeft="@drawable/ic_baseline_alternate_email_24"
+        android:drawablePadding="10dp"
+        android:hint="E-mail"
+        android:padding="20dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
+
+    <EditText
+        android:id="@+id/passwordreg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/emailreg"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/rounded_corner"
         android:drawableLeft="@drawable/ic_baseline_lock_24"
         android:drawablePadding="10dp"
@@ -67,11 +87,47 @@
         android:textColor="@color/white"
         android:textColorHint="@color/white" />
 
+
+    <EditText
+        android:id="@+id/repass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/passwordreg"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/rounded_corner"
+        android:drawableLeft="@drawable/ic_baseline_lock_24"
+        android:drawablePadding="10dp"
+        android:hint="Confirm Password"
+        android:padding="20dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
+
+    <EditText
+        android:id="@+id/numberreg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/repass"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/rounded_corner"
+        android:drawableLeft="@drawable/ic_baseline_lock_24"
+        android:drawablePadding="10dp"
+        android:hint="Contact Number"
+        android:padding="20dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
+
+
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/loginbtn"
+        android:id="@+id/register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/password"
+        android:layout_below="@id/numberreg"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="5dp"
         android:layout_marginTop="25dp"
@@ -80,41 +136,9 @@
         android:backgroundTint="#4C8076"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        android:text="Log In"
-        android:textColor="@color/white"
-        android:textSize="18dp" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/loginbtn"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp"
-        android:backgroundTint="#4C8076"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
         android:text="Register"
         android:textColor="@color/white"
         android:textSize="18dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Forgot Password?"
-        android:layout_margin="20dp"
-        android:layout_below="@id/register"
-        android:id="@+id/forgotpass"
-        android:textSize="15dp"
-        android:layout_centerHorizontal="true"
-        android:textColor="@color/white"
-        android:textStyle="italic"
-        />
-
-
 
 
 </RelativeLayout>
