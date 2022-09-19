@@ -2,6 +2,7 @@ package com.danasoftprototype.govet;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -43,14 +44,22 @@ public class register extends AppCompatActivity {
                 }
                 else{
                     if(passreg.equals(confirmpassreg)){
-                        Boolean checkuser = DB.checkusername(userreg);{
+                        Boolean checkuser = DB.checkusername(userreg);
                             if (checkuser==false){
                                 Boolean insert = DB.insertData(userreg,passreg);
                                 if(insert==true){
                                     Toast.makeText(register.this,"Registered successfully",Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                                    startActivity(intent);
                                 }
+
                             }
-                        }
+                            else{
+                                Toast.makeText(register.this,"The user " + userreg + " already exists", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                                startActivity(intent);
+                            }
+
                     }
                 }
             }

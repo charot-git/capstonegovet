@@ -7,12 +7,24 @@
     android:background="@drawable/gradient_background"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/govetlogo2"
+        android:layout_width="56dp"
+        android:layout_height="51dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:contentDescription="TODO"
+        app:srcCompat="@drawable/logogv" />
+
     <TextView
         android:id="@+id/welcome"
+        android:layout_below="@id/govetlogo2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="5dp"
         android:gravity="center"
@@ -82,6 +94,7 @@
         android:background="@drawable/rounded_corner"
         android:drawableLeft="@drawable/ic_baseline_lock_24"
         android:drawablePadding="10dp"
+        android:inputType="textPassword"
         android:hint="Password"
         android:padding="20dp"
         android:textColor="@color/white"
@@ -100,6 +113,7 @@
         android:background="@drawable/rounded_corner"
         android:drawableLeft="@drawable/ic_baseline_lock_24"
         android:drawablePadding="10dp"
+        android:inputType="textPassword"
         android:hint="Confirm Password"
         android:padding="20dp"
         android:textColor="@color/white"
@@ -115,7 +129,7 @@
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/rounded_corner"
-        android:drawableLeft="@drawable/ic_baseline_lock_24"
+        android:drawableLeft="@drawable/ic_baseline_local_phone_24"
         android:drawablePadding="10dp"
         android:hint="Contact Number"
         android:padding="20dp"
