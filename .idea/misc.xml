@@ -3,8 +3,33 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Dale/StudioProjects/capstonegovet/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1765" />
+        <entry key="..\:/Users/Dale/StudioProjects/capstonegovet/app/src/main/res/drawable/gradient_background.xml" value="0.209" />
+        <entry key="..\:/Users/Dale/StudioProjects/capstonegovet/app/src/main/res/drawable/ic_baseline_access_time_24.xml" value="0.209" />
+        <entry key="..\:/Users/Dale/StudioProjects/capstonegovet/app/src/main/res/drawable/ic_baseline_alternate_email_24.xml" value="0.209" />
+        <entry key="..\:/Users/Dale/StudioProjects/capstonegovet/app/src/main/res/drawable/ic_baseline_chat_bubble_24.xml" value="0.209" />
+        <entry key="..\:/Users/Dale/StudioProjects/capstonegovet/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.209" />
+        <entry key="..\:/Users/Dale/StudioProjects/capstonegovet/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1765" />
         <entry key="..\:/Users/Dale/StudioProjects/capstonegovet/app/src/main/res/drawable/rounded_corner.xml" value="0.227" />
+        <entry key="..\:/Users/Dale/StudioProjects/capstonegovet/app/src/main/res/drawable/side_nav_bar.xml" value="0.209" />
+        <entry key="..\:/Users/Dale/StudioProjects/capstonegovet/app/src/main/res/layout/activity_govethome.xml" value="0.22" />
+        <entry key="..\:/Users/Dale/StudioProjects/capstonegovet/app/src/main/res/layout/activity_home.xml" value="0.317481884057971" />
         <entry key="..\:/Users/Dale/StudioProjects/capstonegovet/app/src/main/res/layout/activity_login.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Dale/StudioProjects/capstonegovet/app/src/main/res/layout/activity_loginpage.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Dale/StudioProjects/capstonegovet/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Dale/StudioProjects/capstonegovet/app/src/main/res/layout/activity_register.xml" value="0.317481884057971" />
+        <entry key="..\:/Users/Dale/StudioProjects/capstonegovet/app/src/main/res/layout/app_bar_govethome.xml" value="0.317481884057971" />
+        <entry key="..\:/Users/Dale/StudioProjects/capstonegovet/app/src/main/res/layout/content_govethome.xml" value="0.317481884057971" />
+        <entry key="..\:/Users/Dale/StudioProjects/capstonegovet/app/src/main/res/layout/fragment_chat.xml" value="0.317481884057971" />
+        <entry key="..\:/Users/Dale/StudioProjects/capstonegovet/app/src/main/res/layout/fragment_monitor.xml" value="0.317481884057971" />
+        <entry key="..\:/Users/Dale/StudioProjects/capstonegovet/app/src/main/res/layout/fragment_profile.xml" value="0.317481884057971" />
+        <entry key="..\:/Users/Dale/StudioProjects/capstonegovet/app/src/main/res/layout/fragment_sched.xml" value="0.317481884057971" />
+        <entry key="..\:/Users/Dale/StudioProjects/capstonegovet/app/src/main/res/layout/fragment_settings.xml" value="0.317481884057971" />
+        <entry key="..\:/Users/Dale/StudioProjects/capstonegovet/app/src/main/res/layout/fragment_shop.xml" value="0.317481884057971" />
+        <entry key="..\:/Users/Dale/StudioProjects/capstonegovet/app/src/main/res/layout/nav_header_govethome.xml" value="0.307518115942029" />
+        <entry key="..\:/Users/Dale/StudioProjects/capstonegovet/app/src/main/res/menu/activity_main_drawer.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Dale/StudioProjects/capstonegovet/app/src/main/res/menu/govethome.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Dale/StudioProjects/capstonegovet/app/src/main/res/menu/navigation.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/gamin/AndroidStudioProjects/GoVet/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.159" />
         <entry key="..\:/Users/gamin/AndroidStudioProjects/GoVet/app/src/main/res/drawable/gradient_background.xml" value="0.199" />
         <entry key="..\:/Users/gamin/AndroidStudioProjects/GoVet/app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.199" />

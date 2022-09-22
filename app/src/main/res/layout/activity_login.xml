@@ -9,11 +9,11 @@
 
     <ImageView
         android:id="@+id/govetlogo3"
-        android:layout_width="56dp"
-        android:layout_height="51dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="15dp"
         android:contentDescription="TODO"
@@ -29,8 +29,8 @@
         android:layout_marginBottom="5dp"
         android:gravity="center"
         android:text="GoVet"
-        android:textColor="@android:color/white"
-        android:textSize="35dp"
+        android:textColor="@color/brown"
+        android:textSize="60dp"
         android:textStyle="bold" />
 
     <TextView
@@ -44,7 +44,7 @@
         android:layout_marginBottom="10dp"
         android:gravity="center"
         android:text="Sign in"
-        android:textColor="@android:color/white"
+        android:textColor="@color/brown"
         android:textSize="25dp"
         android:textStyle="bold" />
 
@@ -54,7 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/signin"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/rounded_corner"
@@ -90,15 +90,16 @@
         android:layout_below="@id/password"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="0dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="5dp"
-        android:backgroundTint="#4C8076"
+        android:backgroundTint="@color/lbrown"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:text="Log In"
         android:textColor="@color/white"
-        android:textSize="18dp" />
+        android:textSize="18dp"
+        app:cornerRadius="30dp" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/register"
@@ -110,12 +111,13 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="5dp"
-        android:backgroundTint="#4C8076"
+        android:backgroundTint="@color/lbrown"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:text="Register"
         android:textColor="@color/white"
-        android:textSize="18dp" />
+        android:textSize="18dp"
+        app:cornerRadius="30dp" />
 
     <TextView
         android:id="@+id/forgotpass"
@@ -124,11 +126,11 @@
         android:layout_below="@id/register"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:text="Forgot Password?"
-        android:textColor="@color/white"
+        android:textColor="@color/brown"
         android:textSize="15dp"
         android:textStyle="italic" />
 

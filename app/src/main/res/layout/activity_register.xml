@@ -29,7 +29,7 @@
         android:layout_marginBottom="5dp"
         android:gravity="center"
         android:text="GoVet"
-        android:textColor="@android:color/white"
+        android:textColor="@color/brown"
         android:textSize="35dp"
         android:textStyle="bold" />
 
@@ -44,7 +44,7 @@
         android:layout_marginBottom="10dp"
         android:gravity="center"
         android:text="Register"
-        android:textColor="@android:color/white"
+        android:textColor="@color/brown"
         android:textSize="25dp"
         android:textStyle="bold" />
 
@@ -54,7 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/registertext"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/rounded_corner"
@@ -144,15 +144,16 @@
         android:layout_below="@id/numberreg"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="5dp"
-        android:backgroundTint="#4C8076"
+        android:backgroundTint="@color/lbrown"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:text="Register"
         android:textColor="@color/white"
-        android:textSize="18dp" />
+        android:textSize="18dp"
+        app:cornerRadius="30dp" />
 
 
 </RelativeLayout>
