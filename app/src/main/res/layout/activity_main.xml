@@ -13,7 +13,7 @@
         android:layout_height="51dp"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="15dp"
         android:contentDescription="TODO"
@@ -21,75 +21,29 @@
 
     <TextView
         android:id="@+id/welcome"
-        android:layout_below="@id/govetlogo3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/govetlogo3"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="5dp"
         android:gravity="center"
-        android:text="GoVet"
+        android:text="Welcome to GoVet"
         android:textColor="@android:color/white"
         android:textSize="35dp"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/signin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/welcome"
-        android:layout_margin="10dp"
-        android:gravity="center"
-        android:text="Sign in"
-        android:textColor="@android:color/white"
-        android:textSize="25dp"
-        android:textStyle="bold" />
-
-    <EditText
-        android:id="@+id/username"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/signin"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/rounded_corner"
-        android:drawableLeft="@drawable/ic_baseline_person_pin_24"
-        android:drawablePadding="10dp"
-        android:hint="Username"
-        android:padding="20dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white" />
-
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/username"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="50dp"
-        android:background="@drawable/rounded_corner"
-        android:drawableLeft="@drawable/ic_baseline_lock_24"
-        android:drawablePadding="10dp"
-        android:inputType="textPassword"
-        android:hint="Password"
-        android:padding="20dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/loginbtn"
+        android:id="@+id/loginbtnmain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/password"
+        android:layout_below="@id/welcome"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="150dp"
         android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="20dp"
         android:backgroundTint="#4C8076"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
@@ -97,11 +51,22 @@
         android:textColor="@color/white"
         android:textSize="18dp" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/register"
+    <TextView
+        android:id="@+id/or"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/loginbtn"
+        android:layout_below="@id/loginbtnmain"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="Or"
+        android:textColor="@color/white" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/registermain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/or"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
@@ -113,21 +78,6 @@
         android:text="Register"
         android:textColor="@color/white"
         android:textSize="18dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Forgot Password?"
-        android:layout_margin="20dp"
-        android:layout_below="@id/register"
-        android:id="@+id/forgotpass"
-        android:textSize="15dp"
-        android:layout_centerHorizontal="true"
-        android:textColor="@color/white"
-        android:textStyle="italic"
-        />
-
-
 
 
 </RelativeLayout>

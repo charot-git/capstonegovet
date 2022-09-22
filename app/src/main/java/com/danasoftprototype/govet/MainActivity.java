@@ -1,5 +1,6 @@
 package com.danasoftprototype.govet;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -18,42 +19,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView username = (TextView) findViewById(R.id.username);
-        TextView password = (TextView) findViewById(R.id.password);
 
-        MaterialButton loginbtn = (MaterialButton) findViewById(R.id.loginbtn);
-        MaterialButton register = (MaterialButton) findViewById(R.id.register);
+        MaterialButton loginbtnmain = (MaterialButton) findViewById(R.id.loginbtnmain);
+        MaterialButton registermain = (MaterialButton) findViewById(R.id.registermain);
 
-        DBHelper DB;
-        DB = new DBHelper(this);
-
-        loginbtn.setOnClickListener(new View.OnClickListener() {
+        loginbtnmain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                String user = username.getText().toString();
-                String pass = password.getText().toString();
-
-                if (user.equals("")||pass.equals("")){
-                    Toast.makeText(MainActivity.this,"Please enter all fields", Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    Boolean checkuserpass = DB.checkusernamepassword(user, pass);
-                    if(checkuserpass==true){
-                        Toast.makeText(MainActivity.this,"Sign in successful", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getApplicationContext(),govethome.class);
-                        startActivity(intent);
-                    }
-                    else{
-                        Toast.makeText(MainActivity.this,"Sign in failed, please try again", Toast.LENGTH_SHORT).show();
-                    }
-                }
-
-
+                startActivity(new Intent(MainActivity.this,loginpage.class));
             }
         });
 
-        register.setOnClickListener(new View.OnClickListener() {
+        registermain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this,register.class));

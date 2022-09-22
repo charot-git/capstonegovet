@@ -9,17 +9,62 @@
         android:id="@+id/nav_home"
         android:name="com.danasoftprototype.govet.ui.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_nav_profile"
+            app:destination="@id/nav_profile" />
+    </fragment>
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.danasoftprototype.govet.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
-
+        android:id="@+id/nav_sched"
+        android:name="com.danasoftprototype.govet.sched"
+        android:label="Schedule"
+        tools:layout="@layout/fragment_sched" >
+        <action
+            android:id="@+id/action_nav_sched_to_shop"
+            app:destination="@id/nav_shop" />
+    </fragment>
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.danasoftprototype.govet.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_shop"
+        android:name="com.danasoftprototype.govet.shop"
+        android:label="Online Payment"
+        tools:layout="@layout/fragment_shop" >
+        <action
+            android:id="@+id/action_nav_shop_to_monitor"
+            app:destination="@id/nav_monitor" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_monitor"
+        android:name="com.danasoftprototype.govet.monitor"
+        android:label="Monitor"
+        tools:layout="@layout/fragment_monitor" >
+        <action
+            android:id="@+id/action_nav_monitor_to_nav_settings"
+            app:destination="@id/nav_settings" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="com.danasoftprototype.govet.Settings"
+        android:label="Settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.danasoftprototype.govet.profile"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_nav_profile_to_nav_chat"
+            app:destination="@id/nav_chat" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_chat"
+        android:name="com.danasoftprototype.govet.chat"
+        android:label="Chat"
+        tools:layout="@layout/fragment_chat" >
+        <action
+            android:id="@+id/action_nav_chat_to_nav_sched"
+            app:destination="@id/nav_sched" />
+    </fragment>
+
+
 </navigation>
