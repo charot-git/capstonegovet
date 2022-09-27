@@ -29,6 +29,9 @@
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="@dimen/fab_margin"
         android:layout_marginBottom="16dp"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:backgroundTint="@color/lbrown"
+        app:srcCompat="@android:drawable/ic_menu_my_calendar"
+        android:tint="@color/white"
+        />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
