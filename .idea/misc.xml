@@ -70,6 +70,18 @@
         <entry key="..\:/Users/gamin/StudioProjects/capstonegovet/app/src/main/res/menu/navigation.xml" value="0.26875" />
         <entry key="..\:/Users/gamin/StudioProjects/capstonegovet/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2085" />
         <entry key="..\:/Users/gamin/StudioProjects/capstonegovet/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2085" />
+        <entry key="..\:/Users/gamin/StudioProjects/capstonegovetlocal/app/src/main/res/drawable/ic_baseline_calendar_month_24.xml" value="0.2085" />
+        <entry key="..\:/Users/gamin/StudioProjects/capstonegovetlocal/app/src/main/res/drawable/ic_menu_camera.xml" value="0.2085" />
+        <entry key="..\:/Users/gamin/StudioProjects/capstonegovetlocal/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.2085" />
+        <entry key="..\:/Users/gamin/StudioProjects/capstonegovetlocal/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.2085" />
+        <entry key="..\:/Users/gamin/StudioProjects/capstonegovetlocal/app/src/main/res/layout/activity_govethome.xml" value="0.13069908814589665" />
+        <entry key="..\:/Users/gamin/StudioProjects/capstonegovetlocal/app/src/main/res/layout/activity_login.xml" value="0.26875" />
+        <entry key="..\:/Users/gamin/StudioProjects/capstonegovetlocal/app/src/main/res/layout/activity_register.xml" value="0.13069908814589665" />
+        <entry key="..\:/Users/gamin/StudioProjects/capstonegovetlocal/app/src/main/res/layout/app_bar_govethome.xml" value="0.25" />
+        <entry key="..\:/Users/gamin/StudioProjects/capstonegovetlocal/app/src/main/res/layout/content_govethome.xml" value="0.13069908814589665" />
+        <entry key="..\:/Users/gamin/StudioProjects/capstonegovetlocal/app/src/main/res/layout/fragment_shop.xml" value="0.13069908814589665" />
+        <entry key="..\:/Users/gamin/StudioProjects/capstonegovetlocal/app/src/main/res/layout/nav_header_govethome.xml" value="0.13069908814589665" />
+        <entry key="..\:/Users/gamin/StudioProjects/capstonegovetlocal/app/src/main/res/menu/activity_main_drawer.xml" value="0.26875" />
       </map>
     </option>
   </component>
