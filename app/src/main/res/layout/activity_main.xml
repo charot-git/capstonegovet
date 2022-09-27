@@ -13,7 +13,7 @@
         android:layout_height="150dp"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="45dp"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="15dp"
         android:contentDescription="TODO"
@@ -24,14 +24,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/govetlogo3"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="5dp"
         android:layout_marginBottom="5dp"
         android:gravity="center"
         android:text="Welcome to GoVet"
         android:textColor="@color/brown"
         android:textSize="35dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:fontFamily="@font/poppins_medium"/>
 
 
     <com.google.android.material.button.MaterialButton
@@ -46,11 +48,14 @@
         android:layout_marginBottom="20dp"
         android:backgroundTint="@color/lbrown"
         android:paddingLeft="40dp"
+        android:paddingTop="15dp"
         android:paddingRight="40dp"
+        android:paddingBottom="15dp"
         android:text="Log In"
         android:textColor="@color/white"
         android:textSize="18dp"
-        app:cornerRadius="30dp" />
+        app:cornerRadius="30dp"
+        android:fontFamily="@font/poppins_medium"/>
 
     <TextView
         android:id="@+id/or"
@@ -62,7 +67,8 @@
         android:gravity="center"
         android:text="Or"
         android:textColor="@color/brown"
-        android:textSize="15dp" />
+        android:textSize="15dp"
+        android:fontFamily="@font/poppins_medium"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/registermain"
@@ -76,11 +82,14 @@
         android:layout_marginBottom="5dp"
         android:backgroundTint="@color/lbrown"
         android:paddingLeft="40dp"
+        android:paddingTop="15dp"
         android:paddingRight="40dp"
+        android:paddingBottom="15dp"
         android:text="Register"
         android:textColor="@color/white"
         android:textSize="18dp"
-        app:cornerRadius="30dp" />
+        app:cornerRadius="30dp"
+        android:fontFamily="@font/poppins_medium"/>
 
 
 </RelativeLayout>

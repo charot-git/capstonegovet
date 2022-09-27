@@ -29,7 +29,8 @@
         android:text="Welcome to GoVet"
         android:textColor="@color/brown"
         android:textSize="35dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:fontFamily="@font/poppins_medium"/>
 
 
 
