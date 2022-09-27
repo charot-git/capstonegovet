@@ -30,8 +30,9 @@
         android:layout_marginEnd="@dimen/fab_margin"
         android:layout_marginBottom="16dp"
         android:backgroundTint="@color/lbrown"
-        app:srcCompat="@android:drawable/ic_menu_my_calendar"
+        android:contentDescription="@string/action_settings"
         android:tint="@color/white"
-        />
+        app:srcCompat="@android:drawable/ic_menu_my_calendar"
+        tools:ignore="ImageContrastCheck" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
