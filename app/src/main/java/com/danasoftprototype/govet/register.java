@@ -9,6 +9,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +28,7 @@ public class register extends AppCompatActivity {
 
     EditText username, pass, confpass, emailreg, mobilenum;
     MaterialButton registeruser;
+    ProgressBar progressBar;
 
     FirebaseAuth mAuth;
 
@@ -48,6 +50,8 @@ public class register extends AppCompatActivity {
         emailreg = (EditText) findViewById(R.id.emailreg);
         confpass = (EditText) findViewById(R.id.repass);
         mobilenum = (EditText) findViewById(R.id.numberreg);
+
+        progressBar = (ProgressBar) findViewById(R.id.registerprogress);
 
 
 
@@ -107,10 +111,13 @@ public class register extends AppCompatActivity {
             return;
         } else {
 
+
+            progressBar.setVisibility(View.VISIBLE);
             mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
+                        progressBar.setVisibility(View.INVISIBLE);
                         Toast.makeText(register.this, "User has been created", Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(register.this,  govethome.class);
                         startActivity(intent);
