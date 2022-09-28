@@ -47,15 +47,15 @@
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="20dp"
         android:backgroundTint="@color/lbrown"
+        android:fontFamily="@font/poppins_medium"
         android:paddingLeft="40dp"
-        android:paddingTop="15dp"
+        android:paddingTop="10dp"
         android:paddingRight="40dp"
-        android:paddingBottom="15dp"
+        android:paddingBottom="10dp"
         android:text="Log In"
         android:textColor="@color/white"
         android:textSize="18dp"
-        app:cornerRadius="30dp"
-        android:fontFamily="@font/poppins_medium"/>
+        app:cornerRadius="30dp" />
 
     <TextView
         android:id="@+id/or"
@@ -81,15 +81,15 @@
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="5dp"
         android:backgroundTint="@color/lbrown"
+        android:fontFamily="@font/poppins_medium"
         android:paddingLeft="40dp"
-        android:paddingTop="15dp"
+        android:paddingTop="10dp"
         android:paddingRight="40dp"
-        android:paddingBottom="15dp"
+        android:paddingBottom="10dp"
         android:text="Register"
         android:textColor="@color/white"
         android:textSize="18dp"
-        app:cornerRadius="30dp"
-        android:fontFamily="@font/poppins_medium"/>
+        app:cornerRadius="30dp" />
 
 
 </RelativeLayout>

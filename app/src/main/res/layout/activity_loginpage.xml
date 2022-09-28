@@ -101,6 +101,8 @@
         android:fontFamily="@font/poppins_medium"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
         android:text="Log In"
         android:textColor="@color/white"
         android:textSize="18dp"
