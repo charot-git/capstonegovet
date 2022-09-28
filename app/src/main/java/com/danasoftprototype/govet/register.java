@@ -28,7 +28,7 @@ public class register extends AppCompatActivity {
     EditText username, pass, confpass, emailreg, mobilenum;
     MaterialButton registeruser;
 
-    private FirebaseAuth mAuth;
+    FirebaseAuth mAuth;
 
 
 
@@ -64,76 +64,101 @@ public class register extends AppCompatActivity {
         String email = emailreg.getText().toString().trim();
         String number = mobilenum.getText().toString().trim();
 
-        if (user.isEmpty())
-        {
+        if (user.isEmpty()) {
             username.setError("Username is required");
             username.requestFocus();
             return;
         }
-        if (email.isEmpty())
-        {
+        else if (email.isEmpty()) {
             emailreg.setError("E-mail is required");
             emailreg.requestFocus();
             return;
         }
 
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+        else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             emailreg.setError("E-mail is invalid");
             emailreg.requestFocus();
             return;
         }
-        if (number.isEmpty())
-        {
+        else if (number.isEmpty()) {
             mobilenum.setError("Mobile number is required");
             mobilenum.requestFocus();
             return;
         }
-        if(!Patterns.PHONE.matcher(number).matches()){
+        else if (!Patterns.PHONE.matcher(number).matches()) {
             mobilenum.setError("Mobile number is invalid");
             mobilenum.requestFocus();
             return;
         }
-
-        if(password.isEmpty()){
+        else if (password.isEmpty()) {
             pass.setError("Password is required!");
             pass.requestFocus();
             return;
-        }
-        if(password.length()< 6) {
+        } else if (password.length() < 6) {
             pass.setError("Password should be 6 characters or longer");
             pass.requestFocus();
             return;
+        } else if (repass.isEmpty()) {
+            confpass.setError("Password confirmation is required!");
+            confpass.requestFocus();
+            return;
+        } else if (!repass.equals(password)) {
+            Toast.makeText(register.this, "The passwords do not match", Toast.LENGTH_SHORT).show();
+            return;
+        } else {
+
+            mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if(task.isSuccessful()){
+                        Toast.makeText(register.this, "User has been created", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(register.this,  govethome.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                    else{
+                        Toast.makeText(register.this, "Registration failed "+ task.getException(), Toast.LENGTH_LONG).show();
+                        username.requestFocus();
+                    }
+                }
+            });
+
         }
 
-        mAuth.createUserWithEmailAndPassword(email ,password)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            User user = new User(username, email, number);
-
-                            FirebaseDatabase.getInstance().getReference("Users")
-                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                            .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if(task.isComplete()){
-                                        Toast.makeText(register.this, "User has been registered successfully",Toast.LENGTH_LONG).show();
-                                    }
-                                    else
-                                    {
-                                        Toast.makeText(register.this, "Registration failed, please try again!", Toast.LENGTH_LONG).show();
-                                    }
-                                }
-                            });
 
 
-                }
-            }
-        });
+
+
+        /*{mAuth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+
+
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                User user = new User(username, email, number);
+
+                                FirebaseDatabase.getInstance().getReference("Users")
+                                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                        .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                if (task.isComplete()) {
+                                                    Toast.makeText(register.this, "User has been registered successfully", Toast.LENGTH_LONG).show();
+                                                    startActivity(new Intent(register.this, loginpage.class));
+                                                } else {
+                                                    Toast.makeText(register.this, "Registration failed, please try again!", Toast.LENGTH_LONG).show();
+                                                }
+                                            }
+                                        });
+
+
+                            }
+                        }
+                    });
+
+        }}*/
 
 
     }
-
 }
