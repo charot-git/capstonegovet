@@ -13,9 +13,9 @@
         android:layout_height="150dp"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="15dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="5dp"
         android:contentDescription="TODO"
         app:srcCompat="@drawable/logogv" />
 
@@ -27,12 +27,12 @@
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="5dp"
+        android:fontFamily="@font/poppins_medium"
         android:gravity="center"
         android:text="GoVet"
         android:textColor="@color/brown"
-        android:textSize="60dp"
-        android:textStyle="bold"
-        android:fontFamily="@font/poppins_medium"/>
+        android:textSize="55dp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/signin"
@@ -43,12 +43,12 @@
         android:layout_marginTop="15dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
+        android:fontFamily="@font/poppins_medium"
         android:gravity="center"
         android:text="Sign in"
         android:textColor="@color/brown"
         android:textSize="25dp"
-        android:textStyle="bold"
-        android:fontFamily="@font/poppins_medium"/>
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/email"
@@ -56,7 +56,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/signin"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/rounded_corner"
@@ -94,14 +94,12 @@
         android:layout_below="@id/password"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp"
         android:backgroundTint="@color/lbrown"
         android:fontFamily="@font/poppins_medium"
         android:paddingLeft="20dp"
-        android:paddingRight="20dp"
         android:paddingTop="5dp"
+        android:paddingRight="20dp"
         android:paddingBottom="5dp"
         android:text="Log In"
         android:textColor="@color/white"
@@ -115,14 +113,14 @@
         android:layout_below="@id/loginbtn"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
+        android:fontFamily="@font/poppins_medium"
         android:text="Forgot Password?"
         android:textColor="@color/brown"
         android:textSize="15dp"
-        android:textStyle="italic"
-        android:fontFamily="@font/poppins_medium"/>
+        android:textStyle="italic" />
 
     <ProgressBar
         android:id="@+id/progressBar"
