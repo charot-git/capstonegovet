@@ -51,7 +51,7 @@
         android:fontFamily="@font/poppins_medium"/>
 
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/signin"
@@ -72,7 +72,7 @@
         android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/username"
+        android:layout_below="@id/email"
         android:layout_marginStart="50dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="50dp"
@@ -124,7 +124,14 @@
         android:textStyle="italic"
         android:fontFamily="@font/poppins_medium"/>
 
-
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible"/>
 
 
 </RelativeLayout>

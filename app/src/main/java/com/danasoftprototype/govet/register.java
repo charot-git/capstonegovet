@@ -119,7 +119,7 @@ public class register extends AppCompatActivity {
                     if(task.isSuccessful()){
                         progressBar.setVisibility(View.INVISIBLE);
                         Toast.makeText(register.this, "User has been created", Toast.LENGTH_LONG).show();
-                        Intent intent = new Intent(register.this,  govethome.class);
+                        Intent intent = new Intent(register.this,  loginpage.class);
                         startActivity(intent);
                         finish();
                     }
