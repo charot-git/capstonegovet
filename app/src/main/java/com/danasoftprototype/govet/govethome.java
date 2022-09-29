@@ -1,13 +1,16 @@
 package com.danasoftprototype.govet;
 
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Toast;
 
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -16,15 +19,20 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.danasoftprototype.govet.databinding.ActivityGovethomeBinding;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class govethome extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityGovethomeBinding binding;
+    FirebaseAuth mAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        mAuth = FirebaseAuth.getInstance();
 
         binding = ActivityGovethomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -51,10 +59,37 @@ public class govethome extends AppCompatActivity {
 
 
 
+
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_govethome);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.govethome,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id = item.getItemId();
+        if(id == R.id.logout){
+        FirebaseAuth.getInstance().signOut();
+            Toast.makeText(govethome.this, "Logout successful", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(govethome.this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        }
+        else if (id == R.id.action_settings){
+            Toast.makeText(govethome.this, "Try",Toast.LENGTH_SHORT).show();
+            Intent v = new Intent(govethome.this, MainActivity.class);
+            startActivity(v);
+        }
+        return super.onOptionsItemSelected(item);
+
+    }
+
 }
