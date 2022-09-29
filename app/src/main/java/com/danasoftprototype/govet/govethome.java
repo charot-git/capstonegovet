@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -82,11 +83,6 @@ public class govethome extends AppCompatActivity {
         Intent intent = new Intent(govethome.this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
-        }
-        else if (id == R.id.action_settings){
-            Toast.makeText(govethome.this, "Try",Toast.LENGTH_SHORT).show();
-            Intent v = new Intent(govethome.this, MainActivity.class);
-            startActivity(v);
         }
         return super.onOptionsItemSelected(item);
 
