@@ -34,6 +34,7 @@ public class govethome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         String email1 = null;
+        String name1 = null;
         mAuth = FirebaseAuth.getInstance().getCurrentUser();
         if (mAuth != null) {
             for (UserInfo profile : mAuth.getProviderData()) {
@@ -48,6 +49,7 @@ public class govethome extends AppCompatActivity {
                 String email = profile.getEmail();
 
                 email1 = email;
+                name1 = name;
 
 
             }
@@ -83,7 +85,8 @@ public class govethome extends AppCompatActivity {
         TextView userEmail = headearView.findViewById(R.id.useremail);
         TextView userName = headearView.findViewById(R.id.username);
 
-        userName.setText(email1);
+        userEmail.setText(email1);
+        userName.setText(name1);
 
     }
 
