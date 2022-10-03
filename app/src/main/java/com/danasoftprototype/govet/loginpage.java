@@ -18,6 +18,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.UserInfo;
 
 public class loginpage extends AppCompatActivity {
 
@@ -34,6 +35,7 @@ public class loginpage extends AppCompatActivity {
         ProgressBar progressBar = (ProgressBar) findViewById((R.id.progressBar));
         email = findViewById(R.id.email);
         password = (EditText) findViewById(R.id.password);
+
         secret = (ImageView) findViewById(R.id.govetlogo3);
         userlogin = findViewById(R.id.loginbtn);
         mAuth = FirebaseAuth.getInstance();
@@ -68,7 +70,12 @@ public class loginpage extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()){
-                        Toast.makeText(loginpage.this,"Welcome to GoVet!", Toast.LENGTH_SHORT).show();
+                        if (mAuth != null){
+                            for (UserInfo profile : mAuth.getCurrentUser().getProviderData()){
+                                String email1 = profile.getEmail();
+                                Toast.makeText(loginpage.this,"Welcome to GoVet " + email1 + "!", Toast.LENGTH_SHORT).show();
+                            }
+                        }
                         Intent intent = new Intent(loginpage.this, govethome.class);
                         startActivity(intent);
                         finish();

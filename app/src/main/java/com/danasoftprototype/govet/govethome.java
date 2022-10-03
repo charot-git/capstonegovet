@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
@@ -22,22 +23,35 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserInfo;
 
 public class govethome extends AppCompatActivity {
-
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityGovethomeBinding binding;
     FirebaseUser mAuth;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        String email1 = null;
         mAuth = FirebaseAuth.getInstance().getCurrentUser();
-        //if(mAuth != null) {
-         //   if (UserInfo profile: mAuth.getProviderData()){
+        if (mAuth != null) {
+            for (UserInfo profile : mAuth.getProviderData()) {
+                // Id of the provider (ex: google.com)
+                String providerId = profile.getProviderId();
 
-          //  }
-       // }
+                // UID specific to the provider
+                String uid = profile.getUid();
+
+                // Name, email address, and profile photo Url
+                String name = profile.getDisplayName();
+                String email = profile.getEmail();
+
+                email1 = email;
+
+
+            }
+        }
 
         binding = ActivityGovethomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -62,6 +76,15 @@ public class govethome extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_govethome);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        NavigationView mnavigationView = (NavigationView) findViewById(R.id.nav_view);
+        View headearView = mnavigationView.getHeaderView(0);
+
+        TextView userEmail = headearView.findViewById(R.id.useremail);
+        TextView userName = headearView.findViewById(R.id.username);
+
+        userName.setText(email1);
+
     }
 
 
@@ -93,5 +116,4 @@ public class govethome extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
 
     }
-
 }
