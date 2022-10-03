@@ -3,12 +3,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/dwhite"
     tools:context=".Settings">
 
     <!-- TODO: Update blank fragment layout -->
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:text="@string/hello_blank_fragment"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/settingview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:gravity="center"
+        android:text="Settings"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:textSize="35sp" />
+
+    <TextView
+        android:id="@+id/accountview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/popins_light"
+        android:gravity="center"
+        android:layout_below="@id/settingview"
+        android:text="Account"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="120dp"
+        android:textSize="35sp" />
+
 
 </FrameLayout>

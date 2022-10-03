@@ -27,7 +27,7 @@
         android:layout_below="@id/govetlogo"
         android:fontFamily="@font/poppins_medium"
         android:gravity="center"
-        android:text="Welcome to Go Vet"
+        android:text="Welcome to GoVet"
         android:textColor="@color/brown"
         android:textSize="35dp"
         android:textStyle="bold" />

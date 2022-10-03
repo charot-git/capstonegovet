@@ -1,6 +1,5 @@
 package com.danasoftprototype.govet;
 
-import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -10,8 +9,6 @@ import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -21,22 +18,31 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.danasoftprototype.govet.databinding.ActivityGovethomeBinding;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserInfo;
 
 public class govethome extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityGovethomeBinding binding;
-    FirebaseAuth mAuth;
+    FirebaseUser mAuth;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mAuth = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance().getCurrentUser();
+        //if(mAuth != null) {
+         //   if (UserInfo profile: mAuth.getProviderData()){
+
+          //  }
+       // }
 
         binding = ActivityGovethomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+
 
         setSupportActionBar(binding.appBarGovethome.toolbar);
         binding.appBarGovethome.fab.setOnClickListener(new View.OnClickListener() {

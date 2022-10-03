@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +25,7 @@ public class loginpage extends AppCompatActivity {
     EditText password;
     FirebaseAuth mAuth;
     MaterialButton userlogin;
+    ImageView secret;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +34,18 @@ public class loginpage extends AppCompatActivity {
         ProgressBar progressBar = (ProgressBar) findViewById((R.id.progressBar));
         email = findViewById(R.id.email);
         password = (EditText) findViewById(R.id.password);
+        secret = (ImageView) findViewById(R.id.govetlogo3);
         userlogin = findViewById(R.id.loginbtn);
         mAuth = FirebaseAuth.getInstance();
         userlogin.setOnClickListener(this::userlogin);
+
+        secret.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(loginpage.this, govethome.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
