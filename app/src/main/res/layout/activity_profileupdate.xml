@@ -7,26 +7,7 @@
     android:background="@color/dwhite"
     tools:context=".profileupdate">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/updatebutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/lastname"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp"
-        android:backgroundTint="@color/lbrown"
-        android:fontFamily="@font/poppins_medium"
-        android:paddingLeft="20dp"
-        android:paddingTop="5dp"
-        android:paddingRight="20dp"
-        android:paddingBottom="5dp"
-        android:text="Update"
-        android:textColor="@color/white"
-        android:textSize="18dp"
-        app:cornerRadius="30dp" />
+
 
     <EditText
         android:id="@+id/middlename"
@@ -73,8 +54,48 @@
         android:hint="Last Name"
         android:layout_below="@id/middlename"
         android:padding="15dp"
+        android:layout_marginBottom="12dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="79dp" />
+
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="282dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lastname"
+        android:layout_marginStart="15dp"
+        android:background="@drawable/rounded_corner"
+        android:drawablePadding="10dp"
+        android:fontFamily="@font/poppins_medium"
+        android:hint="Email"
+        android:layout_marginBottom="15dp"
+        android:padding="15dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="79dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/updatebutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/email"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="@color/lbrown"
+        android:fontFamily="@font/poppins_medium"
+        android:paddingLeft="20dp"
+        android:paddingTop="5dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="5dp"
+        android:text="Update"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        app:cornerRadius="30dp" />
 </RelativeLayout>

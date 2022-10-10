@@ -1,9 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/dwhite"
     tools:context=".help">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/help"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:gravity="center"
+        android:text="Having Touble?"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="5dp"
+        android:textSize="25sp"
+        android:textColor="@color/brown" />
+
+    <TextView
+        android:id="@+id/emailcontact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/popins_light"
+        android:gravity="center"
+        android:text="Please contact our support"
+        android:layout_below="@id/help"
+        android:layout_marginBottom="5dp"
+        android:textSize="20sp"
+        android:textColor="@color/brown" />
+
+    <TextView
+        android:id="@+id/emailsup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:gravity="center"
+        android:text="andreigaming@gmail.com"
+        android:layout_below="@id/emailcontact"
+        android:layout_marginBottom="5dp"
+        android:textSize="20sp"
+        android:textColor="@color/brown" />
+
+</RelativeLayout>
