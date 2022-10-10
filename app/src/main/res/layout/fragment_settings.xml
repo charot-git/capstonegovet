@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/dwhite"
+
     tools:context=".Settings">
 
     <!-- TODO: Update blank fragment layout -->
@@ -24,7 +25,9 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
-        android:textSize="35sp" />
+        android:textSize="35sp"
+        android:textColor="@color/brown"
+        />
 
     <TextView
         android:id="@+id/accountview"
@@ -32,11 +35,70 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/popins_light"
         android:gravity="center"
-        android:layout_below="@id/settingview"
         android:text="Account"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="120dp"
-        android:textSize="35sp" />
+        android:layout_marginTop="100dp"
+        android:textSize="25sp"
+        android:textColor="@color/brown"/>
 
+    <TextView
+        android:id="@+id/displayview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/popins_light"
+        android:gravity="center"
+        android:text="Display"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="150dp"
+        android:textSize="25sp"
+        android:textColor="@color/brown" />
+
+    <TextView
+        android:id="@+id/privacyandtermsview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/popins_light"
+        android:gravity="center"
+
+        android:text="Privacy and Terms"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="200dp"
+        android:textSize="25sp"
+        android:textColor="@color/brown" />
+
+    <TextView
+        android:id="@+id/aboutusview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/popins_light"
+        android:gravity="center"
+        android:text="About Us"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="250dp"
+        android:textSize="25sp"
+        android:textColor="@color/brown" />
+
+    <TextView
+        android:id="@+id/helpview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/popins_light"
+        android:gravity="center"
+        android:text="Help"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="300dp"
+        android:textSize="25sp"
+        android:textColor="@color/brown"/>
+    <TextView
+        android:id="@+id/logoutview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/popins_light"
+        android:gravity="center"
+        android:text="Logout"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="350dp"
+        android:textSize="25sp"
+        android:textColor="@color/brown"/>
 
 </FrameLayout>
