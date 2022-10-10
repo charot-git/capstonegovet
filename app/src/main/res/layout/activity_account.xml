@@ -4,47 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dwhite"
     tools:context=".account">
 
-
-    <TextView
-        android:id="@+id/accname"
+    <Button
+        android:id="@+id/emailauth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/popins_light"
-        android:gravity="center"
-        android:text="Name : "
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginBottom="20dp"
-        android:textSize="25sp"
-        android:textColor="@color/brown" />
+        android:layout_marginStart="50dp"
+        android:text="E-mail Auth"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="93dp" />
 
-    <TextView
-        android:id="@+id/accaddress"
+    <Button
+        android:id="@+id/mobileauth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/accname"
-        android:fontFamily="@font/popins_light"
-        android:gravity="center"
-        android:text="Address : "
-        android:layout_marginBottom="20dp"
-        android:layout_marginStart="20dp"
-        android:textSize="25sp"
-        android:textColor="@color/brown" />
-
-    <TextView
-        android:id="@+id/accemail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/accaddress"
-        android:fontFamily="@font/popins_light"
-        android:gravity="center"
-        android:text="Email : "
-        android:layout_marginStart="20dp"
-        android:textSize="25sp"
-        android:textColor="@color/brown" />
-
+        android:layout_marginStart="46dp"
+        android:text="Mobile Auth"
+        android:layout_below="@id/emailauth"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="162dp" />
 </RelativeLayout>
-

@@ -19,5 +19,6 @@
     <color name="dwhite">#DFE0DF</color>
     <color name="lbrown">#B6866E</color>
     <color name="brown">#54433B</color>
+    <color name="red">#FF0000</color>
 
 </resources>
