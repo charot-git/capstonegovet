@@ -10,18 +10,26 @@
         android:id="@+id/emailauth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/poppins_medium"
         android:text="E-mail Auth"
+        android:textSize="18dp"
+        app:cornerRadius="30dp"
         app:layout_constraintStart_toStartOf="parent"
+
         tools:layout_editor_absoluteY="93dp" />
 
     <Button
         android:id="@+id/mobileauth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="46dp"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="18dp"
         android:text="Mobile Auth"
+        android:layout_centerHorizontal="true"
         android:layout_below="@id/emailauth"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="162dp" />
+        tools:layout_editor_absoluteY="162dp"
+        app:cornerRadius="30dp" />
 </RelativeLayout>
