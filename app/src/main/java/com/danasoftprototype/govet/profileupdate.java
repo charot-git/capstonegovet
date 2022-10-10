@@ -36,7 +36,8 @@ public class profileupdate extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         updatebutton = (MaterialButton) findViewById(R.id.updatebutton);
-        
+
+        //go to updateuser method onclick
         updatebutton.setOnClickListener(this::updateuser);
 
         fnameUI = (EditText) findViewById(R.id.firstname);
@@ -50,10 +51,14 @@ public class profileupdate extends AppCompatActivity {
     }
 
     private void updateuser(View view) {
+
+        //get user input for name update
         String firstname = fnameUI.getText().toString().trim();
         String middlename = mnameUI.getText().toString().trim();
         String lastname = lnameUI.getText().toString().trim();
 
+
+        //concatenated user name for nav display
         String name = firstname + " " + middlename + " " + lastname;
 
         if (firstname.isEmpty()) {
@@ -71,6 +76,8 @@ public class profileupdate extends AppCompatActivity {
             return;
         }
         else{
+
+            //profile update process
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
             UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()

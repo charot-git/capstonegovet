@@ -22,6 +22,8 @@ import com.google.firebase.auth.UserInfo;
 
 public class loginpage extends AppCompatActivity {
 
+
+    //initialize variables across loginpage
     EditText email;
     EditText password;
     FirebaseAuth mAuth;
@@ -36,11 +38,17 @@ public class loginpage extends AppCompatActivity {
         email = findViewById(R.id.email);
         password = (EditText) findViewById(R.id.password);
 
+
+        //special access for devs if cant login, limited access and features, will be removed once the project is done
         secret = (ImageView) findViewById(R.id.govetlogo3);
+
+
+
         userlogin = findViewById(R.id.loginbtn);
         mAuth = FirebaseAuth.getInstance();
         userlogin.setOnClickListener(this::userlogin);
 
+        //special access activity
         secret.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,6 +60,7 @@ public class loginpage extends AppCompatActivity {
     }
 
     private void userlogin(View view) {
+        //get user input and store to string
         String useremail  = email.getText().toString();
         String userpass  = password.getText().toString();
 
@@ -66,6 +75,7 @@ public class loginpage extends AppCompatActivity {
             return;
         }
         else {
+            //login process
             mAuth.signInWithEmailAndPassword(useremail,userpass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {

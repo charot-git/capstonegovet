@@ -26,6 +26,8 @@ import java.util.regex.Pattern;
 
 public class register extends AppCompatActivity {
 
+
+    //initialization of all variables across register form
     EditText username, pass, confpass, emailreg, mobilenum;
     MaterialButton registeruser;
     ProgressBar progressBar;
@@ -43,8 +45,10 @@ public class register extends AppCompatActivity {
 
         registeruser = (MaterialButton) findViewById(R.id.register);
 
+        //go to registeruser method onclick
         registeruser.setOnClickListener(this::registeruser);
 
+        //get valiue from user by id in xml
         username = (EditText) findViewById(R.id.usernamereg);
         pass = (EditText) findViewById(R.id.passwordreg);
         emailreg = (EditText) findViewById(R.id.emailreg);
@@ -62,12 +66,15 @@ public class register extends AppCompatActivity {
 
     private void registeruser(View v) {
 
+        //get user input and put to string
         String user = username.getText().toString().trim();
         String password = pass.getText().toString().trim();
         String repass = confpass.getText().toString().trim();
         String email = emailreg.getText().toString().trim();
         String number = mobilenum.getText().toString().trim();
 
+
+        //EditText Checker
         if (user.isEmpty()) {
             username.setError("Username is required");
             username.requestFocus();
@@ -113,6 +120,8 @@ public class register extends AppCompatActivity {
 
 
             progressBar.setVisibility(View.VISIBLE);
+
+            //registration process via Email and Password
             mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
@@ -131,41 +140,11 @@ public class register extends AppCompatActivity {
                 }
             });
 
+
+
         }
 
 
-
-
-
-        /*{mAuth.createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-
-
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                User user = new User(username, email, number);
-
-                                FirebaseDatabase.getInstance().getReference("Users")
-                                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                        .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                            @Override
-                                            public void onComplete(@NonNull Task<Void> task) {
-                                                if (task.isComplete()) {
-                                                    Toast.makeText(register.this, "User has been registered successfully", Toast.LENGTH_LONG).show();
-                                                    startActivity(new Intent(register.this, loginpage.class));
-                                                } else {
-                                                    Toast.makeText(register.this, "Registration failed, please try again!", Toast.LENGTH_LONG).show();
-                                                }
-                                            }
-                                        });
-
-
-                            }
-                        }
-                    });
-
-        }}*/
 
 
     }
