@@ -11,8 +11,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class profile extends Fragment {
+
+    FirebaseAuth mAuth;
     public profile() {
         // Required empty public constructor
     }
@@ -43,7 +49,14 @@ public class profile extends Fragment {
         //3rd event
         super.onViewCreated(view, savedInstanceState);
 
+        final FirebaseUser user = mAuth.getInstance().getCurrentUser();
         Button btn = (Button) view.findViewById(R.id.updateprofile);
+        TextView notverified = (TextView) view.findViewById(R.id.notverifiedtext);
+        if(!user.isEmailVerified()){
+            notverified.setVisibility(View.VISIBLE);
+        }
+
+
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override

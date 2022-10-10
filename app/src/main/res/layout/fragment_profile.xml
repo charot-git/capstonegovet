@@ -98,4 +98,12 @@
         android:textColor="@color/white"
         android:textColorHint="@color/white"/>
 
+    <TextView
+        android:id="@+id/notverifiedtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/red"
+        android:visibility="gone"
+        android:text="Email not verified" />
+
 </RelativeLayout>
