@@ -26,6 +26,7 @@ public class loginpage extends AppCompatActivity {
     //initialize variables across loginpage
     EditText email;
     EditText password;
+    TextView forgotpassword;
     FirebaseAuth mAuth;
     MaterialButton userlogin;
     ImageView secret;
@@ -37,6 +38,15 @@ public class loginpage extends AppCompatActivity {
         ProgressBar progressBar = (ProgressBar) findViewById((R.id.progressBar));
         email = findViewById(R.id.email);
         password = (EditText) findViewById(R.id.password);
+        forgotpassword = (TextView) findViewById(R.id.forgotpass);
+
+        forgotpassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(loginpage.this, forgotpass.class);
+                startActivity(intent);
+            }
+        });
 
 
         //special access for devs if cant login, limited access and features, will be removed once the project is done
@@ -56,6 +66,10 @@ public class loginpage extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+
+
 
     }
 

@@ -3,8 +3,13 @@ package com.danasoftprototype.govet;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -13,9 +18,10 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.PhoneAuthOptions;
 
 public class account extends AppCompatActivity {
-    Button emailauth, mobileauth;
+    Button emailauth, mobileauth, changepass;
     String TAG;
     FirebaseAuth mAuth;
 
@@ -25,13 +31,31 @@ public class account extends AppCompatActivity {
         setContentView(R.layout.activity_account);
         emailauth = (Button) findViewById(R.id.emailauth);
         mobileauth = (Button) findViewById(R.id.mobileauth);
+        changepass = (Button) findViewById(R.id.changepass);
 
         emailauth.setOnClickListener(this::emailauthmethod);
+        mobileauth.setOnClickListener(this::mobileauthmethod);
+        changepass.setOnClickListener(this::changepassmethod);
+
+    }
+
+    private void changepassmethod(View view) {
+        changePassDialog changePassDialog = new changePassDialog();
+        changePassDialog.show(getSupportFragmentManager(), "Change Password Dialog");
+
+    }
+
+
+
+
+    private void mobileauthmethod(View view) {
+        Intent intent = new Intent(account.this, mobileauthsetup.class);
+        startActivity(intent);
 
     }
 
     private void emailauthmethod(View view) {
-        FirebaseUser Fuser = mAuth.getInstance().getCurrentUser();
+        FirebaseUser Fuser = FirebaseAuth.getInstance().getCurrentUser();
         Fuser.sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
@@ -46,4 +70,5 @@ public class account extends AppCompatActivity {
             }
         });
     }
+
 }

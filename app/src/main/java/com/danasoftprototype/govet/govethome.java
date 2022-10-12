@@ -100,23 +100,4 @@ public class govethome extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu){
-        getMenuInflater().inflate(R.menu.govethome,menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item){
-        int id = item.getItemId();
-        if(id == R.id.logout){
-        FirebaseAuth.getInstance().signOut();
-            Toast.makeText(govethome.this, "Logout successful", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(govethome.this, MainActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);
-        }
-        return super.onOptionsItemSelected(item);
-
-    }
 }

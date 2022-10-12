@@ -29,6 +29,20 @@
         android:text="Mobile Auth"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/emailauth"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="162dp"
+        app:cornerRadius="30dp" />
+
+    <Button
+        android:id="@+id/changepass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="18dp"
+        android:text="Change password"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/emailauth"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="162dp"
         app:cornerRadius="30dp" />
