@@ -93,29 +93,11 @@
         tools:layout_editor_absoluteY="79dp" />
 
 
-    <EditText
-        android:id="@+id/email"
-        android:layout_width="282dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/lastname"
-        android:layout_marginStart="15dp"
-        android:background="@drawable/rounded_corner"
-        android:drawablePadding="10dp"
-        android:fontFamily="@font/poppins_medium"
-        android:hint="Email"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="15dp"
-        android:padding="15dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="79dp" />
-
-    <EditText
+        <EditText
         android:id="@+id/mobilenum"
         android:layout_width="282dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/email"
+        android:layout_below="@id/lastname"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="15dp"
         android:layout_marginBottom="15dp"
