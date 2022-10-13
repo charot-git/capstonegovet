@@ -13,6 +13,7 @@
         android:id="@+id/middlename"
         android:layout_width="282dp"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_below="@id/firstname"
         android:layout_marginStart="15dp"
         android:background="@drawable/rounded_corner"
@@ -27,15 +28,17 @@
         tools:layout_editor_absoluteY="79dp" />
 
     <EditText
+
         android:id="@+id/firstname"
         android:layout_width="282dp"
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_corner"
         android:drawablePadding="10dp"
         android:fontFamily="@font/poppins_medium"
+        android:layout_centerHorizontal="true"
         android:hint="First Name"
         android:padding="15dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="45dp"
         android:layout_marginBottom="12dp"
         android:layout_marginStart="15dp"
         android:textColor="@color/white"
@@ -53,6 +56,7 @@
         android:fontFamily="@font/poppins_medium"
         android:hint="Last Name"
         android:layout_below="@id/middlename"
+        android:layout_centerHorizontal="true"
         android:padding="15dp"
         android:layout_marginBottom="12dp"
         android:textColor="@color/white"
@@ -72,6 +76,7 @@
         android:fontFamily="@font/poppins_medium"
         android:hint="Email"
         android:layout_marginBottom="15dp"
+        android:layout_centerHorizontal="true"
         android:padding="15dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
@@ -92,6 +97,7 @@
         android:padding="15dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
+        android:layout_centerHorizontal="true"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="79dp" />
 

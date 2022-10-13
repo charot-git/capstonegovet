@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/dwhite"
     tools:context=".account">
 
     <Button
@@ -13,11 +14,11 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
         android:fontFamily="@font/poppins_medium"
-        android:text="E-mail Auth"
+        android:text="E-mail Authentication"
         android:textSize="18dp"
         app:cornerRadius="30dp"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
-
         tools:layout_editor_absoluteY="93dp" />
 
     <Button
@@ -27,6 +28,7 @@
         android:fontFamily="@font/poppins_medium"
         android:textSize="18dp"
         android:text="Mobile Auth"
+        android:textColor="@color/white"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/emailauth"
         android:visibility="invisible"
@@ -41,9 +43,49 @@
         android:fontFamily="@font/poppins_medium"
         android:textSize="18dp"
         android:text="Change password"
+        android:textColor="@color/white"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/emailauth"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="162dp"
         app:cornerRadius="30dp" />
+
+    <TextView
+        android:id="@+id/nameview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/popins_light"
+        android:gravity="center"
+        android:text="Name : "
+        android:layout_marginLeft="35dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="25dp"
+        android:layout_below="@id/mobileauth"
+        android:textSize="25sp"
+        android:textColor="@color/fwhite" />
+
+    <TextView
+        android:id="@+id/contactview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/popins_light"
+        android:gravity="center"
+        android:text="Contact : "
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="35dp"
+        android:layout_below="@id/nameview"
+        android:textSize="25sp"
+        android:textColor="@color/fwhite" />
+
+    <TextView
+        android:id="@+id/emailview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/popins_light"
+        android:gravity="center"
+        android:text="Email : "
+        android:layout_marginLeft="35dp"
+        android:layout_below="@id/contactview"
+        android:textSize="25sp"
+        android:textColor="@color/fwhite" />
 </RelativeLayout>

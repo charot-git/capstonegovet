@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
+    android:background="@color/dwhite"
     tools:context=".MainActivity">
 
     <ImageView
@@ -30,7 +30,7 @@
         android:layout_marginBottom="5dp"
         android:gravity="center"
         android:text="Welcome to GoVet"
-        android:textColor="@color/brown"
+        android:textColor="@color/fwhite"
         android:textSize="35dp"
         android:textStyle="bold"
         android:fontFamily="@font/poppins_medium"/>
@@ -66,7 +66,7 @@
         android:layout_marginBottom="20dp"
         android:gravity="center"
         android:text="Or"
-        android:textColor="@color/brown"
+        android:textColor="@color/fwhite"
         android:textSize="15dp"
         android:fontFamily="@font/poppins_medium"/>
 

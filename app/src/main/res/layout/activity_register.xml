@@ -30,7 +30,7 @@
         android:fontFamily="@font/poppins_medium"
         android:gravity="center"
         android:text="GoVet"
-        android:textColor="@color/brown"
+        android:textColor="@color/fwhite"
         android:textSize="35dp"
         android:textStyle="bold" />
 
@@ -45,7 +45,7 @@
         android:layout_marginBottom="10dp"
         android:gravity="center"
         android:text="Register"
-        android:textColor="@color/brown"
+        android:textColor="@color/fwhite"
         android:textSize="25dp"
         android:textStyle="bold"
         android:fontFamily="@font/poppins_medium"/>

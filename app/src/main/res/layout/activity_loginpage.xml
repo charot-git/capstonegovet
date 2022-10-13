@@ -30,7 +30,7 @@
         android:fontFamily="@font/poppins_medium"
         android:gravity="center"
         android:text="GoVet"
-        android:textColor="@color/brown"
+        android:textColor="@color/fwhite"
         android:textSize="55dp"
         android:textStyle="bold" />
 
@@ -46,7 +46,7 @@
         android:fontFamily="@font/poppins_medium"
         android:gravity="center"
         android:text="Sign in"
-        android:textColor="@color/brown"
+        android:textColor="@color/fwhite"
         android:textSize="25dp"
         android:textStyle="bold" />
 
@@ -118,7 +118,7 @@
         android:layout_marginBottom="20dp"
         android:fontFamily="@font/poppins_medium"
         android:text="Forgot Password?"
-        android:textColor="@color/brown"
+        android:textColor="@color/fwhite"
         android:textSize="15dp"
         android:textStyle="italic" />
 

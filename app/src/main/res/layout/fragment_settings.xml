@@ -26,7 +26,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:textSize="35sp"
-        android:textColor="@color/brown"
+        android:textColor="@color/fwhite"
         />
 
     <TextView
@@ -39,7 +39,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="100dp"
         android:textSize="25sp"
-        android:textColor="@color/brown" />
+        android:textColor="@color/fwhite" />
 
     <TextView
         android:id="@+id/displayview"
@@ -51,7 +51,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="150dp"
         android:textSize="25sp"
-        android:textColor="@color/brown" />
+        android:textColor="@color/fwhite" />
 
     <TextView
         android:id="@+id/privacyandtermsview"
@@ -63,7 +63,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="200dp"
         android:textSize="25sp"
-        android:textColor="@color/brown" />
+        android:textColor="@color/fwhite" />
 
     <TextView
         android:id="@+id/aboutusview"
@@ -75,7 +75,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="250dp"
         android:textSize="25sp"
-        android:textColor="@color/brown" />
+        android:textColor="@color/fwhite" />
 
     <TextView
         android:id="@+id/helpview"
@@ -87,7 +87,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="300dp"
         android:textSize="25sp"
-        android:textColor="@color/brown"/>
+        android:textColor="@color/fwhite"/>
 
     <TextView
         android:id="@+id/logoutview"
@@ -99,6 +99,6 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="350dp"
         android:textSize="25sp"
-        android:textColor="@color/brown"/>
+        android:textColor="@color/fwhite"/>
 
 </FrameLayout>

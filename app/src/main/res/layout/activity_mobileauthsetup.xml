@@ -24,7 +24,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextPhone"
         android:layout_centerHorizontal="true"
-        android:text="Send OTP" />
+        android:fontFamily="@font/poppins_medium"
+        android:text="Send OTP"
+        app:cornerRadius="40dp" />
     <EditText
         android:id="@+id/editTextOTP"
         android:layout_width="wrap_content"
@@ -43,7 +45,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextOTP"
         android:layout_centerHorizontal="true"
-        android:text="Verify OTP" />
+        android:fontFamily="@font/poppins_medium"
+        android:text="Verify OTP"
+        app:cornerRadius="40dp" />
 
     <ProgressBar
         android:id="@+id/progressBar"
