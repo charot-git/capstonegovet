@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "387624383901",
+    "firebase_url": "https://govet-508e7-default-rtdb.asia-southeast1.firebasedatabase.app",
     "project_id": "govet-508e7",
     "storage_bucket": "govet-508e7.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "387624383901-4474itubh4l51ph5rr3v3jtbni7v2kkf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.danasoftprototype.govet",
+            "certificate_hash": "0a5d0f23f91d744418312a1012e281e685222a5a"
+          }
+        },
         {
           "client_id": "387624383901-6jggm9fh710tslh85t3b7em1e60ts1qj.apps.googleusercontent.com",
           "client_type": 3

@@ -53,18 +53,14 @@
         android:label="Profile"
         tools:layout="@layout/fragment_profile" >
         <action
-            android:id="@+id/action_nav_profile_to_nav_chat"
+            android:id="@+id/action_nav_profile_to_nav_chat2"
             app:destination="@id/nav_chat" />
     </fragment>
-    <fragment
+    <activity
         android:id="@+id/nav_chat"
-        android:name="com.danasoftprototype.govet.chat"
-        android:label="Chat"
-        tools:layout="@layout/fragment_chat" >
-        <action
-            android:id="@+id/action_nav_chat_to_nav_sched"
-            app:destination="@id/nav_sched" />
-    </fragment>
+        android:name="com.danasoftprototype.govet.chatActivity"
+        android:label="activity_chat"
+        tools:layout="@layout/activity_chat" />
 
 
 </navigation>

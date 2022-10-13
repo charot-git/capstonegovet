@@ -13,6 +13,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.danasoftprototype.govet.databinding.ActivityLoginpageBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
@@ -21,6 +22,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.UserInfo;
 
 public class loginpage extends AppCompatActivity {
+
+    ActivityLoginpageBinding binding;
 
 
     //initialize variables across loginpage
