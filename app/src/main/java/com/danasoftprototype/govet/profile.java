@@ -29,6 +29,7 @@ public class profile extends Fragment {
     FirebaseAuth mAuth;
     FirebaseStorage storage;
     StorageReference storageReference;
+    TextView addpet;
 
     public profile() {
         // Required empty public constructor
@@ -51,7 +52,7 @@ public class profile extends Fragment {
         profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
-                Picasso.get().load(uri).into(profilepic);
+                Picasso.get().load(uri).resize(600,600).into(profilepic);
             }
         });
 
@@ -84,6 +85,21 @@ public class profile extends Fragment {
             notverified.setVisibility(View.VISIBLE);
         }
 
+
+        //listener for add pet
+        {
+
+            addpet = view.findViewById(R.id.addPet1);
+            addpet.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getActivity(), addPet.class);
+                    startActivity(intent);
+
+                }
+            });
+
+        }
 
 
 

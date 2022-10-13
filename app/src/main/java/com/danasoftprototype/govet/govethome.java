@@ -106,7 +106,7 @@ public class govethome extends AppCompatActivity {
         profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
-                Picasso.get().load(uri).resize(300,300).into(imageView);
+                Picasso.get().load(uri).resize(250,250).into(imageView);
             }
         });
         userEmail.setText(email1);

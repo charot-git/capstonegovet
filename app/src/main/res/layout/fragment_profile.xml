@@ -136,6 +136,8 @@
         app:cardCornerRadius="30dp">
 
 
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -150,6 +152,7 @@
                 android:layout_marginRight="30dp"
                 android:orientation="horizontal">
 
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -160,7 +163,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/popins_light"
-                        android:text=""
+                        android:text="Breed"
                         android:textColor="@color/white"
                         android:textSize="14dp" />
 
@@ -169,7 +172,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_medium"
-                        android:text=""
+                        android:text="Name"
                         android:textColor="@color/white"
                         android:textSize="18dp" />
 
@@ -178,7 +181,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/popins_light"
-                        android:text=""
+                        android:text="Age"
                         android:textColor="@color/white"
                         android:textSize="14dp" />
 
@@ -188,9 +191,19 @@
 
             </LinearLayout>
 
-
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/addPet1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="12dp"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/white"
+            android:paddingTop="12dp"
+            android:drawableTint="@color/green"
+            android:drawableLeft="@drawable/ic_baseline_add_circle_24"
+            android:text="Add Pet" />
 
     </androidx.cardview.widget.CardView>
 
