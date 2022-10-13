@@ -26,11 +26,12 @@
         android:fontFamily="@font/poppins_medium"
         android:paddingLeft="20dp"
         android:paddingTop="5dp"
+        android:layout_marginTop="5dp"
         android:paddingRight="20dp"
         android:paddingBottom="5dp"
         android:text="Update profile picture"
         android:textColor="@color/white"
-        android:textSize="18dp"
+        android:textSize="14dp"
         app:cornerRadius="30dp" />
 
     <EditText
@@ -135,7 +136,7 @@
         android:layout_below="@id/mobilenum"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="5dp"
         android:backgroundTint="@color/lbrown"
@@ -146,7 +147,7 @@
         android:paddingBottom="5dp"
         android:text="Update"
         android:textColor="@color/white"
-        android:textSize="18dp"
+        android:textSize="14dp"
         app:cornerRadius="30dp" />
 
 
@@ -163,6 +164,7 @@
                 android:id="@+id/profilepic"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
+
                 android:layout_centerHorizontal="true"
                 android:scaleType="centerCrop"
                 tools:srcCompat="@tools:sample/avatars" />
