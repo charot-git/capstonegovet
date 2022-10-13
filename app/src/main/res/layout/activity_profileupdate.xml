@@ -17,10 +17,11 @@
         android:id="@+id/changepic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/updatebutton"
+        android:layout_below="@id/profilepic"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="5dp"
         android:backgroundTint="@color/lbrown"
         android:fontFamily="@font/poppins_medium"
@@ -30,7 +31,7 @@
         android:paddingBottom="5dp"
         android:text="Update profile picture"
         android:textColor="@color/white"
-        android:textSize="18dp"
+        android:textSize="14dp"
         app:cornerRadius="30dp" />
 
     <EditText
@@ -42,7 +43,6 @@
         android:layout_marginStart="15dp"
         android:background="@drawable/rounded_corner"
         android:drawablePadding="10dp"
-        android:layout_centerHorizontal="true"
         android:fontFamily="@font/poppins_medium"
         android:hint="Middle Name"
         android:layout_marginBottom="15dp"
@@ -58,16 +58,15 @@
         android:id="@+id/firstname"
         android:layout_width="282dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/profilepic"
+        android:layout_below="@id/changepic"
         android:background="@drawable/rounded_corner"
         android:drawablePadding="10dp"
         android:fontFamily="@font/poppins_medium"
         android:layout_centerHorizontal="true"
         android:hint="First Name"
         android:focusedByDefault="true"
-        android:layout_centerHorizontal="true"
         android:padding="15dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="15dp"
         android:layout_marginBottom="12dp"
         android:layout_marginStart="15dp"
         android:textColor="@color/white"
@@ -86,7 +85,6 @@
         android:hint="Last Name"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/middlename"
-        android:layout_centerHorizontal="true"
         android:padding="15dp"
         android:layout_marginBottom="12dp"
         android:textColor="@color/white"
@@ -107,7 +105,7 @@
         android:hint="Email"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="15dp"
-        android:layout_centerHorizontal="true"
+
         android:padding="15dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
@@ -119,7 +117,6 @@
         android:layout_width="282dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/email"
-        android:layout_centerHorizontal="true"
         android:layout_marginStart="15dp"
         android:layout_marginBottom="15dp"
         android:background="@drawable/rounded_corner"
@@ -151,18 +148,18 @@
         android:paddingBottom="5dp"
         android:text="Update"
         android:textColor="@color/white"
-        android:textSize="18dp"
+        android:textSize="14dp"
         app:cornerRadius="30dp" />
 
-    <ImageView
-        android:id="@+id/profilepic"
-        android:layout_centerHorizontal="true"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:paddingTop="20dp"
-        tools:srcCompat="@tools:sample/avatars" />
-
-
+        <ImageView
+            android:id="@+id/profilepic"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:paddingTop="20dp"
+            android:scaleType="centerCrop"
+            tools:srcCompat="@tools:sample/avatars" />
     </RelativeLayout>
 
 </ScrollView>
