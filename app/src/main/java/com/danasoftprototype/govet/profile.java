@@ -1,6 +1,8 @@
 package com.danasoftprototype.govet;
 
 import android.content.Intent;
+import android.media.Image;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,13 +13,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 public class profile extends Fragment {
 
+    ImageView profilepic;
+    StorageReference storageReference;
+    StorageReference profileRef;
     FirebaseAuth mAuth;
     public profile() {
         // Required empty public constructor
@@ -32,6 +42,9 @@ public class profile extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         //1st event
         super.onCreate(savedInstanceState);
+
+
+
     }
 
     @Override
@@ -49,6 +62,8 @@ public class profile extends Fragment {
         //3rd event
         super.onViewCreated(view, savedInstanceState);
 
+
+
         final FirebaseUser user = mAuth.getInstance().getCurrentUser();
         Button btn = (Button) view.findViewById(R.id.updateprofile);
         TextView notverified = (TextView) view.findViewById(R.id.notverifiedtext);
@@ -65,6 +80,21 @@ public class profile extends Fragment {
                 startActivity(intent);
             }
         });
+
+        /*
+        profilepic = (ImageView) view.findViewById(R.id.profilepic);
+
+        storageReference = FirebaseStorage.getInstance().getReference();
+        profileRef = storageReference.child("users/" + mAuth.getCurrentUser().getUid() + "profile.jpg");
+        profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Picasso.get().load(uri).into(profilepic);
+            }
+        });
+        */
     }
+
+
 
 }

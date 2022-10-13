@@ -9,7 +9,7 @@
 
     <!-- TODO: Update blank fragment layout -->
     <ImageView
-        android:id="@+id/govetlogo"
+        android:id="@+id/profilepic"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_centerHorizontal="true"
