@@ -6,7 +6,7 @@
 
 
     <EditText
-        android:id="@+id/newpass"
+        android:id="@+id/oldpass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
@@ -18,29 +18,48 @@
         android:drawablePadding="10dp"
         android:inputType="textPassword"
         android:fontFamily="@font/poppins_medium"
-        android:hint="New Password"
+        android:hint="Old Password"
         android:padding="15dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white" />
 
     <EditText
-        android:id="@+id/confnewpass"
+        android:id="@+id/newpass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="10dp"
-        android:layout_below="@id/newpass"
+        android:layout_below="@id/oldpass"
         android:background="@drawable/rounded_corner"
         android:drawableLeft="@drawable/ic_baseline_lock_24"
         android:drawablePadding="10dp"
         android:inputType="textPassword"
         android:fontFamily="@font/poppins_medium"
-        android:hint="Confirm Password"
+        android:hint="New Password"
         android:padding="15dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/newpass"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:backgroundTint="@color/lbrown"
+        android:fontFamily="@font/poppins_medium"
+        android:paddingLeft="20dp"
+        android:paddingTop="5dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="5dp"
+        android:text="Confirm"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        app:cornerRadius="30dp" />
 
 
 </RelativeLayout>
