@@ -1,24 +1,22 @@
-package com.danasoftprototype.govet;
+package com.danasoftprototype.govet.settings;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.danasoftprototype.govet.R;
+import com.danasoftprototype.govet.changePassDialog;
+import com.danasoftprototype.govet.mobileauthsetup;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.PhoneAuthOptions;
 
 public class account extends AppCompatActivity {
     Button emailauth, mobileauth, changepass;

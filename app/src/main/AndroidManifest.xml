@@ -16,7 +16,7 @@
         android:theme="@style/Theme.GoVet"
         tools:targetApi="31">
         <activity
-            android:name=".chatActivity"
+            android:name=".FrontEnd.chatActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -30,7 +30,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".forgotpass"
+            android:name=".settings.forgotpass"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -44,55 +44,55 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".aboutus"
+            android:name=".settings.aboutus"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".help"
+            android:name=".settings.help"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".privacyterm"
+            android:name=".settings.privacyterm"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".display"
+            android:name=".settings.display"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".account"
+            android:name=".settings.account"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".profileupdate"
+            android:name=".FrontEnd.profileupdate"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".booking"
+            android:name=".FrontEnd.booking"
             android:exported="false" />
         <activity
-            android:name=".loginpage"
+            android:name=".startUp.loginpage"
             android:exported="false" />
         <activity
-            android:name=".govethome"
+            android:name=".FrontEnd.govethome"
             android:exported="false"
             android:label="@string/title_activity_govethome"
             android:theme="@style/Theme.GoVet.NoActionBar" />
@@ -100,7 +100,7 @@
             android:name=".HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".register"
+            android:name=".startUp.register"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

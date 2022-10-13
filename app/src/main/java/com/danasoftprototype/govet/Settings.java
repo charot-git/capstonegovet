@@ -13,6 +13,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.danasoftprototype.govet.settings.aboutus;
+import com.danasoftprototype.govet.settings.account;
+import com.danasoftprototype.govet.settings.display;
+import com.danasoftprototype.govet.settings.help;
+import com.danasoftprototype.govet.settings.privacyterm;
 import com.google.firebase.auth.FirebaseAuth;
 
 /**
@@ -103,17 +108,17 @@ public class Settings extends Fragment {
     }
 
     private void helpmethod(View view){
-        Intent intent = new Intent(getActivity().getApplication(),help.class);
+        Intent intent = new Intent(getActivity().getApplication(), help.class);
         startActivity(intent);
     }
 
     private void aboutusmethod(View view) {
-        Intent intent = new Intent(getActivity().getApplication(),aboutus.class);
+        Intent intent = new Intent(getActivity().getApplication(), aboutus.class);
         startActivity(intent);
     }
 
     private void privacytermsmethod(View view) {
-        Intent intent = new Intent(getActivity().getApplication(),privacyterm.class);
+        Intent intent = new Intent(getActivity().getApplication(), privacyterm.class);
         startActivity(intent);
     }
 

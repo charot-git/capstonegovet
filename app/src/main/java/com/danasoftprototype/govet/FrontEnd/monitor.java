@@ -1,6 +1,5 @@
-package com.danasoftprototype.govet;
+package com.danasoftprototype.govet.FrontEnd;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,12 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.danasoftprototype.govet.R;
+
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link chat#newInstance} factory method to
+ * Use the {@link monitor#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class chat extends Fragment {
+public class monitor extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -25,7 +26,7 @@ public class chat extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public chat() {
+    public monitor() {
         // Required empty public constructor
     }
 
@@ -35,11 +36,11 @@ public class chat extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment chat.
+     * @return A new instance of fragment monitor.
      */
     // TODO: Rename and change types and number of parameters
-    public static chat newInstance(String param1, String param2) {
-        chat fragment = new chat();
+    public static monitor newInstance(String param1, String param2) {
+        monitor fragment = new monitor();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -54,13 +55,12 @@ public class chat extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-        startActivity(new Intent(getActivity(), chatActivity.class));
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.activity_chat, container, false);
+        return inflater.inflate(R.layout.fragment_monitor, container, false);
     }
 }

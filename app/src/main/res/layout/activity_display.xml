@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:background="@color/dwhite"
     android:layout_height="match_parent"
-    tools:context=".display">
+    tools:context=".settings.display">
 
     <Switch
         android:id="@+id/darkmode"

@@ -1,4 +1,4 @@
-package com.danasoftprototype.govet;
+package com.danasoftprototype.govet.FrontEnd;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -8,6 +8,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import android.os.Bundle;
 
+import com.danasoftprototype.govet.R;
 import com.danasoftprototype.govet.databinding.ActivityChatBinding;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.storage.StorageReference;

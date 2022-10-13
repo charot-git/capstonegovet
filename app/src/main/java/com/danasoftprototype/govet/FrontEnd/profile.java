@@ -1,4 +1,4 @@
-package com.danasoftprototype.govet;
+package com.danasoftprototype.govet.FrontEnd;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -15,7 +15,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.android.gms.auth.api.signin.internal.Storage;
+import com.danasoftprototype.govet.R;
+import com.danasoftprototype.govet.addPet;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

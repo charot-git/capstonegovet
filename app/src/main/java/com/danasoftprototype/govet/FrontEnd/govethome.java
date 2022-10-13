@@ -1,15 +1,13 @@
-package com.danasoftprototype.govet;
+package com.danasoftprototype.govet.FrontEnd;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.Menu;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.danasoftprototype.govet.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.navigation.NavigationView;
 

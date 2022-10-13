@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/nav_sched"
-        android:name="com.danasoftprototype.govet.sched"
+        android:name="com.danasoftprototype.govet.FrontEnd.sched"
         android:label="Schedule"
         tools:layout="@layout/fragment_sched" >
         <action
@@ -35,7 +35,7 @@
     </fragment>
     <fragment
         android:id="@+id/nav_monitor"
-        android:name="com.danasoftprototype.govet.monitor"
+        android:name="com.danasoftprototype.govet.FrontEnd.monitor"
         android:label="Monitor"
         tools:layout="@layout/fragment_monitor" >
         <action
@@ -49,7 +49,7 @@
         tools:layout="@layout/fragment_settings" />
     <fragment
         android:id="@+id/nav_profile"
-        android:name="com.danasoftprototype.govet.profile"
+        android:name="com.danasoftprototype.govet.FrontEnd.profile"
         android:label="Profile"
         tools:layout="@layout/fragment_profile" >
         <action
@@ -58,7 +58,7 @@
     </fragment>
     <activity
         android:id="@+id/nav_chat"
-        android:name="com.danasoftprototype.govet.chatActivity"
+        android:name="com.danasoftprototype.govet.FrontEnd.chatActivity"
         android:label="activity_chat"
         tools:layout="@layout/activity_chat" />
 

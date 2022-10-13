@@ -1,4 +1,4 @@
-package com.danasoftprototype.govet;
+package com.danasoftprototype.govet.FrontEnd;
 
 import android.os.Bundle;
 
@@ -8,12 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.danasoftprototype.govet.R;
+
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link shop#newInstance} factory method to
+ * Use the {@link sched#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class shop extends Fragment {
+public class sched extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +26,7 @@ public class shop extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public shop() {
+    public sched() {
         // Required empty public constructor
     }
 
@@ -34,11 +36,11 @@ public class shop extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment shop.
+     * @return A new instance of fragment sched.
      */
     // TODO: Rename and change types and number of parameters
-    public static shop newInstance(String param1, String param2) {
-        shop fragment = new shop();
+    public static sched newInstance(String param1, String param2) {
+        sched fragment = new sched();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -59,6 +61,6 @@ public class shop extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_shop, container, false);
+        return inflater.inflate(R.layout.fragment_sched, container, false);
     }
 }

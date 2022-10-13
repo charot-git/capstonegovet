@@ -1,15 +1,13 @@
 package com.danasoftprototype.govet;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
+import com.danasoftprototype.govet.startUp.loginpage;
+import com.danasoftprototype.govet.startUp.register;
 import com.google.android.material.button.MaterialButton;
 
 public class MainActivity extends AppCompatActivity {
@@ -27,14 +25,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                startActivity(new Intent(MainActivity.this,loginpage.class));
+                startActivity(new Intent(MainActivity.this, loginpage.class));
             }
         });
 
         registermain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,register.class));
+                startActivity(new Intent(MainActivity.this, register.class));
             }
         });
 

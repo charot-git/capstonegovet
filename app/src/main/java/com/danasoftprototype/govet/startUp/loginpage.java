@@ -1,11 +1,10 @@
-package com.danasoftprototype.govet;
+package com.danasoftprototype.govet.startUp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -13,7 +12,10 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.danasoftprototype.govet.R;
 import com.danasoftprototype.govet.databinding.ActivityLoginpageBinding;
+import com.danasoftprototype.govet.settings.forgotpass;
+import com.danasoftprototype.govet.FrontEnd.govethome;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;

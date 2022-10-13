@@ -1,4 +1,4 @@
-package com.danasoftprototype.govet;
+package com.danasoftprototype.govet.FrontEnd;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.danasoftprototype.govet.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -23,10 +24,13 @@ import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
+
+import java.util.HashMap;
 
 public class profileupdate extends AppCompatActivity {
     private static final String TAG = "MyActivity";
@@ -132,6 +136,9 @@ public class profileupdate extends AppCompatActivity {
         String middlename = mnameUI.getText().toString().trim();
         String lastname = lnameUI.getText().toString().trim();
 
+        //Firestore data
+        addDataToFirestore();
+
 
         //concatenated user name for nav display
         String name = firstname + " " + middlename + " " + lastname;
@@ -152,6 +159,7 @@ public class profileupdate extends AppCompatActivity {
         }
         else{
 
+
             //profile update process
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -165,14 +173,29 @@ public class profileupdate extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
                                 Intent intent = new Intent(profileupdate.this, govethome.class);
-
                                 Log.d(TAG, "User profile updated.");
-
+                                //Firestore database update
                                 startActivity(intent);
                             }
                         }
                     });
         }
 
+
+    }
+    private void addDataToFirestore(){
+        FirebaseFirestore database = FirebaseFirestore.getInstance();
+        HashMap<String , Object> data = new HashMap<>();
+        data.put("first_name" , "wew");
+        data.put("middle_name" , "waw");
+        data.put("last_name" , "wuw");
+        database.collection("users")
+                .add(data)
+                .addOnSuccessListener(documentReference -> {
+            Toast.makeText(profileupdate.this,"Data insterted", Toast.LENGTH_SHORT).show();
+        }).addOnFailureListener(exception -> {
+            Toast.makeText(profileupdate.this, exception.getMessage(), Toast.LENGTH_SHORT).show();
+
+        });
     }
 }

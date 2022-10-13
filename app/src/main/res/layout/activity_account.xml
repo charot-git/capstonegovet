@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/dwhite"
-    tools:context=".account">
+    tools:context=".settings.account">
 
     <Button
         android:id="@+id/emailauth"

@@ -1,4 +1,4 @@
-package com.danasoftprototype.govet;
+package com.danasoftprototype.govet.settings;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatDelegate;
 import android.os.Bundle;
 import android.widget.CompoundButton;
 import android.widget.Switch;
+
+import com.danasoftprototype.govet.R;
 
 public class display extends AppCompatActivity {
 
