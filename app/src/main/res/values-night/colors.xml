@@ -23,6 +23,7 @@
         <color name="red">#FF0000</color>
         <color name="navban">#FF000000</color>
         <color name="bblack">#FFFFFF</color>
+        <color name="calendarbg">#424040</color>
 
 
 </resources>
