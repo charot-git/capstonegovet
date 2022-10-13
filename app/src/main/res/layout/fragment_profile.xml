@@ -210,9 +210,11 @@
             android:fontFamily="@font/poppins_medium"
             android:textColor="@color/white"
             android:paddingTop="12dp"
+            android:layout_marginLeft="80dp"
+            android:layout_gravity="center"
             android:drawableTint="@color/green"
             android:drawableLeft="@drawable/ic_baseline_add_circle_24"
-            android:text="Add Pet" />
+            android:text="ADD PET" />
 
     </androidx.cardview.widget.CardView>
 
@@ -282,6 +284,19 @@
 
 
         </LinearLayout>
+        <TextView
+            android:id="@+id/addPet2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="12dp"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/white"
+            android:paddingTop="12dp"
+            android:layout_marginLeft="80dp"
+            android:layout_gravity="center"
+            android:drawableTint="@color/green"
+            android:drawableLeft="@drawable/ic_baseline_add_circle_24"
+            android:text="ADD PET" />
 
 
     </androidx.cardview.widget.CardView>
@@ -351,6 +366,19 @@
 
 
         </LinearLayout>
+        <TextView
+            android:id="@+id/addPet3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="12dp"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/white"
+            android:paddingTop="12dp"
+            android:layout_marginLeft="80dp"
+            android:layout_gravity="center"
+            android:drawableTint="@color/green"
+            android:drawableLeft="@drawable/ic_baseline_add_circle_24"
+            android:text="ADD PET" />
 
 
     </androidx.cardview.widget.CardView>
