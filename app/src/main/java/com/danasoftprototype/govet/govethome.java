@@ -1,13 +1,16 @@
 package com.danasoftprototype.govet;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.navigation.NavController;
@@ -21,11 +24,15 @@ import com.danasoftprototype.govet.databinding.ActivityGovethomeBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserInfo;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 public class govethome extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityGovethomeBinding binding;
     FirebaseUser mAuth;
+    StorageReference storageReference;
 
 
 
@@ -55,6 +62,8 @@ public class govethome extends AppCompatActivity {
             }
         }
 
+        storageReference = FirebaseStorage.getInstance().getReference();
+
         binding = ActivityGovethomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -72,7 +81,13 @@ public class govethome extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_profile, R.id.nav_chat, R.id.nav_sched,R.id.nav_shop , R.id.nav_monitor, R.id.nav_settings)
+                R.id.nav_home,
+                R.id.nav_profile,
+                R.id.nav_chat,
+                R.id.nav_sched,
+                R.id.nav_shop ,
+                R.id.nav_monitor,
+                R.id.nav_settings)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_govethome);
@@ -84,7 +99,16 @@ public class govethome extends AppCompatActivity {
 
         TextView userEmail = headearView.findViewById(R.id.useremail);
         TextView userName = headearView.findViewById(R.id.username);
+        ImageView imageView = headearView.findViewById(R.id.imageView);
 
+
+        StorageReference profileRef = storageReference.child("users/" + mAuth.getUid() + "profile.jpg");
+        profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Picasso.get().load(uri).resize(300,300).into(imageView);
+            }
+        });
         userEmail.setText(email1);
         userName.setText(name1);
 

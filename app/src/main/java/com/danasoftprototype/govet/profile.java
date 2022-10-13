@@ -1,7 +1,6 @@
 package com.danasoftprototype.govet;
 
 import android.content.Intent;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -16,6 +15,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.auth.api.signin.internal.Storage;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -26,9 +26,10 @@ import com.squareup.picasso.Picasso;
 public class profile extends Fragment {
 
     ImageView profilepic;
-    StorageReference storageReference;
-    StorageReference profileRef;
     FirebaseAuth mAuth;
+    FirebaseStorage storage;
+    StorageReference storageReference;
+
     public profile() {
         // Required empty public constructor
     }
@@ -43,6 +44,16 @@ public class profile extends Fragment {
         //1st event
         super.onCreate(savedInstanceState);
 
+        mAuth = FirebaseAuth.getInstance();
+
+        storageReference = FirebaseStorage.getInstance().getReference();
+        StorageReference profileRef = storageReference.child("users/" + mAuth.getCurrentUser().getUid() + "profile.jpg");
+        profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Picasso.get().load(uri).into(profilepic);
+            }
+        });
 
 
     }
@@ -63,6 +74,8 @@ public class profile extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
 
+        profilepic = view.findViewById(R.id.profilepic);
+
 
         final FirebaseUser user = mAuth.getInstance().getCurrentUser();
         Button btn = (Button) view.findViewById(R.id.updateprofile);
@@ -73,6 +86,8 @@ public class profile extends Fragment {
 
 
 
+
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -80,19 +95,6 @@ public class profile extends Fragment {
                 startActivity(intent);
             }
         });
-
-        /*
-        profilepic = (ImageView) view.findViewById(R.id.profilepic);
-
-        storageReference = FirebaseStorage.getInstance().getReference();
-        profileRef = storageReference.child("users/" + mAuth.getCurrentUser().getUid() + "profile.jpg");
-        profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-            @Override
-            public void onSuccess(Uri uri) {
-                Picasso.get().load(uri).into(profilepic);
-            }
-        });
-        */
     }
 
 

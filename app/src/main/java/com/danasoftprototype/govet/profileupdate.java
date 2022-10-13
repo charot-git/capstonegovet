@@ -56,6 +56,8 @@ public class profileupdate extends AppCompatActivity {
         mnameUI = (EditText) findViewById(R.id.middlename);
         lnameUI = (EditText) findViewById(R.id.lastname);
         profilepic = (ImageView) findViewById(R.id.profilepic);
+
+
         storageReference = FirebaseStorage.getInstance().getReference();
 
         StorageReference profileRef = storageReference.child("users/" + mAuth.getCurrentUser().getUid() + "profile.jpg");
