@@ -32,7 +32,7 @@
             android:title="Schedule" />
         <item
             android:id="@+id/nav_shop"
-            android:icon="@drawable/ic_baseline_shopping_bag_24"
+            android:icon="@drawable/ic_baseline_payment_24"
             android:iconTint="@color/brown"
             android:title="Online Payment" />
         <item
