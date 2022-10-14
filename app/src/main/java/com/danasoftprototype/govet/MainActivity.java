@@ -6,9 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.danasoftprototype.govet.FrontEnd.govethome;
 import com.danasoftprototype.govet.startUp.loginpage;
 import com.danasoftprototype.govet.startUp.register;
 import com.google.android.material.button.MaterialButton;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,6 +22,11 @@ public class MainActivity extends AppCompatActivity {
 
         MaterialButton loginbtnmain = (MaterialButton) findViewById(R.id.loginbtnmain);
         MaterialButton registermain = (MaterialButton) findViewById(R.id.registermain);
+
+        if(FirebaseAuth.getInstance().getCurrentUser()!=null){
+            startActivity(new Intent(getApplication(), govethome.class));
+            finish();
+        }
 
         loginbtnmain.setOnClickListener(new View.OnClickListener() {
             @Override

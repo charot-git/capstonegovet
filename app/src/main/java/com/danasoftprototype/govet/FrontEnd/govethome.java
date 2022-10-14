@@ -82,6 +82,7 @@ public class govethome extends AppCompatActivity {
                 R.id.nav_home,
                 R.id.nav_profile,
                 R.id.nav_chat,
+                R.id.friends,
                 R.id.nav_sched,
                 R.id.nav_shop,
                 R.id.nav_monitor,

@@ -45,6 +45,11 @@ public class loginpage extends AppCompatActivity {
         password = (EditText) findViewById(R.id.password);
         forgotpassword = (TextView) findViewById(R.id.forgotpass);
 
+        if(FirebaseAuth.getInstance().getCurrentUser()!=null){
+            startActivity(new Intent(getApplication(), govethome.class));
+            finish();
+        }
+
         forgotpassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

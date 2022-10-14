@@ -21,6 +21,11 @@
             android:iconTint="@color/brown"
             android:title="Chat" />
         <item
+            android:id="@+id/friends"
+            android:icon="@drawable/ic_friends"
+            android:iconTint="@color/brown"
+            android:title="Friends" />
+        <item
             android:id="@+id/nav_sched"
             android:icon="@drawable/ic_baseline_access_time_24"
             android:iconTint="@color/brown"

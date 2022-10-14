@@ -55,12 +55,24 @@
         <action
             android:id="@+id/action_nav_profile_to_nav_chat2"
             app:destination="@id/nav_chat" />
+        <action
+            android:id="@+id/action_nav_profile_to_friends"
+            app:destination="@id/friends" />
     </fragment>
+
     <activity
         android:id="@+id/nav_chat"
         android:name="com.danasoftprototype.govet.FrontEnd.chatActivity"
         android:label="activity_chat"
-        tools:layout="@layout/activity_chat" />
+        tools:layout="@layout/activity_chat">
+
+
+    </activity>
+    <activity
+        android:id="@+id/friends"
+        android:name="com.danasoftprototype.govet.FrontEnd.friends"
+        android:label="activity_friends"
+        tools:layout="@layout/activity_friends" />
 
 
 </navigation>
