@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.danasoftprototype.govet.R;
 import com.danasoftprototype.govet.FrontEnd.profileupdate;
+import com.danasoftprototype.govet.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -22,12 +23,13 @@ import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class register extends AppCompatActivity {
 
 
     //initialization of all variables across register form
-    EditText pass, confpass, emailreg;
+    EditText pass, confpass, emailreg, username;
     MaterialButton registeruser;
     ProgressBar progressBar;
     String TAG;
@@ -52,6 +54,7 @@ public class register extends AppCompatActivity {
         pass = (EditText) findViewById(R.id.passwordreg);
         emailreg = (EditText) findViewById(R.id.emailreg);
         confpass = (EditText) findViewById(R.id.repass);
+        username = (EditText) findViewById(R.id.username);
 
         progressBar = (ProgressBar) findViewById(R.id.registerprogress);
 
@@ -68,9 +71,15 @@ public class register extends AppCompatActivity {
         String password = pass.getText().toString().trim();
         String repass = confpass.getText().toString().trim();
         String email = emailreg.getText().toString().trim();
+        String uname = username.getText().toString().trim();
 
 
         //EditText Checker
+        if (uname.isEmpty()){
+            username.setError("Username is required");
+            username.requestFocus();
+            return;
+        }
         if (email.isEmpty()) {
             emailreg.setError("E-mail is required");
             emailreg.requestFocus();
@@ -101,11 +110,19 @@ public class register extends AppCompatActivity {
 
             progressBar.setVisibility(View.VISIBLE);
 
+
+
             //registration process via Email and Password
             mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
+                        FirebaseDatabase.getInstance().
+                                getReference("user/" + FirebaseAuth
+                                        .getInstance()
+                                        .getCurrentUser()
+                                        .getUid())
+                                .setValue(new User(username.getText().toString(),emailreg.getText().toString(), "" ));
                         progressBar.setVisibility(View.INVISIBLE);
 
                         //send email verification

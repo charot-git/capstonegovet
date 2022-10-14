@@ -4,15 +4,7 @@ import android.widget.EditText;
 
 public class User {
 
-    public String username, number, email, password, userId;
-
-    public User(String username, String number, String email, String password, String userId) {
-        this.username = username;
-        this.number = number;
-        this.email = email;
-        this.password = password;
-        this.userId = userId;
-    }
+    private String username;
 
     public String getUsername() {
         return username;
@@ -20,14 +12,6 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public String getNumber() {
-        return number;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
     }
 
     public String getEmail() {
@@ -38,19 +22,27 @@ public class User {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public String getProfilepic() {
+        return profilepic;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setProfilepic(String profilepic) {
+        this.profilepic = profilepic;
     }
 
-    public String getUserId() {
-        return userId;
+    private String email;
+    private String profilepic;
+
+    public User(){
+
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public User(String username, String email, String profilepic) {
+        this.username = username;
+        this.email = email;
+        this.profilepic = profilepic;
     }
+
+
+
 }

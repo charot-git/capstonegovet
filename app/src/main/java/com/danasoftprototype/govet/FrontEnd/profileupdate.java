@@ -24,8 +24,10 @@ import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
@@ -38,7 +40,7 @@ public class profileupdate extends AppCompatActivity {
     EditText fnameUI, mnameUI, lnameUI;
     MaterialButton updatebutton, changepicbutton;
     ImageView profilepic;
-    String picUrl;
+    Uri imagePath;
     FirebaseAuth mAuth;
     FirebaseUser user;
     StorageReference storageReference;
@@ -65,7 +67,7 @@ public class profileupdate extends AppCompatActivity {
 
         storageReference = FirebaseStorage.getInstance().getReference();
 
-        StorageReference profileRef = storageReference.child("users/" + mAuth.getCurrentUser().getUid() + "profile.jpg");
+        StorageReference profileRef = storageReference.child("images/" + mAuth.getCurrentUser().getUid() + "profile.jpg");
         profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
@@ -108,16 +110,23 @@ public class profileupdate extends AppCompatActivity {
     }
 
     private void upload(Uri imageUri) {
-        StorageReference fileRef = storageReference.child("users/" + mAuth.getCurrentUser().getUid() + "profile.jpg");
+
+
+        StorageReference fileRef = storageReference.child("images/" + mAuth.getCurrentUser().getUid() + "profile.jpg");
+
+
         fileRef.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                 Toast.makeText(profileupdate.this, "Profile picture updated successfully", Toast.LENGTH_SHORT).show();
 
+
                 fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
                         Picasso.get().load(uri).into(profilepic);
+                        String test = uri.toString();
+                        updateProfilePic(test);
                     }
                 });
 
@@ -128,6 +137,12 @@ public class profileupdate extends AppCompatActivity {
                 Toast.makeText(profileupdate.this, "Profile picture update has failed", Toast.LENGTH_SHORT).show();
             }
         });
+
+    }
+
+    private void updateProfilePic(String url) {
+
+        FirebaseDatabase.getInstance().getReference("user/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/profilepic").setValue(url);
 
     }
 

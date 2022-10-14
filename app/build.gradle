@@ -29,6 +29,7 @@ android {
     buildFeatures {
         viewBinding true
     }
+    namespace 'com.danasoftprototype.govet'
 }
 
 dependencies {
@@ -41,6 +42,9 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
     implementation 'androidx.preference:preference:1.2.0'
+    implementation 'com.github.bumptech.glide:glide:4.14.2'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.14.2'
     implementation 'com.squareup.picasso:picasso:2.8'
     implementation 'com.makeramen:roundedimageview:2.3.0'
     testImplementation 'junit:junit:4.13.2'

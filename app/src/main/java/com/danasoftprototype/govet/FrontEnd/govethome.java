@@ -102,7 +102,7 @@ public class govethome extends AppCompatActivity {
         ImageView imageView = headearView.findViewById(R.id.imageView);
 
 
-        StorageReference profileRef = storageReference.child("users/" + mAuth.getUid() + "profile.jpg");
+        StorageReference profileRef = storageReference.child("images/" + mAuth.getUid() + "profile.jpg");
         profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
