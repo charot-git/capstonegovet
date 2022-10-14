@@ -1,14 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/dwhite"
     tools:context=".FrontEnd.sched">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/Appointments"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="hotdog" />
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/poppins_medium"
+        android:gravity="start"
+        android:text="Appointments"
+        android:textColor="@color/fwhite"
+        android:textSize="24dp"
+        android:textStyle="bold">
 
-</FrameLayout>
+    </TextView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_below="@id/Appointments"
+        android:id="@+id/appointmentcard"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="30dp"
+        app:cardCornerRadius="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/brown"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DATE : "
+                android:textColor="@color/white"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="24dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TIME: "
+                android:textColor="@color/white"
+                android:fontFamily="@font/popins_light"
+                android:textSize="16dp"
+                android:layout_marginLeft="20dp"/>
+
+
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
