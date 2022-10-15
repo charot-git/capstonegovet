@@ -40,7 +40,6 @@ public class profileupdate extends AppCompatActivity {
     EditText fnameUI, mnameUI, lnameUI;
     MaterialButton updatebutton, changepicbutton;
     ImageView profilepic;
-    Uri imagePath;
     FirebaseAuth mAuth;
     FirebaseUser user;
     StorageReference storageReference;
@@ -76,6 +75,7 @@ public class profileupdate extends AppCompatActivity {
         });
 
 
+        //profile pic image on click listener
         profilepic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,6 +84,7 @@ public class profileupdate extends AppCompatActivity {
             }
         });
 
+        //change profile picture
         changepicbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
