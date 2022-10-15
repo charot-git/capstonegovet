@@ -44,4 +44,40 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string-array name="species">
+        <item>Dog</item>
+        <item>Cat</item>
+        <item>Fish</item>
+        <item>Hamster</item>
+    </string-array>
+
+    <string-array name="dogBreed">
+        <item>German Sheperd</item>
+        <item>Bulldog</item>
+        <item>Labrador Retriever</item>
+        <item>Golden Retriever</item>
+    </string-array>
+
+    <string-array name="catBreed">
+        <item>Siamese Cat</item>
+        <item>British Shorthair</item>
+        <item>Maine Coon</item>
+        <item>Persian Cat</item>
+    </string-array>
+
+    <string-array name="fishBreed">
+        <item>Koi</item>
+        <item>Shubunkin</item>
+        <item>Gold fish</item>
+        <item>Orana</item>
+    </string-array>
+
+    <string-array name="hamsterBreed">
+        <item>Dwarf Roborovski</item>
+        <item>Campbell’s Dwarf Russian</item>
+        <item>Syrian (Golden) Hamster</item>
+        <item>Dwarf Winter White Russian</item>
+    </string-array>
+
+
 </resources>
