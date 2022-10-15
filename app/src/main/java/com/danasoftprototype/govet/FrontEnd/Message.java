@@ -5,9 +5,6 @@ public class Message {
     private String receiver;
     private String content;
 
-    public Message(){
-
-    }
 
     public String getSender() {
         return sender;
@@ -37,6 +34,10 @@ public class Message {
         this.sender = sender;
         this.receiver = receiver;
         this.content = content;
+    }
+
+    public Message(){
+
     }
 
 

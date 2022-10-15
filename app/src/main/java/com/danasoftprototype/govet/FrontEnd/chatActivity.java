@@ -34,8 +34,6 @@ import com.makeramen.roundedimageview.RoundedImageView;
 import java.util.ArrayList;
 
 public class chatActivity extends AppCompatActivity {
-    private AppBarConfiguration appBarConfiguration;
-    private ActivityChatBinding binding;
     private RecyclerView recyclerView;
     private EditText edtMessageInput;
     private TextView txtChattingWith;
@@ -47,7 +45,7 @@ public class chatActivity extends AppCompatActivity {
 
     private ArrayList<Message> messages;
 
-    String usernameOfTheRoomate, emailOfRoomate, chatRoomID;
+    String usernameOfTheRoomate, emailOfRoomate, chatRoomId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,65 +61,55 @@ public class chatActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressMessages);
         imgToolbar = findViewById(R.id.img_toolbar);
         imgSend = findViewById(R.id.sendMessageButton);
-
-
         txtChattingWith.setText(usernameOfTheRoomate);
-
         messages = new ArrayList<>();
 
         imgSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseDatabase.getInstance().getReference("messages/" + chatRoomID).push().setValue(new Message(FirebaseAuth.getInstance().getCurrentUser().getEmail(),emailOfRoomate,edtMessageInput.getText().toString()));
+                FirebaseDatabase.getInstance().getReference("messages/"+chatRoomId).push().setValue(new Message(FirebaseAuth.getInstance().getCurrentUser().getEmail(),emailOfRoomate,edtMessageInput.getText().toString()));
                 edtMessageInput.setText("");
             }
         });
 
-        messageAdapter = new MessageAdapter(messages, getIntent().getStringExtra("my_img"), getIntent().getStringExtra("img_of_roomate"), chatActivity.this);
+        messageAdapter = new MessageAdapter(messages,getIntent().getStringExtra("my_img"),getIntent().getStringExtra("img_of_roomate"),chatActivity.this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(messageAdapter);
 
-
+        Glide.with(chatActivity.this).load(getIntent().getStringExtra("img_of_roomate")).placeholder(R.drawable.logogv).error(R.drawable.logogv).into(imgToolbar);
 
         setUpChatRoom();
 
     }
 
-    private void setUpChatRoom(){
-        FirebaseDatabase.getInstance().getReference("user/" + FirebaseAuth.getInstance().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+    private  void setUpChatRoom(){
+        FirebaseDatabase.getInstance().getReference("user/" + FirebaseAuth.getInstance().getCurrentUser().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String myUsername = snapshot.getValue(User.class).getUsername();
                 if (usernameOfTheRoomate.compareTo(myUsername)>0){
-                    chatRoomID = myUsername + usernameOfTheRoomate;
+                    chatRoomId = myUsername + usernameOfTheRoomate;
+                }else if (usernameOfTheRoomate.compareTo(myUsername) == 0){
+                    chatRoomId = myUsername + usernameOfTheRoomate;
+                }else {
+                    chatRoomId = usernameOfTheRoomate + myUsername;
                 }
-                else if(usernameOfTheRoomate.compareTo(myUsername) == 0){
-                    chatRoomID = myUsername + usernameOfTheRoomate;
-                }
-                else{
-                    chatRoomID = usernameOfTheRoomate = myUsername;
-                }
-                attachMessageListener(chatRoomID);
+                attachMessageListener(chatRoomId);
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
-
     }
-
-    public void attachMessageListener(String chatRoomID){
-        FirebaseDatabase.getInstance().getReference("messages/" + chatRoomID).addValueEventListener(new ValueEventListener() {
+    private void attachMessageListener(String chatRoomId){
+        FirebaseDatabase.getInstance().getReference("messages/"+ chatRoomId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 messages.clear();
-                for (DataSnapshot dataSnapshot: snapshot.getChildren()){
+                for (DataSnapshot dataSnapshot:snapshot.getChildren()){
                     messages.add(dataSnapshot.getValue(Message.class));
                 }
-
-
                 messageAdapter.notifyDataSetChanged();
                 recyclerView.scrollToPosition(messages.size()-1);
                 recyclerView.setVisibility(View.VISIBLE);
@@ -133,7 +121,5 @@ public class chatActivity extends AppCompatActivity {
 
             }
         });
-
     }
-
 }
