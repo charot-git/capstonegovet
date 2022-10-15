@@ -92,6 +92,11 @@ public class register extends AppCompatActivity {
             emailreg.requestFocus();
             return;
         }
+        else if (num.isEmpty()){
+            mobilenumber.setError("Mobile number is required");
+            mobilenumber.requestFocus();
+
+        }
         else if (password.isEmpty()) {
             pass.setError("Password is required!");
             pass.requestFocus();
@@ -124,7 +129,8 @@ public class register extends AppCompatActivity {
                                         .getInstance()
                                         .getCurrentUser()
                                         .getUid())
-                                .setValue(new User(username.getText().toString(),emailreg.getText().toString(), "" ), username.getText().toString());
+                                        .setValue(new User(username.getText().toString(), emailreg.getText().toString(),"",mobilenumber.getText().toString()));
+                                //.setValue(new User(username.getText().toString(),emailreg.getText().toString(), "" ));
                         progressBar.setVisibility(View.INVISIBLE);
 
                         //send email verification
