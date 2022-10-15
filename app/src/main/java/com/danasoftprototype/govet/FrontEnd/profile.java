@@ -53,7 +53,7 @@ public class profile extends Fragment {
         profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
-                Picasso.get().load(uri).resize(600,600).into(profilepic);
+                Picasso.get().load(uri).resize(250,250).centerCrop().into(profilepic);
             }
         });
 
