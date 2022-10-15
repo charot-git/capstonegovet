@@ -29,7 +29,7 @@ public class register extends AppCompatActivity {
 
 
     //initialization of all variables across register form
-    EditText pass, confpass, emailreg, username;
+    EditText pass, confpass, emailreg, username, mobilenumber;
     MaterialButton registeruser;
     ProgressBar progressBar;
     String TAG;
@@ -55,6 +55,7 @@ public class register extends AppCompatActivity {
         emailreg = (EditText) findViewById(R.id.emailreg);
         confpass = (EditText) findViewById(R.id.repass);
         username = (EditText) findViewById(R.id.username);
+        mobilenumber = (EditText) findViewById(R.id.mobilenum);
 
         progressBar = (ProgressBar) findViewById(R.id.registerprogress);
 
@@ -72,6 +73,7 @@ public class register extends AppCompatActivity {
         String repass = confpass.getText().toString().trim();
         String email = emailreg.getText().toString().trim();
         String uname = username.getText().toString().trim();
+        String num = mobilenumber.getText().toString().trim();
 
 
         //EditText Checker
@@ -122,7 +124,7 @@ public class register extends AppCompatActivity {
                                         .getInstance()
                                         .getCurrentUser()
                                         .getUid())
-                                .setValue(new User(username.getText().toString(),emailreg.getText().toString(), "" ));
+                                .setValue(new User(username.getText().toString(),emailreg.getText().toString(), "" ), username.getText().toString());
                         progressBar.setVisibility(View.INVISIBLE);
 
                         //send email verification
