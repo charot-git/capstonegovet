@@ -9,6 +9,14 @@
 
     <!-- TODO: Update blank fragment layout -->
 
+    <ImageView
+        android:id="@+id/back"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_back"/>
+
     <androidx.cardview.widget.CardView
         android:id="@+id/piccon1"
         android:layout_width="100dp"
@@ -147,10 +155,30 @@
         android:layout_marginBottom="8dp"
         app:cardCornerRadius="30dp">
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/petPic1Container"
+            android:layout_width="100dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginStart="5dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="100dp"
+            app:cardCornerRadius="50dp">
+
+            <ImageView
+                android:id="@+id/petPic1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerHorizontal="true"
+                android:contentDescription="@string/todo"
+                android:scaleType="centerCrop"
+                tools:ignore="ImageContrastCheck" />
+        </androidx.cardview.widget.CardView>
+
 
 
 
         <LinearLayout
+            android:id="@+id/pet1container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"
@@ -158,6 +186,7 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/pet1Layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="100dp"
@@ -167,11 +196,11 @@
                 android:orientation="horizontal">
 
 
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
-
                     <TextView
                         android:id="@+id/breed1"
                         android:layout_width="wrap_content"
@@ -205,6 +234,8 @@
 
             </LinearLayout>
 
+
+
         </LinearLayout>
 
         <TextView
@@ -224,6 +255,7 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/pet2"
+        android:visibility="visible"
         android:layout_width="match_parent"
         android:layout_height="115dp"
         android:layout_below="@+id/pet1"
@@ -233,8 +265,28 @@
         android:layout_marginBottom="8dp"
         app:cardCornerRadius="30dp">
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/petPic2Container"
+            android:layout_width="100dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginStart="5dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="100dp"
+            app:cardCornerRadius="50dp">
+
+            <ImageView
+                android:id="@+id/petPic2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerHorizontal="true"
+                android:contentDescription="@string/todo"
+                android:scaleType="centerCrop"
+                tools:ignore="ImageContrastCheck" />
+        </androidx.cardview.widget.CardView>
+
 
         <LinearLayout
+            android:id="@+id/pet2container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"
@@ -244,6 +296,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/pet2Layout"
                 android:layout_marginLeft="100dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="30dp"
@@ -310,18 +363,40 @@
         android:layout_width="match_parent"
         android:layout_height="115dp"
         android:layout_below="@+id/pet2"
+        android:visibility="invisible"
         android:layout_marginLeft="30dp"
         app:cardElevation="4dp"
         android:layout_marginRight="30dp"
         android:layout_marginBottom="8dp"
         app:cardCornerRadius="30dp">
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/petPic3Container"
+            android:layout_width="100dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginStart="5dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="100dp"
+            app:cardCornerRadius="50dp">
+
+            <ImageView
+                android:id="@+id/petPic3"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerHorizontal="true"
+                android:contentDescription="@string/todo"
+                android:scaleType="centerCrop"
+                tools:ignore="ImageContrastCheck" />
+        </androidx.cardview.widget.CardView>
+
 
         <LinearLayout
+            android:id="@+id/pet3container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"
             android:orientation="vertical">
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -334,6 +409,7 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/pet3Layout"
                     android:orientation="vertical">
 
                     <TextView

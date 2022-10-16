@@ -190,8 +190,8 @@ public class profileupdate extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
+                                Toast.makeText(profileupdate.this, "Profile update successful", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(profileupdate.this, govethome.class);
-                                Log.d(TAG, "User profile updated.");
                                 startActivity(intent);
                             }
                         }

@@ -38,7 +38,7 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 
-public class addPet extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class addPet2 extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     ImageView petImage2 , back;
     String petProfilePic2;
@@ -55,7 +55,7 @@ public class addPet extends AppCompatActivity implements AdapterView.OnItemSelec
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_pet);
+        setContentView(R.layout.activity_add_pet2);
 
         container2 = findViewById(R.id.container);
         addpetcontainer2 = findViewById(R.id.addpetcontainer);
@@ -116,7 +116,7 @@ public class addPet extends AppCompatActivity implements AdapterView.OnItemSelec
                             .getUid() + "/pet2").setValue(new Pet(speciesAdapter2, name2, age2, breed2, date2, petProfilePic2)).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
-                            Toast.makeText(addPet.this, "Pet "+ name2 + " successfully added", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(addPet2.this, "Pet "+ name2 + " successfully added", Toast.LENGTH_SHORT).show();
                             container2.setVisibility(View.VISIBLE);
                             addpetcontainer2.setVisibility(View.GONE);
                             profile fragment = new profile();
@@ -162,7 +162,7 @@ public class addPet extends AppCompatActivity implements AdapterView.OnItemSelec
         fileRef.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                Toast.makeText(addPet.this, "Profile picture updated successfully", Toast.LENGTH_SHORT).show();
+                Toast.makeText(addPet2.this, "Profile picture updated successfully", Toast.LENGTH_SHORT).show();
 
 
                 fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
@@ -178,7 +178,7 @@ public class addPet extends AppCompatActivity implements AdapterView.OnItemSelec
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(addPet.this, "Profile picture update has failed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(addPet2.this, "Profile picture update has failed", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -208,7 +208,7 @@ public class addPet extends AppCompatActivity implements AdapterView.OnItemSelec
         petBirthday2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatePickerDialog dialog = new DatePickerDialog(addPet.this, new DatePickerDialog.OnDateSetListener() {
+                DatePickerDialog dialog = new DatePickerDialog(addPet2.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
 

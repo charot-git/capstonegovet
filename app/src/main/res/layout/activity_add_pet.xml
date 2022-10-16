@@ -7,6 +7,21 @@
     android:background="@color/dwhite"
     tools:context=".addPet">
 
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        android:background="@color/dwhite">
+
+
+    </FrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/addpetcontainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <androidx.cardview.widget.CardView
         android:id="@+id/petpiccon1"
         android:layout_width="100dp"
@@ -88,23 +103,7 @@
         android:textColor="@color/fwhite"
         android:text="Age"/>
 
-    <EditText
-        android:id="@+id/inputname2"
-        android:layout_width="282dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/input2"
-        android:background="@drawable/rounded_corner"
-        android:drawablePadding="10dp"
-        android:fontFamily="@font/popins_light"
-        android:layout_centerHorizontal="true"
-        android:focusedByDefault="true"
-        android:padding="5dp"
-        android:layout_marginBottom="12dp"
-        android:layout_marginStart="15dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white" />
-
-    <EditText
+        <EditText
         android:id="@+id/petAge"
         android:layout_width="282dp"
         android:layout_height="wrap_content"
@@ -179,10 +178,13 @@
         android:fontFamily="@font/poppins_medium"
         android:text="ADD PET"
         android:layout_marginTop="20dp"
+        android:visibility="gone"
         android:textSize="14dp"
         app:cornerRadius="30dp"
         android:textColor="@color/white"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/inputbreed"/>
+
+    </RelativeLayout>
 
 </RelativeLayout>

@@ -29,7 +29,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".addPet"
+            android:name=".addPet2"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
