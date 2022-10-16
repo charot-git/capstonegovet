@@ -32,7 +32,7 @@
             app:cardCornerRadius="50dp">
 
             <ImageView
-                android:id="@+id/petpic"
+                android:id="@+id/petPic"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_centerHorizontal="true"
@@ -54,7 +54,7 @@
             android:text="Species"/>
 
         <Spinner
-            android:id="@+id/species1"
+            android:id="@+id/petSpecies"
             android:layout_width="150dp"
             android:layout_centerHorizontal="true"
             android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
 
         <TextView
             android:id="@+id/input1"
-            android:layout_below="@+id/species1"
+            android:layout_below="@+id/petSpecies"
             android:layout_width="wrap_content"
             android:layout_marginLeft="70dp"
             android:layout_height="wrap_content"
@@ -103,12 +103,11 @@
             android:textColor="@color/fwhite"
             android:text="Age"/>
 
-        <EditText
+        <Spinner
             android:id="@+id/petAge"
-            android:layout_width="282dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/input2"
-            android:background="@drawable/rounded_corner"
             android:drawablePadding="10dp"
             android:fontFamily="@font/popins_light"
             android:layout_centerHorizontal="true"
@@ -132,7 +131,7 @@
             android:text="Birthday" />
 
         <TextView
-            android:id="@+id/inputbirthday"
+            android:id="@+id/petBirthday"
             android:layout_width="282dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/bday"
@@ -152,7 +151,7 @@
 
         <TextView
             android:id="@+id/breed"
-            android:layout_below="@+id/inputbirthday"
+            android:layout_below="@+id/petBirthday"
             android:layout_width="wrap_content"
             android:layout_marginLeft="70dp"
             android:layout_height="wrap_content"
@@ -162,7 +161,7 @@
             android:text="Breed" />
 
         <Spinner
-            android:id="@+id/inputbreed"
+            android:id="@+id/petBreed"
             android:layout_width="150dp"
             android:layout_centerHorizontal="true"
             android:layout_height="wrap_content"
@@ -178,12 +177,11 @@
             android:fontFamily="@font/poppins_medium"
             android:text="ADD PET"
             android:layout_marginTop="20dp"
-            android:visibility="gone"
             android:textSize="14dp"
             app:cornerRadius="30dp"
             android:textColor="@color/white"
             android:layout_centerHorizontal="true"
-            android:layout_below="@id/inputbreed"/>
+            android:layout_below="@id/petBreed"/>
 
     </RelativeLayout>
 

@@ -15,6 +15,27 @@
         android:theme="@style/Theme.GoVet"
         tools:targetApi="31">
         <activity
+            android:name=".addPet3"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".addPet2"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".addPet"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".FrontEnd.friends"
             android:exported="false">
             <meta-data
@@ -23,13 +44,6 @@
         </activity>
         <activity
             android:name=".FrontEnd.chatActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".addPet2"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

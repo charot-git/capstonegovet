@@ -161,6 +161,7 @@
             android:layout_marginTop="7dp"
             android:layout_marginStart="5dp"
             android:layout_centerHorizontal="true"
+            android:visibility="gone"
             android:layout_height="100dp"
             app:cardCornerRadius="50dp">
 
@@ -189,7 +190,7 @@
                 android:id="@+id/pet1Layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="100dp"
+                android:layout_marginLeft="120dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="30dp"
                 android:visibility="invisible"
@@ -255,7 +256,7 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/pet2"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:layout_width="match_parent"
         android:layout_height="115dp"
         android:layout_below="@+id/pet1"
@@ -270,6 +271,7 @@
             android:layout_width="100dp"
             android:layout_marginTop="7dp"
             android:layout_marginStart="5dp"
+            android:visibility="invisible"
             android:layout_centerHorizontal="true"
             android:layout_height="100dp"
             app:cardCornerRadius="50dp">
@@ -297,7 +299,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/pet2Layout"
-                android:layout_marginLeft="100dp"
+                android:layout_marginLeft="120dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="30dp"
                 android:orientation="horizontal">
@@ -373,6 +375,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/petPic3Container"
             android:layout_width="100dp"
+            android:visibility="invisible"
             android:layout_marginTop="7dp"
             android:layout_marginStart="5dp"
             android:layout_centerHorizontal="true"
@@ -401,7 +404,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="100dp"
+                android:layout_marginLeft="120dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="30dp"
                 android:orientation="horizontal">

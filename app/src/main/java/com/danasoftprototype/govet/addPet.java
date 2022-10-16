@@ -3,7 +3,7 @@ package com.danasoftprototype.govet;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.fragment.app.Fragment;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
@@ -17,14 +17,14 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.danasoftprototype.govet.FrontEnd.govethome;
 import com.danasoftprototype.govet.FrontEnd.profile;
+import com.danasoftprototype.govet.FrontEnd.profileupdate;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -34,167 +34,99 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
-import java.util.Arrays;
 import java.util.Calendar;
-import java.util.List;
 
 public class addPet extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-
-    ImageView petImage2 , back;
-    String petProfilePic2;
-    String breed2;
-    String speciesAdapter2;
-    FrameLayout container2;
-    RelativeLayout addpetcontainer2;
-    Spinner speciesSpinner2, breedSpinner2;
-    EditText petName2, petAge2;
-    TextView petBirthday2;
-    Button button2;
-    StorageReference storageReference2;
+    ImageView petProfilePic;
+    Spinner petSpecies, petBreed, petAge;
+    EditText petName;
+    Button submit;
+    TextView petBirthday;
+    StorageReference storageReference;
+    public String age;
+    public String name;
+    public String bday;
+    public String breed;
+    public String species;
+    public String url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_pet);
 
-        container2 = findViewById(R.id.container);
-        addpetcontainer2 = findViewById(R.id.addpetcontainer);
+        storageReference = FirebaseStorage.getInstance().getReference();
 
-        speciesSpinner2 = findViewById(R.id.species1);
-        petName2 = findViewById(R.id.petName);
-        petBirthday2 = findViewById(R.id.inputbirthday);
-        petAge2 = findViewById(R.id.petAge);
-        breedSpinner2 = findViewById(R.id.inputbreed);
-        petImage2 = findViewById(R.id.petpic);
-        button2 = findViewById(R.id.button);
-        storageReference2 = FirebaseStorage.getInstance().getReference();
-
-
-        getSpeciesSpinnerAdapter();
-        petbirthday();
-        getPetPic();
-
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                fillUpChecker();
-            }
-        });
+        petProfilePic = findViewById(R.id.petPic);
+        petSpecies = findViewById(R.id.petSpecies);
+        petBreed = findViewById(R.id.petBreed);
+        petBirthday = findViewById(R.id.petBirthday);
+        petAge = findViewById(R.id.petAge);
+        petName = findViewById(R.id.petName);
+        submit = findViewById(R.id.button);
 
 
 
-    }
-
-    private void fillUpChecker() {
-        String name2 = petName2.getText().toString();
-        String age2 = petAge2.getText().toString();
-        String date2 = petBirthday2.getText().toString();
-
-        if(speciesAdapter2.isEmpty()){
-            Toast.makeText(this, "Please choose pet specie", Toast.LENGTH_SHORT).show();
-        }
-        else if(name2.isEmpty()){
-            petName2.setError("Please input pet name");
-            petName2.requestFocus();
-        }else if(date2.isEmpty()){
-            petBirthday2.setError("Please input pet name");
-            petBirthday2.requestFocus();
-        }else if(age2.isEmpty()){
-            petAge2.setError("Please input pet name");
-            petAge2.requestFocus();
-        }
-        else if(breed2.isEmpty()){
-            Toast.makeText(this, "Please choose pet breed", Toast.LENGTH_SHORT).show();
-        }
-        else{
-
-            FirebaseDatabase
-                    .getInstance()
-                    .getReference("user/pet/" + FirebaseAuth
-                            .getInstance()
-                            .getCurrentUser()
-                            .getUid() + "/pet2").setValue(new Pet(speciesAdapter2, name2, age2, breed2, date2, petProfilePic2)).addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void unused) {
-                            Toast.makeText(addPet.this, "Pet "+ name2 + " successfully added", Toast.LENGTH_SHORT).show();
-                            container2.setVisibility(View.VISIBLE);
-                            addpetcontainer2.setVisibility(View.GONE);
-                            profile fragment = new profile();
-                            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                            transaction.replace(R.id.container, fragment);
-                            transaction.commit();
-                        }
-                    });
-        }
-
-    }
-
-
-
-
-    private void getPetPic() {
-        petImage2.setOnClickListener(new View.OnClickListener() {
+        //petProfilePicIntent
+        petProfilePic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent openGallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(openGallery, 1000);
             }
         });
+
+        //Spinner set up for species
+        ArrayAdapter<CharSequence>adapter = ArrayAdapter.createFromResource(this,R.array.species, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
+        adapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
+        petSpecies.setAdapter(adapter);
+        petSpecies.setOnItemSelectedListener(this);
+
+        //Spinner set up for age
+        ArrayAdapter<CharSequence>adapterAge = ArrayAdapter.createFromResource(this,R.array.age, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
+        adapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
+        petAge.setAdapter(adapterAge);
+        petAge.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                age = parent.getItemAtPosition(position).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
+        //get name from user
+        name = petName.getText().toString();
+
+        //birthday dialogue
+        petbirthday();
+
+
+        //submit click
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CheckerGetter();
+            }
+        });
     }
 
-    @Override
+    //petProfilePicImgUri
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         if(requestCode == 1000){
             if(resultCode == Activity.RESULT_OK){
-                Uri imageUri2 = data.getData();
-                upload(imageUri2);
+                Uri imageUri = data.getData();
+                petProfilePic.setImageURI(imageUri);
 
+                upload(imageUri);
             }
         }
-    }
-
-    private void upload(Uri imageUri) {
-        StorageReference fileRef = storageReference2.child("images/pet/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "petProfile2.jpg");
-
-
-        fileRef.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                Toast.makeText(addPet.this, "Profile picture updated successfully", Toast.LENGTH_SHORT).show();
-
-
-                fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
-                        Picasso.get().load(uri).into(petImage2);
-                        String test = uri.toString();
-                        updateProfilePic(test);
-                    }
-                });
-
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(addPet.this, "Profile picture update has failed", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-    private void updateProfilePic(String url) {
-        FirebaseDatabase.getInstance().getReference("user/pet/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/petProfile2").setValue(url);
-        petProfilePic2 = url;
-    }
-
-
-    private void getSpeciesSpinnerAdapter() {
-        ArrayAdapter<CharSequence>adapter = ArrayAdapter.createFromResource(this,R.array.species, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
-        adapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
-        speciesSpinner2.setAdapter(adapter);
-
-        speciesSpinner2.setOnItemSelectedListener(this);
     }
 
 
@@ -205,7 +137,7 @@ public class addPet extends AppCompatActivity implements AdapterView.OnItemSelec
         final int month = calendar.get(Calendar.MONTH);
         final int day = calendar.get(Calendar.DAY_OF_MONTH);
 
-        petBirthday2.setOnClickListener(new View.OnClickListener() {
+        petBirthday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DatePickerDialog dialog = new DatePickerDialog(addPet.this, new DatePickerDialog.OnDateSetListener() {
@@ -214,7 +146,8 @@ public class addPet extends AppCompatActivity implements AdapterView.OnItemSelec
 
                         month = month+1;
                         String date = dayOfMonth+"/"+month+"/"+year;
-                        petBirthday2.setText(date);
+                        petBirthday.setText(date);
+                        bday = date;
 
                     }
                 },year,month,day);
@@ -222,109 +155,140 @@ public class addPet extends AppCompatActivity implements AdapterView.OnItemSelec
             }
         });
     }
-
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        String species = speciesSpinner2.getItemAtPosition(position).toString();
-        speciesAdapter2 = species;
-
-        //breedSpinner
-        List<String> dogBreed = Arrays.asList("German Sheperd" , "Bulldog" , "Labrador Retriever" , "Golden Retriever");
-        List<String> catBreed = Arrays.asList("Siamese Cat" , "British Shorthair" , "Maine Coon" , "Persian Cat");
-        List<String> fishBreed = Arrays.asList("Koi" , "Shubunkin" , "Gold fish" , "Orana");
-        List<String> hamsterBreed = Arrays.asList("Dwarf Roborovski" , "Campbell’s Dwarf Russian" , "Syrian (Golden) Hamster" , "Dwarf Winter White Russian");
-
-        String spec = speciesSpinner2.getItemAtPosition(position).toString();
-        if (spec.equals("Dog")) {
-            ArrayAdapter adapter = new ArrayAdapter(getApplicationContext(), androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, dogBreed);
-            adapter.setDropDownViewResource(com.google.android.material.R.layout.support_simple_spinner_dropdown_item);
-
-            breedSpinner2.setAdapter(adapter);
-
-            breedSpinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    String test = breedSpinner2.getSelectedItem().toString();
-                    breed2 = test;
-                    button2.setVisibility(View.VISIBLE);
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> parent) {
-
-                }
-            });
-
-        }
-        else if (spec.equals("Cat")){
-
-            ArrayAdapter adapter = new ArrayAdapter(getApplicationContext(), androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, catBreed);
-            adapter.setDropDownViewResource(com.google.android.material.R.layout.support_simple_spinner_dropdown_item);
-
-            breedSpinner2.setAdapter(adapter);
-
-            breedSpinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    String test = breedSpinner2.getSelectedItem().toString();
-                    breed2 = test;
-                    button2.setVisibility(View.VISIBLE);
-
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> parent) {
-
-                }
-            });
-
-        }
-        else if (spec.equals("Fish")){
-            ArrayAdapter adapter = new ArrayAdapter(getApplicationContext(), androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, fishBreed);
-            adapter.setDropDownViewResource(com.google.android.material.R.layout.support_simple_spinner_dropdown_item);
-
-            breedSpinner2.setAdapter(adapter);
-
-            breedSpinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    String test = breedSpinner2.getSelectedItem().toString();
-                    breed2 = test;
-                    button2.setVisibility(View.VISIBLE);
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> parent) {
-
-                }
-            });
-
-        }
-        else if (spec.equals("Hamster")){
-            ArrayAdapter adapter = new ArrayAdapter(getApplicationContext(), androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, hamsterBreed);
-            adapter.setDropDownViewResource(com.google.android.material.R.layout.support_simple_spinner_dropdown_item);
-
-            breedSpinner2.setAdapter(adapter);
-
-            breedSpinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    String test = breedSpinner2.getSelectedItem().toString();
-                    breed2 = test;
-                    button2.setVisibility(View.VISIBLE);
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> parent) {
-
-                }
-            });
-
-        }
+    //petProfilePicUploadStroage
+    private void upload(Uri imageUri) {
+        StorageReference fileRef = storageReference.child("images/pet/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "pet1.jpg");
+        fileRef.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                Toast.makeText(addPet.this, "Pet profile picture upload success!", Toast.LENGTH_SHORT).show();
+                fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                        Picasso.get().load(uri).into(petProfilePic);
+                        String picUrl = uri.toString();
+                        url = picUrl;
+                    }
+                });
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(addPet.this, "Pet profile picture upload has failed!", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
+
+    @Override
+    //Species value on select and breed spinner
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String petspecies = parent.getItemAtPosition(position).toString();
+        species = petspecies;
+
+        //dog breed listener
+        if (species.equals("Dog")){
+            ArrayAdapter<CharSequence>adapter = ArrayAdapter.createFromResource(this,R.array.dogBreed, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
+            adapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
+            petBreed.setAdapter(adapter);
+            petBreed.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    String petbreed = parent.getItemAtPosition(position).toString();
+                    breed = petbreed;
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+
+                }
+            });
+
+        }
+        //cat breed listener
+        else if(species.equals("Cat")){
+            ArrayAdapter<CharSequence>adapter = ArrayAdapter.createFromResource(this,R.array.catBreed, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
+            adapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
+            petBreed.setAdapter(adapter);
+            petBreed.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    String petbreed = parent.getItemAtPosition(position).toString();
+                    breed = petbreed;
+
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+
+                }
+            });
+        }
+        //fish breed listener
+        else if(species.equals("Fish")){
+            ArrayAdapter<CharSequence>adapter = ArrayAdapter.createFromResource(this,R.array.fishBreed, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
+            adapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
+            petBreed.setAdapter(adapter);
+            petBreed.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    String petbreed = parent.getItemAtPosition(position).toString();
+                    breed = petbreed;
+
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+
+                }
+            });
+        }
+        //hamster breed listener
+        else if(species.equals("Hamster")){
+            ArrayAdapter<CharSequence>adapter = ArrayAdapter.createFromResource(this,R.array.hamsterBreed, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
+            adapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
+            petBreed.setAdapter(adapter);
+            petBreed.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    String petbreed = parent.getItemAtPosition(position).toString();
+                    breed = petbreed;
+
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+
+                }
+            });
+        }
+
+    }
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+
+    //update database for pet 1
+    private void CheckerGetter() {
+        String petname = petName.getText().toString();
+
+        FirebaseDatabase.getInstance().getReference("user/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/pet1/")
+                .setValue(new Pet(species.trim(),petname.trim(),age.trim(),breed.trim(),bday.trim(),url)).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Toast.makeText(addPet.this, "Successfully registered pet", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getApplication(), govethome.class);
+                        startActivity(intent);
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(addPet.this, "Failed registering pet", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
+    }
+
 }

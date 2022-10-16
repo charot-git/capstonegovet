@@ -36,7 +36,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.Calendar;
 
-public class addPet2 extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class addPet3 extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     ImageView petProfilePic;
     Spinner petSpecies, petBreed, petAge;
     EditText petName;
@@ -53,7 +53,7 @@ public class addPet2 extends AppCompatActivity implements AdapterView.OnItemSele
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_pet2);
+        setContentView(R.layout.activity_add_pet3);
 
         storageReference = FirebaseStorage.getInstance().getReference();
 
@@ -140,7 +140,7 @@ public class addPet2 extends AppCompatActivity implements AdapterView.OnItemSele
         petBirthday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatePickerDialog dialog = new DatePickerDialog(addPet2.this, new DatePickerDialog.OnDateSetListener() {
+                DatePickerDialog dialog = new DatePickerDialog(addPet3.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
 
@@ -157,11 +157,11 @@ public class addPet2 extends AppCompatActivity implements AdapterView.OnItemSele
     }
     //petProfilePicUploadStroage
     private void upload(Uri imageUri) {
-        StorageReference fileRef = storageReference.child("images/pet2/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "pet2.jpg");
+        StorageReference fileRef = storageReference.child("images/pet3/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "pet3.jpg");
         fileRef.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                Toast.makeText(addPet2.this, "Pet profile picture upload success!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(addPet3.this, "Pet profile picture upload success!", Toast.LENGTH_SHORT).show();
                 fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
@@ -174,7 +174,7 @@ public class addPet2 extends AppCompatActivity implements AdapterView.OnItemSele
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(addPet2.this, "Pet profile picture upload has failed!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(addPet3.this, "Pet profile picture upload has failed!", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -273,21 +273,20 @@ public class addPet2 extends AppCompatActivity implements AdapterView.OnItemSele
     private void CheckerGetter() {
         String petname = petName.getText().toString();
 
-        FirebaseDatabase.getInstance().getReference("user/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/pet2/")
+        FirebaseDatabase.getInstance().getReference("user/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/pet3/")
                 .setValue(new Pet(species.trim(),petname.trim(),age.trim(),breed.trim(),bday.trim(),url)).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
-                        Toast.makeText(addPet2.this, "Successfully registered pet", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(addPet3.this, "Successfully registered pet", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplication(), govethome.class);
                         startActivity(intent);
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(addPet2.this, "Failed registering pet", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(addPet3.this, "Failed registering pet", Toast.LENGTH_SHORT).show();
                     }
                 });
-
 
 
     }
