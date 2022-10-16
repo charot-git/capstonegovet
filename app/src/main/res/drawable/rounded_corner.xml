@@ -9,9 +9,9 @@
     <corners android:radius="500dp" />
 
     <!-- This is the border color -->
-    <stroke android:width="0dp" android:color="#ccc" />
+    <stroke android:width="1dp" android:color="@color/blue" />
 
     <!--- This is the background color -->
-    <solid android:color="@color/brown" />
+    <solid android:color="@color/white" />
 
 </shape>

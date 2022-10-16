@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:background="@drawable/gradient_background"
+    android:background="@color/bgwhite"
     tools:openDrawer="start">
 
     <include
@@ -22,9 +22,8 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         android:background="@color/white"
-        android:backgroundTint="@color/nwhite"
-        app:itemTextColor="@color/fwhite"
-        app:itemIconTint="@color/fwhite"
+        app:itemTextColor="@color/slightfont"
+        app:itemIconTint="@color/slightfont"
         app:headerLayout="@layout/nav_header_govethome"
         app:menu="@menu/activity_main_drawer"/>
 </androidx.drawerlayout.widget.DrawerLayout>

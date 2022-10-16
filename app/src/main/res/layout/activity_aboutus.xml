@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/dwhite"
+    android:background="@color/bgwhite"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".settings.aboutus">
@@ -18,7 +18,7 @@
         android:fontFamily="@font/poppins_medium"
         android:gravity="center"
         android:text="GoVet"
-        android:textColor="@color/fwhite"
+        android:textColor="@color/slightfont"
         android:textSize="55dp"
         android:textStyle="bold" />
 
@@ -32,7 +32,7 @@
         android:layout_below="@id/GoVet"
         android:layout_marginBottom="5dp"
         android:textSize="25sp"
-        android:textColor="@color/fwhite" />
+        android:textColor="@color/slightfont" />
 
 
     <TextView
@@ -44,7 +44,7 @@
         android:text="Capstone Project by :"
         android:layout_below="@id/booking"
         android:textSize="25sp"
-        android:textColor="@color/fwhite" />
+        android:textColor="@color/slightfont" />
 
     <TextView
         android:id="@+id/name1"
@@ -55,7 +55,7 @@
         android:text="Dale Allen Liwanag"
         android:layout_below="@id/cp"
         android:textSize="20sp"
-        android:textColor="@color/fwhite" />
+        android:textColor="@color/slightfont" />
 
     <TextView
         android:id="@+id/name2"
@@ -66,7 +66,7 @@
         android:text="Andrei Jam Siapno"
         android:layout_below="@id/name1"
         android:textSize="20sp"
-        android:textColor="@color/fwhite" />
+        android:textColor="@color/slightfont" />
 
     <TextView
         android:id="@+id/name3"
@@ -74,10 +74,10 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/popins_light"
         android:gravity="center"
-        android:text="Allen ALipio"
+        android:text="Allen Alipio"
         android:layout_below="@id/name2"
         android:textSize="20sp"
-        android:textColor="@color/fwhite" />
+        android:textColor="@color/slightfont" />
 
     <TextView
         android:id="@+id/name4"
@@ -88,7 +88,7 @@
         android:text="Nica Alimuring"
         android:layout_below="@id/name3"
         android:textSize="20sp"
-        android:textColor="@color/fwhite" />
+        android:textColor="@color/slightfont" />
 
 </RelativeLayout>
 

@@ -4,22 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background"
+    android:background="@color/bgwhite"
     tools:context=".MainActivity">
 
     <ImageView
         android:id="@+id/govetlogo2"
-        android:layout_width="56dp"
-        android:layout_height="51dp"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="15dp"
-        android:layout_marginBottom="15dp"
         android:contentDescription="TODO"
-        app:srcCompat="@drawable/logogv" />
+        app:srcCompat="@drawable/vecregister" />
 
-    <TextView
+   <!-- <TextView
         android:id="@+id/welcome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,20 +31,19 @@
         android:text="GoVet"
         android:textColor="@color/fwhite"
         android:textSize="35dp"
-        android:textStyle="bold" />
+        android:textStyle="bold" />-->
 
     <TextView
         android:id="@+id/registertext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/welcome"
+        android:layout_below="@id/govetlogo2"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:gravity="center"
         android:text="Register"
-        android:textColor="@color/fwhite"
+        android:textColor="@color/slightfont"
         android:textSize="25dp"
         android:textStyle="bold"
         android:fontFamily="@font/poppins_medium"/>
@@ -61,13 +59,13 @@
         android:layout_marginBottom="10dp"
         android:background="@drawable/rounded_corner"
         android:drawableLeft="@drawable/ic_baseline_person_24"
-        android:drawableTint="@color/white"
+        android:drawableTint="@color/slightfont"
         android:drawablePadding="10dp"
         android:fontFamily="@font/poppins_medium"
         android:hint="Username"
         android:padding="15dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white" />
+        android:textColor="@color/lightfont"
+        android:textColorHint="@color/lightfont" />
 
     <EditText
         android:id="@+id/emailreg"
@@ -80,12 +78,13 @@
         android:layout_marginBottom="10dp"
         android:background="@drawable/rounded_corner"
         android:drawableLeft="@drawable/ic_baseline_alternate_email_24"
+        android:drawableTint="@color/slightfont"
         android:drawablePadding="10dp"
         android:fontFamily="@font/poppins_medium"
         android:hint="E-mail"
         android:padding="15dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white" />
+        android:textColor="@color/lightfont"
+        android:textColorHint="@color/lightfont" />
 
     <EditText
         android:id="@+id/mobilenum"
@@ -98,12 +97,13 @@
         android:layout_marginBottom="10dp"
         android:background="@drawable/rounded_corner"
         android:drawableLeft="@drawable/ic_baseline_local_phone_24"
+        android:drawableTint="@color/slightfont"
         android:drawablePadding="10dp"
         android:fontFamily="@font/poppins_medium"
         android:hint="Mobile number"
         android:padding="15dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white" />
+        android:textColor="@color/lightfont"
+        android:textColorHint="@color/lightfont" />
 
     <EditText
         android:id="@+id/passwordreg"
@@ -112,6 +112,7 @@
         android:layout_below="@id/mobilenum"
         android:layout_marginStart="50dp"
         android:layout_marginTop="5dp"
+        android:drawableTint="@color/slightfont"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/rounded_corner"
@@ -121,8 +122,8 @@
         android:hint="Password"
         android:inputType="textPassword"
         android:padding="15dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white" />
+        android:textColor="@color/lightfont"
+        android:textColorHint="@color/lightfont" />
 
 
     <EditText
@@ -139,10 +140,11 @@
         android:drawablePadding="10dp"
         android:fontFamily="@font/poppins_medium"
         android:hint="Confirm Password"
+        android:drawableTint="@color/slightfont"
         android:inputType="textPassword"
         android:padding="15dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white" />
+        android:textColor="@color/lightfont"
+        android:textColorHint="@color/lightfont" />
 
 
     <com.google.android.material.button.MaterialButton
@@ -155,7 +157,7 @@
         android:layout_marginTop="15dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="5dp"
-        android:backgroundTint="@color/lbrown"
+        android:backgroundTint="@color/blue"
         android:fontFamily="@font/poppins_medium"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"

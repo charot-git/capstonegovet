@@ -4,21 +4,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/dwhite"
+    android:background="@color/bgwhite"
     tools:context=".FrontEnd.sched">
 
+    <ImageView
+        android:id="@+id/appointmentvec"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="15dp"
+        android:contentDescription="TODO"
+        app:srcCompat="@drawable/vecschedule" />
     <TextView
         android:id="@+id/Appointments"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
-        android:layout_marginTop="20dp"
+        android:layout_below="@+id/appointmentvec"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="5dp"
         android:fontFamily="@font/poppins_medium"
         android:gravity="start"
         android:text="Appointments"
-        android:textColor="@color/fwhite"
+        android:textColor="@color/slightfont"
         android:textSize="24dp"
         android:textStyle="bold">
 
@@ -29,23 +39,23 @@
         android:id="@+id/appointmentcard"
         android:layout_width="match_parent"
         android:layout_height="100dp"
+        app:cardElevation="4dp"
         android:layout_marginLeft="30dp"
         app:cardCornerRadius="20dp"
-        android:layout_marginTop="10dp"
         android:layout_marginRight="30dp"
         android:layout_marginBottom="8dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/brown"
+            android:background="@color/white"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="DATE : "
-                android:textColor="@color/white"
+                android:textColor="@color/slightfont"
                 android:fontFamily="@font/poppins_medium"
                 android:textSize="24dp"
                 android:layout_marginTop="15dp"
@@ -55,7 +65,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TIME: "
-                android:textColor="@color/white"
+                android:textColor="@color/slightfont"
                 android:fontFamily="@font/popins_light"
                 android:textSize="16dp"
                 android:layout_marginLeft="20dp"/>

@@ -15,7 +15,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/brown"
+            android:background="@color/blue"
             app:popupTheme="@style/Theme.GoVet.PopupOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -29,7 +29,7 @@
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="@dimen/fab_margin"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="@color/lbrown"
+        android:backgroundTint="@color/blue"
         android:contentDescription="@string/action_settings"
         android:tint="@color/white"
         app:srcCompat="@android:drawable/ic_menu_my_calendar"

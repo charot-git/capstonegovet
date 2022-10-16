@@ -4,19 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dwhite"
+    android:background="@color/bgwhite"
     tools:context=".settings.account">
+
+
+    <ImageView
+        android:id="@+id/accountvec"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:contentDescription="@string/todo"
+        app:srcCompat="@drawable/vecaccount"
+        tools:ignore="ImageContrastCheck" />
 
     <Button
         android:id="@+id/emailauth"
-        android:layout_width="wrap_content"
+        android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_below="@id/accountvec"
         android:fontFamily="@font/poppins_medium"
         android:text="E-mail Authentication"
         android:textSize="14dp"
         app:cornerRadius="30dp"
+        android:backgroundTint="@color/blue"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="93dp" />
@@ -38,19 +53,22 @@
 
     <Button
         android:id="@+id/changepass"
-        android:layout_width="wrap_content"
+        android:layout_width="240dp"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_medium"
-        android:textSize="14dp"
-        android:text="Change password"
-        android:textColor="@color/white"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/emailauth"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Change password"
+        android:textColor="@color/blue"
+        android:textSize="14dp"
+        app:cornerRadius="30dp"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="162dp"
-        app:cornerRadius="30dp" />
+        app:strokeColor="@color/blue"
+        app:strokeWidth="1dp"
+        tools:layout_editor_absoluteY="162dp" />
 
-    <TextView
+    <!--<TextView
         android:id="@+id/nameview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -87,5 +105,5 @@
         android:layout_marginLeft="35dp"
         android:layout_below="@id/contactview"
         android:textSize="25sp"
-        android:textColor="@color/fwhite" />
+        android:textColor="@color/fwhite" />-->
 </RelativeLayout>

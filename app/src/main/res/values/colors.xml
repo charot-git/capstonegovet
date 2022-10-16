@@ -5,9 +5,8 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
+
     <color name="bblack">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
     <color name="fwhite">#54433B</color>
     <color name="light_blue_600">#FF039BE5</color>
     <color name="light_blue_900">#FF01579B</color>
@@ -25,5 +24,14 @@
     <color name="navban">#B6866E</color>
     <color name="calendarbg">#C8C8C8</color>
     <color name="nwhite">#FFFFFF</color>
+
+
+    //NEW UI COLORS
+    <color name="blue">#407BFF</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="bgwhite">#f5f7fb</color>
+    <color name="lightfont">#94a3b8</color>
+    <color name="slightfont">#414750</color>
+    <color name="black">#0f172a</color>
 
 </resources>

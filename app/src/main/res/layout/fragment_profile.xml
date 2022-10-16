@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FrontEnd.profile"
-    android:background="@color/dwhite">
+    android:background="@color/bgwhite">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -15,6 +15,7 @@
         android:layout_marginTop="25dp"
         android:layout_centerHorizontal="true"
         android:layout_height="100dp"
+        app:cardElevation="4dp"
         app:cardCornerRadius="50dp">
 
         <ImageView
@@ -30,26 +31,29 @@
 
     <Button
         android:id="@+id/updateprofile"
-        android:layout_width="wrap_content"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/poppins_medium"
         android:text="@string/update_profile"
+        android:backgroundTint="@color/blue"
         android:textColor="@color/white"
         app:cornerRadius="110dp"
         android:layout_marginTop="130dp"/>
 
     <Button
         android:id="@+id/statusrofile"
-        android:layout_below="@id/updateprofile"
-        android:layout_width="wrap_content"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:layout_below="@id/updateprofile"
+        android:layout_centerHorizontal="true" android:layout_marginTop="5dp"
+        android:backgroundTint="@color/white"
         android:fontFamily="@font/poppins_medium"
         android:text="@string/account_status"
-        android:textColor="@color/white"
+        android:textColor="@color/blue"
         app:cornerRadius="110dp"
-        android:layout_marginTop="5dp"/>
+        app:strokeColor="@color/blue"
+        app:strokeWidth="1dp" />
 <!--
     <TextView
         android:id="@+id/petinfo"
@@ -124,9 +128,8 @@
         android:layout_marginBottom="5dp"
         android:fontFamily="@font/poppins_medium"
         android:gravity="start"
-
         android:text="My pets"
-        android:textColor="@color/fwhite"
+        android:textColor="@color/slightfont"
         android:textSize="30dp"
         android:textStyle="bold">
 
@@ -140,6 +143,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="0dp"
         android:layout_marginRight="30dp"
+        app:cardElevation="4dp"
         android:layout_marginBottom="8dp"
         app:cardCornerRadius="30dp">
 
@@ -149,7 +153,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/brown"
+            android:background="@color/white"
+
             android:orientation="vertical">
 
             <LinearLayout
@@ -173,7 +178,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/popins_light"
                         android:text="Breed"
-                        android:textColor="@color/white"
+                        android:textColor="@color/lightfont"
                         android:textSize="14dp" />
 
                     <TextView
@@ -182,7 +187,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_medium"
                         android:text="Name"
-                        android:textColor="@color/white"
+                        android:textColor="@color/lightfont"
                         android:textSize="18dp" />
 
                     <TextView
@@ -191,7 +196,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/popins_light"
                         android:text="Age"
-                        android:textColor="@color/white"
+                        android:textColor="@color/lightfont"
                         android:textSize="14dp" />
 
 
@@ -208,10 +213,10 @@
             android:layout_height="wrap_content"
             android:drawablePadding="12dp"
             android:fontFamily="@font/poppins_medium"
-            android:textColor="@color/white"
+            android:textColor="@color/slightfont"
             android:layout_marginLeft="85dp"
             android:layout_gravity="center"
-            android:drawableTint="@color/green"
+            android:drawableTint="@color/slightfont"
             android:drawableLeft="@drawable/ic_baseline_add_circle_24"
             android:text="ADD PET" />
 
@@ -224,6 +229,7 @@
         android:layout_below="@+id/pet1"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
+        app:cardElevation="4dp"
         android:layout_marginBottom="8dp"
         app:cardCornerRadius="30dp">
 
@@ -231,7 +237,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/brown"
+            android:background="@color/white"
             android:orientation="vertical">
 
 
@@ -254,7 +260,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/popins_light"
                         android:text=""
-                        android:textColor="@color/white"
+                        android:textColor="@color/lightfont"
                         android:textSize="14dp" />
 
                     <TextView
@@ -263,7 +269,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_medium"
                         android:text=""
-                        android:textColor="@color/white"
+                        android:textColor="@color/lightfont"
                         android:textSize="18dp" />
 
                     <TextView
@@ -272,7 +278,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/popins_light"
                         android:text=""
-                        android:textColor="@color/white"
+                        android:textColor="@color/lightfont"
                         android:textSize="14dp" />
 
 
@@ -289,10 +295,10 @@
             android:layout_height="wrap_content"
             android:drawablePadding="12dp"
             android:fontFamily="@font/poppins_medium"
-            android:textColor="@color/white"
+            android:textColor="@color/slightfont"
             android:layout_marginLeft="85dp"
             android:layout_gravity="center"
-            android:drawableTint="@color/green"
+            android:drawableTint="@color/slightfont"
             android:drawableLeft="@drawable/ic_baseline_add_circle_24"
             android:text="ADD PET" />
 
@@ -305,6 +311,7 @@
         android:layout_height="115dp"
         android:layout_below="@+id/pet2"
         android:layout_marginLeft="30dp"
+        app:cardElevation="4dp"
         android:layout_marginRight="30dp"
         android:layout_marginBottom="8dp"
         app:cardCornerRadius="30dp">
@@ -313,7 +320,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/brown"
+            android:background="@color/white"
             android:orientation="vertical">
 
             <LinearLayout
@@ -335,7 +342,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/popins_light"
                         android:text=""
-                        android:textColor="@color/white"
+                        android:textColor="@color/lightfont"
                         android:textSize="14dp" />
 
                     <TextView
@@ -344,7 +351,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_medium"
                         android:text=""
-                        android:textColor="@color/white"
+                        android:textColor="@color/lightfont"
                         android:textSize="18dp" />
 
                     <TextView
@@ -353,7 +360,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/popins_light"
                         android:text=""
-                        android:textColor="@color/white"
+                        android:textColor="@color/lightfont"
                         android:textSize="14dp" />
 
 
@@ -370,10 +377,10 @@
             android:layout_height="wrap_content"
             android:drawablePadding="12dp"
             android:fontFamily="@font/poppins_medium"
-            android:textColor="@color/white"
+            android:textColor="@color/slightfont"
             android:layout_marginLeft="85dp"
             android:layout_gravity="center"
-            android:drawableTint="@color/green"
+            android:drawableTint="@color/slightfont"
             android:drawableLeft="@drawable/ic_baseline_add_circle_24"
             android:text="ADD PET" />
 

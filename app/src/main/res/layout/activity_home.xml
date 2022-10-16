@@ -4,31 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dwhite"
+    android:background="@color/bgwhite"
     tools:context=".HomeActivity">
 
 
     <ImageView
         android:id="@+id/govetlogo"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_below="@id/welcome2"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="25dp"
+
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="15dp"
         android:contentDescription="TODO"
-        app:srcCompat="@drawable/logogv" />
+        app:srcCompat="@drawable/vecwelcome" />
 
     <TextView
         android:id="@+id/welcome2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/govetlogo"
+        android:layout_marginTop="25dp"
         android:fontFamily="@font/poppins_medium"
         android:gravity="center"
-        android:text="Welcome to GoVet"
-        android:textColor="@color/fwhite"
+        android:text="GoVet"
+        android:textColor="@color/slightfont"
         android:textSize="35dp"
         android:textStyle="bold" />
 

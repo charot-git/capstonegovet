@@ -4,30 +4,46 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/dwhite"
+    android:background="@color/bgwhite"
     tools:context=".FrontEnd.shop">
+
+
+    <ImageView
+        android:id="@+id/paymentvec"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:contentDescription="@string/todo"
+        app:srcCompat="@drawable/vecpayment"
+        tools:ignore="ImageContrastCheck" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/payment"
+        android:layout_below="@+id/paymentvec"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginLeft="30dp"
+        app:cardElevation="4dp"
         app:cardCornerRadius="20dp"
-        android:layout_marginTop="30dp"
+
         android:layout_marginRight="30dp"
         android:layout_marginBottom="8dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/brown"
+            android:background="@color/white"
             android:orientation="vertical">
 
           <TextView
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:text="PayPal"
-              android:textColor="@color/white"
+              android:textColor="@color/slightfont"
               android:fontFamily="@font/poppins_medium"
               android:textSize="24dp"
               android:layout_marginTop="15dp"
@@ -37,7 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="SampleEmail@gmail.com"
-                android:textColor="@color/white"
+                android:textColor="@color/slightfont"
                 android:fontFamily="@font/popins_light"
                 android:textSize="14dp"
                 android:layout_marginTop="5dp"
@@ -52,9 +68,10 @@
 
     <Button
         android:id="@+id/addpayment"
-        android:layout_width="wrap_content"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/payment"
+        android:backgroundTint="@color/blue"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/poppins_medium"
         android:text="ADD PAYMENT METHOD"
@@ -65,15 +82,18 @@
 
     <Button
         android:id="@+id/paymenthostory"
-        android:layout_width="wrap_content"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
         android:layout_below="@+id/addpayment"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:backgroundTint="@color/white"
         android:fontFamily="@font/poppins_medium"
         android:text="PAYMENT HISTORY"
-        android:layout_marginTop="5dp"
-        android:textSize="12dp"
-        app:cornerRadius="20dp" />
+        android:textColor="@color/blue"
+        android:textSize="14dp"
+        app:cornerRadius="20dp"
+        app:strokeColor="@color/blue"
+        app:strokeWidth="1dp" />
 
 </RelativeLayout>

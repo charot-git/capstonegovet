@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
-    android:background="@drawable/background_content_top"
+    android:background="@color/bgwhite"
     tools:context=".FrontEnd.chatActivity">
 
 
@@ -14,19 +14,21 @@
         android:layout_width="0dp"
         android:layout_height="75dp"
         android:layout_marginBottom="154dp"
-        android:background="@color/brown"
+        android:background="@color/blue"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.cardview.widget.CardView
+            android:layout_marginLeft="15dp"
             android:layout_width="55dp"
             android:layout_height="55dp"
             android:layout_gravity="center"
             app:cardCornerRadius="44dp">
 
             <ImageView
+
                 android:id="@+id/img_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -41,6 +43,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:textSize="14dp"
+            android:fontFamily="@font/poppins_medium"
             android:layout_marginLeft="15dp"
             android:textColor="@color/white" />
 
@@ -49,8 +53,9 @@
 
     <ProgressBar
         android:id="@+id/progressMessages"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:indeterminateTint="@color/blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -84,7 +89,7 @@
             android:layout_marginLeft="4dp"
             android:padding="8dp"
             android:src="@drawable/ic_send"
-            app:tint="@color/white"/>
+            app:tint="@color/blue"/>
 
     </FrameLayout>
 
@@ -108,8 +113,8 @@
         android:paddingHorizontal="20dp"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
+        android:textColor="@color/slightfont"
+        android:textColorHint="@color/slightfont"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/layoutSend"
         app:layout_constraintStart_toStartOf="parent" />

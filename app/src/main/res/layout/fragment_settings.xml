@@ -3,19 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dwhite"
+    android:background="@color/bgwhite"
 
     tools:context=".Settings">
 
     <!-- TODO: Update blank fragment layout -->
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"
-        android:visibility="invisible" />
-
-    <TextView
+    <!--<TextView
         android:id="@+id/settingview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,90 +21,96 @@
         android:layout_marginEnd="20dp"
         android:textSize="35sp"
         android:textColor="@color/fwhite"
-        />
+        />-->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/hello_blank_fragment"
+        android:visibility="invisible" />
 
     <TextView
         android:drawableLeft="@drawable/ic_baseline_person_24"
-        android:drawableTint="@color/fwhite"
+        android:drawableTint="@color/slightfont"
         android:id="@+id/accountview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/popins_light"
         android:gravity="center"
         android:text=" Account"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="50dp"
         android:textSize="25sp"
-        android:textColor="@color/fwhite" />
+        android:textColor="@color/slightfont" />
 
     <TextView
         android:id="@+id/displayview"
         android:drawableLeft="@drawable/ic_baseline_display_settings_24"
-        android:drawableTint="@color/fwhite"
+        android:drawableTint="@color/slightfont"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/popins_light"
         android:gravity="center"
         android:text=" Display"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="100dp"
         android:textSize="25sp"
-        android:textColor="@color/fwhite" />
+        android:textColor="@color/slightfont" />
 
     <TextView
         android:id="@+id/privacyandtermsview"
         android:drawableLeft="@drawable/ic_baseline_privacy_tip_24"
-        android:drawableTint="@color/fwhite"
+        android:drawableTint="@color/slightfont"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/popins_light"
         android:gravity="center"
         android:text=" Privacy and Terms"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="150dp"
         android:textSize="25sp"
-        android:textColor="@color/fwhite" />
+        android:textColor="@color/slightfont" />
 
     <TextView
         android:id="@+id/aboutusview"
         android:drawableLeft="@drawable/ic_info"
-        android:drawableTint="@color/fwhite"
+        android:drawableTint="@color/slightfont"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/popins_light"
         android:gravity="center"
         android:text=" About Us"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="250dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="200dp"
         android:textSize="25sp"
-        android:textColor="@color/fwhite" />
+        android:textColor="@color/slightfont" />
 
     <TextView
         android:id="@+id/helpview"
         android:drawableLeft="@drawable/ic_baseline_help_outline_24"
-        android:drawableTint="@color/fwhite"
+        android:drawableTint="@color/slightfont"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/popins_light"
         android:gravity="center"
         android:text=" Help"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="250dp"
         android:textSize="25sp"
-        android:textColor="@color/fwhite"/>
+        android:textColor="@color/slightfont"/>
 
     <TextView
         android:drawableLeft="@drawable/ic_baseline_logout_24"
-        android:drawableTint="@color/fwhite"
+        android:drawableTint="@color/slightfont"
         android:id="@+id/logoutview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/popins_light"
         android:gravity="center"
         android:text=" Logout"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="350dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="330dp"
         android:textSize="25sp"
-        android:textColor="@color/fwhite"/>
+        android:textColor="@color/slightfont"/>
 
 </FrameLayout>
