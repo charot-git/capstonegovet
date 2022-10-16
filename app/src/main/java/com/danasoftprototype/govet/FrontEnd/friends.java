@@ -7,9 +7,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -30,6 +32,7 @@ public class friends extends AppCompatActivity {
     private ArrayList<User> users;
     private ProgressBar progressBar;
     private UserAdapter userAdapter;
+    private ImageView back;
     UserAdapter.OnUserClickListener onUserClickListener;
 
     private SwipeRefreshLayout swipeRefreshLayout;
@@ -47,6 +50,15 @@ public class friends extends AppCompatActivity {
         users = new ArrayList<>();
         recyclerView = findViewById(R.id.recycler_view);
         swipeRefreshLayout = findViewById(R.id.swipeLayout);
+        back = findViewById(R.id.back);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplication(), govethome.class);
+                startActivity(intent);
+            }
+        });
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
