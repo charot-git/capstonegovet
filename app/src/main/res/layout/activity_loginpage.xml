@@ -107,9 +107,48 @@
         android:textSize="18dp"
         app:cornerRadius="30dp" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/loginbtnAdmin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/loginbtn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:backgroundTint="@color/blue"
+        android:fontFamily="@font/poppins_medium"
+        android:paddingLeft="20dp"
+        android:paddingTop="5dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="5dp"
+        android:text="Admin Login"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        app:cornerRadius="30dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/loginbtnUser"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/loginbtnAdmin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:backgroundTint="@color/blue"
+        android:fontFamily="@font/poppins_medium"
+        android:paddingLeft="20dp"
+        android:paddingTop="5dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="5dp"
+        android:text="User Login"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        app:cornerRadius="30dp" />
+
+
     <TextView
         android:id="@+id/forgotpass"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/loginbtn"
         android:layout_centerHorizontal="true"
