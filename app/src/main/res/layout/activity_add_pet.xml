@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dwhite"
+    android:background="@color/bgwhite"
     tools:context=".addPet">
 
     <FrameLayout
@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="invisible"
-        android:background="@color/dwhite">
+        android:background="@color/bgwhite">
 
 
     </FrameLayout>
@@ -88,8 +88,8 @@
             android:padding="5dp"
             android:layout_marginBottom="12dp"
             android:layout_marginStart="15dp"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white" />
+            android:textColor="@color/slightfont"
+            android:textColorHint="@color/slightfont" />
 
 
         <TextView
@@ -143,9 +143,9 @@
             android:gravity="center"
             android:layout_marginBottom="12dp"
             android:layout_marginStart="15dp"
-            android:textColor="@color/white"
+            android:textColor="@color/slightfont"
             android:textSize="14dp"
-            android:textColorHint="@color/white" />
+            android:textColorHint="@color/slightfont" />
 
 
 
@@ -180,6 +180,7 @@
             android:textSize="14dp"
             app:cornerRadius="30dp"
             android:textColor="@color/white"
+            android:backgroundTint="@color/blue"
             android:layout_centerHorizontal="true"
             android:layout_below="@id/petBreed"/>
 

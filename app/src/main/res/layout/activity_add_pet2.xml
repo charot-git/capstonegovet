@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dwhite"
+    android:background="@color/bgwhite"
     tools:context=".addPet2">
 
     <FrameLayout
@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="invisible"
-        android:background="@color/dwhite">
+        android:background="@color/bgwhite">
 
 
     </FrameLayout>
@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_medium"
             android:textSize="14dp"
-            android:textColor="@color/fwhite"
+            android:textColor="@color/slightfont"
             android:text="Species"/>
 
         <Spinner
@@ -71,7 +71,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_medium"
             android:textSize="14dp"
-            android:textColor="@color/fwhite"
+            android:textColor="@color/slightfont"
             android:text="Name"/>
 
         <EditText
@@ -88,8 +88,8 @@
             android:padding="5dp"
             android:layout_marginBottom="12dp"
             android:layout_marginStart="15dp"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white" />
+            android:textColor="@color/slightfont"
+            android:textColorHint="@color/slightfont" />
 
 
         <TextView
@@ -100,7 +100,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_medium"
             android:textSize="14dp"
-            android:textColor="@color/fwhite"
+            android:textColor="@color/slightfont"
             android:text="Age"/>
 
         <Spinner
@@ -127,7 +127,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_medium"
             android:textSize="14dp"
-            android:textColor="@color/fwhite"
+            android:textColor="@color/slightfont"
             android:text="Birthday" />
 
         <TextView
@@ -143,9 +143,9 @@
             android:gravity="center"
             android:layout_marginBottom="12dp"
             android:layout_marginStart="15dp"
-            android:textColor="@color/white"
+            android:textColor="@color/slightfont"
             android:textSize="14dp"
-            android:textColorHint="@color/white" />
+            android:textColorHint="@color/slightfont" />
 
 
 
@@ -157,7 +157,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_medium"
             android:textSize="14dp"
-            android:textColor="@color/fwhite"
+            android:textColor="@color/slightfont"
             android:text="Breed" />
 
         <Spinner
@@ -179,6 +179,7 @@
             android:layout_marginTop="20dp"
             android:textSize="14dp"
             app:cornerRadius="30dp"
+            android:backgroundTint="@color/blue"
             android:textColor="@color/white"
             android:layout_centerHorizontal="true"
             android:layout_below="@id/petBreed"/>
