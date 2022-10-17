@@ -103,6 +103,7 @@
         <item>20</item>
         <item>21</item>
     </string-array>
+    <string name="title_activity_admin_govet_home">adminGovetHome</string>
 
 
 </resources>

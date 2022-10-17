@@ -130,7 +130,6 @@ public class register extends AppCompatActivity {
                                         .getCurrentUser()
                                         .getUid())
                                         .setValue(new User(username.getText().toString(), emailreg.getText().toString(),"",mobilenumber.getText().toString()));
-                                //.setValue(new User(username.getText().toString(),emailreg.getText().toString(), "" ));
                         progressBar.setVisibility(View.INVISIBLE);
 
                         //send email verification

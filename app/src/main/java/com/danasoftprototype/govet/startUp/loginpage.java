@@ -17,6 +17,7 @@ import com.danasoftprototype.govet.databinding.ActivityLoginpageBinding;
 import com.danasoftprototype.govet.settings.forgotpass;
 import com.danasoftprototype.govet.FrontEnd.govethome;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.AuthResult;
@@ -88,6 +89,7 @@ public class loginpage extends AppCompatActivity {
         String useremail  = email.getText().toString();
         String userpass  = password.getText().toString();
 
+
         if(useremail.isEmpty()){
             email.setError("Please enter your email!");
             email.requestFocus();
@@ -100,6 +102,38 @@ public class loginpage extends AppCompatActivity {
         }
         else {
             //login process
+            if(useremail.equals("admingovet@gmail.com") && userpass.equals("admingovet")){
+                mAuth.signInWithEmailAndPassword("admingovet@gmail.com", "admingovet").addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()){
+                            if (mAuth != null){
+                                for (UserInfo profile : mAuth.getCurrentUser().getProviderData()){
+                                    String email1 = profile.getEmail();
+                                    Toast.makeText(loginpage.this,"Welcome to GoVet  admin!", Toast.LENGTH_SHORT).show();
+                                    finish();
+                                }
+                            }
+                            else{
+                                Toast.makeText(loginpage.this,"Login failed", Toast.LENGTH_SHORT).show();
+                            }
+
+                            /*Intent intent = new Intent(getApplication(), com.danasoftprototype.govet.adminFrontEnd.adminGovetHome.class);
+                            startActivity(intent);*/
+
+                        }
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(loginpage.this,"Login failed ", Toast.LENGTH_SHORT).show();
+                        email.requestFocus();
+                    }
+                });
+
+            }
+            else{
             mAuth.signInWithEmailAndPassword(useremail,userpass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
@@ -110,6 +144,7 @@ public class loginpage extends AppCompatActivity {
                                 Toast.makeText(loginpage.this,"Welcome to GoVet " + email1 + "!", Toast.LENGTH_SHORT).show();
                             }
                         }
+
                         Intent intent = new Intent(loginpage.this, govethome.class);
                         startActivity(intent);
                         finish();
@@ -121,6 +156,8 @@ public class loginpage extends AppCompatActivity {
                     }
                 }
             });
+            }
+
 
         }
 
