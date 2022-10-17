@@ -8,9 +8,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.danasoftprototype.govet.R;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -22,6 +26,9 @@ import com.danasoftprototype.govet.databinding.ActivityGovethomeBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserInfo;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
@@ -31,6 +38,8 @@ public class govethome extends AppCompatActivity {
     private ActivityGovethomeBinding binding;
     FirebaseUser mAuth;
     StorageReference storageReference;
+    DatabaseReference reference;
+    FloatingActionButton floatingActionButton;
 
 
 
@@ -66,6 +75,10 @@ public class govethome extends AppCompatActivity {
         setContentView(binding.getRoot());
 
 
+
+        floatingActionButton = findViewById(R.id.fab);
+
+        getBookingData();
 
         setSupportActionBar(binding.appBarGovethome.toolbar);
         binding.appBarGovethome.fab.setOnClickListener(new View.OnClickListener() {
@@ -114,7 +127,23 @@ public class govethome extends AppCompatActivity {
 
     }
 
-
+    private void getBookingData() {
+        String booking = "bookings";
+        reference = FirebaseDatabase.getInstance().getReference("/user/" + FirebaseAuth.getInstance().getCurrentUser().getUid());
+        reference.child(booking).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (task.isSuccessful()){
+                    if(task.getResult().exists()){
+                        floatingActionButton.setVisibility(View.INVISIBLE);
+                    }
+                    else {
+                        floatingActionButton.setVisibility(View.VISIBLE);
+                    }
+                }
+            }
+        });
+    }
 
 
     @Override

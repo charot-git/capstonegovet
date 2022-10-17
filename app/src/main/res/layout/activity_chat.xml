@@ -39,7 +39,7 @@
         </androidx.cardview.widget.CardView>
 
         <ImageView
-            android:id="@+id/back"
+            android:id="@+id/info"
             android:layout_width="608dp"
             android:layout_height="39dp"
             android:layout_marginStart="8dp"

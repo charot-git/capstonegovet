@@ -40,6 +40,7 @@ public class chatActivity extends AppCompatActivity {
     private ProgressBar progressBar;
     private ImageView imgToolbar;
     private ImageView imgSend;
+    private ImageView imgInfo;
 
     private MessageAdapter messageAdapter;
 
@@ -62,6 +63,7 @@ public class chatActivity extends AppCompatActivity {
         imgToolbar = findViewById(R.id.img_toolbar);
         imgSend = findViewById(R.id.sendMessageButton);
         txtChattingWith.setText(usernameOfTheRoomate);
+        imgInfo = findViewById(R.id.info);
         messages = new ArrayList<>();
 
         imgSend.setOnClickListener(new View.OnClickListener() {

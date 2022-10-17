@@ -39,6 +39,7 @@
         android:id="@+id/appointmentcard"
         android:layout_width="match_parent"
         android:layout_height="100dp"
+        android:visibility="invisible"
         app:cardElevation="4dp"
         android:layout_marginLeft="30dp"
         app:cardCornerRadius="20dp"
@@ -52,6 +53,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/dateText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="DATE : "
@@ -62,6 +64,7 @@
                 android:layout_marginLeft="20dp"/>
 
             <TextView
+                android:id="@+id/timeText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TIME: "
