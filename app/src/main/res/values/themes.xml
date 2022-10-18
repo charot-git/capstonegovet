@@ -33,4 +33,13 @@
     <style name="Theme.GoVet.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.GoVet.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+    <!--SplashScreen-->
+    <style name="SplashScreen" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@drawable/background_splashscreen</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+
+    </style>
+
 </resources>
