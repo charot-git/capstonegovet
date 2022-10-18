@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/nav_adminUsers"
+            android:icon="@drawable/ic_friends"
+            android:title="Users" />
+        <item
+            android:id="@+id/nav_adminAppointment"
+            android:icon="@drawable/ic_baseline_access_time_24"
+            android:title="Appointments" />
+        <item
+            android:id="@+id/nav_adminOnlinePayment"
+            android:icon="@drawable/ic_baseline_payment_24"
+            android:title="Online Payment" />
+        <item
+            android:id="@+id/nav_adminSettings"
+            android:icon="@drawable/ic_baseline_settings_24"
+            android:title="Settings" />
+    </group>
+</menu>

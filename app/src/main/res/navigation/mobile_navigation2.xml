@@ -7,19 +7,31 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.danasoftprototype.govet.adminFrontEnd.ui.home.HomeFragment"
+        android:name="com.danasoftprototype.govet.ui.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+    </fragment>
 
-    <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.danasoftprototype.govet.adminFrontEnd.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+    <activity
+        android:id="@+id/nav_adminUsers"
+        android:name="com.danasoftprototype.govet.FrontEndAdmin.adminUsers"
+        android:label="activity_users"
+        tools:layout="@layout/activity_admin_users" />
 
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.danasoftprototype.govet.adminFrontEnd.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+    <activity
+        android:id="@+id/nav_adminAppointment"
+        android:name="com.danasoftprototype.govet.FrontEndAdmin.adminAppoinment"
+        android:label="activity_appointments"
+        tools:layout="@layout/activity_admin_appoinment" />
+    <activity
+        android:id="@+id/nav_adminOnlinePayment"
+        android:name="com.danasoftprototype.govet.FrontEndAdmin.adminOnlinePayments"
+        android:label="activity_onlinepayment"
+        tools:layout="@layout/activity_admin_online_payments" />
+    <activity
+        android:id="@+id/nav_adminSettings"
+        android:name="com.danasoftprototype.govet.FrontEndAdmin.adminSettings"
+        android:label="activity_settings"
+        tools:layout="@layout/activity_admin_settings" />
+
 </navigation>

@@ -65,8 +65,6 @@
         android:name="com.danasoftprototype.govet.FrontEnd.chatActivity"
         android:label="activity_chat"
         tools:layout="@layout/activity_chat">
-
-
     </activity>
     <activity
         android:id="@+id/friends"

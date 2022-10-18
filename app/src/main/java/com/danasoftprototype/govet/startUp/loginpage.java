@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.danasoftprototype.govet.R;
 import com.danasoftprototype.govet.databinding.ActivityLoginpageBinding;
+import com.danasoftprototype.govet.govethome2;
 import com.danasoftprototype.govet.settings.forgotpass;
 import com.danasoftprototype.govet.FrontEnd.govethome;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -138,7 +139,7 @@ public class loginpage extends AppCompatActivity {
                                 Toast.makeText(loginpage.this,"Login failed", Toast.LENGTH_SHORT).show();
                             }
 
-                            Intent intent = new Intent(getApplication(), com.danasoftprototype.govet.FrontEndAdmin.MainActivityAdmin.class);
+                            Intent intent = new Intent(getApplication(), govethome2.class);
                             startActivity(intent);
 
                         }
@@ -199,7 +200,7 @@ public class loginpage extends AppCompatActivity {
                         Toast.makeText(loginpage.this,"Login failed", Toast.LENGTH_SHORT).show();
                     }
 
-                    Intent intent = new Intent(getApplication(), com.danasoftprototype.govet.FrontEndAdmin.MainActivityAdmin.class);
+                    Intent intent = new Intent(getApplication(), govethome2.class);
                     startActivity(intent);
 
                 }
