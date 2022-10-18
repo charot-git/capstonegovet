@@ -16,11 +16,6 @@
             android:iconTint="@color/slightfont"
             android:title="Profile" />
         <item
-            android:id="@+id/nav_chat"
-            android:icon="@drawable/ic_baseline_chat_bubble_24"
-            android:iconTint="@color/slightfont"
-            android:title="Chat" />
-        <item
             android:id="@+id/friends"
             android:icon="@drawable/ic_friends"
             android:iconTint="@color/slightfont"

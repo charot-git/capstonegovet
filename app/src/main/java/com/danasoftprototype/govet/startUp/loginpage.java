@@ -122,61 +122,29 @@ public class loginpage extends AppCompatActivity {
             return;
         }
         else {
-            //login process
-            if(useremail.equals("admingovet@gmail.com") && userpass.equals("admingovet")){
-                mAuth.signInWithEmailAndPassword("admingovet@gmail.com", "admingovet").addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            {
+                mAuth.signInWithEmailAndPassword(useremail,userpass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
                             if (mAuth != null){
                                 for (UserInfo profile : mAuth.getCurrentUser().getProviderData()){
                                     String email1 = profile.getEmail();
-                                    Toast.makeText(loginpage.this,"Welcome to GoVet  admin!", Toast.LENGTH_SHORT).show();
-                                    finish();
+                                    Toast.makeText(loginpage.this,"Welcome to GoVet " + email1 + "!", Toast.LENGTH_SHORT).show();
                                 }
                             }
-                            else{
-                                Toast.makeText(loginpage.this,"Login failed", Toast.LENGTH_SHORT).show();
-                            }
 
-                            Intent intent = new Intent(getApplication(), govethome2.class);
+                            Intent intent = new Intent(loginpage.this, govethome.class);
                             startActivity(intent);
+                            finish();
+                        }
+                        else{
+                            Toast.makeText(loginpage.this,"Login failed " + task.getException(), Toast.LENGTH_SHORT).show();
+                            email.requestFocus();
 
                         }
-
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(loginpage.this,"Login failed ", Toast.LENGTH_SHORT).show();
-                        email.requestFocus();
                     }
                 });
-
-            }
-            else{
-            mAuth.signInWithEmailAndPassword(useremail,userpass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()){
-                        if (mAuth != null){
-                            for (UserInfo profile : mAuth.getCurrentUser().getProviderData()){
-                                String email1 = profile.getEmail();
-                                Toast.makeText(loginpage.this,"Welcome to GoVet " + email1 + "!", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-
-                        Intent intent = new Intent(loginpage.this, govethome.class);
-                        startActivity(intent);
-                        finish();
-                    }
-                    else{
-                        Toast.makeText(loginpage.this,"Login failed " + task.getException(), Toast.LENGTH_SHORT).show();
-                        email.requestFocus();
-
-                    }
-                }
-            });
             }
 
 
