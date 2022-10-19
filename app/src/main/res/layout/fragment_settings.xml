@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -22,14 +22,17 @@
         android:textSize="35sp"
         android:textColor="@color/fwhite"
         />-->
+        <ImageView
+            android:id="@+id/vecset"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/vecsettings">
+        </ImageView>
+
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"
-        android:visibility="invisible" />
-
-    <TextView
+        android:layout_below="@id/vecset"
         android:drawableLeft="@drawable/ic_baseline_person_24"
         android:drawableTint="@color/slightfont"
         android:id="@+id/accountview"
@@ -39,11 +42,11 @@
         android:gravity="center"
         android:text=" Account"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="50dp"
         android:textSize="25sp"
         android:textColor="@color/slightfont" />
 
     <TextView
+        android:layout_below="@id/accountview"
         android:id="@+id/displayview"
         android:drawableLeft="@drawable/ic_baseline_display_settings_24"
         android:drawableTint="@color/slightfont"
@@ -53,11 +56,11 @@
         android:gravity="center"
         android:text=" Display"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="100dp"
         android:textSize="25sp"
         android:textColor="@color/slightfont" />
 
     <TextView
+        android:layout_below="@id/displayview"
         android:id="@+id/privacyandtermsview"
         android:drawableLeft="@drawable/ic_baseline_privacy_tip_24"
         android:drawableTint="@color/slightfont"
@@ -67,12 +70,12 @@
         android:gravity="center"
         android:text=" Privacy and Terms"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="150dp"
         android:textSize="25sp"
         android:textColor="@color/slightfont" />
 
     <TextView
         android:id="@+id/aboutusview"
+        android:layout_below="@id/privacyandtermsview"
         android:drawableLeft="@drawable/ic_info"
         android:drawableTint="@color/slightfont"
         android:layout_width="wrap_content"
@@ -81,12 +84,12 @@
         android:gravity="center"
         android:text=" About Us"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="200dp"
         android:textSize="25sp"
         android:textColor="@color/slightfont" />
 
     <TextView
         android:id="@+id/helpview"
+        android:layout_below="@id/aboutusview"
         android:drawableLeft="@drawable/ic_baseline_help_outline_24"
         android:drawableTint="@color/slightfont"
         android:layout_width="wrap_content"
@@ -95,7 +98,6 @@
         android:gravity="center"
         android:text=" Help"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="250dp"
         android:textSize="25sp"
         android:textColor="@color/slightfont"/>
 
@@ -103,14 +105,15 @@
         android:drawableLeft="@drawable/ic_baseline_logout_24"
         android:drawableTint="@color/slightfont"
         android:id="@+id/logoutview"
+        android:layout_below="@id/helpview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/popins_light"
         android:gravity="center"
         android:text=" Logout"
+        android:layout_marginTop="10dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="330dp"
         android:textSize="25sp"
         android:textColor="@color/slightfont"/>
 
-</FrameLayout>
+</RelativeLayout>

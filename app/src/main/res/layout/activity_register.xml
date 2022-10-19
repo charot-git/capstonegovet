@@ -59,13 +59,13 @@
         android:layout_marginBottom="10dp"
         android:background="@drawable/rounded_corner"
         android:drawableLeft="@drawable/ic_baseline_person_24"
-        android:drawableTint="@color/slightfont"
+        android:drawableTint="@color/lightfont"
         android:drawablePadding="10dp"
         android:fontFamily="@font/poppins_medium"
         android:hint="Username"
         android:padding="15dp"
-        android:textColor="@color/lightfont"
-        android:textColorHint="@color/lightfont" />
+        android:textColor="@color/slightfont"
+        android:textColorHint="@color/slightfont" />
 
     <EditText
         android:id="@+id/emailreg"
@@ -78,13 +78,13 @@
         android:layout_marginBottom="10dp"
         android:background="@drawable/rounded_corner"
         android:drawableLeft="@drawable/ic_baseline_alternate_email_24"
-        android:drawableTint="@color/slightfont"
+        android:drawableTint="@color/lightfont"
         android:drawablePadding="10dp"
         android:fontFamily="@font/poppins_medium"
         android:hint="E-mail"
         android:padding="15dp"
-        android:textColor="@color/lightfont"
-        android:textColorHint="@color/lightfont" />
+        android:textColor="@color/slightfont"
+        android:textColorHint="@color/slightfont" />
 
     <EditText
         android:id="@+id/mobilenum"
@@ -97,13 +97,13 @@
         android:layout_marginBottom="10dp"
         android:background="@drawable/rounded_corner"
         android:drawableLeft="@drawable/ic_baseline_local_phone_24"
-        android:drawableTint="@color/slightfont"
+        android:drawableTint="@color/lightfont"
         android:drawablePadding="10dp"
         android:fontFamily="@font/poppins_medium"
         android:hint="Mobile number"
         android:padding="15dp"
-        android:textColor="@color/lightfont"
-        android:textColorHint="@color/lightfont" />
+        android:textColor="@color/slightfont"
+        android:textColorHint="@color/slightfont" />
 
     <EditText
         android:id="@+id/passwordreg"
@@ -112,7 +112,7 @@
         android:layout_below="@id/mobilenum"
         android:layout_marginStart="50dp"
         android:layout_marginTop="5dp"
-        android:drawableTint="@color/slightfont"
+        android:drawableTint="@color/lightfont"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/rounded_corner"
@@ -122,8 +122,8 @@
         android:hint="Password"
         android:inputType="textPassword"
         android:padding="15dp"
-        android:textColor="@color/lightfont"
-        android:textColorHint="@color/lightfont" />
+        android:textColor="@color/slightfont"
+        android:textColorHint="@color/slightfont" />
 
 
     <EditText
@@ -140,11 +140,11 @@
         android:drawablePadding="10dp"
         android:fontFamily="@font/poppins_medium"
         android:hint="Confirm Password"
-        android:drawableTint="@color/slightfont"
+        android:drawableTint="@color/lightfont"
         android:inputType="textPassword"
         android:padding="15dp"
-        android:textColor="@color/lightfont"
-        android:textColorHint="@color/lightfont" />
+        android:textColor="@color/slightfont"
+        android:textColorHint="@color/slightfont" />
 
 
     <com.google.android.material.button.MaterialButton

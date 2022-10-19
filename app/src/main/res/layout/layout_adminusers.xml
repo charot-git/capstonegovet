@@ -1,30 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bgwhite"
-    tools:context=".FrontEnd.appointmentDetails">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
-        android:id="@+id/calcepVec"
-        android:layout_width="300dp"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/veccancel"
-        android:layout_height="300dp"/>
+        android:layout_marginTop="70dp"
+        android:id="@+id/adminpaymentsvec"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:src="@drawable/vecadminusers"
+        android:layout_centerHorizontal="true">
+
+    </ImageView>
+
+    <TextView
+        android:id="@+id/UsersText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="5dp"
+        android:layout_below="@id/adminpaymentsvec"
+        android:fontFamily="@font/poppins_medium"
+        android:gravity="start"
+        android:text="Users Management"
+        android:textColor="@color/slightfont"
+        android:textSize="24dp"
+        android:textStyle="bold"/>
 
     <androidx.cardview.widget.CardView
-        android:layout_below="@+id/calcepVec"
-        android:id="@+id/detailsCon"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="30dp"
+        android:layout_below="@id/UsersText"
+        android:id="@+id/userCon"
         app:cardElevation="4dp"
-        android:layout_marginBottom="8dp"
-        app:cardCornerRadius="30dp">
+        app:cardCornerRadius="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="8dp" >
 
 
         <LinearLayout
@@ -38,8 +54,8 @@
                 android:id="@+id/detailsLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginRight="30dp"
                 android:orientation="horizontal">
 
@@ -48,27 +64,28 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/dateText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/poppins_medium"
-                        android:text="DATE : "
-                        android:textColor="@color/slightfont"
-                        android:textSize="24dp" />
 
                     <TextView
-                        android:id="@+id/timeText"
+                        android:id="@+id/userText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="TIME: "
+                        android:text="NAME : "
+                        android:textColor="@color/slightfont"
+                        android:fontFamily="@font/poppins_medium"
+                        android:layout_below="@id/dateText"
+                        android:textSize="16dp"
+                        android:layout_marginLeft="20dp" />
+
+                    <TextView
+                        android:id="@+id/DateText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="USER ID : "
                         android:textColor="@color/slightfont"
                         android:fontFamily="@font/popins_light"
                         android:layout_below="@id/dateText"
                         android:textSize="16dp"
-                        android:layout_marginLeft="20dp"/>
+                        android:layout_marginLeft="20dp" />
 
 
                 </LinearLayout>
@@ -78,17 +95,5 @@
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
-
-    <Button
-        android:id="@+id/cancelAppointment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/detailsCon"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="@font/poppins_medium"
-        android:backgroundTint="@color/red"
-        android:textColor="@color/white"
-        android:text="Cancel appointment"
-        app:cornerRadius="20dp" />
 
 </RelativeLayout>

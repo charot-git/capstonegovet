@@ -7,21 +7,6 @@
     android:background="@color/bgwhite"
     tools:context=".ui.home.HomeFragment">
 
-
-    <ImageView
-        android:id="@+id/govetlogo"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/welcomeGovet"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="15dp"
-        android:contentDescription="@string/todo"
-        app:srcCompat="@drawable/vecwelcome"
-        tools:ignore="ImageContrastCheck" />
-
     <TextView
         android:id="@+id/text_home"
         android:layout_width="match_parent"
@@ -34,11 +19,24 @@
         tools:ignore="TextContrastCheck"
         android:visibility="invisible"/>
 
+    <ImageView
+        android:id="@+id/govetlogo"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/welcomeGovet"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:contentDescription="@string/todo"
+        app:srcCompat="@drawable/vecannoun"
+        tools:ignore="ImageContrastCheck" />
+
+
     <TextView
         android:id="@+id/welcomeGovet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/text_home"
+        android:layout_marginTop="10dp"
         android:gravity="center"
         android:text="Govet"
         android:textColor="@color/slightfont"
@@ -46,4 +44,33 @@
         android:textStyle="bold"
         tools:ignore="TextContrastCheck"
         android:fontFamily="@font/poppins_medium"/>
+
+
+    <TextView
+        android:id="@+id/homeannounncements"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/govetlogo"
+        android:gravity="center"
+        android:text="Announcement"
+        android:textColor="@color/slightfont"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        tools:ignore="TextContrastCheck"
+        android:fontFamily="@font/poppins_medium"/>
+
+
+
+    <TextView
+        android:id="@+id/annHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+        android:textColor="@color/slightfont"
+        android:fontFamily="@font/popins_light"
+        android:layout_below="@id/homeannounncements"
+        android:textSize="16dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"/>
+
 </RelativeLayout>

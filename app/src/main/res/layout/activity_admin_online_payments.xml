@@ -9,6 +9,9 @@
     tools:context=".FrontEndAdmin.adminOnlinePayments"
     tools:openDrawer="start">
 
+    <include layout="@layout/layout_adminonlinepayment">
+
+    </include>
 
     <RelativeLayout
         android:id="@+id/adminLayout"
