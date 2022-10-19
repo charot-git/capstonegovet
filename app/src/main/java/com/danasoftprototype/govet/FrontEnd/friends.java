@@ -2,6 +2,7 @@ package com.danasoftprototype.govet.FrontEnd;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -10,6 +11,7 @@ import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -60,6 +62,8 @@ public class friends extends AppCompatActivity {
             }
         });
 
+
+
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -71,7 +75,7 @@ public class friends extends AppCompatActivity {
         onUserClickListener = new UserAdapter.OnUserClickListener() {
             @Override
             public void onUserClicked(int position) {
-                startActivity(new Intent(friends.this, chatActivity.class)
+                startActivity(new Intent(friends.this, AddFriend.class)
                         .putExtra("username_of_roomate", users.get(position).getUsername())
                         .putExtra("email_of_roomate", users.get(position).getEmail())
                         .putExtra("img_of_roomate", users.get(position).getProfilepic())

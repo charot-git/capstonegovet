@@ -15,6 +15,13 @@
         android:theme="@style/Theme.GoVet"
         tools:targetApi="31">
         <activity
+            android:name=".FrontEnd.AddFriend"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".FrontEnd.appointmentDetails"
             android:exported="false">
             <meta-data
