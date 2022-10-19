@@ -50,7 +50,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".govethome2"
+            android:name=".FrontEndAdmin.govethome2"
             android:exported="false"
             android:label="@string/title_activity_govethome2"
             android:theme="@style/Theme.GoVet.NoActionBar" >

@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -15,7 +14,7 @@ import android.widget.Toast;
 
 import com.danasoftprototype.govet.R;
 import com.danasoftprototype.govet.databinding.ActivityLoginpageBinding;
-import com.danasoftprototype.govet.govethome2;
+import com.danasoftprototype.govet.FrontEndAdmin.govethome2;
 import com.danasoftprototype.govet.settings.forgotpass;
 import com.danasoftprototype.govet.FrontEnd.govethome;
 import com.google.android.gms.tasks.OnCompleteListener;

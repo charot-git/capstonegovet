@@ -9,11 +9,6 @@
     tools:context=".FrontEndAdmin.adminAppoinment"
     tools:openDrawer="start">
 
-    <include
-        android:id="@+id/app_bar_govethome2"
-        layout="@layout/app_bar_govethome2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
