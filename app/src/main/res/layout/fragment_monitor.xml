@@ -175,5 +175,21 @@
         android:textColor="@color/white"
         app:cornerRadius="20dp" />
 
+    <Button
+        android:id="@+id/historyMonitorbut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button2"
+        android:layout_centerHorizontal="true"
+
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/poppins_medium"
+        android:text="View history"
+        android:textColor="@color/blue"
+        android:textSize="14dp"
+        app:cornerRadius="20dp"
+        app:strokeColor="@color/blue"
+        app:strokeWidth="1dp" />
+
 
 </RelativeLayout>
