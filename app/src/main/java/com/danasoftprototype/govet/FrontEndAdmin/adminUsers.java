@@ -2,17 +2,23 @@ package com.danasoftprototype.govet.FrontEndAdmin;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.danasoftprototype.govet.R;
 import com.google.android.material.navigation.NavigationView;
 import com.danasoftprototype.govet.databinding.ActivityAdminUsersBinding;
 
 public class adminUsers extends AppCompatActivity {
+
+    ImageView drawerButton;
 
 
     private ActivityAdminUsersBinding binding;
@@ -26,9 +32,17 @@ public class adminUsers extends AppCompatActivity {
 
         NavigationView navigationView = (binding.navViewUsers);
         DrawerLayout drawerLayout = (binding.drawerUsers);
+        drawerButton = (binding.hamburger);
+
+        drawerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navigationView.setVisibility(View.VISIBLE);
+                drawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
 
         navigationView.setCheckedItem(R.id.nav_adminUsers);
-
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
