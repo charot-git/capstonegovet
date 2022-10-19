@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FrontEnd.appointmentDetails">
+
+    <TextView
+        android:id="@+id/dateText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="DATE : "
+        android:textColor="@color/slightfont"
+        android:textSize="24dp" />
+
+    <TextView
+        android:id="@+id/timeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TIME: "
+        android:textColor="@color/slightfont"
+        android:fontFamily="@font/popins_light"
+        android:layout_below="@id/dateText"
+        android:textSize="16dp"
+        android:layout_marginLeft="20dp"/>
+
+    <Button
+        android:id="@+id/cancelAppointment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/timeText"
+        android:layout_centerHorizontal="true"
+        android:text="Cancel" />
+
+</RelativeLayout>

@@ -1,5 +1,6 @@
 package com.danasoftprototype.govet.FrontEnd;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,7 +12,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.danasoftprototype.govet.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -55,6 +55,13 @@ public class sched extends Fragment {
         timeText = view.findViewById(R.id.timeText);
         appointmentsText = view.findViewById(R.id.Appointments);
         appointmentCard = view.findViewById(R.id.appointmentcard);
+
+        appointmentCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), appointmentDetails.class));
+            }
+        });
 
         getBookData();
     }

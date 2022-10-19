@@ -10,6 +10,27 @@
     tools:openDrawer="start">
 
 
+    <RelativeLayout
+        android:id="@+id/adminLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/relative"
+            android:background="@color/blue"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+            <ImageView
+                android:id="@+id/hamburger"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="8dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_hamburger"
+                app:tint="@color/white" />
+        </RelativeLayout>
+    </RelativeLayout>
+
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"

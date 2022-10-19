@@ -2,10 +2,14 @@ package com.danasoftprototype.govet.FrontEndAdmin;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.danasoftprototype.govet.R;
 import com.danasoftprototype.govet.databinding.ActivityAdminOnlinePaymentsBinding;
@@ -13,6 +17,8 @@ import com.danasoftprototype.govet.databinding.ActivityAdminSettingsBinding;
 import com.google.android.material.navigation.NavigationView;
 
 public class adminSettings extends AppCompatActivity {
+
+    ImageView drawerButton;
 
     private ActivityAdminSettingsBinding binding;
 
@@ -24,6 +30,18 @@ public class adminSettings extends AppCompatActivity {
 
         NavigationView navigationView = (binding.navView);
         navigationView.setCheckedItem(R.id.nav_adminSettings);
+
+
+        DrawerLayout drawerLayout = (binding.drawerLayout);
+        drawerButton = (binding.hamburger);
+
+        drawerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
+
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override

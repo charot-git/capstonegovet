@@ -28,10 +28,7 @@
             android:layout_height="24dp"
             android:src="@drawable/ic_hamburger"
             app:tint="@color/white" />
-
         </RelativeLayout>
-
-
     </RelativeLayout>
 
 
@@ -41,7 +38,6 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        android:visibility="gone"
         app:headerLayout="@layout/nav_header_govethome2"
         app:menu="@menu/activity_govet_admin_test2_drawer" />
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -74,7 +74,7 @@ public class booking extends AppCompatActivity {
         getTime();
 
 
-        builder.setMessage("Confirm booking at " + date + time).setTitle("Booking Confirmation")
+        builder.setMessage("Confirm booking at " + date + " " +  time).setTitle("Booking Confirmation")
                 .setCancelable(false)
                 .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
                     @Override
