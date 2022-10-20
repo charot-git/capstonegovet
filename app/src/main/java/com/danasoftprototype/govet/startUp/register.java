@@ -82,7 +82,12 @@ public class register extends AppCompatActivity {
             username.requestFocus();
             return;
         }
-        if (email.isEmpty()) {
+        else if(uname.contains(" ")){
+            username.setError("No spaces allowed");
+            username.requestFocus();
+            return;
+        }
+        else if (email.isEmpty()) {
             emailreg.setError("E-mail is required");
             emailreg.requestFocus();
             return;
@@ -95,7 +100,7 @@ public class register extends AppCompatActivity {
         else if (num.isEmpty()){
             mobilenumber.setError("Mobile number is required");
             mobilenumber.requestFocus();
-
+            return;
         }
         else if (password.isEmpty()) {
             pass.setError("Password is required!");
@@ -114,11 +119,7 @@ public class register extends AppCompatActivity {
             return;
         } else {
 
-
             progressBar.setVisibility(View.VISIBLE);
-
-
-
             //registration process via Email and Password
             mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
@@ -128,8 +129,8 @@ public class register extends AppCompatActivity {
                                 getReference("user/" + FirebaseAuth
                                         .getInstance()
                                         .getCurrentUser()
-                                        .getUid())
-                                        .setValue(new User(username.getText().toString(), emailreg.getText().toString(),"",mobilenumber.getText().toString()));
+                                        .getUid()+"/userInfo/")
+                                        .setValue(new User(username.getText().toString(), emailreg.getText().toString(),"",mobilenumber.getText().toString(), FirebaseAuth.getInstance().getCurrentUser().getUid().toString()));
                         progressBar.setVisibility(View.INVISIBLE);
 
                         //send email verification

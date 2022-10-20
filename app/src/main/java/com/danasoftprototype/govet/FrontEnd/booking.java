@@ -31,6 +31,9 @@ public class booking extends AppCompatActivity {
     private Button book;
     private String time;
     private String date;
+    String dayPicked;
+    String yearPicked;
+    String monthPicked;
     private TextView timeView, dateView;
     private  int t1Hour, t1Minute;
     private AlertDialog.Builder builder;
@@ -54,9 +57,9 @@ public class booking extends AppCompatActivity {
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                String dayPicked = String.valueOf(dayOfMonth);
-                String yearPicked = String.valueOf(year);
-                String monthPicked = String.valueOf(month);
+                dayPicked = String.valueOf(dayOfMonth);
+                yearPicked = String.valueOf(year);
+                monthPicked = String.valueOf(month);
                 date = dayPicked + "/" +monthPicked + "/" +yearPicked;
                 dateView.setText(date);
             }
@@ -95,7 +98,7 @@ public class booking extends AppCompatActivity {
 
     private void bookDatabase() {
         FirebaseDatabase.getInstance().getReference("user/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/bookings/")
-                .setValue(new Bookings(date, time)).addOnSuccessListener(new OnSuccessListener<Void>() {
+                .setValue(new Bookings(time,dayPicked,monthPicked, yearPicked, date)).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
                         Toast.makeText(booking.this, "You have successfully booked", Toast.LENGTH_SHORT).show();

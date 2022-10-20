@@ -273,7 +273,7 @@ public class addPet3 extends AppCompatActivity implements AdapterView.OnItemSele
     private void CheckerGetter() {
         String petname = petName.getText().toString();
 
-        FirebaseDatabase.getInstance().getReference("user/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/pet3/")
+        FirebaseDatabase.getInstance().getReference("user/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/pets/pet3")
                 .setValue(new Pet(species.trim(),petname.trim(),age.trim(),breed.trim(),bday.trim(),url)).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {

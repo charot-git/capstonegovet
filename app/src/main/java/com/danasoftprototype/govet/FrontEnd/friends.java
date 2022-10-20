@@ -3,6 +3,7 @@ package com.danasoftprototype.govet.FrontEnd;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -10,6 +11,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -52,17 +54,6 @@ public class friends extends AppCompatActivity {
         users = new ArrayList<>();
         recyclerView = findViewById(R.id.recycler_view);
         swipeRefreshLayout = findViewById(R.id.swipeLayout);
-        back = findViewById(R.id.back);
-
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplication(), govethome.class);
-                startActivity(intent);
-            }
-        });
-
-
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -90,6 +81,8 @@ public class friends extends AppCompatActivity {
 
         getUsers();
 
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
     }
 
     private void getUsers(){
@@ -99,13 +92,21 @@ public class friends extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-                    users.add(dataSnapshot.getValue(User.class));
+                    User user = dataSnapshot.getValue(User.class);
+
+                    //get all users except currently signed in user
+                    if(!user.getUsername().equals(FirebaseDatabase.getInstance().getReference("user/"+FirebaseAuth.getInstance().getCurrentUser().getUid()+"/username/"))){
+                        users.add(user);
+                    }
+                    userAdapter = new UserAdapter(users, friends.this, onUserClickListener);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(friends.this));
+                    recyclerView.setAdapter(userAdapter);
+
                 }
-                userAdapter = new UserAdapter(users, friends.this, onUserClickListener);
-                recyclerView.setLayoutManager(new LinearLayoutManager(friends.this));
-                recyclerView.setAdapter(userAdapter);
+
                 progressBar.setVisibility(View.GONE);
                 recyclerView.setVisibility(View.VISIBLE);
+
 
                 for (User user:users){
                     if(user.getEmail().equals(FirebaseAuth.getInstance().getCurrentUser().getEmail())){
@@ -123,4 +124,34 @@ public class friends extends AppCompatActivity {
         });
     }
 
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.searchforusers, menu);
+        MenuItem item = menu.findItem(R.id.search);
+
+        SearchView searchView = (SearchView) item.getActionView();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                if(!TextUtils.isEmpty(query.trim())){
+                    //has search text
+                    searchUsers(query);
+                }
+                else{
+                    getUsers();
+                }
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    private void searchUsers(String query) {
+    }
 }

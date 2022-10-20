@@ -10,22 +10,6 @@ public class User {
     private String profilepic;
     private String mobilenumber;
 
-    public User(){
-
-    }
-
-    public String getMobilenumber() {
-        return mobilenumber;
-    }
-
-    public void setMobilenumber(String mobilenumber) {
-        this.mobilenumber = mobilenumber;
-    }
-
-    public User(String mobilenumber) {
-        this.mobilenumber = mobilenumber;
-    }
-
     public String getUsername() {
         return username;
     }
@@ -50,14 +34,29 @@ public class User {
         this.profilepic = profilepic;
     }
 
+    public String getMobilenumber() {
+        return mobilenumber;
+    }
 
-    public User(String username, String email, String profilepic, String mobilenumber) {
+    public void setMobilenumber(String mobilenumber) {
+        this.mobilenumber = mobilenumber;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
+    private String uid;
+
+    public User(String username, String email, String profilepic, String mobilenumber, String uid) {
         this.username = username;
         this.email = email;
         this.profilepic = profilepic;
         this.mobilenumber = mobilenumber;
+        this.uid = uid;
     }
-
-
-
 }

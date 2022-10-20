@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgwhite"
+    tools:context=".ui.home.HomeFragment">
+
+
+    <ImageView
+        android:id="@+id/govetlogo"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/welcomeGovet"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:contentDescription="@string/todo"
+        app:srcCompat="@drawable/vecwelcome"
+        tools:ignore="ImageContrastCheck" />
+
+    <TextView
+        android:id="@+id/text_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/welcome_to_govet"
+        android:textColor="@android:color/white"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        tools:ignore="TextContrastCheck"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/welcomeGovet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_home"
+        android:gravity="center"
+        android:text="Govet"
+        android:textColor="@color/slightfont"
+        android:textSize="50dp"
+        android:textStyle="bold"
+        tools:ignore="TextContrastCheck"
+        android:fontFamily="@font/poppins_medium"/>
+</RelativeLayout>

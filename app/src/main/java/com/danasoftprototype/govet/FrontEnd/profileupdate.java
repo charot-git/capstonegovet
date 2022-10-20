@@ -143,7 +143,7 @@ public class profileupdate extends AppCompatActivity {
 
     private void updateProfilePic(String url) {
 
-        FirebaseDatabase.getInstance().getReference("user/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/profilepic").setValue(url);
+        FirebaseDatabase.getInstance().getReference("user/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/userInfo/profilepic").setValue(url);
 
     }
 
@@ -167,8 +167,8 @@ public class profileupdate extends AppCompatActivity {
             return;
         }
         else if (middlename.isEmpty()) {
-            fnameUI.setError("Middle name is required");
-            fnameUI.requestFocus();
+            mnameUI.setError("Middle name is required");
+            mnameUI.requestFocus();
             return;
         }else if (lastname.isEmpty()) {
             lnameUI.setError("Middle name is required");
