@@ -9,6 +9,7 @@
     tools:context=".FrontEndAdmin.adminSettings"
     tools:openDrawer="start">
 
+    <include layout="@layout/layout_adminsettings"/>
 
     <RelativeLayout
         android:id="@+id/adminLayout"

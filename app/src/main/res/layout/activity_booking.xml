@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -19,59 +17,82 @@
         tools:context=".FrontEnd.booking"
         android:orientation="vertical"
         android:background="@color/bgwhite">
-<TextView
-    android:id="@+id/date"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Date"
-    android:textColor="@color/slightfont"
-    android:fontFamily="@font/poppins_medium"
-    android:textSize="18dp"
-    android:layout_marginTop="20dp"
-    android:layout_marginLeft="80dp" />
-    
-    <LinearLayout
-        android:layout_gravity="center"
-        android:id="@+id/datepicker"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content">
-        
-        <CalendarView
-            android:id="@+id/calendar"
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date"
+                android:textColor="@color/slightfont"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="18dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="80dp" />
+
+                <LinearLayout
+                    android:layout_gravity="center"
+                    android:id="@+id/datepicker"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content">
+
+                    <CalendarView
+                        android:id="@+id/calendar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/calendarbg"
+                        android:layout_gravity="center">
+                    </CalendarView>
+
+                </LinearLayout>
+
+            <TextView
+                android:id="@+id/Time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Time"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="18dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="80dp" />
+
+
+
+            <LinearLayout
+                android:layout_width="300dp"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content">
+
+                <TimePicker
+                    android:id="@+id/timepicker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </TimePicker>
+
+
+            </LinearLayout>
+
+        <TextView
+            android:id="@+id/description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/calendarbg"
-            android:layout_gravity="center">
-        </CalendarView>
+            android:text="Description: "
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="18dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="80dp" />
 
-    </LinearLayout>
+        <EditText
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:hint="Type description"
+            android:textSize="14dp"
+            android:textColor="@color/slightfont"
+            />
 
-    <TextView
-        android:id="@+id/Time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Time"
-        android:fontFamily="@font/poppins_medium"
-        android:textSize="18dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="80dp" />
-
-
-
-    <LinearLayout
-        android:layout_width="300dp"
-        android:layout_gravity="center"
-        android:layout_height="wrap_content">
-
-        <TimePicker
-            android:id="@+id/timepicker"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-        </TimePicker>
-
-
-    </LinearLayout>
 
     <Button
         android:id="@+id/book"
