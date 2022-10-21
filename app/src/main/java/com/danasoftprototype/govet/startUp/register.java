@@ -129,8 +129,8 @@ public class register extends AppCompatActivity {
                                 getReference("user/" + FirebaseAuth
                                         .getInstance()
                                         .getCurrentUser()
-                                        .getUid()).push()
-                                        .setValue(new User(username.getText().toString(), emailreg.getText().toString(),"",mobilenumber.getText().toString()));
+                                        .getUid()+"/userInfo/")
+                                        .setValue(new User(username.getText().toString(), emailreg.getText().toString(),"",mobilenumber.getText().toString(), FirebaseAuth.getInstance().getCurrentUser().getUid().toString()));
                         progressBar.setVisibility(View.INVISIBLE);
 
                         //send email verification

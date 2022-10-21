@@ -144,7 +144,7 @@ public class profileupdate extends AppCompatActivity {
 
     private void updateProfilePic(String url) {
 
-        FirebaseDatabase.getInstance().getReference("user/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/profilepic").push().setValue(url);
+        FirebaseDatabase.getInstance().getReference("user/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/userInfo/profilepic").setValue(url);
 
     }
 

@@ -35,7 +35,8 @@ public class Users extends AppCompatActivity {
 
 
         recyclerView = findViewById(R.id.userList);
-        database = FirebaseDatabase.getInstance().getReference("/user/" + FirebaseAuth.getInstance().getUid());
+        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
+        database = rootRef.child("user");
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -46,9 +47,9 @@ public class Users extends AppCompatActivity {
         database.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    Toast.makeText(Users.this, "child exists", Toast.LENGTH_SHORT).show();
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-                        User user = dataSnapshot.getValue(User.class);
-                        list.add(user);
+
                     }
                 myAdapter.notifyDataSetChanged();
 

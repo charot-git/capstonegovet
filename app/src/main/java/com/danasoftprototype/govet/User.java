@@ -5,47 +5,58 @@ import android.widget.EditText;
 public class User {
 
 
-    private String Username;
-    private String Email;
-    private String Profilepic;
-    private String Mobilenumber;
+    private String username;
+    private String email;
+    private String profilepic;
+    private String mobilenumber;
+    private String uid;
+
+    public User(String username, String email, String profilepic, String mobilenumber, String uid) {
+        this.username = username;
+        this.email = email;
+        this.profilepic = profilepic;
+        this.mobilenumber = mobilenumber;
+        this.uid = uid;
+    }
 
     public String getUsername() {
-        return Username;
+        return username;
     }
 
     public void setUsername(String username) {
-        Username = username;
+        this.username = username;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
 
     public String getProfilepic() {
-        return Profilepic;
+        return profilepic;
     }
 
     public void setProfilepic(String profilepic) {
-        Profilepic = profilepic;
+        this.profilepic = profilepic;
     }
 
     public String getMobilenumber() {
-        return Mobilenumber;
+        return mobilenumber;
     }
 
     public void setMobilenumber(String mobilenumber) {
-        Mobilenumber = mobilenumber;
+        this.mobilenumber = mobilenumber;
     }
 
-    public User(String username, String email, String profilepic, String mobilenumber) {
-        Username = username;
-        Email = email;
-        Profilepic = profilepic;
-        Mobilenumber = mobilenumber;
+    public String getUid() {
+        return uid;
     }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
 }
