@@ -23,7 +23,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserInfo;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
 
 public class loginpage extends AppCompatActivity {
 
@@ -126,6 +131,28 @@ public class loginpage extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
+
+                            if(task.getResult().getAdditionalUserInfo().isNewUser()){
+                                FirebaseUser Fuser = mAuth.getInstance().getCurrentUser();
+                                //database set up
+                                String email = Fuser.getEmail();
+                                String uid = Fuser.getUid();
+
+                                HashMap<Object, String> hashMap = new HashMap<>();
+
+                                hashMap.put("email", email);
+                                hashMap.put("uid", uid);
+                                hashMap.put("name", "");
+                                hashMap.put("phone", "");
+                                hashMap.put("image", "");
+
+                                FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+                                DatabaseReference reference = database.getReference("Users");
+                                reference.child(uid).setValue(hashMap);
+
+                            }
+
                             if (mAuth != null){
                                 for (UserInfo profile : mAuth.getCurrentUser().getProviderData()){
                                     String email1 = profile.getEmail();

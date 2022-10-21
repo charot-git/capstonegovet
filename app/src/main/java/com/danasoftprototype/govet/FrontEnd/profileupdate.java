@@ -25,6 +25,7 @@ import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
@@ -67,6 +68,7 @@ public class profileupdate extends AppCompatActivity {
 
         storageReference = FirebaseStorage.getInstance().getReference();
 
+        //uploade to storage
         StorageReference profileRef = storageReference.child("images/" + mAuth.getCurrentUser().getUid() + "profile.jpg");
         profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
@@ -143,8 +145,13 @@ public class profileupdate extends AppCompatActivity {
     }
 
     private void updateProfilePic(String url) {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("image", url);
 
-        FirebaseDatabase.getInstance().getReference("user/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/userInfo/profilepic").setValue(url);
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Users");
+        ref.child(FirebaseAuth.getInstance().getUid()).updateChildren(result);
+
+        /*FirebaseDatabase.getInstance().getReference("user/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/userInfo/profilepic").setValue(url);*/
 
     }
 
@@ -187,6 +194,12 @@ public class profileupdate extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
+                                HashMap<String, Object> result = new HashMap<>();
+                                result.put("name", name);
+
+                                DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Users");
+                                ref.child(FirebaseAuth.getInstance().getUid()).updateChildren(result);
+
                                 Toast.makeText(profileupdate.this, "Profile update successful", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(profileupdate.this, govethome.class);
                                 startActivity(intent);

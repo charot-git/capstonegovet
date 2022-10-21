@@ -11,6 +11,8 @@ public class User {
     private String mobilenumber;
     private String uid;
 
+    public User(){}
+
     public User(String username, String email, String profilepic, String mobilenumber, String uid) {
         this.username = username;
         this.email = email;

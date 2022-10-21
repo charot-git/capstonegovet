@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="2dp"
+    app:cardUseCompatPadding="true"
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="@color/white"
+    app:contentPadding="3dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.blogspot.atifsoftwares.circularimageview.CircularImageView
+            android:id="@+id/dp"
+            android:src="@drawable/logogv"
+            android:layout_width="70dp"
+            android:layout_height="70dp"/>
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            
+            <TextView
+                android:id="@+id/textName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/slightfont"
+                android:textSize="18sp"
+                android:text="Person name"/>
+
+            <TextView
+                android:id="@+id/textEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/slightfont"
+                android:text="Person email"/>
+
+
+            
+        </LinearLayout>
+
+        
+    </LinearLayout>
+
+
+
+</androidx.cardview.widget.CardView>

@@ -40,6 +40,13 @@ import java.util.ArrayList;
 
 public class profile extends Fragment {
 
+    //Firebase
+    FirebaseAuth firebaseAuth;
+    FirebaseUser firebaseUser;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+
+
 
     ImageView profilepic, back, petpic1, petpic2, petpic3;
     FirebaseAuth mAuth;
@@ -97,7 +104,10 @@ public class profile extends Fragment {
         //2nd event
         // Inflate the layout for this fragment
         View inflate = inflater.inflate(R.layout.fragment_profile, container, false);
+
         return inflate;
+
+
     }
 
 
@@ -107,6 +117,11 @@ public class profile extends Fragment {
         super.onViewCreated(view, savedInstanceState);
             profilepic = view.findViewById(R.id.profilepic);
             back = view.findViewById(R.id.back);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseUser = firebaseAuth.getCurrentUser();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference("Users");
 
             petpic1container = view.findViewById(R.id.petPic1Container);
             pet1Layout = view.findViewById(R.id.pet1Layout);

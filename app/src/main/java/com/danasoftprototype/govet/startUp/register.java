@@ -23,7 +23,10 @@ import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
 
 public class register extends AppCompatActivity {
 
@@ -125,16 +128,30 @@ public class register extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
-                        FirebaseDatabase.getInstance().
-                                getReference("user/" + FirebaseAuth
-                                        .getInstance()
-                                        .getCurrentUser()
-                                        .getUid()+"/userInfo/")
-                                        .setValue(new User(username.getText().toString(), emailreg.getText().toString(),"",mobilenumber.getText().toString(), FirebaseAuth.getInstance().getCurrentUser().getUid().toString()));
-                        progressBar.setVisibility(View.INVISIBLE);
+
+                        FirebaseUser Fuser = mAuth.getInstance().getCurrentUser();
+
+                        //database set up
+                        String email = Fuser.getEmail();
+                        String uid = Fuser.getUid();
+
+                        HashMap<Object, String> hashMap = new HashMap<>();
+
+                        hashMap.put("email", email);
+                        hashMap.put("uid", uid);
+                        hashMap.put("username", username.getText().toString());
+                        hashMap.put("phone", mobilenumber.getText().toString());
+                        hashMap.put("image", "");
+                        hashMap.put("name", "");
+
+                        FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+                        DatabaseReference reference = database.getReference("Users");
+                        reference.child(uid).setValue(hashMap);
+
+
 
                         //send email verification
-                        FirebaseUser Fuser = mAuth.getInstance().getCurrentUser();
                         Fuser.sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void unused) {
