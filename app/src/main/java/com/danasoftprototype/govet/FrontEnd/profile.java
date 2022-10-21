@@ -213,8 +213,8 @@ public class profile extends Fragment {
     private void tryRead() {
         String pet1 = "pet1";
 
-        reference1 =FirebaseDatabase.getInstance().getReference("/user/" + FirebaseAuth.getInstance().getCurrentUser().getUid()+"/pets");
-        reference1.child("pet1").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+        reference1 =FirebaseDatabase.getInstance().getReference("/Users/" + FirebaseAuth.getInstance().getCurrentUser().getUid()+"/Pet");
+        reference1.child("Pet1").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 if (task.isSuccessful()){
@@ -236,8 +236,8 @@ public class profile extends Fragment {
 
         String pet2 = "pet2";
 
-        reference1 =FirebaseDatabase.getInstance().getReference("/user/" + FirebaseAuth.getInstance().getCurrentUser().getUid()+"/pets");
-        reference1.child("pet2").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+        reference1 =FirebaseDatabase.getInstance().getReference("/Users/" + FirebaseAuth.getInstance().getCurrentUser().getUid()+"/Pet");
+        reference1.child("Pet2").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 if (task.isSuccessful()){
@@ -258,8 +258,8 @@ public class profile extends Fragment {
         });
         String pet3 = "pet3";
 
-        reference3 =FirebaseDatabase.getInstance().getReference("/user/" + FirebaseAuth.getInstance().getCurrentUser().getUid()+"/pets");
-        reference3.child("pet3").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+        reference3 =FirebaseDatabase.getInstance().getReference("/Users/" + FirebaseAuth.getInstance().getCurrentUser().getUid()+"/Pet");
+        reference3.child("Pet3").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 if (task.isSuccessful()){
@@ -281,8 +281,8 @@ public class profile extends Fragment {
     }
 
     private void pet1Show() {
-        reference1 =FirebaseDatabase.getInstance().getReference("/user/" + FirebaseAuth.getInstance().getCurrentUser().getUid()+"/pets");
-        reference1.child("pet1").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+        reference1 =FirebaseDatabase.getInstance().getReference("/Users/" + FirebaseAuth.getInstance().getCurrentUser().getUid()+"/Pet");
+        reference1.child("Pet1").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 if (task.isSuccessful()){
@@ -317,8 +317,8 @@ public class profile extends Fragment {
     }
 
     private void pet2Show(){
-        reference2 =FirebaseDatabase.getInstance().getReference("/user/" + FirebaseAuth.getInstance().getCurrentUser().getUid()+"/pets");
-        reference2.child("pet2").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+        reference2 =FirebaseDatabase.getInstance().getReference("/Users/" + FirebaseAuth.getInstance().getCurrentUser().getUid()+"/Pet");
+        reference2.child("Pet2").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 if (task.isSuccessful()){
@@ -353,8 +353,8 @@ public class profile extends Fragment {
 
     }
     private void pet3Show(){
-        reference2 =FirebaseDatabase.getInstance().getReference("/user/" + FirebaseAuth.getInstance().getCurrentUser().getUid()+"/pets");
-        reference2.child("pet3").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+        reference2 =FirebaseDatabase.getInstance().getReference("/Users/" + FirebaseAuth.getInstance().getCurrentUser().getUid()+"/Pet");
+        reference2.child("Pet3").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 if (task.isSuccessful()){

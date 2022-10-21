@@ -28,6 +28,8 @@ import com.danasoftprototype.govet.FrontEnd.profileupdate;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -35,6 +37,7 @@ import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
 import java.util.Calendar;
+import java.util.HashMap;
 
 public class addPet extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     ImageView petProfilePic;
@@ -273,20 +276,36 @@ public class addPet extends AppCompatActivity implements AdapterView.OnItemSelec
     private void CheckerGetter() {
         String petname = petName.getText().toString();
 
-        FirebaseDatabase.getInstance().getReference("user/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/pets/pet1")
-                .setValue(new Pet(species.trim(),petname.trim(),age.trim(),breed.trim(),bday.trim(),url)).addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        Toast.makeText(addPet.this, "Successfully registered pet", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getApplication(), govethome.class);
-                        startActivity(intent);
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(addPet.this, "Failed registering pet", Toast.LENGTH_SHORT).show();
-                    }
-                });
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        FirebaseUser Fuser = mAuth.getInstance().getCurrentUser();
+
+        //database set up
+        String email = Fuser.getEmail();
+        String uid = Fuser.getUid();
+
+        HashMap<Object, String> hashMap = new HashMap<>();
+
+        hashMap.put("petAge", age.trim());
+        hashMap.put("petBirthday", bday.trim());
+        hashMap.put("petBreed", breed.trim());
+        hashMap.put("petName", petname.trim());
+        hashMap.put("petProfilePic", url);
+        hashMap.put("petSpecies", species.trim());
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+        DatabaseReference reference = database.getReference("Users");
+        reference.child(uid).child("Pet").child("Pet1").setValue(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                Toast.makeText(addPet.this, petname +" has been added to your pets", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(addPet.this, "Pet not added", Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
     }
