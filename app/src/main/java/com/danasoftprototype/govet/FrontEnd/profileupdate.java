@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.danasoftprototype.govet.R;
+import com.danasoftprototype.govet.userFullName;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -143,7 +144,7 @@ public class profileupdate extends AppCompatActivity {
 
     private void updateProfilePic(String url) {
 
-        FirebaseDatabase.getInstance().getReference("user/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/userInfo/profilepic").setValue(url);
+        FirebaseDatabase.getInstance().getReference("user/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/profilepic").push().setValue(url);
 
     }
 
@@ -176,15 +177,11 @@ public class profileupdate extends AppCompatActivity {
             return;
         }
         else{
-
-
-            //profile update process
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
             UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
                     .setDisplayName(name)
                     .build();
-
+            //profile update process
             user.updateProfile(profileUpdates)
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
@@ -194,6 +191,14 @@ public class profileupdate extends AppCompatActivity {
                                 Intent intent = new Intent(profileupdate.this, govethome.class);
                                 startActivity(intent);
                             }
+                            else{
+                                Toast.makeText(profileupdate.this, "Profile update failed", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(profileupdate.this, "Profile update failed", Toast.LENGTH_SHORT).show();
                         }
                     });
         }

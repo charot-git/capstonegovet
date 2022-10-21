@@ -51,26 +51,12 @@
         android:id="@+id/nav_profile"
         android:name="com.danasoftprototype.govet.FrontEnd.profile"
         android:label="Profile"
-        tools:layout="@layout/fragment_profile" >
-        <action
-            android:id="@+id/action_nav_profile_to_nav_chat2"
-            app:destination="@id/nav_chat" />
-        <action
-            android:id="@+id/action_nav_profile_to_friends"
-            app:destination="@id/friends" />
-    </fragment>
-
+        tools:layout="@layout/fragment_profile" />
     <activity
-        android:id="@+id/nav_chat"
-        android:name="com.danasoftprototype.govet.FrontEnd.chatActivity"
-        android:label="activity_chat"
-        tools:layout="@layout/activity_chat">
-    </activity>
-    <activity
-        android:id="@+id/friends"
-        android:name="com.danasoftprototype.govet.FrontEnd.friends"
-        android:label="activity_friends"
-        tools:layout="@layout/activity_friends" />
+        android:id="@+id/nav_users"
+        android:name="com.danasoftprototype.govet.FrontEnd.Users"
+        android:label="activity_users"
+        tools:layout="@layout/activity_users" />
 
 
 </navigation>

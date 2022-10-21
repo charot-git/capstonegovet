@@ -16,7 +16,7 @@
             android:iconTint="@color/slightfont"
             android:title="Profile" />
         <item
-            android:id="@+id/friends"
+            android:id="@+id/nav_users"
             android:icon="@drawable/ic_friends"
             android:iconTint="@color/slightfont"
             android:title="Friends" />
