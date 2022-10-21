@@ -86,17 +86,17 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <!--
-   <activity
-            android:name=".adminGovetHome"
-            android:exported="false"
-            android:label="@string/title_activity_admin_govet_home"
-            android:theme="@style/Theme.GoVet.NoActionBar" >
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        -->
+                                <!--
+                                   <activity
+                                            android:name=".adminGovetHome"
+                                            android:exported="false"
+                                            android:label="@string/title_activity_admin_govet_home"
+                                            android:theme="@style/Theme.GoVet.NoActionBar" >
+                                            <meta-data
+                                                android:name="android.app.lib_name"
+                                                android:value="" />
+                                        </activity>
+                                -->
         <activity
             android:name=".addPet3"
             android:exported="false">

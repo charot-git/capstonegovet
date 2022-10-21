@@ -6,6 +6,7 @@
 
 
     <ImageView
+        android:layout_marginTop="70dp"
         android:id="@+id/settingsVec"
         android:layout_width="250dp"
         android:layout_height="250dp"
@@ -13,7 +14,7 @@
         android:layout_centerHorizontal="true"/>
 
     <TextView
-        android:id="@+id/admintextpayments"
+        android:id="@+id/admintextsettings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
@@ -27,4 +28,75 @@
         android:textSize="24dp"
         android:textStyle="bold"/>
 
+
+    <TextView
+        android:layout_below="@id/admintextsettings"
+        android:id="@+id/displayview"
+        android:drawableLeft="@drawable/ic_baseline_display_settings_24"
+        android:drawableTint="@color/slightfont"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/popins_light"
+        android:gravity="center"
+        android:text=" Display"
+        android:layout_marginStart="30dp"
+        android:textSize="25sp"
+        android:textColor="@color/slightfont" />
+
+    <TextView
+        android:layout_below="@id/displayview"
+        android:id="@+id/privacyandtermsview"
+        android:drawableLeft="@drawable/ic_baseline_privacy_tip_24"
+        android:drawableTint="@color/slightfont"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/popins_light"
+        android:gravity="center"
+        android:text=" Privacy and Terms"
+        android:layout_marginStart="30dp"
+        android:textSize="25sp"
+        android:textColor="@color/slightfont" />
+
+    <TextView
+        android:id="@+id/aboutusview"
+        android:layout_below="@id/privacyandtermsview"
+        android:drawableLeft="@drawable/ic_info"
+        android:drawableTint="@color/slightfont"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/popins_light"
+        android:gravity="center"
+        android:text=" About Us"
+        android:layout_marginStart="30dp"
+        android:textSize="25sp"
+        android:textColor="@color/slightfont" />
+
+    <TextView
+        android:id="@+id/helpview"
+        android:layout_below="@id/aboutusview"
+        android:drawableLeft="@drawable/ic_baseline_help_outline_24"
+        android:drawableTint="@color/slightfont"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/popins_light"
+        android:gravity="center"
+        android:text=" Help"
+        android:layout_marginStart="30dp"
+        android:textSize="25sp"
+        android:textColor="@color/slightfont"/>
+
+    <TextView
+        android:drawableLeft="@drawable/ic_baseline_logout_24"
+        android:drawableTint="@color/slightfont"
+        android:id="@+id/logoutview"
+        android:layout_below="@id/helpview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/popins_light"
+        android:gravity="center"
+        android:text=" Logout"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="30dp"
+        android:textSize="25sp"
+        android:textColor="@color/slightfont"/>
 </RelativeLayout>
