@@ -2,6 +2,7 @@ package com.danasoftprototype.govet.FrontEnd;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -29,6 +30,7 @@ public class Users extends AppCompatActivity {
     List<ModelUser> userList;
     TextView test;
     AdapterUsers adapterUsers;
+    SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +41,36 @@ public class Users extends AppCompatActivity {
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplication()));
+        searchView = findViewById(R.id.search_bar);
 
         userList = new ArrayList<>();
 
         getAllUsers();
 
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
 
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filter(newText);
+                return true;
+            }
+        });
+
+
+    }
+
+    private void filter(String newText) {
+        List<ModelUser> filteredList = new ArrayList<>();
+        for (ModelUser item :userList){
+            if (item.getName().toLowerCase().contains(newText.toLowerCase())){
+                filteredList.add(item);
+            }
+        }
+        adapterUsers.filteredList(filteredList);
     }
 
     private void getAllUsers() {

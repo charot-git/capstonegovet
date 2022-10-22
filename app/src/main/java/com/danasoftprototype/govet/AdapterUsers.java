@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterUsers extends RecyclerView.Adapter<AdapterUsers.MyHolder>{
@@ -64,6 +65,12 @@ public class AdapterUsers extends RecyclerView.Adapter<AdapterUsers.MyHolder>{
     @Override
     public int getItemCount() {
         return userList.size();
+    }
+
+    public void filteredList(List<ModelUser> filteredList){
+        userList = filteredList;
+        notifyDataSetChanged();
+
     }
 
     class  MyHolder extends RecyclerView.ViewHolder{

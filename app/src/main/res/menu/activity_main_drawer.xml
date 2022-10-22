@@ -19,7 +19,7 @@
             android:id="@+id/nav_users"
             android:icon="@drawable/ic_friends"
             android:iconTint="@color/slightfont"
-            android:title="Friends" />
+            android:title="Users" />
         <item
             android:id="@+id/nav_sched"
             android:icon="@drawable/ic_baseline_access_time_24"
