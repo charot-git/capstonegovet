@@ -15,6 +15,41 @@
         android:theme="@style/Theme.GoVet"
         tools:targetApi="31">
         <activity
+            android:name=".vetSchedule"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".vetSettings"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".vetProfile"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".vetHome"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".vetUsers"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".FrontEndVet.vetMonitor"
             android:exported="false">
             <meta-data
@@ -86,7 +121,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-                                <!--
+        <!--
                                    <activity
                                             android:name=".adminGovetHome"
                                             android:exported="false"
@@ -96,7 +131,7 @@
                                                 android:name="android.app.lib_name"
                                                 android:value="" />
                                         </activity>
-                                -->
+        -->
         <activity
             android:name=".addPet3"
             android:exported="false">

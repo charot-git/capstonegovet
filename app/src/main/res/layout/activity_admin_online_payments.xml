@@ -9,14 +9,117 @@
     tools:context=".FrontEndAdmin.adminOnlinePayments"
     tools:openDrawer="start">
 
-    <include layout="@layout/layout_adminonlinepayment">
-
-    </include>
 
     <RelativeLayout
         android:id="@+id/adminLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+
+        <ImageView
+            android:layout_marginTop="70dp"
+            android:id="@+id/adminpayments"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/vecpayments">
+        </ImageView>
+
+        <TextView
+            android:id="@+id/admintextpayments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="5dp"
+            android:layout_below="@id/adminpayments"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="start"
+            android:text="Payments"
+            android:textColor="@color/slightfont"
+            android:textSize="24dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/admintextpayments"
+            android:fontFamily="@font/poppins_medium"
+            android:text="User : "
+            android:layout_marginLeft="60dp"
+            android:textColor="@color/slightfont"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_below="@id/user"
+            android:id="@+id/userpaymentcon"
+            app:cardElevation="4dp"
+            app:cardCornerRadius="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="8dp" >
+
+
+            <LinearLayout
+                android:id="@+id/details"
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/detailsLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="30dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/logstext"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Logs: "
+                            android:textColor="@color/slightfont"
+                            android:fontFamily="@font/popins_light"
+                            android:layout_below="@id/dateText"
+                            android:textSize="16dp"
+                            android:layout_marginLeft="20dp" />
+
+
+                        <TextView
+                            android:id="@+id/logs"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="@color/slightfont"
+                            android:fontFamily="@font/popins_light"
+                            android:layout_below="@id/user"
+                            android:textSize="16dp"
+                            android:layout_marginLeft="20dp" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
 
         <RelativeLayout
             android:id="@+id/relative"
