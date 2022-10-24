@@ -299,6 +299,8 @@ public class addPet3 extends AppCompatActivity implements AdapterView.OnItemSele
             @Override
             public void onSuccess(Void unused) {
                 Toast.makeText(addPet3.this, petname +" has been added to your pets", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplication(), profile.class));
+                finish();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override

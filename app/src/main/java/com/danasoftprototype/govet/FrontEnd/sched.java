@@ -67,8 +67,8 @@ public class sched extends Fragment {
     }
 
     private void getBookData() {
-        String booking = "bookings";
-        reference = FirebaseDatabase.getInstance().getReference("/user/" + FirebaseAuth.getInstance().getCurrentUser().getUid());
+        String booking = "Bookings";
+        reference =FirebaseDatabase.getInstance().getReference("/Users/" + FirebaseAuth.getInstance().getCurrentUser().getUid());
         reference.child(booking).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {

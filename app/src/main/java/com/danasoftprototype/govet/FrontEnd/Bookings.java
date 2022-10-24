@@ -6,8 +6,10 @@ public class Bookings {
     private String month;
     private String year;
     private String date;
+    private String description;
 //from date to day/week/month/year
 
+    public Bookings(){}
 
     public String getTime() {
         return time;
@@ -49,11 +51,20 @@ public class Bookings {
         this.date = date;
     }
 
-    public Bookings(String time, String day, String month, String year, String date) {
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Bookings(String time, String day, String month, String year, String date, String description) {
         this.time = time;
         this.day = day;
         this.month = month;
         this.year = year;
         this.date = date;
+        this.description = description;
     }
 }

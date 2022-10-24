@@ -1,6 +1,7 @@
 package com.danasoftprototype.govet;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.danasoftprototype.govet.FrontEnd.AddFriend;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -41,6 +43,8 @@ public class AdapterUsers extends RecyclerView.Adapter<AdapterUsers.MyHolder>{
         String userImage = userList.get(position).getImage();
         String userName = userList.get(position).getName();
         String userEmail = userList.get(position).getEmail();
+        String userUsername = userList.get(position).getUsername();
+        String uid = userList.get(position).getUid();
 
         holder.nameText.setText(userName);
         holder.emailText.setText(userEmail);
@@ -55,7 +59,16 @@ public class AdapterUsers extends RecyclerView.Adapter<AdapterUsers.MyHolder>{
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "" + userEmail, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, AddFriend.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                        .putExtra("uid" , uid)
+                        .putExtra("name" , userName)
+                        .putExtra("email" , userEmail)
+                        .putExtra("username" , userUsername)
+                        .putExtra("image" , userImage);
+
+
+                context.startActivity(intent);
+
             }
         });
 

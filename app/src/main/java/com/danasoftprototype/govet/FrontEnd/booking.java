@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -19,11 +20,14 @@ import com.danasoftprototype.govet.addPet;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.protobuf.StringValue;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.HashMap;
 
 public class booking extends AppCompatActivity {
     private CalendarView calendarView;
@@ -31,10 +35,12 @@ public class booking extends AppCompatActivity {
     private Button book;
     private String time;
     private String date;
+    private String description;
     String dayPicked;
     String yearPicked;
     String monthPicked;
     private TextView timeView, dateView;
+    private EditText descriptionText;
     private  int t1Hour, t1Minute;
     private AlertDialog.Builder builder;
 
@@ -46,6 +52,7 @@ public class booking extends AppCompatActivity {
         timePicker = findViewById(R.id.timepicker);
         dateView = findViewById(R.id.date);
         timeView = findViewById(R.id.Time);
+        descriptionText = findViewById(R.id.descriptionInput);
         book = findViewById(R.id.book);
         builder = new AlertDialog.Builder(this);
 
@@ -97,7 +104,45 @@ public class booking extends AppCompatActivity {
     }
 
     private void bookDatabase() {
-        FirebaseDatabase.getInstance().getReference("user/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/bookings/")
+
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        FirebaseUser Fuser = mAuth.getInstance().getCurrentUser();
+
+        //database set up
+        String email = Fuser.getEmail();
+        String uid = Fuser.getUid();
+        description = descriptionText.getText().toString();
+
+        HashMap<Object, String> hashMap = new HashMap<>();
+
+        hashMap.put("time", time);
+        hashMap.put("day", dayPicked);
+        hashMap.put("month", monthPicked);
+        hashMap.put("year", yearPicked);
+        hashMap.put("date", date);
+        hashMap.put("description", description);
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+        DatabaseReference reference = database.getReference("Users");
+        reference.child(uid).child("Bookings").setValue(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                Toast.makeText(getApplication(), "You have set an appointment for " +date , Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplication(), govethome.class);
+                startActivity(intent);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(getApplication(), "Pet not added", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
+
+        /*FirebaseDatabase.getInstance().getReference("user/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/bookings/")
                 .setValue(new Bookings(time,dayPicked,monthPicked, yearPicked, date)).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
@@ -110,7 +155,7 @@ public class booking extends AppCompatActivity {
                     public void onFailure(@NonNull Exception e) {
                         Toast.makeText(booking.this, "Booking failed", Toast.LENGTH_SHORT).show();
                     }
-                });
+                });*/
     }
 
     private void getTime() {
