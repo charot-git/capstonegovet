@@ -294,7 +294,7 @@ public class addPet extends AppCompatActivity implements AdapterView.OnItemSelec
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
-        DatabaseReference reference = database.getReference("Users");
+        DatabaseReference reference = database.getReference("Pets");
         reference.child(uid).child("Pet").child("Pet1").setValue(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {

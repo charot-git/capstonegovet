@@ -213,7 +213,7 @@ public class profile extends Fragment {
     private void tryRead() {
         String pet1 = "pet1";
 
-        reference1 =FirebaseDatabase.getInstance().getReference("/Users/" + FirebaseAuth.getInstance().getCurrentUser().getUid()+"/Pet");
+        reference1 =FirebaseDatabase.getInstance().getReference("/Pets/" + FirebaseAuth.getInstance().getCurrentUser().getUid()+"/Pet");
         reference1.child("Pet1").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
@@ -236,7 +236,7 @@ public class profile extends Fragment {
 
         String pet2 = "pet2";
 
-        reference1 =FirebaseDatabase.getInstance().getReference("/Users/" + FirebaseAuth.getInstance().getCurrentUser().getUid()+"/Pet");
+        reference1 =FirebaseDatabase.getInstance().getReference("/Pets/" + FirebaseAuth.getInstance().getCurrentUser().getUid()+"/Pet");
         reference1.child("Pet2").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
@@ -258,7 +258,7 @@ public class profile extends Fragment {
         });
         String pet3 = "pet3";
 
-        reference3 =FirebaseDatabase.getInstance().getReference("/Users/" + FirebaseAuth.getInstance().getCurrentUser().getUid()+"/Pet");
+        reference3 =FirebaseDatabase.getInstance().getReference("/Pets/" + FirebaseAuth.getInstance().getCurrentUser().getUid()+"/Pet");
         reference3.child("Pet3").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
@@ -281,7 +281,7 @@ public class profile extends Fragment {
     }
 
     private void pet1Show() {
-        reference1 =FirebaseDatabase.getInstance().getReference("/Users/" + FirebaseAuth.getInstance().getCurrentUser().getUid()+"/Pet");
+        reference1 =FirebaseDatabase.getInstance().getReference("/Pets/" + FirebaseAuth.getInstance().getCurrentUser().getUid()+"/Pet");
         reference1.child("Pet1").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
@@ -317,7 +317,7 @@ public class profile extends Fragment {
     }
 
     private void pet2Show(){
-        reference2 =FirebaseDatabase.getInstance().getReference("/Users/" + FirebaseAuth.getInstance().getCurrentUser().getUid()+"/Pet");
+        reference2 =FirebaseDatabase.getInstance().getReference("/Pets/" + FirebaseAuth.getInstance().getCurrentUser().getUid()+"/Pet");
         reference2.child("Pet2").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
@@ -353,7 +353,7 @@ public class profile extends Fragment {
 
     }
     private void pet3Show(){
-        reference2 =FirebaseDatabase.getInstance().getReference("/Users/" + FirebaseAuth.getInstance().getCurrentUser().getUid()+"/Pet");
+        reference2 =FirebaseDatabase.getInstance().getReference("/Pets/" + FirebaseAuth.getInstance().getCurrentUser().getUid()+"/Pet");
         reference2.child("Pet3").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {

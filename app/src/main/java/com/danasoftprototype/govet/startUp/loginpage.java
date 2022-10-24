@@ -152,25 +152,29 @@ public class loginpage extends AppCompatActivity {
                                 reference.child(uid).setValue(hashMap);
 
                             }
+                            else{
 
-                            if (mAuth != null){
-                                for (UserInfo profile : mAuth.getCurrentUser().getProviderData()){
-                                    String email1 = profile.getEmail();
-                                    Toast.makeText(loginpage.this,"Welcome to GoVet " + email1 + "!", Toast.LENGTH_SHORT).show();
+                                if (mAuth != null){
+                                    for (UserInfo profile : mAuth.getCurrentUser().getProviderData()){
+                                        String email1 = profile.getEmail();
+                                        Toast.makeText(loginpage.this,"Welcome to GoVet " + email1 + "!", Toast.LENGTH_SHORT).show();
+                                    }
                                 }
+                        else{
+                                Toast.makeText(loginpage.this,"Login failed " + task.getException(), Toast.LENGTH_SHORT).show();
+                                email.requestFocus();
+
                             }
 
                             Intent intent = new Intent(loginpage.this, govethome.class);
                             startActivity(intent);
                             finish();
-                        }
-                        else{
-                            Toast.makeText(loginpage.this,"Login failed " + task.getException(), Toast.LENGTH_SHORT).show();
-                            email.requestFocus();
+                            }
 
-                        }
+
                     }
-                });
+                }
+            });
             }
 
 

@@ -58,7 +58,7 @@ public class AddFriend extends AppCompatActivity {
         TextUsername.setText(username);
 
 
-        /*DatabaseReference reference = FirebaseDatabase.getInstance().getReference("/Users/"+uid+"/Pet");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("/Pets/"+uid+"/Pet");
         reference.child("Pet1").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
@@ -72,7 +72,38 @@ public class AddFriend extends AppCompatActivity {
                 }
 
             }
-        });*/
+        });
+        DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference("/Pets/"+uid+"/Pet");
+        reference.child("Pet2").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if(task.isSuccessful()){
+                    if(task.getResult().exists()){
+                        DataSnapshot dataSnapshot = task.getResult();
+                        String imgUrl = String.valueOf(dataSnapshot.child("petProfilePic").getValue());
+                        Picasso.get().load(imgUrl).placeholder(R.drawable.logogv).into(pet2);
+
+                    }
+                }
+
+            }
+        });
+        DatabaseReference reference3 = FirebaseDatabase.getInstance().getReference("/Pets/"+uid+"/Pet");
+        reference.child("Pet3").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if(task.isSuccessful()){
+                    if(task.getResult().exists()){
+                        DataSnapshot dataSnapshot = task.getResult();
+                        String imgUrl = String.valueOf(dataSnapshot.child("petProfilePic").getValue());
+                        Picasso.get().load(imgUrl).placeholder(R.drawable.logogv).into(pet3);
+
+                    }
+                }
+
+            }
+        });
+
 
 
     }
