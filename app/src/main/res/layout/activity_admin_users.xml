@@ -71,7 +71,7 @@
                     android:orientation="horizontal">
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
@@ -80,7 +80,7 @@
                             android:id="@+id/userText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="NAME : "
+                            android:text="Name : "
                             android:textColor="@color/slightfont"
                             android:fontFamily="@font/poppins_medium"
                             android:layout_below="@id/dateText"
@@ -88,15 +88,89 @@
                             android:layout_marginLeft="20dp" />
 
                         <TextView
-                            android:id="@+id/DateText"
+                            android:id="@+id/emailText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="USER ID : "
+                            android:text="Email : "
                             android:textColor="@color/slightfont"
                             android:fontFamily="@font/popins_light"
                             android:layout_below="@id/dateText"
                             android:textSize="16dp"
                             android:layout_marginLeft="20dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:cardElevation="4dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginLeft="10dp"
+
+                                android:layout_marginBottom="10dp"
+                                app:cardCornerRadius="50dp">
+
+
+                                <ImageView
+                                    android:id="@+id/addPetsPic1"
+                                    android:elevation="4dp"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:contentDescription="@string/todo"
+                                    android:scaleType="centerCrop"
+                                    tools:ignore="ImageContrastCheck" />
+
+                            </androidx.cardview.widget.CardView>
+
+
+
+                            <androidx.cardview.widget.CardView
+                                app:cardElevation="4dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginBottom="10dp"
+                                app:cardCornerRadius="50dp">
+
+                                <ImageView
+                                    android:id="@+id/addPetsPic2"
+                                    android:elevation="4dp"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:contentDescription="@string/todo"
+                                    android:scaleType="centerCrop"
+                                    tools:ignore="ImageContrastCheck" />
+
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                app:cardElevation="4dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginBottom="10dp"
+                                app:cardCornerRadius="50dp">
+
+                                <ImageView
+                                    android:id="@+id/addPetsPic3"
+                                    android:elevation="4dp"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:contentDescription="@string/todo"
+                                    android:scaleType="centerCrop"
+                                    tools:ignore="ImageContrastCheck" />
+
+                            </androidx.cardview.widget.CardView>
+
+                        </LinearLayout>
 
 
                     </LinearLayout>
