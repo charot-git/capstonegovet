@@ -57,12 +57,15 @@
         android:id="@+id/addFriendButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/userUsername"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/blue"
+        android:fontFamily="@font/poppins_medium"
         android:text="Add Friend"
-        app:cornerRadius="30dp">
+        android:textColor="@color/white"
+        app:cornerRadius="30dp"/>
 
-    </Button>
+
 
     <androidx.cardview.widget.CardView
         android:layout_below="@id/addFriendButton"
@@ -164,9 +167,9 @@
         android:layout_centerHorizontal="true"
         android:text="Cancel friend request"
         android:backgroundTint="@color/red"
+        android:fontFamily="@font/poppins_medium"
+        android:textColor="@color/white"
         app:cornerRadius="30dp"/>
-
-
 
 
 </RelativeLayout>
