@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:openDrawer="start"
+    tools:openDrawer=""
     tools:context=".FrontEndVet.vetSchedule">
 
 
@@ -57,17 +57,33 @@
              android:textStyle="bold"/>-->
 
 
-        <TextView
+        <LinearLayout
+            android:layout_below="@+id/schedules"
             android:id="@+id/month"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/schedules"
-            android:fontFamily="@font/poppins_medium"
-            android:text="Month : "
-            android:layout_marginLeft="60dp"
-            android:textColor="@color/slightfont"
-            android:textSize="18dp"
-            android:textStyle="bold" />
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/schedules"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Month : "
+                android:layout_marginLeft="60dp"
+                android:textColor="@color/slightfont"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:layout_marginLeft="100dp"
+                android:id="@+id/spinner3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+
+        </LinearLayout>
 
 
 
@@ -110,7 +126,7 @@
                             android:id="@+id/userText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="USER : "
+                            android:text="User : "
                             android:textColor="@color/slightfont"
                             android:fontFamily="@font/poppins_medium"
                             android:layout_below="@id/dateText"
@@ -121,7 +137,7 @@
                             android:id="@+id/DateText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="DATE : "
+                            android:text="Date : "
                             android:textColor="@color/slightfont"
                             android:fontFamily="@font/popins_light"
                             android:layout_below="@id/dateText"
@@ -133,7 +149,18 @@
                             android:id="@+id/timeText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="TIME : "
+                            android:text="Time : "
+                            android:textColor="@color/slightfont"
+                            android:fontFamily="@font/popins_light"
+                            android:layout_below="@id/dateText"
+                            android:textSize="16dp"
+                            android:layout_marginLeft="20dp"/>
+
+                        <TextView
+                            android:id="@+id/DescriptionText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Description : "
                             android:textColor="@color/slightfont"
                             android:fontFamily="@font/popins_light"
                             android:layout_below="@id/dateText"
@@ -142,8 +169,8 @@
                             android:layout_marginLeft="20dp"/>
 
 
-                    </LinearLayout>
 
+                    </LinearLayout>
                 </LinearLayout>
 
             </LinearLayout>

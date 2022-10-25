@@ -121,8 +121,10 @@
         android:id="@+id/notverifiedtext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:textColor="@color/red"
         android:visibility="gone"
+        android:layout_centerHorizontal="true"
         android:text="@string/email_not_verified" />
 
     <TextView

@@ -7,5 +7,63 @@
     android:background="@color/bgwhite"
     tools:context=".settings.privacyterm">
 
+    <TextView
+        android:id="@+id/Privacy"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Privacy Policy"/>
+
+    <TextView
+        android:id="@+id/the"
+        android:layout_below="@+id/Privacy"
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/popins_light"
+        android:text="The GoVet app was created by the NADA group as a free app. This service is offered at no cost and is intended to be used as is. This page is intended to inform visitors about our policies regarding the collection, use, and disclosure of Personal Information if they choose to use our Service. If you use our Service, you agree to the collection and use of information in accordance with this policy. We gather Personal Information in order to provide and improve the Service. Except as specified in this Privacy Policy, we will not use or disclose your information with anybody. Unless otherwise stated in this Privacy Policy, the terminology used in this Privacy Policy have the same meaning as those in our Terms and Conditions, which are available at GoVet app."/>
+
+        <TextView
+            android:layout_below="@id/the"
+            android:id="@+id/Information"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Information Collection and Use"/>
+
+    <TextView
+        android:id="@+id/we"
+        android:layout_below="@+id/Information"
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/popins_light"
+        android:text="We may collect data about you through a number of ways. In order to provide you with a better experience while using our Service, we may request you to give us with some personally identifiable information, such as your name, e-mail address, password, and contact number. We will keep the information you provided and use it in accordance with the terms of this privacy statement.
+The GoVet app does make use of third-party services, which may gather information that can be used to identify you.
+Link to the privacy policies of the app's third-party service provider:
+•	Firebase
+•	GCash
+•	Paypal
+"/>
+
+    <TextView
+        android:layout_below="@id/we"
+        android:id="@+id/data"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Data Logging"/>
+
+    <TextView
+        android:id="@+id/wew"
+        android:layout_below="@+id/we"
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/popins_light"
+        android:text="We wish to notify you that whenever you use our Service, in the event of an issue in the app, we gather data and information on your phone called Log Data through third-party products. This Log Data may contain information such as your device name, device's Internet Protocol (IP) address, version of the operating system, app settings, time and date of usage, and other statistics when using our Service."/>
 
 </RelativeLayout>
