@@ -126,61 +126,40 @@ public class loginpage extends AppCompatActivity {
             return;
         }
         else {
-            {
-                mAuth.signInWithEmailAndPassword(useremail,userpass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()){
-
-                            if(task.getResult().getAdditionalUserInfo().isNewUser()){
-                                FirebaseUser Fuser = mAuth.getInstance().getCurrentUser();
-                                //database set up
-                                String email = Fuser.getEmail();
-                                String uid = Fuser.getUid();
-
-                                HashMap<Object, String> hashMap = new HashMap<>();
-
-                                hashMap.put("email", email);
-                                hashMap.put("uid", uid);
-                                hashMap.put("name", "");
-                                hashMap.put("phone", "");
-                                hashMap.put("image", "");
-
-                                FirebaseDatabase database = FirebaseDatabase.getInstance();
-
-                                DatabaseReference reference = database.getReference("Users");
-                                reference.child(uid).setValue(hashMap);
-
+            mAuth.signInWithEmailAndPassword(useremail, userpass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()){
+                        if (mAuth != null){
+                            for (UserInfo profile : mAuth.getCurrentUser().getProviderData()){
+                                String email1 = profile.getEmail();
+                                Toast.makeText(loginpage.this,"Welcome to GoVet " + email1 + "!", Toast.LENGTH_SHORT).show();
                             }
-                            else{
+                        }
 
-                                if (mAuth != null){
-                                    for (UserInfo profile : mAuth.getCurrentUser().getProviderData()){
-                                        String email1 = profile.getEmail();
-                                        Toast.makeText(loginpage.this,"Welcome to GoVet " + email1 + "!", Toast.LENGTH_SHORT).show();
-                                    }
-                                }
-                        else{
-                                Toast.makeText(loginpage.this,"Login failed " + task.getException(), Toast.LENGTH_SHORT).show();
-                                email.requestFocus();
-
-                            }
-
-                            Intent intent = new Intent(loginpage.this, govethome.class);
-                            startActivity(intent);
-                            finish();
-                            }
-
+                        Intent intent = new Intent(loginpage.this, govethome.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                    else{
+                        Toast.makeText(loginpage.this,"Login failed " + task.getException(), Toast.LENGTH_SHORT).show();
+                        email.requestFocus();
 
                     }
+
+
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(loginpage.this,"Login failed ", Toast.LENGTH_SHORT).show();
+                    email.requestFocus();
                 }
             });
             }
 
 
         }
-
-    }
 
     public void adminListener(){
         mAuth.signInWithEmailAndPassword("admingovet@gmail.com", "admingovet").addOnCompleteListener(new OnCompleteListener<AuthResult>() {
