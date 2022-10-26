@@ -15,6 +15,13 @@
         android:theme="@style/Theme.GoVet"
         tools:targetApi="31">
         <activity
+            android:name=".FrontEndAdmin.announce"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".FrontEndVet.vetSchedule"
             android:exported="false">
             <meta-data
@@ -153,8 +160,8 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
-        <activity android:name=".FrontEnd.AddFriend"
+        <activity
+            android:name=".FrontEnd.AddFriend"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

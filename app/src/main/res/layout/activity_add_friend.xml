@@ -171,5 +171,14 @@
         android:textColor="@color/white"
         app:cornerRadius="30dp"/>
 
+    <ProgressBar
+        android:id="@+id/progressBarAddFriend"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:visibility="gone"
+        android:layout_height="wrap_content" />
+
 
 </RelativeLayout>

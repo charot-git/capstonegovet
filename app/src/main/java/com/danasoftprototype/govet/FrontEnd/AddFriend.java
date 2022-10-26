@@ -1,10 +1,12 @@
 package com.danasoftprototype.govet.FrontEnd;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,13 +14,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.danasoftprototype.govet.R;
 import com.danasoftprototype.govet.databinding.ActivityAddFriendBinding;
-import com.danasoftprototype.govet.databinding.ActivityGovethomeBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
+
+import java.util.HashMap;
 
 
 public class AddFriend extends AppCompatActivity {
@@ -26,7 +33,10 @@ public class AddFriend extends AppCompatActivity {
     ImageView profilePic, pet1, pet2,pet3;
     TextView TextName, TextUsername;
     Button addFriend, cancelFriend;
+    String CurrentState = "not_friends";
     String email, image, name, uid, username;
+    DatabaseReference mUser, requestRef, friendRef;
+    ProgressBar progressBar;
 
     private ActivityAddFriendBinding binding;
 
@@ -45,6 +55,8 @@ public class AddFriend extends AppCompatActivity {
         TextUsername = binding.userUsername;
         addFriend = binding.addFriendButton;
         cancelFriend = binding.cancelButton;
+        progressBar = binding.progressBarAddFriend;
+
 
         email = getIntent().getStringExtra("email");
         image = getIntent().getStringExtra("image");
@@ -57,6 +69,9 @@ public class AddFriend extends AppCompatActivity {
         TextName.setText(name);
         TextUsername.setText(username);
 
+        mUser = FirebaseDatabase.getInstance().getReference().child("Users").child(uid);
+        requestRef = FirebaseDatabase.getInstance().getReference().child("Request");
+        friendRef = FirebaseDatabase.getInstance().getReference().child("Friends");
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("/Pets/"+uid+"/Pet");
         reference.child("Pet1").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
@@ -104,7 +119,51 @@ public class AddFriend extends AppCompatActivity {
             }
         });
 
+        addFriend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addFriendMethod(uid);
+            }
+        });
+
 
 
     }
+
+    private void addFriendMethod(String uid) {
+        progressBar.setVisibility(View.VISIBLE);
+        addFriend.setEnabled(false);
+        if(CurrentState.equals("not_friends")){
+            SendFriendRequest();
+
+        }
+
+    }
+
+    private void SendFriendRequest() {
+        requestRef.child(FirebaseAuth.getInstance().getUid()).child(uid).child("request_type").setValue("sent").addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()){
+                    friendRef.child(uid).child(FirebaseAuth.getInstance().getUid()).child("request_type").setValue("received").addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if(task.isSuccessful()){
+                                addFriend.setEnabled(true);
+                                CurrentState = "request_sent";
+                                addFriend.setText("Cancel Friend Request");
+                                cancelFriend.setVisibility(View.INVISIBLE);
+                                cancelFriend.setEnabled(false);
+                                progressBar.setVisibility(View.GONE);
+                            }
+
+                        }
+                    });
+                }
+
+            }
+        });
+    }
+
+
 }

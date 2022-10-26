@@ -4,28 +4,32 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Menu;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.danasoftprototype.govet.R;
-import com.google.android.material.snackbar.Snackbar;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
 import androidx.core.view.GravityCompat;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.danasoftprototype.govet.databinding.ActivityGovethome2Binding;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class govethome2 extends AppCompatActivity {
 
     private ActivityGovethome2Binding binding;
     ImageView drawerButton;
+    TextView postAdmin;
+    Button postButton;
+    DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +41,15 @@ public class govethome2 extends AppCompatActivity {
         NavigationView navigationView = (binding.navView);
         DrawerLayout drawerLayout = (binding.drawerLayout);
         drawerButton = (binding.hamburger);
+        postAdmin = binding.adminPost;
+        postButton = binding.button3;
+
+        postButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplication(), announce.class));
+            }
+        });
 
         drawerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,6 +85,25 @@ public class govethome2 extends AppCompatActivity {
                 }
 
                 return true;
+            }
+        });
+
+        reference = FirebaseDatabase.getInstance().getReference("Posts");
+        reference.child("adminPosts").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if(task.isSuccessful()){
+                    if(task.getResult().exists()){
+
+                        DataSnapshot dataSnapshot = task.getResult();
+
+                        String postFromDatabase = String.valueOf(dataSnapshot.child("post").getValue());
+                        postAdmin.setText(postFromDatabase);
+                        postAdmin.setVisibility(View.VISIBLE);
+                    }
+
+                }
+
             }
         });
 
