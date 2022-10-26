@@ -51,10 +51,12 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
         String year = bookingsList.get(position).getYear();
         String date = bookingsList.get(position).getDate();
         String description = bookingsList.get(position).getDescription();
+        String name = bookingsList.get(position).getName();
 
-        holder.date.setText(date);
-        holder.time.setText(time);
-        holder.description.setText(description);
+        holder.name.setText("Name : " + name);
+        holder.date.setText("Date : " + date);
+        holder.time.setText("Time : " +time);
+        holder.description.setText("Description : "+description);
 
 
 
@@ -92,7 +94,7 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
             name = itemView.findViewById(R.id.nameText);
             date = itemView.findViewById(R.id.DateText);
             time = itemView.findViewById(R.id.timeText);
-            description = itemView.findViewById(R.id.descriptionText);
+            description = itemView.findViewById(R.id.DescriptionText);
 
         }
     }

@@ -17,10 +17,13 @@ import android.widget.Toast;
 
 import com.danasoftprototype.govet.R;
 import com.danasoftprototype.govet.addPet;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.protobuf.StringValue;
@@ -108,13 +111,19 @@ public class booking extends AppCompatActivity {
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         FirebaseUser Fuser = mAuth.getInstance().getCurrentUser();
 
+
+
         //database set up
         String email = Fuser.getEmail();
         String uid = Fuser.getUid();
+        String name = Fuser.getDisplayName();
+        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("Users");
         description = descriptionText.getText().toString();
+
 
         HashMap<Object, String> hashMap = new HashMap<>();
 
+        hashMap.put("name" , name);
         hashMap.put("time", time);
         hashMap.put("day", dayPicked);
         hashMap.put("month", monthPicked);
@@ -125,7 +134,7 @@ public class booking extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
         DatabaseReference reference = database.getReference("Bookings");
-        reference.child(uid).child("bookingDetails").setValue(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+        reference.child("bookingDetails").setValue(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
                 Toast.makeText(getApplication(), "You have set an appointment for " +date , Toast.LENGTH_SHORT).show();
