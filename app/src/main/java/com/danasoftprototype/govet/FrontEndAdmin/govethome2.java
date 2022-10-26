@@ -17,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.transition.Slide;
 
 import com.danasoftprototype.govet.databinding.ActivityGovethome2Binding;
 import com.google.firebase.database.DataSnapshot;
@@ -64,22 +65,26 @@ public class govethome2 extends AppCompatActivity {
                 switch (item.getItemId()){
                     case R.id.nav_home:
                         item.setChecked(true);
-                        finishAfterTransition();
+                        drawerLayout.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.nav_adminUsers:
                         startActivity(new Intent(getApplication(),adminUsers.class));
+                        drawerLayout.closeDrawer(GravityCompat.START);
                         finishAfterTransition();
                         break;
                     case R.id.nav_adminAppointment:
                         startActivity(new Intent(getApplication(),adminAppoinment.class));
+                        drawerLayout.closeDrawer(GravityCompat.START);
                         finishAfterTransition();
                         break;
                     case R.id.nav_adminOnlinePayment:
                         startActivity(new Intent(getApplication(),adminOnlinePayments.class));
+                        drawerLayout.closeDrawer(GravityCompat.START);
                         finishAfterTransition();
                         break;
                     case R.id.nav_adminSettings:
                         startActivity(new Intent(getApplication(),adminSettings.class));
+                        drawerLayout.closeDrawer(GravityCompat.START);
                         finishAfterTransition();
                         break;
                 }

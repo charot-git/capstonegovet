@@ -19,6 +19,7 @@ import com.danasoftprototype.govet.AppointmentAdapter;
 import com.danasoftprototype.govet.FrontEnd.Bookings;
 import com.danasoftprototype.govet.ModelUser;
 import com.danasoftprototype.govet.R;
+import com.danasoftprototype.govet.User;
 import com.danasoftprototype.govet.databinding.ActivityAdminAppoinmentBinding;
 import com.danasoftprototype.govet.databinding.ActivityAdminUsersBinding;
 import com.google.android.material.navigation.NavigationView;
@@ -78,22 +79,27 @@ public class adminAppoinment extends AppCompatActivity {
                 switch (item.getItemId()){
                     case R.id.nav_home:
                         startActivity(new Intent(getApplication(), govethome2.class));
+                        drawerLayout.closeDrawer(GravityCompat.START);
                         finishAfterTransition();
                         break;
                     case R.id.nav_adminUsers:
                         startActivity(new Intent(getApplication(),adminUsers.class));
                         finishAfterTransition();
+                        drawerLayout.closeDrawer(GravityCompat.START);
                         item.setChecked(true);
                         break;
                     case R.id.nav_adminAppointment:
                         item.setChecked(true);
+                        drawerLayout.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.nav_adminOnlinePayment:
                         startActivity(new Intent(getApplication(),adminOnlinePayments.class));
+                        drawerLayout.closeDrawer(GravityCompat.START);
                         finishAfterTransition();
                         break;
                     case R.id.nav_adminSettings:
                         startActivity(new Intent(getApplication(),adminSettings.class));
+                        drawerLayout.closeDrawer(GravityCompat.START);
                         finishAfterTransition();
                         break;
                 }
@@ -108,21 +114,8 @@ public class adminAppoinment extends AppCompatActivity {
     private void getAllBooks() {
         DatabaseReference mDatabase =FirebaseDatabase.getInstance().getReference("Bookings");
 
-        mDatabase.child("bookingDetails").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                uid = snapshot.toString();
-                Toast.makeText(adminAppoinment.this, uid, Toast.LENGTH_LONG).show();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
         FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Bookings").child("bookingDetails").child(uid);
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Bookings").child("bookingDetails");
 
         ref.addValueEventListener(new ValueEventListener() {
             @Override

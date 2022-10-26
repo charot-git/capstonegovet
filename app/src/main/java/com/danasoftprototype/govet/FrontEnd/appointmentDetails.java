@@ -72,8 +72,8 @@ public class appointmentDetails extends AppCompatActivity {
     private void cancelDatabase() {
 
         String booking = "bookingDetails";
-        reference =FirebaseDatabase.getInstance().getReference("/Bookings/" + FirebaseAuth.getInstance().getCurrentUser().getUid());
-        reference.child(booking).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+        reference =FirebaseDatabase.getInstance().getReference("Bookings");
+        reference.child(booking).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 if (task.isSuccessful()){
@@ -106,8 +106,8 @@ public class appointmentDetails extends AppCompatActivity {
 
     private void getBookData() {
         String booking = "bookingDetails";
-        reference = FirebaseDatabase.getInstance().getReference("/Bookings/" + FirebaseAuth.getInstance().getCurrentUser().getUid());
-        reference.child(booking).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+        reference =FirebaseDatabase.getInstance().getReference("Bookings");
+        reference.child(booking).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 if (task.isSuccessful()){

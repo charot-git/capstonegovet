@@ -23,7 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class sched extends Fragment {
 
-    private TextView dateText, timeText, appointmentsText;
+    private TextView dateText, timeText, appointmentsText, descriptionText;
     DatabaseReference reference;
     CardView appointmentCard;
     public sched() {
@@ -53,6 +53,7 @@ public class sched extends Fragment {
 
         dateText = view.findViewById(R.id.dateText);
         timeText = view.findViewById(R.id.timeText);
+        descriptionText = view.findViewById(R.id.descriptionText);
         appointmentsText = view.findViewById(R.id.Appointments);
         appointmentCard = view.findViewById(R.id.appointmentcard);
 
@@ -68,8 +69,9 @@ public class sched extends Fragment {
 
     private void getBookData() {
         String booking = "bookingDetails";
-        reference =FirebaseDatabase.getInstance().getReference("/Bookings/" + FirebaseAuth.getInstance().getCurrentUser().getUid());
-        reference.child(booking).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+
+        reference =FirebaseDatabase.getInstance().getReference("Bookings");
+        reference.child(booking).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 if (task.isSuccessful()){
@@ -78,8 +80,10 @@ public class sched extends Fragment {
                         DataSnapshot dataSnapshot = task.getResult();
                         String date = String.valueOf(dataSnapshot.child("date").getValue());
                         String time = String.valueOf(dataSnapshot.child("time").getValue());
+                        String description = String.valueOf(dataSnapshot.child("description").getValue());
                         dateText.setText("DATE : " +date);
                         timeText.setText("TIME : "+time);
+                        descriptionText.setText("Description : "+ description);
 
                     }
                     else {
@@ -89,5 +93,7 @@ public class sched extends Fragment {
                 }
             }
         });
+
+
     }
 }

@@ -70,6 +70,7 @@ public class adminUsers extends AppCompatActivity {
                 switch (item.getItemId()){
                     case R.id.nav_home:
                         startActivity(new Intent(getApplication(), govethome2.class));
+                        drawerLayout.closeDrawer(GravityCompat.START);
                         finishAfterTransition();
                         break;
                     case R.id.nav_adminUsers:
@@ -77,14 +78,17 @@ public class adminUsers extends AppCompatActivity {
                         break;
                     case R.id.nav_adminAppointment:
                         startActivity(new Intent(getApplication(),adminAppoinment.class));
+                        drawerLayout.closeDrawer(GravityCompat.START);
                         finishAfterTransition();
                         break;
                     case R.id.nav_adminOnlinePayment:
                         startActivity(new Intent(getApplication(),adminOnlinePayments.class));
+                        drawerLayout.closeDrawer(GravityCompat.START);
                         finishAfterTransition();
                         break;
                     case R.id.nav_adminSettings:
                         startActivity(new Intent(getApplication(),adminSettings.class));
+                        drawerLayout.closeDrawer(GravityCompat.START);
                         finishAfterTransition();
                         break;
                 }

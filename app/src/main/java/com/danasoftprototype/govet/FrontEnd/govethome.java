@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.danasoftprototype.govet.FrontEndAdmin.govethome2;
 import com.danasoftprototype.govet.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -70,6 +71,9 @@ public class govethome extends AppCompatActivity {
 
             }
         }
+
+
+        ifUserIsAdmin();
 
         storageReference = FirebaseStorage.getInstance().getReference();
 
@@ -152,8 +156,8 @@ public class govethome extends AppCompatActivity {
 
     private void getBookingData() {
         String booking = "bookingDetails";
-        reference =FirebaseDatabase.getInstance().getReference("/Bookings/" + FirebaseAuth.getInstance().getCurrentUser().getUid());
-        reference.child(booking).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+        reference =FirebaseDatabase.getInstance().getReference("Bookings");
+        reference.child(booking).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 if (task.isSuccessful()){
@@ -174,6 +178,13 @@ public class govethome extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_govethome);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    private void ifUserIsAdmin(){
+
+        if (FirebaseAuth.getInstance().getCurrentUser().getEmail().equals("admingovet@gmail.com")){
+            startActivity(new Intent(getApplication(), govethome2.class));
+        }
     }
 
 }
