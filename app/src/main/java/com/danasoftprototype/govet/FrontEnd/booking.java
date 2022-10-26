@@ -124,7 +124,7 @@ public class booking extends AppCompatActivity {
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
-        DatabaseReference reference = database.getReference("Users");
+        DatabaseReference reference = database.getReference("Bookings");
         reference.child(uid).child("bookingDetails").setValue(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
