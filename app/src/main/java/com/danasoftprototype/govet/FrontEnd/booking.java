@@ -124,7 +124,7 @@ public class booking extends AppCompatActivity {
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
-        DatabaseReference reference = database.getReference("Bookings");
+        DatabaseReference reference = database.getReference("Users");
         reference.child(uid).child("bookingDetails").setValue(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
@@ -135,27 +135,10 @@ public class booking extends AppCompatActivity {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(getApplication(), "Pet not added", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplication(), "Booking failed", Toast.LENGTH_SHORT).show();
             }
         });
 
-
-
-
-        /*FirebaseDatabase.getInstance().getReference("user/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/bookings/")
-                .setValue(new Bookings(time,dayPicked,monthPicked, yearPicked, date)).addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        Toast.makeText(booking.this, "You have successfully booked", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getApplication(), govethome.class);
-                        startActivity(intent);
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(booking.this, "Booking failed", Toast.LENGTH_SHORT).show();
-                    }
-                });*/
     }
 
     private void getTime() {

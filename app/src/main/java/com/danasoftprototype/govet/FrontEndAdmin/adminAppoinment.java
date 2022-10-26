@@ -2,10 +2,8 @@ package com.danasoftprototype.govet.FrontEndAdmin;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,30 +11,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.danasoftprototype.govet.AppointmentAdapter;
-import com.danasoftprototype.govet.FrontEnd.Bookings;
-import com.danasoftprototype.govet.ModelUser;
 import com.danasoftprototype.govet.R;
 import com.danasoftprototype.govet.databinding.ActivityAdminAppoinmentBinding;
 import com.danasoftprototype.govet.databinding.ActivityAdminUsersBinding;
 import com.google.android.material.navigation.NavigationView;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.List;
 
 public class adminAppoinment extends AppCompatActivity {
 
     ImageView drawerButton;
-    RecyclerView recyclerView;
-    List<Bookings> bookingsList;
-    AppointmentAdapter appointmentAdapter;
-    SearchView searchView;
 
     private ActivityAdminAppoinmentBinding binding;
 
@@ -89,36 +71,5 @@ public class adminAppoinment extends AppCompatActivity {
             }
         });
 
-        getAllBooks();
-
     }
-    private void getAllBooks() {
-        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Bookings");
-
-        ref.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                bookingsList.clear();
-                for(DataSnapshot ds : snapshot.getChildren()){
-                    Bookings bookings = ds.getValue(Bookings.class);
-                        bookingsList.add(bookings);
-
-
-
-                    appointmentAdapter = new AppointmentAdapter(getApplication(), bookingsList);
-                    recyclerView.setAdapter(appointmentAdapter);
-                    recyclerView.setVisibility(View.VISIBLE);
-
-
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-    }
-
 }
