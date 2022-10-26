@@ -84,7 +84,7 @@ public class AdminAdapter extends RecyclerView.Adapter<AdminAdapter.MyHolder>{
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, AddFriend.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                Intent intent = new Intent(context, com.danasoftprototype.govet.FrontEndAdmin.adminUsersDelete.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                         .putExtra("uid" , uid)
                         .putExtra("name" , userName)
                         .putExtra("email" , userEmail)
