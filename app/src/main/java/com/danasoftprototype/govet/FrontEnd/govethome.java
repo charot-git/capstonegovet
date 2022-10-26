@@ -39,6 +39,8 @@ public class govethome extends AppCompatActivity {
     FirebaseUser mAuth;
     StorageReference storageReference;
     DatabaseReference reference;
+    DatabaseReference reference2;
+    TextView announcement;
     FloatingActionButton floatingActionButton;
 
 
@@ -123,6 +125,28 @@ public class govethome extends AppCompatActivity {
         });
         userEmail.setText(email1);
         userName.setText(name1);
+
+
+        announcement = findViewById(R.id.annHome);
+        reference2 = FirebaseDatabase.getInstance().getReference("Posts");
+        reference2.child("adminPosts").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if(task.isSuccessful()){
+                    if(task.getResult().exists()){
+
+                        DataSnapshot dataSnapshot = task.getResult();
+
+                        String postFromDatabase = String.valueOf(dataSnapshot.child("post").getValue());
+                        announcement.setText(postFromDatabase);
+                        announcement.setVisibility(View.VISIBLE);
+                    }
+
+                }
+
+            }
+        });
+
 
     }
 

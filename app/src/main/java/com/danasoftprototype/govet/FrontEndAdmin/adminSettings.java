@@ -10,15 +10,24 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.danasoftprototype.govet.MainActivity;
 import com.danasoftprototype.govet.R;
 import com.danasoftprototype.govet.databinding.ActivityAdminOnlinePaymentsBinding;
 import com.danasoftprototype.govet.databinding.ActivityAdminSettingsBinding;
+import com.danasoftprototype.govet.settings.aboutus;
+import com.danasoftprototype.govet.settings.display;
+import com.danasoftprototype.govet.settings.help;
+import com.danasoftprototype.govet.settings.privacyterm;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class adminSettings extends AppCompatActivity {
 
     ImageView drawerButton;
+    TextView display, privacyAndTerms, aboutUs, help, logout;
 
     private ActivityAdminSettingsBinding binding;
 
@@ -72,5 +81,77 @@ public class adminSettings extends AppCompatActivity {
                 return true;
             }
         });
+
+        display = binding.displayview;
+        privacyAndTerms = binding.privacyandtermsview;
+        aboutUs = binding.aboutusview;
+        help = binding.helpview;
+        logout = binding.logoutview;
+
+
+
+        display.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                displayMethod();
+            }
+        });
+
+        privacyAndTerms.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                privacyAndTermsMethod();
+            }
+        });
+
+        aboutUs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                aboutUsMethod();
+            }
+        });
+
+        help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                helpMethod();
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                logoutMethod();
+            }
+        });
+
+    }
+
+    private void logoutMethod() {
+        FirebaseAuth.getInstance().signOut();
+        Toast.makeText(getApplication(), "Logout successful", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(getApplication(), MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+    }
+
+    private void helpMethod() {
+        Intent intent = new Intent(getApplication(), com.danasoftprototype.govet.settings.help.class);
+        startActivity(intent);
+    }
+
+    private void aboutUsMethod() {
+        Intent intent = new Intent(getApplication(), aboutus.class);
+        startActivity(intent);
+    }
+
+    private void privacyAndTermsMethod() {
+        Intent intent = new Intent(getApplication(), privacyterm.class);
+        startActivity(intent);
+    }
+
+    private void displayMethod() {
+        Intent intent = new Intent(getApplication(), com.danasoftprototype.govet.settings.display.class);
+        startActivity(intent);
     }
 }

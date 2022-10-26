@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_below="@id/month"
+        android:id="@+id/appCon"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="8dp" >
+
+
+        <LinearLayout
+            android:id="@+id/details"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/detailsLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="30dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:id="@+id/nameText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Name : "
+                        android:textColor="@color/slightfont"
+                        android:fontFamily="@font/poppins_medium"
+                        android:layout_below="@id/dateText"
+                        android:textSize="16dp"
+                        android:layout_marginLeft="20dp" />
+
+                    <TextView
+                        android:id="@+id/DateText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Date : "
+                        android:textColor="@color/slightfont"
+                        android:fontFamily="@font/popins_light"
+                        android:layout_below="@id/dateText"
+                        android:textSize="16dp"
+                        android:layout_marginLeft="20dp" />
+
+
+                    <TextView
+                        android:id="@+id/timeText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Time : "
+                        android:textColor="@color/slightfont"
+                        android:fontFamily="@font/popins_light"
+                        android:layout_below="@id/dateText"
+                        android:textSize="16dp"
+                        android:layout_marginLeft="20dp"/>
+
+                    <TextView
+                        android:id="@+id/DescriptionText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Description : "
+                        android:textColor="@color/slightfont"
+                        android:fontFamily="@font/popins_light"
+                        android:layout_below="@id/dateText"
+                        android:textSize="16dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="20dp"/>
+
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.cardview.widget.CardView>
