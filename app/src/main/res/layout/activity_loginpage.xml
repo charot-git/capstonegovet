@@ -98,29 +98,11 @@
         app:cornerRadius="30dp" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/accessAdmin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/password"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        android:backgroundTint="@color/blue"
-        android:fontFamily="@font/poppins_medium"
-        android:paddingLeft="20dp"
-        android:paddingTop="5dp"
-        android:paddingRight="20dp"
-        android:paddingBottom="5dp"
-        android:text="Log In"
-        android:textColor="@color/white"
-        android:textSize="18dp"
-        app:cornerRadius="30dp" />
-
-    <com.google.android.material.button.MaterialButton
         android:id="@+id/loginbtnAdmin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/loginbtn"
+        android:layout_marginTop="40dp"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"

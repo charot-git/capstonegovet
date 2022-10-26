@@ -38,7 +38,7 @@
         android:layout_below="@id/Appointments"
         android:id="@+id/appointmentcard"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="125dp"
         android:visibility="invisible"
         app:cardElevation="4dp"
         android:layout_marginLeft="30dp"
@@ -68,6 +68,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TIME: "
+                android:textColor="@color/slightfont"
+                android:fontFamily="@font/popins_light"
+                android:textSize="16dp"
+                android:layout_marginLeft="20dp"/>
+
+            <TextView
+                android:id="@+id/descriptionText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Description: "
                 android:textColor="@color/slightfont"
                 android:fontFamily="@font/popins_light"
                 android:textSize="16dp"
