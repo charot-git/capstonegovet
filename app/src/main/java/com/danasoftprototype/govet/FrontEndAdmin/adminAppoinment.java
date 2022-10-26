@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.danasoftprototype.govet.AdminAdapter;
 import com.danasoftprototype.govet.AppointmentAdapter;
@@ -37,7 +38,9 @@ public class adminAppoinment extends AppCompatActivity {
     ImageView drawerButton;
     RecyclerView recyclerView;
     List<Bookings>bookingsList;
+    List<ModelUser>modelUsers;
     AppointmentAdapter appointmentAdapter;
+    String uid;
 
     private ActivityAdminAppoinmentBinding binding;
 
@@ -64,6 +67,8 @@ public class adminAppoinment extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplication()));
         bookingsList = new ArrayList<>();
+        modelUsers = new ArrayList<>();
+
 
         getAllBooks();
 
@@ -101,8 +106,23 @@ public class adminAppoinment extends AppCompatActivity {
     }
 
     private void getAllBooks() {
+        DatabaseReference mDatabase =FirebaseDatabase.getInstance().getReference("Bookings");
+
+        mDatabase.child("bookingDetails").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                uid = snapshot.toString();
+                Toast.makeText(adminAppoinment.this, uid, Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Bookings");
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Bookings").child("bookingDetails").child(uid);
 
         ref.addValueEventListener(new ValueEventListener() {
             @Override

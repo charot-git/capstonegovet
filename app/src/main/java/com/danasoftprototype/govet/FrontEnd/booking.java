@@ -134,7 +134,7 @@ public class booking extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
         DatabaseReference reference = database.getReference("Bookings");
-        reference.child("bookingDetails").setValue(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+        reference.child("bookingDetails").child(Fuser.getUid()).setValue(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
                 Toast.makeText(getApplication(), "You have set an appointment for " +date , Toast.LENGTH_SHORT).show();
