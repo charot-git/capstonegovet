@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="5dp"
+    android:background="@color/bgwhite">
+
+<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bgwhite"
@@ -59,11 +66,252 @@ Link to the privacy policies of the app's third-party service provider:
 
     <TextView
         android:id="@+id/wew"
-        android:layout_below="@+id/we"
-        android:layout_margin="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/data"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
         android:fontFamily="@font/popins_light"
-        android:text="We wish to notify you that whenever you use our Service, in the event of an issue in the app, we gather data and information on your phone called Log Data through third-party products. This Log Data may contain information such as your device name, device's Internet Protocol (IP) address, version of the operating system, app settings, time and date of usage, and other statistics when using our Service."/>
+        android:text="We wish to notify you that whenever you use our Service, in the event of an issue in the app, we gather data and information on your phone called Log Data through third-party products. This Log Data may contain information such as your device name, device's Internet Protocol (IP) address, version of the operating system, app settings, time and date of usage, and other statistics when using our Service." />
+
+
+    <TextView
+        android:id="@+id/one"
+        android:layout_below="@id/wew"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Service Providers"/>
+
+    <TextView
+        android:id="@+id/onecon"
+        android:layout_below="@+id/one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/popins_light"
+        android:text="We may use third-party individuals and companies for the following reasons:
+• To improve our service;
+• To carry out the Service on our behalf;
+• To provide service-related operations; or
+• To assist us in determining how our Service is utilized.
+We want users of this Service to be aware that these third party service provider have access to their Personal Information. The reason for this is that they can do the responsibilities entrusted to them on our behalf. They are, however, required not to reveal or exploit the personal information for any other reason.
+"/>
+
+
+    <TextView
+        android:id="@+id/two"
+        android:layout_below="@id/onecon"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Security"/>
+
+    <TextView
+        android:id="@+id/twocon"
+        android:layout_below="@+id/two"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/popins_light"
+        android:text="We appreciate your trust in sharing with us your Personal Data, thus we strive to secure it using commercially reasonable ways. Remember that no form of internet transmission or electronic storage is completely safe and reliable, and we cannot guarantee its absolute safety; nonetheless, we urge that you use anti-virus software, firewalls, and other security procedures to protect yourself from security risks."/>
+
+
+    <TextView
+        android:id="@+id/three"
+        android:layout_below="@id/twocon"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Other Sites' Links"/>
+
+    <TextView
+        android:id="@+id/threecon"
+        android:layout_below="@+id/three"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/popins_light"
+        android:text="This Service may include hyperlinks to third-party sites. You will be redirected to a third-party site after you click a third-party link. Please keep in mind that we do not manage these external websites. As a result, we strongly recommend that you read the Privacy Policies of these websites. We have no control over, and accept no responsibility for any third-party services' information, privacy policies, or practices."/>
+
+    <TextView
+        android:id="@+id/four"
+        android:layout_below="@id/threecon"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Updates to This Privacy Statement"/>
+
+    <TextView
+        android:id="@+id/fourcon"
+        android:layout_below="@+id/four"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/popins_light"
+        android:text="Our Privacy Policy may be updated from time to time. As a result, you should check this page for modifications on a regular basis. We will inform you of any modifications by posting the updated Privacy Statement on this page.
+This policy will go into effect on October 22, 2022.
+"/>
+
+    <TextView
+        android:id="@+id/five"
+        android:layout_below="@id/fourcon"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Terms and Conditions"/>
+
+    <TextView
+        android:id="@+id/fivecon"
+        android:layout_below="@+id/five"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/popins_light"
+        android:text="These terms will automatically apply to you if you download or use the GoVet app; hence, you should read them carefully before using the app. You may not replicate or change the app, any portion of the app, or any of our trademarks in any manner. You are not permitted to attempt to extract the app's source code, nor are you permitted to translate the app into other languages or create derivative versions. The software itself, as well as all database rights, copyright, trademarks, and other intellectual property rights associated with it, remain the property of NADA group.
+The NADA group is dedicated to making the app as efficient and useful as possible. As a result, we retain the right to modify the app or charge for its services at any moment and for any reason. We will never charge users for the application or its services unless we make it very clear what exactly they are paying for.
+To access our service, you must provide us with personally identifiable information as well as any other information that we think relevant to our application. It is your responsibility to ensure that your phone and app access is safe. As a result, we advise you not to jailbreak or root your device, which is the act of eliminating software restrictions and constraints imposed by your device's operating system. It may make your phone exposed to malware, viruses, and malicious apps, it may also weaken your phone's security features, and may cause the GoVet application to stop working correctly.
+The GoVet app does make use third-party services that declare their Terms and Conditions.
+Link to the Terms and Conditions of the app's third-party service provider:
+•	Firebase
+•	GCash
+•	Paypal
+"/>
+    <TextView
+        android:id="@+id/fivecon2"
+        android:layout_below="@+id/fivecon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/popins_light"
+        android:text="You should be aware that there are some things for which the NADA group will not take any responsibility. Certain functionality of the program will need an internet connection. The connection can be either via Wi-Fi or mobile network, but NADA group cannot be held liable if you do not have access to Wi-Fi and do not have any of your mobile data left. If you use the GoVet app outside of a Wi-Fi hotspot, keep in mind that the terms of your mobile network provider's agreement will still apply. As a result, your mobile carrier may charge you for the amount of data and duration while using the app, as well as additional third-party expenses. You accept responsibility for any charges by using the service, including roaming data charges. Please be aware that if you're not the bill payer for the device on which you are using the app, we will assume that you have gotten permission from the bill payer to use the app.
+Similarly, NADA group cannot always accept responsibility for how you use the GoVet application, i.e. you must keep your device charged; if it runs out of energy and you are unable to switch it on to use the Service, the NADA group cannot bear responsibility on it.
+Regarding NADA group's responsibility for your use of the app, it's important to remember that, while we strive to keep it up to date and accurate at all times, we do rely on third - party to give information to us so that we may make it available to you. NADA group takes no obligation for any loss, either direct or indirect, that you suffer as a result of relying solely on this app's functionality.
+"/>
+
+
+    <TextView
+        android:id="@+id/six"
+        android:layout_below="@id/fivecon2"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Modifications of the Service"/>
+
+    <TextView
+        android:id="@+id/sixcon"
+        android:layout_below="@+id/six"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/popins_light"
+        android:text="We may decide to upgrade the app at some point. The app is now accessible for Android; the system requirements (and any additional systems to which we decide to expand the app's availability) might change, and you will need to download updates if you wish to continue using our app.
+NADA group does not guarantee that the app will always be relevant to you and/or operate with the Android version that is installed on your device. However, you agree to accept updates to the GoVet application when they are made available to you. We may also decide to stop operating the app and may terminate usage for it at any point with or without providing you with notice of termination.
+Unless we inform you otherwise, upon termination, (a) the licenses and rights granted to you in these terms and conditions will expire; and (b) you must stop using the app and if necessary uninstall it from your device.
+"/>
+
+    <TextView
+        android:id="@+id/seven"
+        android:layout_below="@id/sixcon"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Usage Guidelines"/>
+
+    <TextView
+        android:id="@+id/sevencon"
+        android:layout_below="@+id/seven"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/popins_light"
+        android:text="You must not:
+•	Upload or send anything that GoVet and its members consider to be violent, harmful, racist, hateful, pornographic, and inappropriate.
+•	Infringe on the intellectual property rights of others, impersonate them, or otherwise violate their rights.
+•	Compromise the security of the GoVet app, its services, or the devices of its users.
+•	Do anything else that might violate the rights of others
+"/>
+
+
+    <TextView
+        android:id="@+id/eight"
+        android:layout_below="@id/sevencon"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Updates to This Terms and Conditions"/>
+
+    <TextView
+        android:id="@+id/eightcon"
+        android:layout_below="@+id/eight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/popins_light"
+        android:text="Our Terms and Conditions may be updated from time to time. As a result, you should check this page for modifications on a regular basis. We will inform you of any modifications by posting the updated Terms and Conditions on this page.
+This policy will go into effect on October 22, 2022.
+"/>
+
+
+    <TextView
+        android:id="@+id/nine"
+        android:layout_below="@id/eightcon"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Contact Us"/>
+
+    <TextView
+        android:id="@+id/ninecon"
+        android:layout_below="@+id/nine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/popins_light"
+        android:text="Please contact us at andreigaming@gmail.com if you have any concerns or recommendations concerning our Privacy Policy."/>
+
 
 </RelativeLayout>
+
+</ScrollView>
