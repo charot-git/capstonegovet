@@ -15,6 +15,20 @@
         android:theme="@style/Theme.GoVet"
         tools:targetApi="31">
         <activity
+            android:name=".FrontEndVet.vet_monitor_update_pet"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".FrontEndAdmin.adminUsersDelete"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".FrontEndAdmin.announce"
             android:exported="false">
             <meta-data
