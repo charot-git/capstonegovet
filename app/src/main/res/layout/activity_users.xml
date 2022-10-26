@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/bgwhite"
     tools:context=".FrontEnd.Users">
     
     <androidx.appcompat.widget.SearchView
@@ -22,7 +23,10 @@
         android:id="@+id/user_recyclerView"
         android:layout_margin="8dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:background="@color/bgwhite"
+        android:backgroundTint="@color/bgwhite"
+        android:backgroundTintMode="add">
 
 
     </androidx.recyclerview.widget.RecyclerView>

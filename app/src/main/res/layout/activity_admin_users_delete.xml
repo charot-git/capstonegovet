@@ -10,12 +10,10 @@
         android:id="@+id/userCon"
         app:cardElevation="4dp"
         app:cardCornerRadius="20dp"
+        android:layout_margin="30dp"
+        android:backgroundTint="@color/white"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="8dp" >
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -42,7 +40,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginTop="20dp"
                     android:orientation="vertical">
 
@@ -82,6 +80,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/userCon"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
         android:backgroundTint="@color/red"
         android:fontFamily="@font/poppins_medium"
         android:text="delete user"

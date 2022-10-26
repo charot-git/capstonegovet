@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:background="@color/bgwhite"
     tools:context=".FrontEndAdmin.adminAppoinment"
     tools:openDrawer="start">
 
@@ -91,11 +92,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/month"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp">
-
+            android:background="@color/bgwhite"
+            android:backgroundTint="@color/bgwhite">
 
         </androidx.recyclerview.widget.RecyclerView>
 
