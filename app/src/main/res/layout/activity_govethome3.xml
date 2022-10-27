@@ -4,15 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:layout_height="match_parent"
+    tools:context=".FrontEndVet.vetHome"
     tools:openDrawer="start">
 
-    <include
-        android:id="@+id/app_bar_govethome3"
-        layout="@layout/app_bar_govethome3"
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/relative"
+            android:background="@color/blue"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+            <ImageView
+                android:id="@+id/hamburger"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="8dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_hamburger"
+                app:tint="@color/white" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
@@ -20,6 +38,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_govethome3"
+        app:headerLayout="@layout/nav_header_govethome2"
         app:menu="@menu/activity_vet_drawer" />
+
 </androidx.drawerlayout.widget.DrawerLayout>

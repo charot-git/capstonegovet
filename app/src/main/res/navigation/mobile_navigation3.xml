@@ -5,21 +5,31 @@
     android:id="@+id/mobile_navigation3"
     app:startDestination="@+id/nav_home">
 
-    <fragment
+    <activity
         android:id="@+id/nav_home"
-        android:name="com.danasoftprototype.govet.ui.home.HomeFragment"
+        android:name="com.danasoftprototype.govet.FrontEndVet.vetHome"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/activity_vet_home" />
 
-    <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.danasoftprototype.govet.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+    <activity
+        android:id="@+id/nav_vetUsers"
+        android:name="com.danasoftprototype.govet.FrontEndVet.vetUsers"
+        android:label="menu_vetUsers"
+        tools:layout="@layout/activity_vet_users" />
 
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.danasoftprototype.govet.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+    <activity
+        android:id="@+id/nav_vetAppointment"
+        android:name="com.danasoftprototype.govet.FrontEndVet.vetSchedule"
+        android:label="menu_vetSched"
+        tools:layout="@layout/activity_vet_schedule" />
+    <activity
+        android:id="@+id/nav_vetMonitoring"
+        android:name="com.danasoftprototype.govet.FrontEndVet.vetMonitor"
+        android:label="menu_vetSched"
+        tools:layout="@layout/activity_vet_monitor" />
+    <activity
+        android:id="@+id/nav_vetSettings"
+        android:name="com.danasoftprototype.govet.FrontEndVet.vetSettings"
+        android:label="menu_vetSched"
+        tools:layout="@layout/layout_adminsettings" />
 </navigation>

@@ -1,14 +1,26 @@
 package com.danasoftprototype.govet.FrontEndVet;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.danasoftprototype.govet.FrontEndAdmin.adminAppoinment;
+import com.danasoftprototype.govet.FrontEndAdmin.adminOnlinePayments;
+import com.danasoftprototype.govet.FrontEndAdmin.adminSettings;
+import com.danasoftprototype.govet.FrontEndAdmin.adminUsers;
 import com.danasoftprototype.govet.R;
 import com.danasoftprototype.govet.databinding.ActivityGovethome3Binding;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DatabaseReference;
 
+import androidx.annotation.NonNull;
+import androidx.core.view.GravityCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -18,6 +30,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 public class govethome3 extends AppCompatActivity {
+    ImageView drawerButton;
+    TextView postAdmin;
+    Button postButton;
+    DatabaseReference reference;
 
     private AppBarConfiguration mAppBarConfiguration;
     private com.danasoftprototype.govet.databinding.ActivityGovethome3Binding binding;
@@ -29,38 +45,51 @@ public class govethome3 extends AppCompatActivity {
         binding = ActivityGovethome3Binding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        setSupportActionBar(binding.appBarGovethome3.toolbar);
-        binding.appBarGovethome3.fab.setOnClickListener(new View.OnClickListener() {
+        NavigationView navigationView = (binding.navView);
+        DrawerLayout drawerLayout = (binding.drawerLayout);
+        drawerButton = (binding.hamburger);
+
+        drawerButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onClick(View v) {
+                drawerLayout.openDrawer(GravityCompat.START);
             }
         });
-        DrawerLayout drawer = binding.drawerLayout;
-        NavigationView navigationView = binding.navView;
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
-                .setOpenableLayout(drawer)
-                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_govethome3);
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(navigationView, navController);
+
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.nav_home:
+                        item.setChecked(true);
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        break;
+                    case R.id.nav_vetUsers:
+                        startActivity(new Intent(getApplication(), vetUsers.class));
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        finishAfterTransition();
+                        break;
+                    case R.id.nav_vetAppointment:
+                        startActivity(new Intent(getApplication(), vetSchedule.class));
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        finishAfterTransition();
+                        break;
+                    case R.id.nav_vetMonitoring:
+                        startActivity(new Intent(getApplication(), vetMonitor.class));
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        finishAfterTransition();
+                        break;
+                    case R.id.nav_vetSettings:
+                        startActivity(new Intent(getApplication(), vetSettings.class));
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        finishAfterTransition();
+                        break;
+                }
+
+                return true;
+            }
+        });
+
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.govethome3, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_govethome3);
-        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
-                || super.onSupportNavigateUp();
-    }
 }
