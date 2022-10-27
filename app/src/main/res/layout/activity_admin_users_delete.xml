@@ -75,6 +75,19 @@
     </androidx.cardview.widget.CardView>
 
     <Button
+        android:id="@+id/admitPet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button4"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/blue"
+        android:fontFamily="@font/poppins_medium"
+        android:text="admit pet"
+        android:textColor="@color/white"
+        app:cornerRadius="30dp" />
+
+    <Button
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

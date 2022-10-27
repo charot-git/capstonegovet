@@ -46,6 +46,7 @@ public class vetUsers extends AppCompatActivity {
             }
         });
 
+        navigationView.setCheckedItem(R.id.nav_vetUsers);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -57,7 +58,6 @@ public class vetUsers extends AppCompatActivity {
                     case R.id.nav_vetUsers:
                         item.setChecked(true);
                         drawerLayout.closeDrawer(GravityCompat.START);
-                        finishAfterTransition();
                         break;
                     case R.id.nav_vetAppointment:
                         startActivity(new Intent(getApplication(), vetSchedule.class));

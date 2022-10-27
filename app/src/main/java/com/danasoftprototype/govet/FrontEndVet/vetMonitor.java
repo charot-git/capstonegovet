@@ -42,6 +42,7 @@ public class vetMonitor extends AppCompatActivity {
             }
         });
 
+        navigationView.setCheckedItem(R.id.nav_vetMonitoring);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -63,7 +64,6 @@ public class vetMonitor extends AppCompatActivity {
                     case R.id.nav_vetMonitoring:
                         item.setChecked(true);
                         drawerLayout.closeDrawer(GravityCompat.START);
-                        finishAfterTransition();
                         break;
                     case R.id.nav_vetSettings:
                         startActivity(new Intent(getApplication(), vetSettings.class));

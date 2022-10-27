@@ -52,6 +52,7 @@ public class adminSettings extends AppCompatActivity {
         });
 
 
+        navigationView.setCheckedItem(R.id.nav_adminSettings);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

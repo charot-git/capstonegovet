@@ -41,6 +41,7 @@ public class adminOnlinePayments extends AppCompatActivity {
             }
         });
 
+        navigationView.setCheckedItem(R.id.nav_adminOnlinePayment);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

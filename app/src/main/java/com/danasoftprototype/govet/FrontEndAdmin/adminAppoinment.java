@@ -101,6 +101,7 @@ public class adminAppoinment extends AppCompatActivity {
 
         getAllBooks();
 
+        navigationView.setCheckedItem(R.id.nav_adminAppointment);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
