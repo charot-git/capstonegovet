@@ -11,7 +11,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.danasoftprototype.govet.AdminAdapter;
@@ -41,7 +44,8 @@ public class adminAppoinment extends AppCompatActivity {
     List<Bookings>bookingsList;
     List<ModelUser>modelUsers;
     AppointmentAdapter appointmentAdapter;
-    String uid;
+    Spinner months;
+    String month;
 
     private ActivityAdminAppoinmentBinding binding;
 
@@ -69,6 +73,30 @@ public class adminAppoinment extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplication()));
         bookingsList = new ArrayList<>();
         modelUsers = new ArrayList<>();
+
+        months = binding.spinner3;
+
+        ArrayAdapter<CharSequence>adapterMonth = ArrayAdapter.createFromResource(this,R.array.months, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
+        adapterMonth.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
+        months.setAdapter(adapterMonth);
+        months.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                month = parent.getItemAtPosition(position).toString();
+
+                if (month.equals("January")){
+
+                }
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                getAllBooks();
+
+            }
+        });
 
 
         getAllBooks();

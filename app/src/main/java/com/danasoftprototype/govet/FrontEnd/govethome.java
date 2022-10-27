@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.danasoftprototype.govet.FrontEndAdmin.govethome2;
+import com.danasoftprototype.govet.FrontEndVet.govethome3;
 import com.danasoftprototype.govet.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -45,10 +46,11 @@ public class govethome extends AppCompatActivity {
     FloatingActionButton floatingActionButton;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        binding = ActivityGovethomeBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         String email1 = null;
         String name1 = null;
@@ -74,17 +76,16 @@ public class govethome extends AppCompatActivity {
 
 
         ifUserIsAdmin();
+        ifUserIsVet();
 
         storageReference = FirebaseStorage.getInstance().getReference();
 
-        binding = ActivityGovethomeBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-
-
 
         floatingActionButton = findViewById(R.id.fab);
+        announcement = findViewById(R.id.annHome);
 
         getBookingData();
+        ifAdminHasPost();
 
         setSupportActionBar(binding.appBarGovethome.toolbar);
         binding.appBarGovethome.fab.setOnClickListener(new View.OnClickListener() {
@@ -108,6 +109,7 @@ public class govethome extends AppCompatActivity {
                 .setOpenableLayout(drawer)
                 .build();
 
+
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_govethome);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
@@ -124,20 +126,41 @@ public class govethome extends AppCompatActivity {
         profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
-                Picasso.get().load(uri).resize(250,250).centerCrop().into(imageView);
+                Picasso.get().load(uri).resize(250, 250).centerCrop().into(imageView);
             }
         });
         userEmail.setText(email1);
         userName.setText(name1);
 
 
-        announcement = findViewById(R.id.annHome);
+    }
+
+
+    private void getBookingData() {
+        String booking = "bookingDetails";
+        reference = FirebaseDatabase.getInstance().getReference("Bookings");
+        reference.child(booking).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (task.isSuccessful()) {
+                    if (task.getResult().exists()) {
+                        floatingActionButton.setVisibility(View.INVISIBLE);
+                    } else {
+                        floatingActionButton.setVisibility(View.VISIBLE);
+                    }
+                }
+            }
+        });
+    }
+
+    private void ifAdminHasPost() {
+        announcement.setVisibility(View.VISIBLE);
         reference2 = FirebaseDatabase.getInstance().getReference("Posts");
         reference2.child("adminPosts").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
-                if(task.isSuccessful()){
-                    if(task.getResult().exists()){
+                if (task.isSuccessful()) {
+                    if (task.getResult().exists()) {
 
                         DataSnapshot dataSnapshot = task.getResult();
 
@@ -150,41 +173,30 @@ public class govethome extends AppCompatActivity {
 
             }
         });
-
-
-    }
-
-    private void getBookingData() {
-        String booking = "bookingDetails";
-        reference =FirebaseDatabase.getInstance().getReference("Bookings");
-        reference.child(booking).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                if (task.isSuccessful()){
-                    if(task.getResult().exists()){
-                        floatingActionButton.setVisibility(View.INVISIBLE);
-                    }
-                    else {
-                        floatingActionButton.setVisibility(View.VISIBLE);
-                    }
-                }
-            }
-        });
     }
 
 
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_govethome);
+
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
 
-    private void ifUserIsAdmin(){
+    private void ifUserIsAdmin() {
 
-        if (FirebaseAuth.getInstance().getCurrentUser().getEmail().equals("admingovet@gmail.com")){
+        if (FirebaseAuth.getInstance().getCurrentUser().getEmail().equals("admingovet@gmail.com")) {
             startActivity(new Intent(getApplication(), govethome2.class));
+
         }
     }
 
+    private void ifUserIsVet() {
+        if (FirebaseAuth.getInstance().getCurrentUser().getEmail().equals("vetgovet@gmail.com")) {
+            startActivity(new Intent(getApplication(), govethome3.class));
+
+        }
+
+    }
 }

@@ -52,6 +52,20 @@
         <item>Hamster</item>
     </string-array>
 
+    <string-array name="months">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
+
     <string-array name="dogBreed">
         <item>German Sheperd</item>
         <item>Bulldog</item>
@@ -105,6 +119,7 @@
     </string-array>
     <string name="title_activity_admin_govet_home">adminGovetHome</string>
     <string name="title_activity_govethome2">govethome2</string>
+    <string name="title_activity_govethome3">govethome3</string>
 
 
 </resources>

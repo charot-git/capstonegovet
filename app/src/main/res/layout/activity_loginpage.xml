@@ -118,7 +118,7 @@
         app:cornerRadius="30dp" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/loginBtnUser"
+        android:id="@+id/loginBtnVet"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/loginbtnAdmin"
@@ -131,7 +131,7 @@
         android:paddingTop="5dp"
         android:paddingRight="20dp"
         android:paddingBottom="5dp"
-        android:text="User Login"
+        android:text="Vet Login"
         android:textColor="@color/white"
         android:textSize="18dp"
         app:cornerRadius="30dp" />

@@ -70,6 +70,7 @@
         android:fontFamily="@font/popins_light"
         android:layout_below="@id/homeannounncements"
         android:textSize="16dp"
+        android:visibility="gone"
         android:layout_marginRight="40dp"
         android:layout_marginLeft="40dp"/>
 

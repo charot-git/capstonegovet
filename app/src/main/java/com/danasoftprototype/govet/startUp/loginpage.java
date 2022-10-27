@@ -12,6 +12,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.danasoftprototype.govet.FrontEndVet.govethome3;
 import com.danasoftprototype.govet.R;
 import com.danasoftprototype.govet.databinding.ActivityLoginpageBinding;
 import com.danasoftprototype.govet.FrontEndAdmin.govethome2;
@@ -57,7 +58,7 @@ public class loginpage extends AppCompatActivity {
 
         //for developing
         adminButton = findViewById(R.id.loginbtnAdmin);
-        userButton = findViewById(R.id.loginBtnUser);
+        userButton = findViewById(R.id.loginBtnVet);
         adminButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,7 +68,7 @@ public class loginpage extends AppCompatActivity {
         userButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                userListener();
+                vetListener();
             }
         });
 
@@ -93,16 +94,6 @@ public class loginpage extends AppCompatActivity {
         userlogin = findViewById(R.id.loginbtn);
         mAuth = FirebaseAuth.getInstance();
         userlogin.setOnClickListener(this::userlogin);
-
-        //special access activity
-        secret.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(loginpage.this, govethome.class);
-                startActivity(intent);
-            }
-        });
-
 
 
 
@@ -215,6 +206,38 @@ public class loginpage extends AppCompatActivity {
                     email.requestFocus();
 
                 }
+            }
+        });
+
+    }
+
+    public void vetListener(){
+        mAuth.signInWithEmailAndPassword("vetgovet@gmail.com", "vetgovet").addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()){
+                    if (mAuth != null){
+                        for (UserInfo profile : mAuth.getCurrentUser().getProviderData()){
+                            String email1 = profile.getEmail();
+                            Toast.makeText(loginpage.this,"Welcome to GoVet  Doc!", Toast.LENGTH_SHORT).show();
+                            finish();
+                        }
+                    }
+                    else{
+                        Toast.makeText(loginpage.this,"Login failed", Toast.LENGTH_SHORT).show();
+                    }
+
+                    Intent intent = new Intent(getApplication(), govethome3.class);
+                    startActivity(intent);
+
+                }
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(loginpage.this,"Login failed ", Toast.LENGTH_SHORT).show();
+                email.requestFocus();
             }
         });
 
