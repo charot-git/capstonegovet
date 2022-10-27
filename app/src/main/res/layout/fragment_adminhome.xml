@@ -73,7 +73,7 @@
         android:layout_below="@id/adminvec"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/poppins_medium"
-
+        android:textColor="@color/white"
         android:text="ADD ANNOUNCEMENT"
         app:cornerRadius="20dp" />
 </RelativeLayout>

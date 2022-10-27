@@ -59,19 +59,25 @@
         tools:ignore="TextContrastCheck"
         android:fontFamily="@font/poppins_medium"/>
 
-
-
-    <TextView
-        android:id="@+id/annHome"
-        android:layout_width="wrap_content"
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
-        android:textColor="@color/slightfont"
-        android:fontFamily="@font/popins_light"
         android:layout_below="@id/homeannounncements"
-        android:textSize="16dp"
-        android:visibility="gone"
-        android:layout_marginRight="40dp"
-        android:layout_marginLeft="40dp"/>
+        android:layout_margin="20dp"
+        android:background="@color/white"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="10dp">
+
+        <TextView
+            android:id="@+id/annHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text=""
+            android:textColor="@color/slightfont"
+            android:textSize="16dp" />
+    </androidx.cardview.widget.CardView>
+
 
 </RelativeLayout>

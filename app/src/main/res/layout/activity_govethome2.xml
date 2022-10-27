@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:background="@color/bgwhite"
-    tools:openDrawer="start">
+    tools:openDrawer="">
 
    <RelativeLayout
        android:layout_width="match_parent"
@@ -39,17 +39,31 @@
            android:layout_below="@id/adminvec"
            android:layout_centerHorizontal="true"
            android:fontFamily="@font/poppins_medium"
-
+           android:textColor="@color/white"
+           android:backgroundTint="@color/blue"
            android:text="ADD ANNOUNCEMENT"
            app:cornerRadius="20dp" />
 
-       <TextView
-           android:id="@+id/adminPost"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_below="@id/button3"
-           android:visibility="gone"
-           />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="@color/white"
+                app:cardCornerRadius="10dp"
+                android:layout_below="@id/button3">
+                <TextView
+                    android:layout_margin="20dp"
+                    android:id="@+id/adminPost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textSize="16dp"
+                    android:textColor="@color/slightfont"
+                    />
+            </androidx.cardview.widget.CardView>
+
 
        <RelativeLayout
            android:id="@+id/relativeUser"

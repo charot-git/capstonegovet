@@ -62,8 +62,9 @@
         android:backgroundTint="@color/blue"
         android:fontFamily="@font/poppins_medium"
         android:text="Add Friend"
+        android:textSize="14dp"
         android:textColor="@color/white"
-        app:cornerRadius="30dp"/>
+        app:cornerRadius="60dp"/>
 
 
 
@@ -74,7 +75,7 @@
         android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
-        app:cardElevation="4dp"
+        app:cardElevation="8dp"
         app:cardCornerRadius="20dp">
 
         <LinearLayout
@@ -99,7 +100,6 @@
                     android:id="@+id/addPetsPic1"
                     android:elevation="4dp"
                     android:layout_width="70dp"
-
                     android:layout_height="70dp"
                     android:layout_centerHorizontal="true"
                     android:contentDescription="@string/todo"
@@ -167,6 +167,7 @@
         android:layout_centerHorizontal="true"
         android:text="Cancel friend request"
         android:backgroundTint="@color/red"
+        android:textSize="14dp"
         android:fontFamily="@font/poppins_medium"
         android:textColor="@color/white"
         app:cornerRadius="30dp"/>
