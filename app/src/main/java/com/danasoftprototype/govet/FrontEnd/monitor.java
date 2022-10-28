@@ -2,13 +2,30 @@ package com.danasoftprototype.govet.FrontEnd;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.danasoftprototype.govet.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.common.util.concurrent.Monitor;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +33,10 @@ import com.danasoftprototype.govet.R;
  * create an instance of this fragment.
  */
 public class monitor extends Fragment {
+
+    ImageView profilepic;
+    TextView name, breed, date, time, status;
+    List <Monitor> monitorList;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -51,10 +72,7 @@ public class monitor extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        monitorList = new ArrayList<>();
     }
 
     @Override
@@ -62,5 +80,46 @@ public class monitor extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_monitor, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        profilepic = view.findViewById(R.id.profilepic);
+        name = view.findViewById(R.id.monitorname);
+        status = view.findViewById(R.id.status);
+        breed = view.findViewById(R.id.monitorbreed);
+        date = view.findViewById(R.id.date);
+        time = view.findViewById(R.id.time);
+
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Monitoring");
+        reference.child(FirebaseAuth.getInstance().getUid()).child("Pet1").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (task.isSuccessful()){
+                    if (task.getResult().exists()){
+                        DataSnapshot dataSnapshot = task.getResult();
+                        String dp = String.valueOf(dataSnapshot.child("petPic").getValue());
+                        String petName = String.valueOf(dataSnapshot.child("petName").getValue());
+                        String petStatus = String.valueOf(dataSnapshot.child("status").getValue());
+                        String petBreed = String.valueOf(dataSnapshot.child("petBreed").getValue());
+                        String petDate = String.valueOf(dataSnapshot.child("date").getValue());
+                        String petTime = String.valueOf(dataSnapshot.child("time").getValue());
+
+                        Picasso.get().load(dp).centerCrop().placeholder(R.drawable.logogv).into(profilepic);
+                        name.setText(petName);
+                        status.setText(petStatus);
+                        breed.setText(petBreed);
+                        date.setText(petDate);
+                        time.setText(petTime);
+
+
+                    }
+                }
+
+            }
+        });
+
+
     }
 }
