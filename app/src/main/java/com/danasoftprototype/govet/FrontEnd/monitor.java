@@ -113,7 +113,6 @@ public class monitor extends Fragment {
                         date.setText(petDate);
                         time.setText(petTime);
 
-
                     }
                 }
 

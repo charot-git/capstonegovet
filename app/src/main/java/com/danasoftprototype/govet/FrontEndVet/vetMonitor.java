@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.ui.AppBarConfiguration;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,15 +13,24 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.danasoftprototype.govet.AppointmentAdapter;
+import com.danasoftprototype.govet.FrontEnd.Bookings;
 import com.danasoftprototype.govet.FrontEndAdmin.adminSettings;
+import com.danasoftprototype.govet.ModelUser;
 import com.danasoftprototype.govet.R;
+import com.danasoftprototype.govet.petAdmitMonitoring;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DatabaseReference;
+
+import java.util.List;
 
 public class vetMonitor extends AppCompatActivity {
 
     ImageView drawerButton;
     DatabaseReference reference;
+    RecyclerView recyclerView;
+    List<petAdmitMonitoring> petAdmitMonitoringList;
+    AppointmentAdapter appointmentAdapter;
 
     private AppBarConfiguration mAppBarConfiguration;
     private com.danasoftprototype.govet.databinding.ActivityVetMonitorBinding binding;
