@@ -40,6 +40,7 @@ public class vet_monitor_update_pet extends AppCompatActivity {
     String yearPicked;
     String monthPicked;
     String date;
+    String statusOfPet = "Admitted";
     private String time;
     private  int t1Hour, t1Minute;
 
@@ -71,7 +72,10 @@ public class vet_monitor_update_pet extends AppCompatActivity {
         datePet.setText("Date : " + petDate);
         timePet.setText("Time : " + petTime);
 
-        String statusOfPet = status.getText().toString();
+        date = petDate;
+        time = petTime;
+        statusOfPet = petStatus;
+
         getDate();
         getTime();
 
@@ -141,10 +145,12 @@ public class vet_monitor_update_pet extends AppCompatActivity {
                 for (DataSnapshot ds : snapshot.getChildren()){
                     updatedValues.put(ds.getKey(), ds.getValue());
                 }
-                updatedValues.put("status" , status.getText().toString());
+                statusOfPet  = status.getText().toString();
+                statusPet.setText("Status : " + statusOfPet);
+                updatedValues.put("status" , statusOfPet);
                 updatedValues.put("date" , date);
                 updatedValues.put("time" , time);
-                ref.child(uid).setValue(updatedValues).addOnSuccessListener(new OnSuccessListener<Void>() {
+                ref.child(uid).updateChildren(updatedValues).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
                         Toast.makeText(vet_monitor_update_pet.this, "Updated", Toast.LENGTH_SHORT).show();
