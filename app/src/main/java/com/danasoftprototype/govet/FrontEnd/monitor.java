@@ -87,7 +87,7 @@ public class monitor extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         profilepic = view.findViewById(R.id.profilepic);
         name = view.findViewById(R.id.monitorname);
-        status = view.findViewById(R.id.status);
+        status = view.findViewById(R.id.petStatus);
         breed = view.findViewById(R.id.monitorbreed);
         date = view.findViewById(R.id.date);
         time = view.findViewById(R.id.time);
@@ -102,11 +102,11 @@ public class monitor extends Fragment {
                         String dp = String.valueOf(dataSnapshot.child("petPic").getValue());
                         String petName = String.valueOf(dataSnapshot.child("petName").getValue());
                         String petStatus = String.valueOf(dataSnapshot.child("status").getValue());
-                        String petBreed = String.valueOf(dataSnapshot.child("petBreed").getValue());
+                        String petBreed = String.valueOf(dataSnapshot.child("breed").getValue());
                         String petDate = String.valueOf(dataSnapshot.child("date").getValue());
                         String petTime = String.valueOf(dataSnapshot.child("time").getValue());
 
-                        Picasso.get().load(dp).centerCrop().placeholder(R.drawable.logogv).into(profilepic);
+                        Picasso.get().load(dp).placeholder(R.drawable.logogv).into(profilepic);
                         name.setText(petName);
                         status.setText(petStatus);
                         breed.setText(petBreed);
