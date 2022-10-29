@@ -284,7 +284,7 @@ public class admitPetAdmin extends AppCompatActivity {
     }
     private void admitThisPet2(String uid) {
         reference2 = FirebaseDatabase.getInstance().getReference("/Pets/" + uid+"/Pet");
-        reference2.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+        reference2.child("Pet2").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 if (task.isSuccessful()){
@@ -321,7 +321,7 @@ public class admitPetAdmin extends AppCompatActivity {
 
                         FirebaseDatabase database = FirebaseDatabase.getInstance();
                         DatabaseReference reference = database.getReference("Monitoring");
-                        reference.child(uid).child("Pet2").setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        reference.child(uid).setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 Toast.makeText(admitPetAdmin.this, petName2 +" has been admitted", Toast.LENGTH_SHORT).show();
@@ -343,7 +343,7 @@ public class admitPetAdmin extends AppCompatActivity {
     }
     private void admitThisPet3(String uid) {
         reference2 = FirebaseDatabase.getInstance().getReference("/Pets/" + uid+"/Pet");
-        reference2.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+        reference2.child("Pet3").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 if (task.isSuccessful()){
@@ -381,7 +381,7 @@ public class admitPetAdmin extends AppCompatActivity {
                         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
                         DatabaseReference reference = database.getReference("Monitoring");
-                        reference.child(uid).child("Pet3").setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        reference.child(uid).setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 Toast.makeText(admitPetAdmin.this, petName3 +" has been admitted", Toast.LENGTH_SHORT).show();
