@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.danasoftprototype.govet.databinding.ActivityAdmitPetAdminBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -38,6 +39,8 @@ public class admitPetAdmin extends AppCompatActivity {
     String petName2, petBreed2, petDp2;
     String petName3, petBreed3, petDp3;
 
+    String nameOfUser;
+
 
     DatabaseReference reference1, reference2, reference3;
 
@@ -54,6 +57,20 @@ public class admitPetAdmin extends AppCompatActivity {
 
         name = binding.userName;
         name.setText(nameUser);
+
+        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("Users");
+        userRef.child(uid).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (task.isSuccessful()){
+                    if (task.getResult().exists()){
+                        DataSnapshot dataSnapshot = task.getResult();
+                        nameOfUser = String.valueOf(dataSnapshot.child("name").getValue());
+                    }
+                }
+
+            }
+        });
 
         pet1 = binding.pet1;
         pet2 = binding.pet2;
@@ -237,12 +254,13 @@ public class admitPetAdmin extends AppCompatActivity {
                         hashMap.put("date", currentDate);
                         hashMap.put("time", currentTime);
                         hashMap.put("status", "Admitted");
+                        hashMap.put("name", nameOfUser);
 
 
                         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
                         DatabaseReference reference = database.getReference("Monitoring");
-                        reference.child(uid).child("Pet1").setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        reference.child(uid).setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 Toast.makeText(admitPetAdmin.this, petName1 +" has been admitted", Toast.LENGTH_SHORT).show();
@@ -265,7 +283,7 @@ public class admitPetAdmin extends AppCompatActivity {
     }
     private void admitThisPet2(String uid) {
         reference2 = FirebaseDatabase.getInstance().getReference("/Pets/" + uid+"/Pet");
-        reference2.child("Pet2").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+        reference2.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 if (task.isSuccessful()){
@@ -296,6 +314,7 @@ public class admitPetAdmin extends AppCompatActivity {
                         hashMap.put("date", currentDate);
                         hashMap.put("time", currentTime);
                         hashMap.put("status", "Admitted");
+                        hashMap.put("name", nameOfUser);
 
 
                         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -322,7 +341,7 @@ public class admitPetAdmin extends AppCompatActivity {
     }
     private void admitThisPet3(String uid) {
         reference2 = FirebaseDatabase.getInstance().getReference("/Pets/" + uid+"/Pet");
-        reference2.child("Pet3").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+        reference2.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 if (task.isSuccessful()){
@@ -353,6 +372,7 @@ public class admitPetAdmin extends AppCompatActivity {
                         hashMap.put("date", currentDate);
                         hashMap.put("time", currentTime);
                         hashMap.put("status", "Admitted");
+                        hashMap.put("name", nameOfUser);
 
 
                         FirebaseDatabase database = FirebaseDatabase.getInstance();

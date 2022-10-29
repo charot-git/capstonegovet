@@ -45,6 +45,7 @@
         </LinearLayout>
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/statusPet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_medium"
@@ -75,6 +76,7 @@
         </LinearLayout>
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/petDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_medium"
@@ -104,6 +106,7 @@
             android:orientation="vertical"></LinearLayout>
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/petTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_medium"

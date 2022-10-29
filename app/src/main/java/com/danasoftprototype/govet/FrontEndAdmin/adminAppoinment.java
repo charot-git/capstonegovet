@@ -84,6 +84,8 @@ public class adminAppoinment extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 month = parent.getItemAtPosition(position).toString();
 
+
+                //if january then 1, then filter by month 1 from database
                 if (month.equals("January")){
 
                 }

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.ui.AppBarConfiguration;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -17,22 +18,26 @@ import com.danasoftprototype.govet.AppointmentAdapter;
 import com.danasoftprototype.govet.FrontEnd.Bookings;
 import com.danasoftprototype.govet.FrontEndAdmin.adminSettings;
 import com.danasoftprototype.govet.ModelUser;
+import com.danasoftprototype.govet.MonitoringAdapter;
 import com.danasoftprototype.govet.R;
 import com.danasoftprototype.govet.petAdmitMonitoring;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class vetMonitor extends AppCompatActivity {
 
     ImageView drawerButton;
-    DatabaseReference reference;
     RecyclerView recyclerView;
     List<petAdmitMonitoring> petAdmitMonitoringList;
-    AppointmentAdapter appointmentAdapter;
+    MonitoringAdapter monitoringAdapter;
 
-    private AppBarConfiguration mAppBarConfiguration;
     private com.danasoftprototype.govet.databinding.ActivityVetMonitorBinding binding;
 
     @Override
@@ -51,6 +56,9 @@ public class vetMonitor extends AppCompatActivity {
                 drawerLayout.openDrawer(GravityCompat.START);
             }
         });
+
+
+
 
         navigationView.setCheckedItem(R.id.nav_vetMonitoring);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -83,6 +91,40 @@ public class vetMonitor extends AppCompatActivity {
                 }
 
                 return true;
+            }
+        });
+
+        recyclerView = binding.recyclerView;
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplication()));
+        petAdmitMonitoringList = new ArrayList<>();
+
+        getAllMonitoring();
+
+
+    }
+
+    private void getAllMonitoring() {
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Monitoring");
+
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                petAdmitMonitoringList.clear();
+                for (DataSnapshot ds : snapshot.getChildren()){
+                    petAdmitMonitoring petAdmitMonitoring = ds.getValue(com.danasoftprototype.govet.petAdmitMonitoring.class);
+                    petAdmitMonitoringList.add(petAdmitMonitoring);
+                }
+
+                monitoringAdapter = new MonitoringAdapter(getApplication(), petAdmitMonitoringList);
+                recyclerView.setAdapter(monitoringAdapter);
+                recyclerView.setVisibility(View.VISIBLE);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
     }

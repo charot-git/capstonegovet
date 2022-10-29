@@ -1,9 +1,9 @@
 package com.danasoftprototype.govet;
 
 public class petAdmitMonitoring {
-    String petName, date, time, status, breed, petPic;
+    String petName, date, time, status, breed, petPic, name;
 
-    public void petAdmitMonitoring(){}
+    public petAdmitMonitoring(){}
 
     public String getPetName() {
         return petName;
@@ -53,12 +53,21 @@ public class petAdmitMonitoring {
         this.petPic = petPic;
     }
 
-    public petAdmitMonitoring(String petName, String date, String time, String status, String breed, String petPic) {
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public petAdmitMonitoring(String petName, String date, String time, String status, String breed, String petPic, String name) {
         this.petName = petName;
         this.date = date;
         this.time = time;
         this.status = status;
         this.breed = breed;
         this.petPic = petPic;
+        this.name = name;
     }
 }
