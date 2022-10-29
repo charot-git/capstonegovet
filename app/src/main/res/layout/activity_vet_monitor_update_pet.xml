@@ -76,7 +76,16 @@
         android:textColor="@color/slightfont"
         android:textSize="18dp" />
 
-    <androidx.cardview.widget.CardView
+    <CalendarView
+        android:id="@+id/monitorCalendar"
+        android:layout_below="@id/monitorDatetxt"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </CalendarView>
+
+    <!--<androidx.cardview.widget.CardView
         android:id="@+id/monitordate"
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -87,8 +96,6 @@
         app:cardElevation="4dp"
         android:layout_marginBottom="8dp"
         app:cardCornerRadius="20dp">
-
-
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/petDate"
@@ -102,10 +109,10 @@
              android:hint="Date here" />
 
     </androidx.cardview.widget.CardView>
-
+-->
     <TextView
         android:id="@+id/monitorTimetxt"
-        android:layout_below="@id/monitordate"
+        android:layout_below="@id/monitorCalendar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -116,37 +123,20 @@
         android:textColor="@color/slightfont"
         android:textSize="18dp" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/monitortime"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_below="@+id/monitorTimetxt"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginRight="30dp"
-        app:cardElevation="4dp"
-        android:layout_marginBottom="8dp"
-        app:cardCornerRadius="20dp">
+    <TimePicker
+        android:id="@+id/monitorTime"
+        android:layout_below="@id/monitorTimetxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true">
 
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/petTime"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_medium"
-            android:textColor="@color/slightfont"
-            android:layout_marginLeft="15dp"
-            android:layout_gravity="center"
-            android:textSize="16dp"
-            android:hint="Time here" />
-
-    </androidx.cardview.widget.CardView>
+    </TimePicker>
 
     <Button
         android:id="@+id/updatevetbut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/monitortime"
+        android:layout_below="@id/monitorTime"
         android:layout_centerHorizontal="true"
         android:background="@color/blue"
         android:layout_marginTop="10dp"
