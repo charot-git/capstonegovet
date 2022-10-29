@@ -255,6 +255,7 @@ public class admitPetAdmin extends AppCompatActivity {
                         hashMap.put("time", currentTime);
                         hashMap.put("status", "Admitted");
                         hashMap.put("name", nameOfUser);
+                        hashMap.put("uid", uid);
 
 
                         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -315,6 +316,7 @@ public class admitPetAdmin extends AppCompatActivity {
                         hashMap.put("time", currentTime);
                         hashMap.put("status", "Admitted");
                         hashMap.put("name", nameOfUser);
+                        hashMap.put("uid", uid);
 
 
                         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -373,6 +375,7 @@ public class admitPetAdmin extends AppCompatActivity {
                         hashMap.put("time", currentTime);
                         hashMap.put("status", "Admitted");
                         hashMap.put("name", nameOfUser);
+                        hashMap.put("uid", uid);
 
 
                         FirebaseDatabase database = FirebaseDatabase.getInstance();

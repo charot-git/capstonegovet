@@ -44,6 +44,7 @@ public class MonitoringAdapter extends RecyclerView.Adapter<MonitoringAdapter.My
         String status = petAdmitMonitoringList.get(position).getStatus();
         String time = petAdmitMonitoringList.get(position).getTime();
         String name = petAdmitMonitoringList.get(position).getName();
+        String uid = petAdmitMonitoringList.get(position).getUid();
 
         holder.name.setText("Name : "+ name);
         holder.petname.setText("Pet name : " + petName);
@@ -59,7 +60,8 @@ public class MonitoringAdapter extends RecyclerView.Adapter<MonitoringAdapter.My
                         .putExtra("pet" , petName)
                         .putExtra("status" , status)
                         .putExtra("date" , date)
-                        .putExtra("time" , time);
+                        .putExtra("time" , time)
+                        .putExtra("uid" , uid);
 
 
                 context.startActivity(intent);

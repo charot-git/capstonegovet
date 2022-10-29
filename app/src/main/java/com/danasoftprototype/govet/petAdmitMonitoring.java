@@ -1,7 +1,7 @@
 package com.danasoftprototype.govet;
 
 public class petAdmitMonitoring {
-    String petName, date, time, status, breed, petPic, name;
+    String petName, date, time, status, breed, petPic, name, uid;
 
     public petAdmitMonitoring(){}
 
@@ -61,7 +61,15 @@ public class petAdmitMonitoring {
         this.name = name;
     }
 
-    public petAdmitMonitoring(String petName, String date, String time, String status, String breed, String petPic, String name) {
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
+    public petAdmitMonitoring(String petName, String date, String time, String status, String breed, String petPic, String name, String uid) {
         this.petName = petName;
         this.date = date;
         this.time = time;
@@ -69,5 +77,6 @@ public class petAdmitMonitoring {
         this.breed = breed;
         this.petPic = petPic;
         this.name = name;
+        this.uid = uid;
     }
 }

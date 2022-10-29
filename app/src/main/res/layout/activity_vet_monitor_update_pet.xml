@@ -4,9 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/bgwhite"
     tools:context=".FrontEndVet.vet_monitor_update_pet">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
 
 
     <TextView
@@ -50,7 +59,7 @@
         app:cardCornerRadius="20dp">
 
 
-        <com.google.android.material.textfield.TextInputEditText
+        <EditText
             android:id="@+id/statusPet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -147,5 +156,6 @@
         android:textColor="@color/white"
         app:cornerRadius="50dp" />
 
-
+        </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>
