@@ -87,9 +87,9 @@ public class adminAppoinment extends AppCompatActivity {
 
                 //if january then 1, then filter by month 1 from database
                 if (month.equals("January")){
-
+                    //database month 1
+                    //filter all appointments from january
                 }
-
 
             }
 

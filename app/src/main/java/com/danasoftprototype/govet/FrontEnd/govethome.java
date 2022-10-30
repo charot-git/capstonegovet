@@ -154,7 +154,6 @@ public class govethome extends AppCompatActivity {
     }
 
     private void ifAdminHasPost() {
-        announcement.setVisibility(View.VISIBLE);
         reference2 = FirebaseDatabase.getInstance().getReference("Posts");
         reference2.child("adminPosts").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
@@ -166,7 +165,6 @@ public class govethome extends AppCompatActivity {
 
                         String postFromDatabase = String.valueOf(dataSnapshot.child("post").getValue());
                         announcement.setText(postFromDatabase);
-                        announcement.setVisibility(View.VISIBLE);
                     }
 
                 }

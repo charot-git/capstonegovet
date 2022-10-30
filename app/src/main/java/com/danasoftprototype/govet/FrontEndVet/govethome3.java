@@ -15,9 +15,13 @@ import com.danasoftprototype.govet.FrontEndAdmin.adminSettings;
 import com.danasoftprototype.govet.FrontEndAdmin.adminUsers;
 import com.danasoftprototype.govet.R;
 import com.danasoftprototype.govet.databinding.ActivityGovethome3Binding;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import androidx.annotation.NonNull;
 import androidx.core.view.GravityCompat;
@@ -91,6 +95,30 @@ public class govethome3 extends AppCompatActivity {
             }
         });
 
+        ifAdminHasPost();
+
+    }
+
+    private void ifAdminHasPost() {
+
+        postAdmin = binding.annHome;
+        reference = FirebaseDatabase.getInstance().getReference("Posts");
+        reference.child("adminPosts").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (task.isSuccessful()) {
+                    if (task.getResult().exists()) {
+
+                        DataSnapshot dataSnapshot = task.getResult();
+
+                        String postFromDatabase = String.valueOf(dataSnapshot.child("post").getValue());
+                        postAdmin.setText(postFromDatabase);
+                    }
+
+                }
+
+            }
+        });
     }
 
 }

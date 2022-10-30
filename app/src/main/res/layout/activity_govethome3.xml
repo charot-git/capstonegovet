@@ -30,7 +30,80 @@
 
         </RelativeLayout>
 
+        <RelativeLayout
+            android:id="@+id/homeContent"
+            android:layout_below="@id/relative"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/govetlogo"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/welcomeGovet"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/vecannoun"
+                tools:ignore="ImageContrastCheck" />
+
+
+            <TextView
+                android:id="@+id/welcomeGovet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="Govet"
+                android:textColor="@color/slightfont"
+                android:textSize="50dp"
+                android:textStyle="bold"
+                tools:ignore="TextContrastCheck"
+                android:fontFamily="@font/poppins_medium"/>
+
+
+            <TextView
+                android:id="@+id/homeannounncements"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/govetlogo"
+                android:gravity="center"
+                android:text="Announcement"
+                android:textColor="@color/slightfont"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                tools:ignore="TextContrastCheck"
+                android:fontFamily="@font/poppins_medium"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/homeannounncements"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@color/white"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="10dp">
+
+                <TextView
+                    android:id="@+id/annHome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text=""
+                    android:textColor="@color/slightfont"
+                    android:textSize="16dp" />
+            </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
+
     </RelativeLayout>
+
+
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
