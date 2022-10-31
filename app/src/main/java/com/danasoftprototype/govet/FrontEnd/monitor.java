@@ -93,7 +93,7 @@ public class monitor extends Fragment {
         time = view.findViewById(R.id.time);
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Monitoring");
-        reference.child(FirebaseAuth.getInstance().getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+        reference.child(FirebaseAuth.getInstance().getUid()).child("Pet1").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 if (task.isSuccessful()){
