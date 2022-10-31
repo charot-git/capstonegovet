@@ -66,9 +66,10 @@
             android:fontFamily="@font/poppins_medium"
             android:textColor="@color/slightfont"
             android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:layout_gravity="center"
             android:textSize="16dp"
-            android:hint="Status here" />
+            android:hint="Update status " />
 
     </androidx.cardview.widget.CardView>
 
@@ -126,6 +127,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:fontFamily="@font/poppins_medium"
         android:text=" Time : "
@@ -133,6 +135,9 @@
         android:textSize="18dp" />
 
     <TimePicker
+
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
         android:id="@+id/monitorTime"
         android:layout_below="@id/monitorTimetxt"
         android:layout_width="wrap_content"
@@ -141,20 +146,22 @@
 
     </TimePicker>
 
-    <Button
-        android:id="@+id/updatevetbut"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/monitorTime"
-        android:layout_centerHorizontal="true"
-        android:background="@color/blue"
-        android:layout_marginTop="10dp"
-        android:backgroundTint="@color/blue"
-        android:fontFamily="@font/poppins_medium"
-        android:text="UPDATE"
-        android:textSize="14dp"
-        android:textColor="@color/white"
-        app:cornerRadius="50dp" />
+            <Button
+                android:id="@+id/updatevetbut"
+                android:layout_width="120dp"
+                android:layout_height="55dp"
+                android:layout_below="@id/monitorTime"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="@color/blue"
+                android:fontFamily="@font/poppins_medium"
+                android:text="UPDATE"
+                android:textColor="@color/white"
+                android:textSize="16dp"
+                app:cornerRadius="50dp" />
 
         </RelativeLayout>
     </ScrollView>

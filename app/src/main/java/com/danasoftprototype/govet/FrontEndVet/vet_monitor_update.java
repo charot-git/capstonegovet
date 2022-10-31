@@ -11,6 +11,6 @@ public class vet_monitor_update extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_vet_monitor_update);
+        setContentView(R.layout.activity_monitor_update);
     }
 }
