@@ -70,7 +70,7 @@ public class booking extends AppCompatActivity {
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
                 dayPicked = String.valueOf(dayOfMonth);
                 yearPicked = String.valueOf(year);
-                monthPicked = String.valueOf(month);
+                monthPicked = String.valueOf(month+1);
                 date = dayPicked + "/" +monthPicked + "/" +yearPicked;
                 dateView.setText(date);
             }
