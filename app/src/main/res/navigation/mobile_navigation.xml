@@ -54,15 +54,12 @@
             android:id="@+id/action_nav_shop_to_nav_home"
             app:destination="@id/nav_home" />
     </fragment>
-    <fragment
+    <activity
         android:id="@+id/nav_monitor"
-        android:name="com.danasoftprototype.govet.FrontEnd.monitor"
+        android:name="com.danasoftprototype.govet.FrontEnd.monitoringHistory$monitorActivty"
         android:label="Monitor"
-        tools:layout="@layout/fragment_monitor" >
-        <action
-            android:id="@+id/action_nav_monitor_to_nav_settings"
-            app:destination="@id/nav_settings" />
-    </fragment>
+        tools:layout="@layout/activity_monitor_activty" >
+    </activity>
     <fragment
         android:id="@+id/nav_settings"
         android:name="com.danasoftprototype.govet.Settings"
