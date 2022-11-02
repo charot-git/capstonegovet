@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bgwhite"
-    tools:context=".FrontEndVet.vet_monitor_update">
+    tools:context=".FrontEnd.monitor_update">
 
     <RelativeLayout
         android:layout_width="match_parent"

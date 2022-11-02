@@ -1,4 +1,4 @@
-package com.danasoftprototype.govet.FrontEndVet;
+package com.danasoftprototype.govet.FrontEnd;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.danasoftprototype.govet.R;
 
-public class vet_monitor_update extends AppCompatActivity {
+public class monitor_update extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
