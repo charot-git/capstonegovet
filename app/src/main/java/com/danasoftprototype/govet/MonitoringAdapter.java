@@ -11,7 +11,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.danasoftprototype.govet.FrontEndVet.vet_monitor_update;
 import com.danasoftprototype.govet.FrontEndVet.vet_monitor_update_pet;
 import com.squareup.picasso.Picasso;
 
