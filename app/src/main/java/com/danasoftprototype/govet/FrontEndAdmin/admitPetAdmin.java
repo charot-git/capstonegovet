@@ -1,9 +1,12 @@
 package com.danasoftprototype.govet.FrontEndAdmin;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -41,6 +44,8 @@ public class admitPetAdmin extends AppCompatActivity {
 
     String nameOfUser;
 
+    private AlertDialog.Builder builder;
+
 
     DatabaseReference reference1, reference2, reference3;
 
@@ -54,6 +59,9 @@ public class admitPetAdmin extends AppCompatActivity {
 
         String nameUser = getIntent().getStringExtra("name");
         String uid = getIntent().getStringExtra("uid");
+
+        builder = new AlertDialog.Builder(this);
+
 
         name = binding.userName;
         name.setText(nameUser);
@@ -137,19 +145,64 @@ public class admitPetAdmin extends AppCompatActivity {
         pet1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                admitThisPet1(uid);
+                builder.setMessage("Admit this pet?").setTitle("Pet admit")
+                        .setCancelable(false)
+                        .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                admitThisPet1(uid);
+                            }
+                        }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Toast.makeText(getApplication(), "Admittance cancelled", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.setTitle("Admit");
+                alertDialog.show();
             }
         });
         pet2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                admitThisPet2(uid);
+                builder.setMessage("Admit this pet?" ).setTitle("Pet admit")
+                        .setCancelable(false)
+                        .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                admitThisPet2(uid);
+                            }
+                        }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Toast.makeText(getApplication(), "Admittance cancelled", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.setTitle("Admit");
+                alertDialog.show();
             }
         });
         pet3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                admitThisPet3(uid);
+                builder.setMessage("Admit this pet?" ).setTitle("Pet admit")
+                        .setCancelable(false)
+                        .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                admitThisPet3(uid);
+                            }
+                        }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Toast.makeText(getApplication(), "Admittance cancelled", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.setTitle("Admit");
+                alertDialog.show();
             }
         });
 
@@ -222,6 +275,7 @@ public class admitPetAdmin extends AppCompatActivity {
 
     }
     private void admitThisPet1(String uid) {
+
         reference1 = FirebaseDatabase.getInstance().getReference("/Pets/" + uid+"/Pet");
         reference1.child("Pet1").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
