@@ -61,10 +61,8 @@ public class monitoringHistory extends AppCompatActivity {
                         petAdmitMonitoring petAdmitMonitoring = ds.getValue(com.danasoftprototype.govet.petAdmitMonitoring.class);
                         petAdmitMonitoringList.add(petAdmitMonitoring);
                     }
-
                     monitoringAdapter = new MonitoringAdapter(getApplication(), petAdmitMonitoringList);
                     recyclerView.setAdapter(monitoringAdapter);
-
                 }
 
                 @Override

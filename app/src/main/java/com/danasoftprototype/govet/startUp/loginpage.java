@@ -184,33 +184,6 @@ public class loginpage extends AppCompatActivity {
 
     }
 
-    public void userListener(){
-
-        mAuth.signInWithEmailAndPassword("dummy@gmail.com", "dummyaccount").addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()){
-                    if (mAuth != null){
-                        for (UserInfo profile : mAuth.getCurrentUser().getProviderData()){
-                            String email1 = profile.getEmail();
-                            Toast.makeText(loginpage.this,"Welcome to GoVet " + email1 + "!", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-
-                    Intent intent = new Intent(loginpage.this, govethome.class);
-                    startActivity(intent);
-                    finish();
-                }
-                else{
-                    Toast.makeText(loginpage.this,"Login failed " + task.getException(), Toast.LENGTH_SHORT).show();
-                    email.requestFocus();
-
-                }
-            }
-        });
-
-    }
-
     public void vetListener(){
         mAuth.signInWithEmailAndPassword("vetgovet@gmail.com", "vetgovet").addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override

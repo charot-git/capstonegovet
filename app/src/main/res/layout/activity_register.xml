@@ -7,6 +7,16 @@
     android:background="@color/bgwhite"
     tools:context=".MainActivity">
 
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
     <ImageView
         android:id="@+id/govetlogo2"
         android:layout_width="300dp"
@@ -177,5 +187,7 @@
         android:layout_centerVertical="true"
         android:visibility="invisible" />
 
+        </RelativeLayout>
+    </ScrollView>
 
 </RelativeLayout>

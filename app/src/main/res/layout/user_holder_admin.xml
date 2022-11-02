@@ -2,6 +2,8 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:backgroundTint="@color/bgwhite"
+    android:background="@color/bgwhite"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -11,6 +13,8 @@
         android:id="@+id/userCon"
         app:cardElevation="4dp"
         app:cardCornerRadius="20dp"
+        android:backgroundTint="@color/bgwhite"
+        android:background="@color/bgwhite"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -69,11 +73,13 @@
                         android:orientation="horizontal">
 
                         <androidx.cardview.widget.CardView
+                            android:id="@+id/pet1CardView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             app:cardElevation="4dp"
                             android:layout_marginTop="10dp"
                             android:layout_marginLeft="10dp"
+                            android:visibility="invisible"
 
                             android:layout_marginBottom="10dp"
                             app:cardCornerRadius="50dp">
@@ -94,11 +100,13 @@
 
 
                         <androidx.cardview.widget.CardView
+                            android:id="@+id/pet2CardView"
                             app:cardElevation="4dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:layout_marginLeft="10dp"
+                            android:visibility="invisible"
                             android:layout_marginBottom="10dp"
                             app:cardCornerRadius="50dp">
 
@@ -115,9 +123,11 @@
                         </androidx.cardview.widget.CardView>
 
                         <androidx.cardview.widget.CardView
+                            android:id="@+id/pet3CardView"
                             app:cardElevation="4dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:visibility="invisible"
                             android:layout_marginTop="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginBottom="10dp"

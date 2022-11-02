@@ -107,9 +107,7 @@ public class govethome2 extends AppCompatActivity {
                         postAdmin.setText(postFromDatabase);
                         postAdmin.setVisibility(View.VISIBLE);
                     }
-
                 }
-
             }
         });
 

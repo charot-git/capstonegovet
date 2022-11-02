@@ -11,10 +11,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.danasoftprototype.govet.FrontEnd.AddFriend;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
@@ -54,28 +60,51 @@ public class AdminAdapter extends RecyclerView.Adapter<AdminAdapter.MyHolder>{
         holder.emailText.setText(userEmail);
 
 
-        StorageReference storageReference = FirebaseStorage.getInstance().getReference();
-        StorageReference pet1Ref = storageReference.child("images/pet/" + uid + "pet1.jpg");
-        pet1Ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+        DatabaseReference reference1 = FirebaseDatabase.getInstance().getReference("Pets").child(uid).child("Pet").child("Pet1");
+        reference1.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
-            public void onSuccess(Uri uri) {
-                Picasso.get().load(uri).placeholder(R.drawable.logogv).into(holder.pet1);
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (task.isSuccessful()){
+                    if(task.getResult().exists()){
+                        holder.pet1CardView.setVisibility(View.VISIBLE);
+                        DataSnapshot dataSnapshot = task.getResult();
+                        String pet1PicUrl = String.valueOf(dataSnapshot.child("petProfilePic").getValue());
+                        Picasso.get().load(pet1PicUrl).placeholder(R.drawable.logogv).into(holder.pet1);
+                    }
+                }
+
             }
         });
 
-        StorageReference pet2Ref = storageReference.child("images/pet2/" + uid + "pet2.jpg");
-        pet2Ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+        DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference("Pets").child(uid).child("Pet").child("Pet2");
+        reference2.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
-            public void onSuccess(Uri uri) {
-                Picasso.get().load(uri).placeholder(R.drawable.logogv).into(holder.pet2);
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (task.isSuccessful()){
+                    if(task.getResult().exists()){
+                        holder.pet2CardView.setVisibility(View.VISIBLE);
+                        DataSnapshot dataSnapshot = task.getResult();
+                        String pet2PicUrl = String.valueOf(dataSnapshot.child("petProfilePic").getValue());
+                        Picasso.get().load(pet2PicUrl).placeholder(R.drawable.logogv).into(holder.pet2);
+                    }
+                }
+
             }
         });
 
-        StorageReference pet3Ref = storageReference.child("images/pet3/" + uid + "pet3.jpg");
-        pet3Ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+        DatabaseReference reference3 = FirebaseDatabase.getInstance().getReference("Pets").child(uid).child("Pet").child("Pet3");
+        reference3.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
-            public void onSuccess(Uri uri) {
-                Picasso.get().load(uri).placeholder(R.drawable.logogv).error(R.drawable.logogv).into(holder.pet3);
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (task.isSuccessful()){
+                    if(task.getResult().exists()){
+                        holder.pet3CardView.setVisibility(View.VISIBLE);
+                        DataSnapshot dataSnapshot = task.getResult();
+                        String pet3PicUrl = String.valueOf(dataSnapshot.child("petProfilePic").getValue());
+                        Picasso.get().load(pet3PicUrl).placeholder(R.drawable.logogv).into(holder.pet3);
+                    }
+                }
+
             }
         });
 
@@ -90,7 +119,6 @@ public class AdminAdapter extends RecyclerView.Adapter<AdminAdapter.MyHolder>{
                         .putExtra("email" , userEmail)
                         .putExtra("username" , userUsername)
                         .putExtra("image" , userImage);
-
 
                 context.startActivity(intent);
 
@@ -114,6 +142,7 @@ public class AdminAdapter extends RecyclerView.Adapter<AdminAdapter.MyHolder>{
     class  MyHolder extends RecyclerView.ViewHolder{
 
         ImageView pet1, pet2, pet3;
+        CardView pet1CardView, pet2CardView, pet3CardView;
         TextView nameText, emailText;
 
         public MyHolder(@NonNull View itemView) {
@@ -122,6 +151,9 @@ public class AdminAdapter extends RecyclerView.Adapter<AdminAdapter.MyHolder>{
             pet1 = itemView.findViewById(R.id.addPetsPic1);
             pet2 = itemView.findViewById(R.id.addPetsPic2);
             pet3 = itemView.findViewById(R.id.addPetsPic3);
+            pet1CardView = itemView.findViewById(R.id.pet1CardView);
+            pet2CardView = itemView.findViewById(R.id.pet2CardView);
+            pet3CardView = itemView.findViewById(R.id.pet3CardView);
             nameText = itemView.findViewById(R.id.userText);
             emailText = itemView.findViewById(R.id.emailText);
         }
