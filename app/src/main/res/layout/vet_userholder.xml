@@ -35,7 +35,7 @@
 
             <ImageView
                 android:layout_gravity="center"
-                android:id="@+id/addPetsPic1"
+                android:id="@+id/userPic"
                 android:elevation="4dp"
                 android:layout_width="90dp"
                 android:layout_height="90dp"

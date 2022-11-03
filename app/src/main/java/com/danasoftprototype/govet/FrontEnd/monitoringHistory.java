@@ -52,7 +52,7 @@ public class monitoringHistory extends AppCompatActivity {
 
         private void getAllAdmittedPets() {
             FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-            DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Monitoring");
+            DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Monitoring").child(FirebaseAuth.getInstance().getUid());
             ref.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
