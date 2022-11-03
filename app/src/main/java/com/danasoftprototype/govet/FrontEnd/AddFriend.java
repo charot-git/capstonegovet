@@ -128,6 +128,7 @@ public class AddFriend extends AppCompatActivity {
 
 
 
+
     }
 
     private void addFriendMethod(String uid) {
@@ -135,7 +136,13 @@ public class AddFriend extends AppCompatActivity {
         addFriend.setEnabled(false);
         if(CurrentState.equals("not_friends")){
             SendFriendRequest();
-
+        }
+        else if (CurrentState.equals("request_sent")){
+            addFriend.setText("Cancel Friend Request");
+            CancelFriendRequest();
+        }
+        else if (CurrentState.equals("request_cancelled")){
+            SendFriendRequest();
         }
 
     }
@@ -163,6 +170,29 @@ public class AddFriend extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void CancelFriendRequest(){
+        requestRef.child(FirebaseAuth.getInstance().getUid()).child(uid).child("request_type").setValue("removed").addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                friendRef.child(uid).child(FirebaseAuth.getInstance().getUid()).child("request_type").setValue("removed").addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        addFriend.setEnabled(true);
+                        progressBar.setVisibility(View.GONE);
+                        CurrentState = "request_cancelled";
+                        addFriend.setText("Add Friend");
+                    }
+                });
+
+            }
+        });
+
+    }
+
+    private void ConfirmFriendRequest(){
+
     }
 
 
