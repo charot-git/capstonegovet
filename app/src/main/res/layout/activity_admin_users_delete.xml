@@ -6,14 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".FrontEndAdmin.adminUsersDelete">
 
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/ic_back" />
+
     <androidx.cardview.widget.CardView
+        android:layout_marginTop="5dp"
         android:id="@+id/userCon"
-        app:cardElevation="4dp"
-        app:cardCornerRadius="20dp"
-        android:layout_margin="30dp"
-        android:backgroundTint="@color/white"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@id/back"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="4dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -49,23 +61,23 @@
                         android:id="@+id/userText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_below="@id/dateText"
+                        android:layout_marginLeft="10dp"
+                        android:fontFamily="@font/poppins_medium"
                         android:text="Name : "
                         android:textColor="@color/slightfont"
-                        android:fontFamily="@font/poppins_medium"
-                        android:layout_below="@id/dateText"
-                        android:textSize="16dp"
-                        android:layout_marginLeft="10dp" />
+                        android:textSize="16dp" />
 
                     <TextView
                         android:id="@+id/emailText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_below="@id/dateText"
+                        android:layout_marginLeft="10dp"
+                        android:fontFamily="@font/popins_light"
                         android:text="Email : "
                         android:textColor="@color/slightfont"
-                        android:fontFamily="@font/popins_light"
-                        android:layout_below="@id/dateText"
-                        android:textSize="16dp"
-                        android:layout_marginLeft="10dp" />
+                        android:textSize="16dp" />
 
                 </LinearLayout>
 
@@ -74,30 +86,40 @@
 
     </androidx.cardview.widget.CardView>
 
-    <Button
-        android:id="@+id/admitPet"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/button4"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:backgroundTint="@color/blue"
-        android:fontFamily="@font/poppins_medium"
-        android:text="admit pet"
-        android:textColor="@color/white"
-        app:cornerRadius="30dp" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:layout_below="@id/userCon"
+        android:layout_centerHorizontal="true">
+
+
+        <Button
+            android:id="@+id/admitPet"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="70dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/blue"
+            android:fontFamily="@font/poppins_medium"
+            android:text="admit pet"
+            android:textColor="@color/white"
+            app:cornerRadius="30dp" />
+
+        <Button
+        android:id="@+id/button4"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:layout_margin="10dp"
         android:backgroundTint="@color/red"
         android:fontFamily="@font/poppins_medium"
         android:text="delete user"
         android:textColor="@color/white"
         app:cornerRadius="30dp" />
-
+    </LinearLayout>
 </RelativeLayout>

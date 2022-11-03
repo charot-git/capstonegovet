@@ -8,7 +8,17 @@
     tools:context=".FrontEnd.appointmentDetails">
 
     <ImageView
+        android:id="@+id/back"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="5dp"
+        android:src="@drawable/ic_back" />
+
+    <ImageView
         android:id="@+id/calcepVec"
+        android:layout_below="@id/back"
         android:layout_width="300dp"
         android:layout_centerHorizontal="true"
         android:src="@drawable/veccancel"
