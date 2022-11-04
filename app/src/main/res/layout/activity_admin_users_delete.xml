@@ -94,28 +94,23 @@
             android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginStart="70dp"
-            android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
             android:backgroundTint="@color/blue"
             android:fontFamily="@font/poppins_medium"
             android:text="admit pet"
             android:textColor="@color/white"
             app:cornerRadius="30dp" />
 
-    <Button
-        android:layout_below="@id/admitPet"
-        android:id="@+id/button4"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginBottom="10dp"
-        android:backgroundTint="@color/red"
-        android:fontFamily="@font/poppins_medium"
-        android:text="delete user"
-        android:textColor="@color/white"
-        app:cornerRadius="30dp" />
+        <Button
+            android:layout_below="@id/admitPet"
+            android:id="@+id/button4"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="@color/red"
+            android:fontFamily="@font/poppins_medium"
+            android:text="delete user"
+            android:textColor="@color/white"
+            app:cornerRadius="30dp" />
 
 </RelativeLayout>
