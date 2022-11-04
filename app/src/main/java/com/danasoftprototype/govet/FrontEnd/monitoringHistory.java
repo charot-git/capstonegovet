@@ -1,15 +1,20 @@
 package com.danasoftprototype.govet.FrontEnd;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.danasoftprototype.govet.MonitoringAdapter;
 import com.danasoftprototype.govet.R;
 import com.danasoftprototype.govet.petAdmitMonitoring;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -31,6 +36,7 @@ public class monitoringHistory extends AppCompatActivity {
 
     public static class monitorActivty extends AppCompatActivity {
 
+        ImageView hamburger;
         RecyclerView recyclerView;
         List<petAdmitMonitoring> petAdmitMonitoringList;
         MonitoringAdapter monitoringAdapter;
@@ -47,6 +53,13 @@ public class monitoringHistory extends AppCompatActivity {
             petAdmitMonitoringList = new ArrayList<>();
 
             getAllAdmittedPets();
+
+
+            NavigationView navigationView = findViewById(R.id.nav_view);
+            navigationView.setCheckedItem(R.id.nav_monitor);
+
+            DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+
 
         }
 

@@ -154,7 +154,7 @@ public class govethome extends AppCompatActivity {
     }
 
     private void ifAdminHasPost() {
-        reference2 = FirebaseDatabase.getInstance().getReference("Posts");
+        /*reference2 = FirebaseDatabase.getInstance().getReference("Posts");
         reference2.child("adminPosts").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
@@ -170,7 +170,7 @@ public class govethome extends AppCompatActivity {
                 }
 
             }
-        });
+        });*/
     }
 
 

@@ -197,14 +197,6 @@ public class profile extends Fragment {
         });
 
 
-        back.setVisibility(View.VISIBLE);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), govethome.class);
-                startActivity(intent);
-            }
-        });
 
         tryRead();
 

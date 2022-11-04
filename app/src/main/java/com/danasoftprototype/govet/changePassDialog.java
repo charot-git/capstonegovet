@@ -48,15 +48,10 @@ public class changePassDialog extends AppCompatDialogFragment {
 
         builder.setView(view)
                 .setTitle("Change Password")
-                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                .setNegativeButton("Close", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         Toast.makeText(getActivity(), "Password change cancelled", Toast.LENGTH_SHORT).show();
-                    }
-                }).setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-
                     }
                 }).create();
 
@@ -116,7 +111,6 @@ public class changePassDialog extends AppCompatDialogFragment {
                         else{
                             Toast.makeText(getActivity(), "Authentication failed", Toast.LENGTH_SHORT).show();
                         }
-
                     }
                 });
 

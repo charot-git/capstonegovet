@@ -6,11 +6,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.Image;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -47,6 +50,7 @@ public class booking extends AppCompatActivity {
     private EditText descriptionText;
     private  int t1Hour, t1Minute;
     private AlertDialog.Builder builder;
+    ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,12 +62,17 @@ public class booking extends AppCompatActivity {
         timeView = findViewById(R.id.Time);
         descriptionText = findViewById(R.id.descriptionInput);
         book = findViewById(R.id.book);
+        back = findViewById(R.id.back);
         builder = new AlertDialog.Builder(this);
 
         timePicker.setIs24HourView(false);
 
-        timePicker.setHour(8);
-        timePicker.setMinute(30);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            timePicker.setHour(8);
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            timePicker.setMinute(30);
+        }
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -82,6 +91,14 @@ public class booking extends AppCompatActivity {
                 confirmBooking();
             }
         });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
     }
 
     private void confirmBooking() {
@@ -152,8 +169,14 @@ public class booking extends AppCompatActivity {
     }
 
     private void getTime() {
-        int hourGetTime = timePicker.getHour();
-        int minuteGetTime = timePicker.getMinute();
+        int hourGetTime = 0;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+            hourGetTime = timePicker.getHour();
+        }
+        int minuteGetTime = 0;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+            minuteGetTime = timePicker.getMinute();
+        }
 
         t1Hour = hourGetTime;
         t1Minute = minuteGetTime;

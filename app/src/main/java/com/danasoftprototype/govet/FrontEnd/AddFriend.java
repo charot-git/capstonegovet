@@ -30,7 +30,7 @@ import java.util.HashMap;
 
 public class AddFriend extends AppCompatActivity {
 
-    ImageView profilePic, pet1, pet2,pet3;
+    ImageView profilePic, pet1, pet2,pet3, back;
     TextView TextName, TextUsername;
     Button addFriend, cancelFriend;
     String CurrentState = "not_friends";
@@ -51,6 +51,7 @@ public class AddFriend extends AppCompatActivity {
         pet1 = binding.addPetsPic1;
         pet2 = binding.addPetsPic2;
         pet3 = binding.addPetsPic3;
+        back = binding.back;
         TextName = binding.userName;
         TextUsername = binding.userUsername;
         addFriend = binding.addFriendButton;
@@ -123,6 +124,13 @@ public class AddFriend extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 addFriendMethod(uid);
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
 

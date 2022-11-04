@@ -41,7 +41,7 @@ public class profileupdate extends AppCompatActivity {
 
     EditText fnameUI, mnameUI, lnameUI;
     MaterialButton updatebutton, changepicbutton;
-    ImageView profilepic;
+    ImageView profilepic, back;
     FirebaseAuth mAuth;
     FirebaseUser user;
     StorageReference storageReference;
@@ -57,6 +57,7 @@ public class profileupdate extends AppCompatActivity {
 
         updatebutton = (MaterialButton) findViewById(R.id.updatebutton);
         changepicbutton = (MaterialButton) findViewById(R.id.changepic);
+        back = findViewById(R.id.back);
 
         //go to updateuser method onclick
         updatebutton.setOnClickListener(this::updateuser);
@@ -93,6 +94,13 @@ public class profileupdate extends AppCompatActivity {
             public void onClick(View view) {
                 Intent openGallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(openGallery, 1000);
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
         

@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.danasoftprototype.govet.AdapterUsers;
@@ -31,11 +33,14 @@ public class Users extends AppCompatActivity {
     TextView test;
     AdapterUsers adapterUsers;
     SearchView searchView;
+    ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_users);
+
+        back = findViewById(R.id.back);
 
         recyclerView = findViewById(R.id.user_recyclerView);
 
@@ -57,6 +62,13 @@ public class Users extends AppCompatActivity {
             public boolean onQueryTextChange(String newText) {
                 filter(newText);
                 return true;
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
 

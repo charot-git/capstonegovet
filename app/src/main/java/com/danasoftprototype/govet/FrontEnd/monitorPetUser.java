@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.media.Image;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.danasoftprototype.govet.R;
 import com.danasoftprototype.govet.databinding.ActivityMonitorPetUserBinding;
@@ -14,7 +16,7 @@ import com.squareup.picasso.Picasso;
 
 public class monitorPetUser extends AppCompatActivity {
 
-    ImageView dp;
+    ImageView dp,back;
     TextView name, breed, status, date, time;
     Button contact, history;
 
@@ -39,6 +41,9 @@ public class monitorPetUser extends AppCompatActivity {
         status = binding.petStatus;
         date = binding.date;
         time = binding.time;
+        back = binding.back;
+        contact = binding.button2;
+        history = binding.historyMonitorbut;
 
         Picasso.get().load(petPic).placeholder(R.drawable.logogv).into(dp);
 
@@ -47,6 +52,28 @@ public class monitorPetUser extends AppCompatActivity {
         status.setText("Status : " +petStatus);
         date.setText("Date : " + petDate);
         time.setText("Time : " + petTime);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        contact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(monitorPetUser.this, "contact", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        history.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(monitorPetUser.this, "history", Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
 
     }
