@@ -113,6 +113,7 @@
         android:layout_gravity="center"
         android:fontFamily="@font/poppins_medium"
         android:text="BOOK APPOINTMENT"
+        android:layout_marginBottom="10dp"
         android:backgroundTint="@color/blue"
         android:textColor="@color/white"
         android:textSize="14dp"

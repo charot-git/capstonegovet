@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".FrontEnd.monitoringHistory$monitorActivty">
 
+<!--
 
     <RelativeLayout
         android:id="@+id/relative"
@@ -21,11 +22,23 @@
             android:src="@drawable/ic_hamburger"
             app:tint="@color/white" />
     </RelativeLayout>
+-->
 
+
+    <ImageView
+        android:id="@+id/home"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/rounded_corner2"
+        android:padding="5dp"
+        android:src="@drawable/ic_home" />
 
     <TextView
         android:id="@+id/textUpdate"
-        android:layout_below="@id/relative"
+        android:layout_below="@id/home"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
