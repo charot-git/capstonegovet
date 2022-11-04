@@ -184,7 +184,7 @@ public class AddFriend extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
-                    friendRef.child(uid).child(FirebaseAuth.getInstance().getUid()).child("request_type").setValue("received").addOnCompleteListener(new OnCompleteListener<Void>() {
+                    requestRef.child(uid).child(FirebaseAuth.getInstance().getUid()).child("request_type").setValue("received").addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful()){
@@ -212,7 +212,7 @@ public class AddFriend extends AppCompatActivity {
                     child.getRef().removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-                            friendRef.child(uid).child(FirebaseAuth.getInstance().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                            requestRef.child(uid).child(FirebaseAuth.getInstance().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                                     for (DataSnapshot child1: snapshot.getChildren()){
