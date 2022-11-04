@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -35,6 +36,7 @@ public class vet_monitor_update_pet extends AppCompatActivity {
     CalendarView calendarView;
     TimePicker timePicker;
     Button update;
+    ImageView back;
 
 
     String uid;
@@ -62,6 +64,7 @@ public class vet_monitor_update_pet extends AppCompatActivity {
         timePet = binding.monitorTimetxt;
         calendarView = binding.monitorCalendar;
         timePicker = binding.monitorTime;
+        back = binding.back;
 
 
         String petName = getIntent().getStringExtra("name");
@@ -133,6 +136,13 @@ public class vet_monitor_update_pet extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 updateDatabase();
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
 

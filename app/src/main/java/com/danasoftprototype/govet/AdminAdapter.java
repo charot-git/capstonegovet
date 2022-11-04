@@ -147,7 +147,7 @@ public class AdminAdapter extends RecyclerView.Adapter<AdminAdapter.MyHolder>{
 
         public MyHolder(@NonNull View itemView) {
             super(itemView);
-
+            
             pet1 = itemView.findViewById(R.id.addPetsPic1);
             pet2 = itemView.findViewById(R.id.addPetsPic2);
             pet3 = itemView.findViewById(R.id.addPetsPic3);

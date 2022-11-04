@@ -25,7 +25,7 @@ import com.squareup.picasso.Picasso;
 public class adminUsersDelete extends AppCompatActivity {
     TextView name, email;
     Button delete, admit;
-    ImageView userPicUser;
+    ImageView userPicUser, back;
     private AlertDialog.Builder builder;
 
     @Override
@@ -38,6 +38,7 @@ public class adminUsersDelete extends AppCompatActivity {
         email = findViewById(R.id.emailText);
         delete = findViewById(R.id.button4);
         admit = findViewById(R.id.admitPet);
+        back = findViewById(R.id.back);
 
         String nameUser = getIntent().getStringExtra("name");
         String emailUser = getIntent().getStringExtra("email");
@@ -62,6 +63,13 @@ public class adminUsersDelete extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplication(), admitPetAdmin.class).putExtra("name", nameUser).putExtra("uid", uid));
+                finish();
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 finish();
             }
         });

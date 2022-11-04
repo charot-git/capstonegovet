@@ -1,5 +1,6 @@
 package com.danasoftprototype.govet.FrontEnd;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -134,8 +135,31 @@ public class AddFriend extends AppCompatActivity {
             }
         });
 
+        friendRef.child(FirebaseAuth.getInstance().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.hasChild(uid)){
+                    String request_type = snapshot.child(uid).child("request_type").getValue().toString();
+                    if (request_type.equals("received")){
 
+                        CurrentState = "request_received";
+                        addFriend.setText("Accept Friend Request");
+                        cancelFriend.setVisibility(View.INVISIBLE);
+                        cancelFriend.setEnabled(false);
+                        progressBar.setVisibility(View.GONE);
+                    }
+                    else if (request_type.equals("sent")){
+                        CurrentState = "req_sent";
+                        addFriend.setText("Cancel Friend Request");
+                    }
+                }
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
     }
 
@@ -181,18 +205,43 @@ public class AddFriend extends AppCompatActivity {
     }
 
     private void CancelFriendRequest(){
-        requestRef.child(FirebaseAuth.getInstance().getUid()).child(uid).child("request_type").setValue("removed").addOnCompleteListener(new OnCompleteListener<Void>() {
+        requestRef.child(FirebaseAuth.getInstance().getUid()).child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                friendRef.child(uid).child(FirebaseAuth.getInstance().getUid()).child("request_type").setValue("removed").addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        addFriend.setEnabled(true);
-                        progressBar.setVisibility(View.GONE);
-                        CurrentState = "request_cancelled";
-                        addFriend.setText("Add Friend");
-                    }
-                });
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot child: snapshot.getChildren()) {
+                    child.getRef().removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            friendRef.child(uid).child(FirebaseAuth.getInstance().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    for (DataSnapshot child1: snapshot.getChildren()){
+                                        child1.getRef().removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                Toast.makeText(AddFriend.this, "Cancelled Friend Request", Toast.LENGTH_SHORT).show();
+                                                CurrentState = "not_friends";
+                                                progressBar.setVisibility(View.GONE);
+                                                addFriend.setText("Add Friend");
+                                                addFriend.setEnabled(true);
+                                            }
+                                        });
+                                    }
+
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
+                        }
+                    });
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });

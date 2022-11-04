@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +28,7 @@ public class appointmentDetails extends AppCompatActivity {
 
     DatabaseReference reference;
     TextView dateText, timeText;
+    ImageView back;
     Button cancel;
     private AlertDialog.Builder builder;
     String date, time;
@@ -37,6 +39,7 @@ public class appointmentDetails extends AppCompatActivity {
         setContentView(R.layout.activity_appointment_details);
         dateText = findViewById(R.id.dateText);
         timeText = findViewById(R.id.timeText);
+        back = findViewById(R.id.back);
         cancel = findViewById(R.id.cancelAppointment);
         builder = new AlertDialog.Builder(this);
 
@@ -44,6 +47,13 @@ public class appointmentDetails extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 cancelMethod();
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
 

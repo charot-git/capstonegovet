@@ -29,6 +29,7 @@ import java.util.HashMap;
 public class admitPetAdmin extends AppCompatActivity {
 
     TextView name;
+    ImageView back;
 
     ImageView petpic1,petpic2, petpic3;
 
@@ -77,6 +78,15 @@ public class admitPetAdmin extends AppCompatActivity {
                     }
                 }
 
+            }
+        });
+
+        back = binding.back;
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
 
