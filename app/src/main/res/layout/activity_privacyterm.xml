@@ -24,12 +24,15 @@
 
     <TextView
         android:id="@+id/the"
-        android:layout_below="@+id/Privacy"
-        android:layout_margin="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/Privacy"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
         android:fontFamily="@font/popins_light"
-        android:text="The GoVet app was created by the NADA group as a free app. This service is offered at no cost and is intended to be used as is. This page is intended to inform visitors about our policies regarding the collection, use, and disclosure of Personal Information if they choose to use our Service. If you use our Service, you agree to the collection and use of information in accordance with this policy. We gather Personal Information in order to provide and improve the Service. Except as specified in this Privacy Policy, we will not use or disclose your information with anybody. Unless otherwise stated in this Privacy Policy, the terminology used in this Privacy Policy have the same meaning as those in our Terms and Conditions, which are available at GoVet app."/>
+        android:text="The GoVet app was created by the NADA group as a free app. This service is offered at no cost and is intended to be used as is. This page is intended to inform visitors about our policies regarding the collection, use, and disclosure of Personal Information if they choose to use our Service. If you use our Service, you agree to the collection and use of information in accordance with this policy. We gather Personal Information in order to provide and improve the Service. Except as specified in this Privacy Policy, we will not use or disclose your information with anybody. Unless otherwise stated in this Privacy Policy, the terminology used in this Privacy Policy have the same meaning as those in our Terms and Conditions, which are available at GoVet app." />
 
         <TextView
             android:layout_below="@id/the"
@@ -42,18 +45,17 @@
 
     <TextView
         android:id="@+id/we"
-        android:layout_below="@+id/Information"
-        android:layout_margin="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/Information"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
         android:fontFamily="@font/popins_light"
         android:text="We may collect data about you through a number of ways. In order to provide you with a better experience while using our Service, we may request you to give us with some personally identifiable information, such as your name, e-mail address, password, and contact number. We will keep the information you provided and use it in accordance with the terms of this privacy statement.
-The GoVet app does make use of third-party services, which may gather information that can be used to identify you.
-Link to the privacy policies of the app's third-party service provider:
-•	Firebase
-•	GCash
-•	Paypal
-"/>
+The GoVet app does make use of third-party services, which may gather information that can be used to identify you."
+        />
 
     <TextView
         android:layout_below="@id/we"
@@ -193,12 +195,8 @@ This policy will go into effect on October 22, 2022.
         android:text="These terms will automatically apply to you if you download or use the GoVet app; hence, you should read them carefully before using the app. You may not replicate or change the app, any portion of the app, or any of our trademarks in any manner. You are not permitted to attempt to extract the app's source code, nor are you permitted to translate the app into other languages or create derivative versions. The software itself, as well as all database rights, copyright, trademarks, and other intellectual property rights associated with it, remain the property of NADA group.
 The NADA group is dedicated to making the app as efficient and useful as possible. As a result, we retain the right to modify the app or charge for its services at any moment and for any reason. We will never charge users for the application or its services unless we make it very clear what exactly they are paying for.
 To access our service, you must provide us with personally identifiable information as well as any other information that we think relevant to our application. It is your responsibility to ensure that your phone and app access is safe. As a result, we advise you not to jailbreak or root your device, which is the act of eliminating software restrictions and constraints imposed by your device's operating system. It may make your phone exposed to malware, viruses, and malicious apps, it may also weaken your phone's security features, and may cause the GoVet application to stop working correctly.
-The GoVet app does make use third-party services that declare their Terms and Conditions.
-Link to the Terms and Conditions of the app's third-party service provider:
-•	Firebase
-•	GCash
-•	Paypal
-"/>
+The GoVet app does make use third-party services that declare their Terms and Conditions."
+        />
     <TextView
         android:id="@+id/fivecon2"
         android:layout_below="@+id/fivecon"
