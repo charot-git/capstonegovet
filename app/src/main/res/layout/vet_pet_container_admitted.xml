@@ -9,7 +9,7 @@
     android:layout_marginTop="0dp"
     android:layout_marginRight="30dp"
     android:layout_marginBottom="8dp"
-    app:cardCornerRadius="30dp"
+    app:cardCornerRadius="20dp"
     app:cardElevation="4dp">
 
     <androidx.cardview.widget.CardView

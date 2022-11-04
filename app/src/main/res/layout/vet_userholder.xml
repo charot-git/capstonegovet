@@ -55,7 +55,8 @@
         android:orientation="vertical">
 
         <TextView
-            android:layout_marginTop="42dp"
+            android:padding="3dp"
+            android:layout_marginTop="35dp"
             android:id="@+id/monitorName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
