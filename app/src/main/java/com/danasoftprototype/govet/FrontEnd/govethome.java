@@ -52,6 +52,11 @@ public class govethome extends AppCompatActivity {
         binding = ActivityGovethomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+
+        ifUserIsAdmin();
+        ifUserIsVet();
+
+
         String email1 = null;
         String name1 = null;
         mAuth = FirebaseAuth.getInstance().getCurrentUser();
@@ -75,8 +80,6 @@ public class govethome extends AppCompatActivity {
         }
 
 
-        ifUserIsAdmin();
-        ifUserIsVet();
 
         storageReference = FirebaseStorage.getInstance().getReference();
 
@@ -186,6 +189,7 @@ public class govethome extends AppCompatActivity {
 
         if (FirebaseAuth.getInstance().getCurrentUser().getEmail().equals("admingovet@gmail.com")) {
             startActivity(new Intent(getApplication(), govethome2.class));
+            finish();
 
         }
     }
@@ -193,6 +197,7 @@ public class govethome extends AppCompatActivity {
     private void ifUserIsVet() {
         if (FirebaseAuth.getInstance().getCurrentUser().getEmail().equals("vetgovet@gmail.com")) {
             startActivity(new Intent(getApplication(), govethome3.class));
+            finish();
 
         }
 

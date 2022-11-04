@@ -1,5 +1,6 @@
 package com.danasoftprototype.govet.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,9 +11,12 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.danasoftprototype.govet.FrontEndAdmin.govethome2;
+import com.danasoftprototype.govet.FrontEndVet.govethome3;
 import com.danasoftprototype.govet.databinding.FragmentHomeBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -31,10 +35,12 @@ public class HomeFragment extends Fragment {
         HomeViewModel homeViewModel =
                 new ViewModelProvider(this).get(HomeViewModel.class);
 
+
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         announcement = binding.annHome;
-
+        ifUserIsAdmin();
+        ifUserIsVet();
         ifAdminHasPost();
 
         final TextView textView = binding.textHome;
@@ -66,6 +72,21 @@ public class HomeFragment extends Fragment {
 
             }
         });
+    }
+
+    private void ifUserIsAdmin() {
+
+        if (FirebaseAuth.getInstance().getCurrentUser().getEmail().equals("admingovet@gmail.com")) {
+            startActivity(new Intent(getActivity(), govethome2.class));
+        }
+    }
+
+    private void ifUserIsVet() {
+        if (FirebaseAuth.getInstance().getCurrentUser().getEmail().equals("vetgovet@gmail.com")) {
+            startActivity(new Intent(getActivity(), govethome3.class));
+
+        }
+
     }
 
 

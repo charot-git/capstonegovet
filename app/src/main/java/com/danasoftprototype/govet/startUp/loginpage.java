@@ -213,8 +213,22 @@ public class loginpage extends AppCompatActivity {
                 email.requestFocus();
             }
         });
-
-
-
     }
-}
+
+    private void ifUserIsAdmin() {
+
+        if (FirebaseAuth.getInstance().getCurrentUser().getEmail().equals("admingovet@gmail.com")) {
+            startActivity(new Intent(getApplication(), govethome2.class));
+            finish();
+
+        }
+    }
+
+    private void ifUserIsVet() {
+        if (FirebaseAuth.getInstance().getCurrentUser().getEmail().equals("vetgovet@gmail.com")) {
+            startActivity(new Intent(getApplication(), govethome3.class));
+            finish();
+
+        }
+    }
+    }
