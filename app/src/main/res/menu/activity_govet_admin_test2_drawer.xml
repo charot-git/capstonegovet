@@ -7,22 +7,27 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_baseline_home_24"
-            android:title="@string/menu_home" />
+            android:title="@string/menu_home"
+            android:iconTint="@color/slightfont"/>
         <item
             android:id="@+id/nav_adminUsers"
             android:icon="@drawable/ic_friends"
-            android:title="Users" />
+            android:title="Users"
+            android:iconTint="@color/slightfont"/>
         <item
             android:id="@+id/nav_adminAppointment"
             android:icon="@drawable/ic_baseline_access_time_24"
-            android:title="Appointments" />
+            android:title="Appointments"
+            android:iconTint="@color/slightfont"/>
         <item
             android:id="@+id/nav_adminOnlinePayment"
             android:icon="@drawable/ic_baseline_payment_24"
-            android:title="Online Payment" />
+            android:title="Online Payment"
+            android:iconTint="@color/slightfont"/>
         <item
             android:id="@+id/nav_adminSettings"
             android:icon="@drawable/ic_baseline_settings_24"
-            android:title="Settings" />
+            android:title="Settings"
+            android:iconTint="@color/slightfont"/>
     </group>
 </menu>
