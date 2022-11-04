@@ -135,7 +135,7 @@ public class AddFriend extends AppCompatActivity {
             }
         });
 
-        friendRef.child(FirebaseAuth.getInstance().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+        requestRef.child(FirebaseAuth.getInstance().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.hasChild(uid)){
@@ -204,7 +204,7 @@ public class AddFriend extends AppCompatActivity {
         });
     }
 
-    private void CancelFriendRequest(){
+    private void CancelFriendRequest(){/*
         requestRef.child(FirebaseAuth.getInstance().getUid()).child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -244,7 +244,7 @@ public class AddFriend extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        });
+        });*/
 
     }
 
