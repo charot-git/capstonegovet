@@ -1,5 +1,6 @@
 package com.danasoftprototype.govet.FrontEnd;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -36,7 +37,7 @@ public class monitoringHistory extends AppCompatActivity {
 
     public static class monitorActivty extends AppCompatActivity {
 
-        ImageView hamburger;
+        ImageView home;
         RecyclerView recyclerView;
         List<petAdmitMonitoring> petAdmitMonitoringList;
         MonitoringAdapter monitoringAdapter;
@@ -46,6 +47,7 @@ public class monitoringHistory extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_monitor_activty);
 
+            home = findViewById(R.id.home);
             recyclerView = findViewById(R.id.recycler_view);
             recyclerView.setHasFixedSize(true);
             recyclerView.setLayoutManager(new LinearLayoutManager(getApplication()));
@@ -54,12 +56,13 @@ public class monitoringHistory extends AppCompatActivity {
 
             getAllAdmittedPets();
 
-
-            NavigationView navigationView = findViewById(R.id.nav_view);
-            navigationView.setCheckedItem(R.id.nav_monitor);
-
-            DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
-
+            home.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(getApplication(), govethome.class));
+                    finish();
+                }
+            });
 
         }
 
