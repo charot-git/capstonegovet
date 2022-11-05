@@ -8,6 +8,20 @@
     tools:context=".FrontEnd.AddFriend">
 
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/messageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="12dp"
+        android:visibility="gone"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="@color/blue"
+        android:tint="@color/white"
+        android:clickable="true"
+        app:srcCompat="@drawable/ic_baseline_message_24" />
+
     <ImageView
         android:id="@+id/back"
         android:layout_width="40dp"

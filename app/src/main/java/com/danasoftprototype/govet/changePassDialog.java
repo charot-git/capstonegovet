@@ -36,15 +36,12 @@ public class changePassDialog extends AppCompatDialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         LayoutInflater inflater = getActivity().getLayoutInflater();
-        View view = inflater.inflate(R.layout.changepass, null);
-
+        View view = inflater.inflate(R.layout.changepass,null);
 
 
         fuser = FirebaseAuth.getInstance().getCurrentUser();
         newpassword = view.findViewById(R.id.newpass);
         oldpassword = view.findViewById(R.id.oldpass);
-
-
 
         builder.setView(view)
                 .setTitle("Change Password")

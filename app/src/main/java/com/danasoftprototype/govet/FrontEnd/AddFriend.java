@@ -14,11 +14,13 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.danasoftprototype.govet.R;
+import com.danasoftprototype.govet.chatActivity;
 import com.danasoftprototype.govet.databinding.ActivityAddFriendBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -40,6 +42,7 @@ public class AddFriend extends AppCompatActivity {
     String CurrentState = "not_friends";
     String email, image, name, uid, username;
     DatabaseReference mUser, requestRef, friendRef;
+    FloatingActionButton message;
     ProgressBar progressBar;
 
     private ActivityAddFriendBinding binding;
@@ -61,6 +64,7 @@ public class AddFriend extends AppCompatActivity {
         addFriend = binding.addFriendButton;
         cancelFriend = binding.cancelButton;
         progressBar = binding.progressBarAddFriend;
+        message = binding.messageButton;
 
 
         email = getIntent().getStringExtra("email");
@@ -176,9 +180,15 @@ public class AddFriend extends AppCompatActivity {
                                 addFriend.setEnabled(true);
                                 CurrentState = "friends";
                                 addFriend.setText("Unfriend " + name);
+                                message.setVisibility(View.VISIBLE);
+                                message.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        startActivity(new Intent(getApplication(), chatActivity.class));
+                                    }
+                                });
                             }
                         }
-
                         @Override
                         public void onCancelled(@NonNull DatabaseError error) {
 
@@ -225,11 +235,9 @@ public class AddFriend extends AppCompatActivity {
                                 cancelFriend.setEnabled(false);
                                 progressBar.setVisibility(View.GONE);
                             }
-
                         }
                     });
                 }
-
             }
         });
     }
@@ -276,7 +284,6 @@ public class AddFriend extends AppCompatActivity {
 
             }
         });*/
-
     }
 
     private void ConfirmFriendRequest(){
@@ -308,6 +315,4 @@ public class AddFriend extends AppCompatActivity {
             });
         }
     }
-
-
 }

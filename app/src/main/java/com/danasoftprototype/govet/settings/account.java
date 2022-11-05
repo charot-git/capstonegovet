@@ -39,6 +39,7 @@ public class account extends AppCompatActivity {
 
     private void changepassmethod(View view) {
         changePassDialog changePassDialog = new changePassDialog();
+
         changePassDialog.show(getSupportFragmentManager(), "Change Password Dialog");
 
     }

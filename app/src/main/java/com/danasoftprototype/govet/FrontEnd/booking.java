@@ -181,7 +181,6 @@ public class booking extends AppCompatActivity {
         t1Hour = hourGetTime;
         t1Minute = minuteGetTime;
 
-
         if (t1Hour == 12 && t1Minute> 0) {
             time = String.format("%02d", t1Hour) + " : " + String.format("%02d", t1Minute) + "PM";
             timeView.setText(time);

@@ -78,7 +78,6 @@ public class profileupdate extends AppCompatActivity {
             }
         });
 
-
         //profile pic image on click listener
         profilepic.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,7 +102,6 @@ public class profileupdate extends AppCompatActivity {
                 finish();
             }
         });
-        
     }
 
     @Override
@@ -114,24 +112,17 @@ public class profileupdate extends AppCompatActivity {
             if(resultCode == Activity.RESULT_OK){
                 Uri imageUri = data.getData();
                 //profilepic.setImageURI(imageUri);
-
                 upload(imageUri);
-
             }
         }
     }
 
     private void upload(Uri imageUri) {
-
-
         StorageReference fileRef = storageReference.child("images/" + mAuth.getCurrentUser().getUid() + "profile.jpg");
-
-
         fileRef.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                 Toast.makeText(profileupdate.this, "Profile picture updated successfully", Toast.LENGTH_SHORT).show();
-
 
                 fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
@@ -172,7 +163,6 @@ public class profileupdate extends AppCompatActivity {
 
         //Firestore data
         //addDataToFirestore();
-
 
         //concatenated user name for nav display
         String name = firstname + " " + middlename + " " + lastname;

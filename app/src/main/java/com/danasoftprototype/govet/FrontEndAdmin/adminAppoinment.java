@@ -207,7 +207,6 @@ public class adminAppoinment extends AppCompatActivity {
     }
     private void getAllBooks() {
         DatabaseReference mDatabase =FirebaseDatabase.getInstance().getReference("Bookings");
-
         FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Bookings").child("bookingDetails");
 
