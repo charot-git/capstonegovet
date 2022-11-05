@@ -25,7 +25,7 @@
         android:id="@+id/payment"
         android:layout_below="@+id/paymentvec"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="90dp"
         android:layout_marginLeft="30dp"
         app:cardElevation="4dp"
         app:cardCornerRadius="20dp"
@@ -39,7 +39,7 @@
             android:background="@color/white"
             android:orientation="vertical">
 
-          <TextView
+          <!--<TextView
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:text="PayPal"
@@ -47,8 +47,12 @@
               android:fontFamily="@font/poppins_medium"
               android:textSize="24dp"
               android:layout_marginTop="15dp"
-              android:layout_marginLeft="20dp"/>
-
+              android:layout_marginLeft="230dp"/>-->
+            <ImageView
+                android:layout_marginTop="15dp"
+                android:layout_width="150dp"
+                android:layout_height="30dp"
+                android:src="@drawable/paypal"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
