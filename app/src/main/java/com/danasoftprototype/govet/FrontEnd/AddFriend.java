@@ -17,6 +17,7 @@ import com.danasoftprototype.govet.R;
 import com.danasoftprototype.govet.databinding.ActivityAddFriendBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -26,6 +27,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.text.DateFormat;
+import java.util.Date;
 import java.util.HashMap;
 
 
@@ -141,26 +144,53 @@ public class AddFriend extends AppCompatActivity {
                 if (snapshot.hasChild(uid)){
                     String request_type = snapshot.child(uid).child("request_type").getValue().toString();
                     if (request_type.equals("received")){
-
                         CurrentState = "request_received";
                         addFriend.setText("Accept Friend Request");
                         cancelFriend.setVisibility(View.INVISIBLE);
                         cancelFriend.setEnabled(false);
                         progressBar.setVisibility(View.GONE);
+
+                        addFriend.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                ConfirmFriendRequest();
+                            }
+                        });
                     }
                     else if (request_type.equals("sent")){
-                        CurrentState = "req_sent";
+                        CurrentState = "request_sent";
                         addFriend.setText("Cancel Friend Request");
+                        addFriend.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                CancelFriendRequest();
+                            }
+                        });
                     }
                 }
-            }
+                else {
+                    friendRef.child(FirebaseAuth.getInstance().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if (snapshot.hasChild(uid)){
+                                addFriend.setEnabled(true);
+                                CurrentState = "friends";
+                                addFriend.setText("Unfriend " + name);
+                            }
+                        }
 
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                }
+            }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
-
     }
 
     private void addFriendMethod(String uid) {
@@ -204,7 +234,8 @@ public class AddFriend extends AppCompatActivity {
         });
     }
 
-    private void CancelFriendRequest(){/*
+    private void CancelFriendRequest(){
+        /*
         requestRef.child(FirebaseAuth.getInstance().getUid()).child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -249,7 +280,33 @@ public class AddFriend extends AppCompatActivity {
     }
 
     private void ConfirmFriendRequest(){
+        if (CurrentState.equals("request_received")){
+            String CurrentDate = DateFormat.getDateInstance().format(new Date());
 
+            friendRef.child(FirebaseAuth.getInstance().getUid()).child(uid).setValue(CurrentDate).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void unused) {
+                    friendRef.child(uid).child(FirebaseAuth.getInstance().getUid()).setValue(CurrentDate).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            requestRef.child(FirebaseAuth.getInstance().getUid()).child(uid).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    requestRef.child(uid).child(FirebaseAuth.getInstance().getUid()).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void unused) {
+                                            addFriend.setEnabled(true);
+                                            CurrentState = "friends";
+                                            addFriend.setText("Unfriend " + name);
+                                        }
+                                    });
+                                }
+                            });
+                        }
+                    });
+                }
+            });
+        }
     }
 
 
