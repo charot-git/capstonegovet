@@ -14,13 +14,29 @@
     android:background="@color/bgwhite"
     tools:context=".settings.privacyterm">
 
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/rounded_corner2"
+        android:padding="5dp"
+        android:src="@drawable/ic_back" />
+
     <TextView
+        android:textColor="@color/slightfont"
+        android:layout_below="@id/back"
         android:id="@+id/Privacy"
-        android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+      android:textSize="16dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:fontFamily="@font/poppins_medium"
-        android:text="Privacy Policy"/>
+        android:text="Privacy Policy" />
 
     <TextView
         android:id="@+id/the"
@@ -30,20 +46,28 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
+        android:textSize="14dp"
         android:layout_marginBottom="5dp"
         android:fontFamily="@font/popins_light"
+        android:textColor="@color/slightfont"
         android:text="The GoVet app was created by the NADA group as a free app. This service is offered at no cost and is intended to be used as is. This page is intended to inform visitors about our policies regarding the collection, use, and disclosure of Personal Information if they choose to use our Service. If you use our Service, you agree to the collection and use of information in accordance with this policy. We gather Personal Information in order to provide and improve the Service. Except as specified in this Privacy Policy, we will not use or disclose your information with anybody. Unless otherwise stated in this Privacy Policy, the terminology used in this Privacy Policy have the same meaning as those in our Terms and Conditions, which are available at GoVet app." />
 
-        <TextView
-            android:layout_below="@id/the"
-            android:id="@+id/Information"
-            android:layout_margin="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_medium"
-            android:text="Information Collection and Use"/>
+    <TextView
+        android:textColor="@color/slightfont"
+        android:textSize="16dp"
+        android:id="@+id/Information"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/the"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Information Collection and Use" />
 
     <TextView
+        android:textColor="@color/slightfont"
         android:id="@+id/we"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -51,6 +75,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
+        android:textSize="14dp"
         android:layout_marginBottom="5dp"
         android:fontFamily="@font/popins_light"
         android:text="We may collect data about you through a number of ways. In order to provide you with a better experience while using our Service, we may request you to give us with some personally identifiable information, such as your name, e-mail address, password, and contact number. We will keep the information you provided and use it in accordance with the terms of this privacy statement.
@@ -58,18 +83,25 @@ The GoVet app does make use of third-party services, which may gather informatio
         />
 
     <TextView
-        android:layout_below="@id/we"
+        android:textColor="@color/slightfont"
+        android:textSize="16dp"
         android:id="@+id/data"
-        android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/we"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:fontFamily="@font/poppins_medium"
-        android:text="Data Logging"/>
+        android:text="Data Logging" />
 
     <TextView
+        android:textColor="@color/slightfont"
         android:id="@+id/wew"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="14dp"
         android:layout_below="@+id/data"
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
@@ -80,6 +112,8 @@ The GoVet app does make use of third-party services, which may gather informatio
 
 
     <TextView
+        android:textColor="@color/slightfont"
+        android:textSize="16dp"
         android:id="@+id/one"
         android:layout_below="@id/wew"
         android:layout_margin="10dp"
@@ -89,7 +123,9 @@ The GoVet app does make use of third-party services, which may gather informatio
         android:text="Service Providers"/>
 
     <TextView
+        android:textColor="@color/slightfont"
         android:id="@+id/onecon"
+        android:textSize="14dp"
         android:layout_below="@+id/one"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -108,6 +144,8 @@ We want users of this Service to be aware that these third party service provide
 
 
     <TextView
+        android:textColor="@color/slightfont"
+        android:textSize="16dp"
         android:id="@+id/two"
         android:layout_below="@id/onecon"
         android:layout_margin="10dp"
@@ -117,6 +155,8 @@ We want users of this Service to be aware that these third party service provide
         android:text="Security"/>
 
     <TextView
+        android:textColor="@color/slightfont"
+        android:textSize="14dp"
         android:id="@+id/twocon"
         android:layout_below="@+id/two"
         android:layout_width="match_parent"
@@ -130,6 +170,8 @@ We want users of this Service to be aware that these third party service provide
 
 
     <TextView
+        android:textColor="@color/slightfont"
+        android:textSize="16dp"
         android:id="@+id/three"
         android:layout_below="@id/twocon"
         android:layout_margin="10dp"
@@ -139,6 +181,8 @@ We want users of this Service to be aware that these third party service provide
         android:text="Other Sites' Links"/>
 
     <TextView
+        android:textColor="@color/slightfont"
+        android:textSize="14dp"
         android:id="@+id/threecon"
         android:layout_below="@+id/three"
         android:layout_width="match_parent"
@@ -151,6 +195,8 @@ We want users of this Service to be aware that these third party service provide
         android:text="This Service may include hyperlinks to third-party sites. You will be redirected to a third-party site after you click a third-party link. Please keep in mind that we do not manage these external websites. As a result, we strongly recommend that you read the Privacy Policies of these websites. We have no control over, and accept no responsibility for any third-party services' information, privacy policies, or practices."/>
 
     <TextView
+        android:textColor="@color/slightfont"
+        android:textSize="16dp"
         android:id="@+id/four"
         android:layout_below="@id/threecon"
         android:layout_margin="10dp"
@@ -160,6 +206,7 @@ We want users of this Service to be aware that these third party service provide
         android:text="Updates to This Privacy Statement"/>
 
     <TextView
+        android:textColor="@color/slightfont"
         android:id="@+id/fourcon"
         android:layout_below="@+id/four"
         android:layout_width="match_parent"
@@ -169,11 +216,14 @@ We want users of this Service to be aware that these third party service provide
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="5dp"
         android:fontFamily="@font/popins_light"
+        android:textSize="14dp"
         android:text="Our Privacy Policy may be updated from time to time. As a result, you should check this page for modifications on a regular basis. We will inform you of any modifications by posting the updated Privacy Statement on this page.
 This policy will go into effect on October 22, 2022.
 "/>
 
     <TextView
+        android:textColor="@color/slightfont"
+        android:textSize="16dp"
         android:id="@+id/five"
         android:layout_below="@id/fourcon"
         android:layout_margin="10dp"
@@ -183,6 +233,8 @@ This policy will go into effect on October 22, 2022.
         android:text="Terms and Conditions"/>
 
     <TextView
+        android:textColor="@color/slightfont"
+        android:textSize="14dp"
         android:id="@+id/fivecon"
         android:layout_below="@+id/five"
         android:layout_width="match_parent"
@@ -198,6 +250,8 @@ To access our service, you must provide us with personally identifiable informat
 The GoVet app does make use third-party services that declare their Terms and Conditions."
         />
     <TextView
+        android:textColor="@color/slightfont"
+        android:textSize="14dp"
         android:id="@+id/fivecon2"
         android:layout_below="@+id/fivecon"
         android:layout_width="match_parent"
@@ -214,6 +268,8 @@ Regarding NADA group's responsibility for your use of the app, it's important to
 
 
     <TextView
+        android:textColor="@color/slightfont"
+        android:textSize="16dp"
         android:id="@+id/six"
         android:layout_below="@id/fivecon2"
         android:layout_margin="10dp"
@@ -223,6 +279,8 @@ Regarding NADA group's responsibility for your use of the app, it's important to
         android:text="Modifications of the Service"/>
 
     <TextView
+        android:textColor="@color/slightfont"
+        android:textSize="14dp"
         android:id="@+id/sixcon"
         android:layout_below="@+id/six"
         android:layout_width="match_parent"
@@ -238,6 +296,8 @@ Unless we inform you otherwise, upon termination, (a) the licenses and rights gr
 "/>
 
     <TextView
+        android:textColor="@color/slightfont"
+        android:textSize="16dp"
         android:id="@+id/seven"
         android:layout_below="@id/sixcon"
         android:layout_margin="10dp"
@@ -247,6 +307,8 @@ Unless we inform you otherwise, upon termination, (a) the licenses and rights gr
         android:text="Usage Guidelines"/>
 
     <TextView
+        android:textColor="@color/slightfont"
+        android:textSize="14dp"
         android:id="@+id/sevencon"
         android:layout_below="@+id/seven"
         android:layout_width="match_parent"
@@ -265,6 +327,8 @@ Unless we inform you otherwise, upon termination, (a) the licenses and rights gr
 
 
     <TextView
+        android:textColor="@color/slightfont"
+        android:textSize="16dp"
         android:id="@+id/eight"
         android:layout_below="@id/sevencon"
         android:layout_margin="10dp"
@@ -274,6 +338,8 @@ Unless we inform you otherwise, upon termination, (a) the licenses and rights gr
         android:text="Updates to This Terms and Conditions"/>
 
     <TextView
+        android:textColor="@color/slightfont"
+        android:textSize="14dp"
         android:id="@+id/eightcon"
         android:layout_below="@+id/eight"
         android:layout_width="match_parent"
@@ -289,6 +355,8 @@ This policy will go into effect on October 22, 2022.
 
 
     <TextView
+        android:textColor="@color/slightfont"
+        android:textSize="16dp"
         android:id="@+id/nine"
         android:layout_below="@id/eightcon"
         android:layout_margin="10dp"
@@ -298,6 +366,8 @@ This policy will go into effect on October 22, 2022.
         android:text="Contact Us"/>
 
     <TextView
+        android:textColor="@color/slightfont"
+        android:textSize="14dp"
         android:id="@+id/ninecon"
         android:layout_below="@+id/nine"
         android:layout_width="match_parent"
