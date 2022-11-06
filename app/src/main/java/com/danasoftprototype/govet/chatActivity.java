@@ -65,10 +65,19 @@ public class chatActivity extends AppCompatActivity {
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseDatabase.getInstance().getReference("Messages")
-                        .child(chatRoomID).push()
-                        .setValue(new Message(FirebaseAuth.getInstance().getCurrentUser().getEmail(), email, message.getText().toString()));
-                message.setText("");
+
+                String messageChecker = message.getText().toString();
+                if (messageChecker.isEmpty()){
+                    message.setError("Please enter a message");
+                    message.requestFocus();
+                }
+                else {
+                    FirebaseDatabase.getInstance().getReference("Messages")
+                            .child(chatRoomID).push()
+                            .setValue(new Message(FirebaseAuth.getInstance().getCurrentUser().getEmail(), email, message.getText().toString()));
+                    message.setText("");
+                }
+
             }
         });
         messageAdapter = new MessageAdapter(messages, myDp, dpOfRoomate, chatActivity.this);
