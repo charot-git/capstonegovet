@@ -40,7 +40,7 @@ public class AddFriend extends AppCompatActivity {
     TextView TextName, TextUsername;
     Button addFriend, cancelFriend;
     String CurrentState = "not_friends";
-    String email, image, name, uid, username;
+    String email, image, name, uid, username , mydp;
     DatabaseReference mUser, requestRef, friendRef;
     FloatingActionButton message;
     ProgressBar progressBar;
@@ -81,6 +81,19 @@ public class AddFriend extends AppCompatActivity {
         mUser = FirebaseDatabase.getInstance().getReference().child("Users").child(uid);
         requestRef = FirebaseDatabase.getInstance().getReference().child("Request");
         friendRef = FirebaseDatabase.getInstance().getReference().child("Friends");
+
+        mUser.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (task.isSuccessful()){
+                    if (task.getResult().exists()){
+                        DataSnapshot dataSnapshot = task.getResult();
+                        mydp = String.valueOf(dataSnapshot.child("image").getValue());
+
+                    }
+                }
+            }
+        });
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("/Pets/"+uid+"/Pet");
         reference.child("Pet1").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
@@ -184,7 +197,12 @@ public class AddFriend extends AppCompatActivity {
                                 message.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
-                                        startActivity(new Intent(getApplication(), chatActivity.class));
+                                        startActivity(new Intent(getApplication(), chatActivity.class)
+                                                .putExtra("username_of_roomate" , username)
+                                                .putExtra("name_of_roomate" , name)
+                                                .putExtra("dp_of_roomate", image)
+                                                .putExtra("email_of_roomate" , email)
+                                                .putExtra("myDp", mydp));
                                     }
                                 });
                             }
@@ -302,6 +320,7 @@ public class AddFriend extends AppCompatActivity {
                                     requestRef.child(uid).child(FirebaseAuth.getInstance().getUid()).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
+
                                             addFriend.setEnabled(true);
                                             CurrentState = "friends";
                                             addFriend.setText("Unfriend " + name);
