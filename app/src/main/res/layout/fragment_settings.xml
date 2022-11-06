@@ -89,23 +89,39 @@
 
     <TextView
         android:id="@+id/helpview"
-        android:layout_below="@id/aboutusview"
-        android:drawableLeft="@drawable/ic_baseline_help_outline_24"
-        android:drawableTint="@color/slightfont"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/aboutusview"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="0dp"
+        android:drawableLeft="@drawable/ic_baseline_help_outline_24"
+        android:drawableTint="@color/slightfont"
         android:fontFamily="@font/popins_light"
         android:gravity="center"
         android:text=" Help"
+        android:textColor="@color/slightfont"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/logsview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/helpview"
         android:layout_marginStart="30dp"
-        android:textSize="25sp"
-        android:textColor="@color/slightfont"/>
+        android:layout_marginTop="0dp"
+        android:drawableLeft="@drawable/ic_baseline_logs_24"
+        android:drawableTint="@color/slightfont"
+        android:fontFamily="@font/popins_light"
+        android:gravity="center"
+        android:text=" User Logs"
+        android:textColor="@color/slightfont"
+        android:textSize="25sp" />
 
     <TextView
         android:drawableLeft="@drawable/ic_baseline_logout_24"
         android:drawableTint="@color/slightfont"
         android:id="@+id/logoutview"
-        android:layout_below="@id/helpview"
+        android:layout_below="@id/logsview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/popins_light"

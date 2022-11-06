@@ -7,14 +7,26 @@
     android:background="@color/bgwhite"
     tools:context=".settings.help">
 
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/rounded_corner2"
+        android:padding="5dp"
+        android:src="@drawable/ic_back" />
+
+
     <TextView
+        android:layout_below="@id/back"
         android:id="@+id/help"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_medium"
         android:gravity="center"
-        android:text="Having Trouble?"
-        android:layout_marginTop="30dp"
+        android:text="Having Troubles?"
         android:layout_marginBottom="5dp"
         android:textSize="25sp"
         android:textColor="@color/slightfont" />
@@ -25,22 +37,124 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/popins_light"
         android:gravity="center"
-        android:text="Please contact our support"
+        android:text="Please contact us"
         android:layout_below="@id/help"
         android:layout_marginBottom="5dp"
         android:textSize="20sp"
         android:textColor="@color/slightfont" />
 
     <TextView
-        android:id="@+id/emailsup"
+        android:layout_marginTop="10dp"
+        android:id="@+id/vettxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_medium"
+        android:fontFamily="@font/popins_light"
         android:gravity="center"
-        android:text="gamingandrei@gmail.com"
+        android:text="Vet "
         android:layout_below="@id/emailcontact"
         android:layout_marginBottom="5dp"
         android:textSize="20sp"
         android:textColor="@color/slightfont" />
+
+    <TextView
+        android:id="@+id/emailvet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:gravity="center"
+        android:text="vetgovet@gmail.com"
+        android:layout_below="@id/vettxt"
+        android:layout_marginBottom="5dp"
+        android:textSize="20sp"
+        android:textColor="@color/slightfont" />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/admintxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/popins_light"
+        android:gravity="center"
+        android:text="Admin "
+        android:layout_below="@id/emailvet"
+        android:layout_marginBottom="5dp"
+        android:textSize="20sp"
+        android:textColor="@color/slightfont" />
+
+    <TextView
+        android:id="@+id/emailadmin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:gravity="center"
+        android:text="admingovet@gmail.com"
+        android:layout_below="@id/admintxt"
+        android:layout_marginBottom="5dp"
+        android:textSize="20sp"
+        android:textColor="@color/slightfont" />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/devtxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/popins_light"
+        android:gravity="center"
+        android:text="Developers "
+        android:layout_below="@id/emailadmin"
+        android:layout_marginBottom="5dp"
+        android:textSize="20sp"
+        android:textColor="@color/slightfont" />
+
+    <TextView
+        android:id="@+id/emaildev"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:gravity="center"
+        android:text="gamingandrei06@gmail.com"
+        android:layout_below="@id/devtxt"
+        android:layout_marginBottom="5dp"
+        android:textSize="20sp"
+        android:textColor="@color/slightfont" />
+
+    <TextView
+        android:id="@+id/emaildev1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:gravity="center"
+        android:text="alimurungnica01@gmail.com"
+        android:layout_below="@id/emaildev"
+        android:layout_marginBottom="5dp"
+        android:textSize="20sp"
+        android:textColor="@color/slightfont" />
+
+    <TextView
+        android:id="@+id/emaildev2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:gravity="center"
+        android:text="alipioallen5@gmail.com"
+        android:layout_below="@id/emaildev1"
+        android:layout_marginBottom="5dp"
+        android:textSize="20sp"
+        android:textColor="@color/slightfont" />
+    <TextView
+        android:id="@+id/emaildev3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:gravity="center"
+        android:text="daleallenliwanag@gmail.com"
+        android:layout_below="@id/emaildev2"
+        android:layout_marginBottom="5dp"
+        android:textSize="20sp"
+        android:textColor="@color/slightfont" />
+
+
+
+
 
 </RelativeLayout>

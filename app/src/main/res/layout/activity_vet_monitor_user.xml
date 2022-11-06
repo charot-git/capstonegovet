@@ -29,13 +29,26 @@
                     app:tint="@color/white" />
             </RelativeLayout>
 
+
+            <ImageView
+                android:layout_below="@id/relative"
+                android:id="@+id/back"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/rounded_corner2"
+                android:padding="5dp"
+                android:src="@drawable/ic_back" />
+
+
             <TextView
                 android:id="@+id/monitorPets"
-                android:layout_below="@+id/relative"
+                android:layout_below="@+id/back"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="50dp"
-                android:layout_marginTop="20dp"
                 android:layout_marginEnd="30dp"
                 android:layout_marginBottom="5dp"
                 android:fontFamily="@font/poppins_medium"
