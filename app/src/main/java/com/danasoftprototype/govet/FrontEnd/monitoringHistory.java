@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -41,6 +42,7 @@ public class monitoringHistory extends AppCompatActivity {
         RecyclerView recyclerView;
         List<petAdmitMonitoring> petAdmitMonitoringList;
         MonitoringAdapter monitoringAdapter;
+        TextView petCheck;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +50,7 @@ public class monitoringHistory extends AppCompatActivity {
             setContentView(R.layout.activity_monitor_activty);
 
             home = findViewById(R.id.home);
+            petCheck = findViewById(R.id.textUpdate);
             recyclerView = findViewById(R.id.recycler_view);
             recyclerView.setHasFixedSize(true);
             recyclerView.setLayoutManager(new LinearLayoutManager(getApplication()));
@@ -72,6 +75,9 @@ public class monitoringHistory extends AppCompatActivity {
             ref.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if (snapshot.exists()){
+                        petCheck.setText("Monitor update");
+                    }
                     petAdmitMonitoringList.clear();
                     for(DataSnapshot ds : snapshot.getChildren()){
                         petAdmitMonitoring petAdmitMonitoring = ds.getValue(com.danasoftprototype.govet.petAdmitMonitoring.class);

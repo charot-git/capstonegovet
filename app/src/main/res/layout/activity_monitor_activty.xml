@@ -47,17 +47,17 @@
 
     <TextView
         android:id="@+id/textUpdate"
-        android:layout_below="@id/home"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/home"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="25dp"
         android:fontFamily="@font/poppins_medium"
-        android:textSize="24dp"
+        android:text="No pets admitted"
         android:textColor="@color/slightfont"
-        android:text="Monitor update "/>
+        android:textSize="24dp" />
 
-        <androidx.recyclerview.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
