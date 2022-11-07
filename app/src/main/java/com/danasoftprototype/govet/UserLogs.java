@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.danasoftprototype.govet.FrontEndVet.MonitoringAdapterVet;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -54,7 +55,7 @@ public class UserLogs extends AppCompatActivity {
 
     private void getAllLogs() {
         DatabaseReference root = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference ref = root.child("UserLogs");
+        DatabaseReference ref = root.child("UserLogs").child(FirebaseAuth.getInstance().getUid());
 
         ref.addValueEventListener(new ValueEventListener() {
             @Override
