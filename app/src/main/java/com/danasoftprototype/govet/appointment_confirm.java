@@ -80,8 +80,6 @@ public class appointment_confirm extends AppCompatActivity {
     }
 
     private void finishAppointmentMethod() {
-        //todo
-
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("UserLogs");
         ref.child(uid).push().addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
