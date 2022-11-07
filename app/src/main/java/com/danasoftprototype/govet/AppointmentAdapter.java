@@ -52,6 +52,7 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
         String date = bookingsList.get(position).getDate();
         String description = bookingsList.get(position).getDescription();
         String name = bookingsList.get(position).getName();
+        String uid = bookingsList.get(position).getUid();
 
         holder.name.setText("Name : " + name);
         holder.date.setText("Date : " + date);
@@ -66,6 +67,14 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(context , appointment_confirm.class)
+                        .putExtra("name" , name)
+                        .putExtra("date" , date)
+                        .putExtra("time" , time)
+                        .putExtra("description" , description)
+                        .putExtra("uid" , uid)
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
 
             }
         });

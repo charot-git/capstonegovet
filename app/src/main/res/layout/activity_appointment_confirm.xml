@@ -122,7 +122,8 @@
         android:paddingTop="5dp"
         android:paddingRight="20dp"
         android:paddingBottom="5dp"
-        android:text="Confirm"
+        android:layout_marginTop="50dp"
+        android:text="APPOINTMENT FINISHED"
         android:textColor="@color/white"
         android:textSize="18dp"
         app:cornerRadius="30dp" />

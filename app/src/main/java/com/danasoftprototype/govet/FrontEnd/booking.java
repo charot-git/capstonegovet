@@ -146,8 +146,9 @@ public class booking extends AppCompatActivity {
         hashMap.put("day", dayPicked);
         hashMap.put("month", monthPicked);
         hashMap.put("year", yearPicked);
-        hashMap.put("date", date);
         hashMap.put("description", description);
+        hashMap.put("date", date);
+        hashMap.put("uid", FirebaseAuth.getInstance().getUid());
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 

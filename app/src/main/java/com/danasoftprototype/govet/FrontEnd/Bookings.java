@@ -8,6 +8,7 @@ public class Bookings {
     private String date;
     private String description;
     private String name;
+    private String uid;
 
     public String getTime() {
         return time;
@@ -65,7 +66,15 @@ public class Bookings {
         this.name = name;
     }
 
-    public Bookings(String time, String day, String month, String year, String date, String description, String name) {
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
+    public Bookings(String time, String day, String month, String year, String date, String description, String name, String uid) {
         this.time = time;
         this.day = day;
         this.month = month;
@@ -73,8 +82,10 @@ public class Bookings {
         this.date = date;
         this.description = description;
         this.name = name;
+        this.uid = uid;
     }
-//from date to day/week/month/year
+
+    //from date to day/week/month/year
 
     public Bookings(){}
 
