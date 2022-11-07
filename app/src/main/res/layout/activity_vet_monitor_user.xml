@@ -14,24 +14,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <RelativeLayout
-                android:id="@+id/relative"
-                android:background="@color/blue"
-                android:layout_width="match_parent"
-                android:layout_height="60dp">
-                <ImageView
-                    android:id="@+id/hamburger"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_hamburger"
-                    app:tint="@color/white" />
-            </RelativeLayout>
 
 
             <ImageView
-                android:layout_below="@id/relative"
                 android:id="@+id/back"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
