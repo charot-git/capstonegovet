@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.danasoftprototype.govet.databinding.ActivityAppointmentConfirmBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -89,10 +90,10 @@ public class appointment_confirm extends AppCompatActivity {
                 for (DataSnapshot ds : snapshot.getChildren()){
                     updatedValues.put(ds.getKey(), ds.getValue());
                 }
-                updatedValues.put("name" , name);
+                updatedValues.put("name" , nameString);
                 updatedValues.put("status" , "Finished Appointment");
-                updatedValues.put("date" , date);
-                updatedValues.put("time" , time);
+                updatedValues.put("date" , dateString);
+                updatedValues.put("time" , timeString);
                 ref.child(uid).push().updateChildren(updatedValues).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
@@ -104,6 +105,7 @@ public class appointment_confirm extends AppCompatActivity {
                                     child.getRef().removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
+                                            Toast.makeText(appointment_confirm.this, "Appointment for " + nameString + " finished", Toast.LENGTH_SHORT).show();
                                             finish();
                                         }
                                     });
