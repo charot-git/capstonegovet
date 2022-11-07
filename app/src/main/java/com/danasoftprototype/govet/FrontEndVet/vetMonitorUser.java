@@ -28,7 +28,7 @@ import java.util.List;
 
 public class vetMonitorUser extends AppCompatActivity {
 
-    ImageView drawerButton;
+    ImageView back;
     RecyclerView recyclerView;
     List<petAdmitMonitoring>petAdmitMonitoringList;
     MonitoringAdapterVetUser monitoringAdapterVetUser;
@@ -43,14 +43,15 @@ public class vetMonitorUser extends AppCompatActivity {
         setContentView(binding.getRoot());
         NavigationView navigationView = (binding.navView);
         DrawerLayout drawerLayout = (binding.drawerLayout);
-        drawerButton = (binding.hamburger);
+        back = binding.back;
 
-        drawerButton.setOnClickListener(new View.OnClickListener() {
+        back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                drawerLayout.openDrawer(GravityCompat.START);
+                finish();
             }
         });
+
         navigationView.setCheckedItem(R.id.nav_vetMonitoring);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
