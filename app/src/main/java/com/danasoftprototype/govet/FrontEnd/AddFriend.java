@@ -72,6 +72,18 @@ public class AddFriend extends AppCompatActivity {
         name = getIntent().getStringExtra("name");
         uid = getIntent().getStringExtra("uid");
         username = getIntent().getStringExtra("username");
+        DatabaseReference referenceDP = FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getUid());
+        referenceDP.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if(task.isSuccessful()){
+                    if(task.getResult().exists()){
+                        DataSnapshot dataSnapshot = task.getResult();
+                        mydp = String.valueOf(dataSnapshot.child("image").getValue());
+                    }
+                }
+            }
+        });
 
         Picasso.get().load(image).placeholder(R.drawable.logogv).into(profilePic);
 
@@ -81,19 +93,6 @@ public class AddFriend extends AppCompatActivity {
         mUser = FirebaseDatabase.getInstance().getReference().child("Users").child(uid);
         requestRef = FirebaseDatabase.getInstance().getReference().child("Request");
         friendRef = FirebaseDatabase.getInstance().getReference().child("Friends");
-
-        mUser.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                if (task.isSuccessful()){
-                    if (task.getResult().exists()){
-                        DataSnapshot dataSnapshot = task.getResult();
-                        mydp = String.valueOf(dataSnapshot.child("image").getValue());
-
-                    }
-                }
-            }
-        });
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("/Pets/"+uid+"/Pet");
         reference.child("Pet1").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
@@ -125,6 +124,7 @@ public class AddFriend extends AppCompatActivity {
 
             }
         });
+
         DatabaseReference reference3 = FirebaseDatabase.getInstance().getReference("/Pets/"+uid+"/Pet");
         reference.child("Pet3").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
@@ -202,7 +202,7 @@ public class AddFriend extends AppCompatActivity {
                                                 .putExtra("name_of_roomate" , name)
                                                 .putExtra("dp_of_roomate", image)
                                                 .putExtra("email_of_roomate" , email)
-                                                .putExtra("myDp", mydp));
+                                                .putExtra("dp_of_user", mydp));
                                     }
                                 });
                             }

@@ -20,6 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -49,18 +50,6 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageH
 
         ConstraintLayout constraintLayout = holder.ccll;
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getUid());
-        reference.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                if (task.isSuccessful()){
-                    if (task.getResult().exists()){
-                        DataSnapshot dataSnapshot = task.getResult();
-                        senderImg = String.valueOf(dataSnapshot.child("image").getValue());
-                    }
-                }
-            }
-        });
 
 
         if (messages.get(position).getSender().equals(FirebaseAuth.getInstance().getCurrentUser().getEmail())){
@@ -101,6 +90,8 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageH
             ccll = itemView.findViewById(R.id.ccLayout);
             TxtMessage = itemView.findViewById(R.id.messages);
             dp = itemView.findViewById(R.id.dpOfUser);
+
+
         }
     }
 }

@@ -30,7 +30,7 @@ public class chatActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ProgressBar progressBar;
 
-    String nameOfRoomate, usernameOfRoomate,dpOfRoomate , chatRoomID,email;
+    String nameOfRoomate, usernameOfRoomate,dpOfRoomate , chatRoomID,email, mydp;
 
 
     MessageAdapter messageAdapter;
@@ -46,7 +46,7 @@ public class chatActivity extends AppCompatActivity {
         usernameOfRoomate = getIntent().getStringExtra("username_of_roomate");
         dpOfRoomate = getIntent().getStringExtra("dp_of_roomate");
         email = getIntent().getStringExtra("email_of_roomate");
-        String myDp = getIntent().getStringExtra("myDp");
+        mydp = getIntent().getStringExtra("dp_of_user");
 
         recyclerView = binding.recyclerViewMessages;
         back = binding.back;
@@ -55,7 +55,7 @@ public class chatActivity extends AppCompatActivity {
         name = binding.name;
         userName = binding.userName;
         message = binding.message;
-        dp = binding.dpToolbar;
+        dp = binding.dp;
         progressBar = binding.progressBar2;
         messages = new ArrayList<>();
         name.setText(nameOfRoomate);
@@ -80,7 +80,7 @@ public class chatActivity extends AppCompatActivity {
 
             }
         });
-        messageAdapter = new MessageAdapter(messages, myDp, dpOfRoomate, chatActivity.this);
+        messageAdapter = new MessageAdapter(messages, mydp, dpOfRoomate, chatActivity.this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(messageAdapter);
 
