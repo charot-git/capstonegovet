@@ -291,9 +291,9 @@ public class profile extends Fragment {
                         addpet.setVisibility(View.INVISIBLE);
                         petpic1container.setVisibility(View.VISIBLE);
                         pet1Layout.setVisibility(View.VISIBLE);
-                        petname1.setText(name);
-                        petage1.setText(age);
-                        petbreed1.setText(breed);
+                        petname1.setText("Name : " + name);
+                        petage1.setText("Age : " + age);
+                        petbreed1.setText("Breed : " + breed);
                         Picasso.get().load(imgUrl).into(petpic1);
 
                     }else{
@@ -327,9 +327,9 @@ public class profile extends Fragment {
                         addpet2.setVisibility(View.INVISIBLE);
                         petpic2container.setVisibility(View.VISIBLE);
                         pet2Layout.setVisibility(View.VISIBLE);
-                        petname2.setText(name);
-                        petage2.setText(age);
-                        petbreed2.setText(breed);
+                        petname2.setText("Name : " + name);
+                        petage2.setText("Age : " + age);
+                        petbreed2.setText("Breed : " + breed);
                         Picasso.get().load(imgUrl).into(petpic2);
 
                     }else{
@@ -363,9 +363,9 @@ public class profile extends Fragment {
                         addpet3.setVisibility(View.INVISIBLE);
                         petpic3container.setVisibility(View.VISIBLE);
                         pet3Layout.setVisibility(View.VISIBLE);
-                        petname3.setText(name);
-                        petage3.setText(age);
-                        petbreed3.setText(breed);
+                        petname3.setText("Name : " + name);
+                        petage3.setText("Age : " + age);
+                        petbreed3.setText("Breed : " + breed);
                         Picasso.get().load(imgUrl).into(petpic3);
 
                     }else{

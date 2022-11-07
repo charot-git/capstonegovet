@@ -57,7 +57,6 @@ public class register extends AppCompatActivity {
         emailreg = (EditText) findViewById(R.id.emailreg);
         confpass = (EditText) findViewById(R.id.repass);
         username = (EditText) findViewById(R.id.username);
-        mobilenumber = (EditText) findViewById(R.id.mobilenum);
 
         requestRef = FirebaseDatabase.getInstance().getReference().child("Request");
 
@@ -74,7 +73,6 @@ public class register extends AppCompatActivity {
         String repass = confpass.getText().toString().trim();
         String email = emailreg.getText().toString().trim();
         String uname = username.getText().toString().trim();
-        String num = mobilenumber.getText().toString().trim();
 
 
         //EditText Checker
@@ -93,10 +91,6 @@ public class register extends AppCompatActivity {
         } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             emailreg.setError("E-mail is invalid");
             emailreg.requestFocus();
-            return;
-        } else if (num.isEmpty()) {
-            mobilenumber.setError("Mobile number is required");
-            mobilenumber.requestFocus();
             return;
         } else if (password.isEmpty()) {
             pass.setError("Password is required!");

@@ -118,9 +118,7 @@ public class appointment_confirm extends AppCompatActivity {
 
                     }
                 });
-
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 

@@ -162,7 +162,7 @@
             android:textColor="@color/fwhite"
             android:text="Breed" />
 
-        <Spinner
+        <EditText
             android:id="@+id/petBreed"
             android:layout_width="150dp"
             android:layout_centerHorizontal="true"

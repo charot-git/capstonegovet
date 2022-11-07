@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.danasoftprototype.govet.R;
@@ -19,6 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class account extends AppCompatActivity {
+    ImageView back;
     Button emailauth, mobileauth, changepass;
     String TAG;
     FirebaseAuth mAuth;
@@ -30,6 +32,14 @@ public class account extends AppCompatActivity {
         emailauth = (Button) findViewById(R.id.emailauth);
         mobileauth = (Button) findViewById(R.id.mobileauth);
         changepass = (Button) findViewById(R.id.changepass);
+
+        back = findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         emailauth.setOnClickListener(this::emailauthmethod);
         mobileauth.setOnClickListener(this::mobileauthmethod);

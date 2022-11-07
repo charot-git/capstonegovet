@@ -41,8 +41,8 @@ import java.util.HashMap;
 
 public class addPet3 extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     ImageView petProfilePic;
-    Spinner petSpecies, petBreed, petAge;
-    EditText petName;
+    Spinner petSpecies, petAge;
+    EditText petName , petBreed;
     Button submit;
     TextView petBirthday;
     StorageReference storageReference;
@@ -188,84 +188,6 @@ public class addPet3 extends AppCompatActivity implements AdapterView.OnItemSele
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String petspecies = parent.getItemAtPosition(position).toString();
         species = petspecies;
-
-        //dog breed listener
-        if (species.equals("Dog")){
-            ArrayAdapter<CharSequence>adapter = ArrayAdapter.createFromResource(this,R.array.dogBreed, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
-            adapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
-            petBreed.setAdapter(adapter);
-            petBreed.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    String petbreed = parent.getItemAtPosition(position).toString();
-                    breed = petbreed;
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> parent) {
-
-                }
-            });
-
-        }
-        //cat breed listener
-        else if(species.equals("Cat")){
-            ArrayAdapter<CharSequence>adapter = ArrayAdapter.createFromResource(this,R.array.catBreed, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
-            adapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
-            petBreed.setAdapter(adapter);
-            petBreed.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    String petbreed = parent.getItemAtPosition(position).toString();
-                    breed = petbreed;
-
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> parent) {
-
-                }
-            });
-        }
-        //fish breed listener
-        else if(species.equals("Fish")){
-            ArrayAdapter<CharSequence>adapter = ArrayAdapter.createFromResource(this,R.array.fishBreed, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
-            adapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
-            petBreed.setAdapter(adapter);
-            petBreed.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    String petbreed = parent.getItemAtPosition(position).toString();
-                    breed = petbreed;
-
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> parent) {
-
-                }
-            });
-        }
-        //hamster breed listener
-        else if(species.equals("Hamster")){
-            ArrayAdapter<CharSequence>adapter = ArrayAdapter.createFromResource(this,R.array.hamsterBreed, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
-            adapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
-            petBreed.setAdapter(adapter);
-            petBreed.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    String petbreed = parent.getItemAtPosition(position).toString();
-                    breed = petbreed;
-
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> parent) {
-
-                }
-            });
-        }
-
     }
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
@@ -275,6 +197,7 @@ public class addPet3 extends AppCompatActivity implements AdapterView.OnItemSele
     //update database for pet 2
     private void CheckerGetter() {
         String petname = petName.getText().toString();
+        String breedOfPet = petBreed.getText().toString();
 
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         FirebaseUser Fuser = mAuth.getInstance().getCurrentUser();
@@ -287,7 +210,7 @@ public class addPet3 extends AppCompatActivity implements AdapterView.OnItemSele
 
         hashMap.put("petAge", age.trim());
         hashMap.put("petBirthday", bday.trim());
-        hashMap.put("petBreed", breed.trim());
+        hashMap.put("petBreed", breedOfPet.trim());
         hashMap.put("petName", petname.trim());
         hashMap.put("petProfilePic", url);
         hashMap.put("petSpecies", species.trim());

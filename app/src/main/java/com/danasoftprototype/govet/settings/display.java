@@ -4,12 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.Switch;
 
 import com.danasoftprototype.govet.R;
 
 public class display extends AppCompatActivity {
+
+    ImageView back;
 
     Switch darklight;
     @Override
@@ -33,5 +37,14 @@ public class display extends AppCompatActivity {
                 }
         };
         });
+
+        back = findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
     }
 }

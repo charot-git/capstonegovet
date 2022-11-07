@@ -11,6 +11,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.CalendarView;
@@ -222,6 +223,8 @@ public class profileupdate extends AppCompatActivity {
             }
         });*/
 
+
+        boolean digitsOnly = TextUtils.isDigitsOnly(numberUser);
         if (firstname.isEmpty()) {
             fnameUI.setError("First name is required");
             fnameUI.requestFocus();
@@ -237,9 +240,27 @@ public class profileupdate extends AppCompatActivity {
             return;
         }
         else if (numberUser.isEmpty()){
-            number.setError("Middle name is required");
+            number.setError("Mobile number is required");
             number.requestFocus();
             return;
+        }
+        else if (numberUser.length()<11){
+            number.setError("Mobile number is less than 11 characters");
+            number.requestFocus();
+            return;
+
+        }
+        else if (numberUser.length()>11){
+            number.setError("Mobile number is greater than 11 characters");
+            number.requestFocus();
+            return;
+
+        }
+        else if (!digitsOnly){
+            number.setError("Mobile number has invalid characters");
+            number.requestFocus();
+            return;
+
         }
         else{
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
