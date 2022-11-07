@@ -44,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:text="We're sending you back to (GoVet). Paypal won't ask for any info after this meessage" >
+            android:text="We're sending you back to (GoVet). Paypal won't ask for any info after this message" >
     </TextView>
 
         <com.google.android.material.button.MaterialButton
