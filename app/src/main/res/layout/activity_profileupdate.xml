@@ -92,12 +92,52 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="79dp" />
 
+        <EditText
+            android:id="@+id/number"
+            android:layout_width="282dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_corner"
+            android:drawablePadding="10dp"
+            android:layout_marginStart="15dp"
+            android:fontFamily="@font/poppins_medium"
+            android:hint="Phone number"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/lastname"
+            android:padding="15dp"
+            android:layout_marginBottom="12dp"
+            android:textColor="@color/lightfont"
+            android:textColorHint="@color/lightfont"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="79dp" />
+
+        <TextView
+            android:id="@+id/bday"
+            android:layout_width="282dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_corner"
+            android:drawablePadding="10dp"
+            android:layout_marginStart="15dp"
+            android:fontFamily="@font/poppins_medium"
+            android:hint="Birthdate"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/number"
+            android:padding="15dp"
+            android:layout_marginBottom="12dp"
+            android:textColor="@color/lightfont"
+            android:textColorHint="@color/lightfont"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="79dp" />
+
+
+
+
+
 
         <com.google.android.material.button.MaterialButton
         android:id="@+id/updatebutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/lastname"
+        android:layout_below="@id/bday"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="5dp"
         android:layout_marginTop="10dp"

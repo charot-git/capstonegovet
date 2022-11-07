@@ -5,17 +5,23 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
+import android.widget.CalendarView;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.danasoftprototype.govet.R;
+import com.danasoftprototype.govet.addPet;
 import com.danasoftprototype.govet.userFullName;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -34,17 +40,20 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
+import java.util.Calendar;
 import java.util.HashMap;
 
 public class profileupdate extends AppCompatActivity {
     private static final String TAG = "MyActivity";
 
-    EditText fnameUI, mnameUI, lnameUI;
+    EditText fnameUI, mnameUI, lnameUI, number;
     MaterialButton updatebutton, changepicbutton;
     ImageView profilepic, back;
+    TextView birthday;
     FirebaseAuth mAuth;
     FirebaseUser user;
     StorageReference storageReference;
+    String bday;
 
 
     @Override
@@ -65,6 +74,8 @@ public class profileupdate extends AppCompatActivity {
         fnameUI = (EditText) findViewById(R.id.firstname);
         mnameUI = (EditText) findViewById(R.id.middlename);
         lnameUI = (EditText) findViewById(R.id.lastname);
+        birthday = (TextView) findViewById(R.id.bday);
+        number = findViewById(R.id.number);
         profilepic = (ImageView) findViewById(R.id.profilepic);
 
         storageReference = FirebaseStorage.getInstance().getReference();
@@ -87,6 +98,13 @@ public class profileupdate extends AppCompatActivity {
             }
         });
 
+        birthday.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getBirthday();
+            }
+        });
+
         //change profile picture
         changepicbutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,6 +120,26 @@ public class profileupdate extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    private void getBirthday() {
+        final Calendar calendar = Calendar.getInstance();
+        final int year = calendar.get(Calendar.YEAR);
+        final int month = calendar.get(Calendar.MONTH);
+        final int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog dialog = new DatePickerDialog(profileupdate.this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+
+                month = month+1;
+                String date = dayOfMonth+"/"+month+"/"+year;
+                birthday.setText(date);
+                bday = date;
+
+            }
+        },year,month,day);
+        dialog.show();
     }
 
     @Override
@@ -160,12 +198,29 @@ public class profileupdate extends AppCompatActivity {
         String firstname = fnameUI.getText().toString().trim();
         String middlename = mnameUI.getText().toString().trim();
         String lastname = lnameUI.getText().toString().trim();
+        String numberUser = number.getText().toString().trim();
 
         //Firestore data
         //addDataToFirestore();
 
         //concatenated user name for nav display
         String name = firstname + " " + middlename + " " + lastname;
+
+
+
+
+
+    /*setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+                String dayPicked = String.valueOf(dayOfMonth);
+                String yearPicked = String.valueOf(year);
+                String monthPicked = String.valueOf(month+1);
+                bday = dayPicked + "/" +monthPicked + "/" +yearPicked;
+                birthdate.setText("Birthday : "+bday);
+
+            }
+        });*/
 
         if (firstname.isEmpty()) {
             fnameUI.setError("First name is required");
@@ -181,6 +236,11 @@ public class profileupdate extends AppCompatActivity {
             lnameUI.requestFocus();
             return;
         }
+        else if (numberUser.isEmpty()){
+            number.setError("Middle name is required");
+            number.requestFocus();
+            return;
+        }
         else{
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
@@ -194,6 +254,8 @@ public class profileupdate extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 HashMap<String, Object> result = new HashMap<>();
                                 result.put("name", name);
+                                result.put("phone" , numberUser);
+                                result.put("birthday", bday);
 
                                 DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Users");
                                 ref.child(FirebaseAuth.getInstance().getUid()).updateChildren(result);

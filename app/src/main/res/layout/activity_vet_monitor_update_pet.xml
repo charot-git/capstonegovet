@@ -156,22 +156,51 @@
 
     </TimePicker>
 
-            <Button
-                android:id="@+id/updatevetbut"
-                android:layout_width="120dp"
-                android:layout_height="55dp"
+            <LinearLayout
                 android:layout_below="@id/monitorTime"
-                android:layout_centerHorizontal="true"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="20dp"
-                android:backgroundTint="@color/blue"
-                android:fontFamily="@font/poppins_medium"
-                android:text="UPDATE"
-                android:textColor="@color/white"
-                android:textSize="16dp"
-                app:cornerRadius="50dp" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
+
+                <Button
+                    android:id="@+id/updatevetbut"
+                    android:layout_width="120dp"
+                    android:layout_height="55dp"
+                    android:layout_below="@id/monitorTime"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:backgroundTint="@color/blue"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="UPDATE"
+                    android:textColor="@color/white"
+                    android:textSize="16dp"
+                    app:cornerRadius="50dp" />
+
+                <Button
+                    android:id="@+id/discharge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="55dp"
+                    android:layout_below="@id/monitorTime"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:backgroundTint="@color/blue"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="DISCHARGE"
+                    android:textColor="@color/white"
+                    android:textSize="16dp"
+                    app:cornerRadius="50dp" />
+
+
+            </LinearLayout>
+
 
         </RelativeLayout>
     </ScrollView>

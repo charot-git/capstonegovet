@@ -14,7 +14,6 @@ import android.widget.Toast;
 
 import com.danasoftprototype.govet.R;
 import com.danasoftprototype.govet.FrontEnd.profileupdate;
-import com.danasoftprototype.govet.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -36,9 +35,9 @@ public class register extends AppCompatActivity {
     MaterialButton registeruser;
     ProgressBar progressBar;
     String TAG;
+    DatabaseReference requestRef;
 
     FirebaseAuth mAuth;
-
 
 
     @Override
@@ -60,10 +59,9 @@ public class register extends AppCompatActivity {
         username = (EditText) findViewById(R.id.username);
         mobilenumber = (EditText) findViewById(R.id.mobilenum);
 
+        requestRef = FirebaseDatabase.getInstance().getReference().child("Request");
+
         progressBar = (ProgressBar) findViewById(R.id.registerprogress);
-
-
-
 
 
     }
@@ -80,32 +78,27 @@ public class register extends AppCompatActivity {
 
 
         //EditText Checker
-        if (uname.isEmpty()){
+        if (uname.isEmpty()) {
             username.setError("Username is required");
             username.requestFocus();
             return;
-        }
-        else if(uname.contains(" ")){
+        } else if (uname.contains(" ")) {
             username.setError("No spaces allowed");
             username.requestFocus();
             return;
-        }
-        else if (email.isEmpty()) {
+        } else if (email.isEmpty()) {
             emailreg.setError("E-mail is required");
             emailreg.requestFocus();
             return;
-        }
-        else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             emailreg.setError("E-mail is invalid");
             emailreg.requestFocus();
             return;
-        }
-        else if (num.isEmpty()){
+        } else if (num.isEmpty()) {
             mobilenumber.setError("Mobile number is required");
             mobilenumber.requestFocus();
             return;
-        }
-        else if (password.isEmpty()) {
+        } else if (password.isEmpty()) {
             pass.setError("Password is required!");
             pass.requestFocus();
             return;
@@ -127,7 +120,7 @@ public class register extends AppCompatActivity {
             mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
-                    if(task.isSuccessful()){
+                    if (task.isSuccessful()) {
 
                         FirebaseUser Fuser = mAuth.getInstance().getCurrentUser();
 
@@ -140,15 +133,15 @@ public class register extends AppCompatActivity {
                         hashMap.put("email", email);
                         hashMap.put("uid", uid);
                         hashMap.put("username", username.getText().toString());
-                        hashMap.put("phone", mobilenumber.getText().toString());
+                        hashMap.put("phone", "");
                         hashMap.put("image", "");
                         hashMap.put("name", "");
+                        hashMap.put("birthday", "");
 
                         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
                         DatabaseReference reference = database.getReference("Users");
                         reference.child(uid).setValue(hashMap);
-
 
 
                         //send email verification
@@ -165,25 +158,42 @@ public class register extends AppCompatActivity {
 
                             }
                         });
-                        
+
+                        friendReqMethod(uid);
+
                         Toast.makeText(register.this, "User has been created", Toast.LENGTH_LONG).show();
-                        Intent intent = new Intent(register.this,  profileupdate.class);
+                        Intent intent = new Intent(register.this, profileupdate.class);
                         startActivity(intent);
                         finish();
-                    }
-                    else{
-                        Toast.makeText(register.this, "Registration failed "+ task.getException(), Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(register.this, "Registration failed " + task.getException(), Toast.LENGTH_LONG).show();
                         emailreg.requestFocus();
                     }
                 }
             });
 
 
-
         }
 
 
+    }
 
+    private void friendReqMethod(String uid) {
+        requestRef.child(FirebaseAuth.getInstance().getUid()).child(uid).child("request_type").setValue("sent").addOnCompleteListener(new OnCompleteListener<Void>() {
 
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    requestRef.child(uid).child(FirebaseAuth.getInstance().getUid()).child("request_type").setValue("received").addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()) {
+                                progressBar.setVisibility(View.GONE);
+                            }
+                        }
+                    });
+                }
+            }
+        });
     }
 }

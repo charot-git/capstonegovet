@@ -3,6 +3,7 @@ package com.danasoftprototype.govet.FrontEndVet;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.danasoftprototype.govet.FrontEnd.govethome;
 import com.danasoftprototype.govet.databinding.ActivityVetMonitorUpdatePetBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -35,7 +37,7 @@ public class vet_monitor_update_pet extends AppCompatActivity {
     EditText status;
     CalendarView calendarView;
     TimePicker timePicker;
-    Button update;
+    Button update,discharge;
     ImageView back;
 
 
@@ -65,6 +67,7 @@ public class vet_monitor_update_pet extends AppCompatActivity {
         calendarView = binding.monitorCalendar;
         timePicker = binding.monitorTime;
         back = binding.back;
+        discharge = binding.discharge;
 
 
         String petName = getIntent().getStringExtra("name");
@@ -146,7 +149,203 @@ public class vet_monitor_update_pet extends AppCompatActivity {
             }
         });
 
+        discharge.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dischargeMethod();
+            }
+        });
 
+
+    }
+
+    private void dischargeMethod() {
+        String name = getIntent().getStringExtra("name");
+        if (name.equals(petName1)){
+            dischargePet1();
+        }
+        else if (name.equals(petName2)){
+            dischargePet2();
+        }
+        else if (name.equals(petName3)){
+            dischargePet3();
+        }
+        else{
+            Toast.makeText(this, "Error in discharging " + name, Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    private void dischargePet1() {
+        String uidUser = getIntent().getStringExtra("uid");
+        String name = getIntent().getStringExtra("name");
+
+
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("UserLogs");
+        ref.child(uidUser).push().addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Map<String, Object> updatedValues = new HashMap<String, Object>();
+                for (DataSnapshot ds : snapshot.getChildren()){
+                    updatedValues.put(ds.getKey(), ds.getValue());
+                }
+                statusOfPet  = status.getText().toString();
+                statusPet.setText("Status : " + statusOfPet);
+                updatedValues.put("petName" , name);
+                updatedValues.put("status" , "Discharged");
+                updatedValues.put("date" , date);
+                updatedValues.put("time" , time);
+                ref.child(uidUser).push().updateChildren(updatedValues).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Monitoring");
+                        ref.child(uidUser).child("Pet1").addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                for (DataSnapshot child: snapshot.getChildren()) {
+                                    child.getRef().removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            finish();
+                                        }
+                                    });
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+
+
+                        Toast.makeText(vet_monitor_update_pet.this, "Discharged", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+    private void dischargePet2() {
+        String uidUser = getIntent().getStringExtra("uid");
+        String name = getIntent().getStringExtra("name");
+
+
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("UserLogs");
+        ref.child(uidUser).push().addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Map<String, Object> updatedValues = new HashMap<String, Object>();
+                for (DataSnapshot ds : snapshot.getChildren()){
+                    updatedValues.put(ds.getKey(), ds.getValue());
+                }
+                statusOfPet  = status.getText().toString();
+                statusPet.setText("Status : " + statusOfPet);
+                updatedValues.put("petName" , name);
+                updatedValues.put("status" , "Discharged");
+                updatedValues.put("date" , date);
+                updatedValues.put("time" , time);
+                ref.child(uidUser).push().updateChildren(updatedValues).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Monitoring");
+                        ref.child(uidUser).child("Pet2").addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                for (DataSnapshot child: snapshot.getChildren()) {
+                                    child.getRef().removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            finish();
+                                        }
+                                    });
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+
+
+                        Toast.makeText(vet_monitor_update_pet.this, "Discharged", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+    private void dischargePet3() {
+        String uidUser = getIntent().getStringExtra("uid");
+        String name = getIntent().getStringExtra("name");
+
+
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("UserLogs");
+        ref.child(uidUser).push().addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Map<String, Object> updatedValues = new HashMap<String, Object>();
+                for (DataSnapshot ds : snapshot.getChildren()){
+                    updatedValues.put(ds.getKey(), ds.getValue());
+                }
+                statusOfPet  = status.getText().toString();
+                statusPet.setText("Status : " + statusOfPet);
+                updatedValues.put("petName" , name);
+                updatedValues.put("status" , "Discharged");
+                updatedValues.put("date" , date);
+                updatedValues.put("time" , time);
+                ref.child(uidUser).push().updateChildren(updatedValues).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Monitoring");
+                        ref.child(uidUser).child("Pet3").addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                for (DataSnapshot child: snapshot.getChildren()) {
+                                    child.getRef().removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            finish();
+                                        }
+                                    });
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+
+
+                        Toast.makeText(vet_monitor_update_pet.this, "Discharged", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
 
