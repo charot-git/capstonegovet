@@ -120,12 +120,11 @@ public class adminUsers extends AppCompatActivity {
                         userList.add(modelUser);
                     }
 
-                    adapterUsers = new AdminAdapter(getApplication(), userList);
-                    recyclerView.setAdapter(adapterUsers);
-                    recyclerView.setVisibility(View.VISIBLE);
-
-
                 }
+
+                adapterUsers = new AdminAdapter(getApplication(), userList);
+                recyclerView.setAdapter(adapterUsers);
+                recyclerView.setVisibility(View.VISIBLE);
             }
 
             @Override

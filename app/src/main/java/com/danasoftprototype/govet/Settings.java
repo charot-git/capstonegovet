@@ -66,10 +66,6 @@ public class Settings extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
@@ -89,6 +85,7 @@ public class Settings extends Fragment {
         TextView aboutus = (TextView) view.findViewById(R.id.aboutusview);
         TextView help = (TextView) view.findViewById(R.id.helpview);
         TextView logout = (TextView) view.findViewById(R.id.logoutview);
+        TextView logs = (TextView) view.findViewById(R.id.logsview);
 
         account.setOnClickListener(this::accountmethod);
         display.setOnClickListener(this::displaymethod);
@@ -96,6 +93,7 @@ public class Settings extends Fragment {
         aboutus.setOnClickListener(this::aboutusmethod);
         help.setOnClickListener(this::helpmethod);
         logout.setOnClickListener(this::logoutmethod);
+        logs.setOnClickListener(this::logsmethod);
     }
 
 
@@ -125,6 +123,12 @@ public class Settings extends Fragment {
     private void displaymethod(View view) {
         Intent intent = new Intent(getActivity().getApplication(), display.class);
         startActivity(intent);
+    }
+
+    private void logsmethod(View view) {
+        Intent intent = new Intent(getActivity().getApplication(), UserLogs.class);
+        startActivity(intent);
+
     }
 
     private void accountmethod(View view) {

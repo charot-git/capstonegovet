@@ -191,7 +191,7 @@ public class vet_monitor_update_pet extends AppCompatActivity {
                 }
                 statusOfPet  = status.getText().toString();
                 statusPet.setText("Status : " + statusOfPet);
-                updatedValues.put("petName" , name);
+                updatedValues.put("name" , name);
                 updatedValues.put("status" , "Discharged");
                 updatedValues.put("date" , date);
                 updatedValues.put("time" , time);
@@ -248,7 +248,7 @@ public class vet_monitor_update_pet extends AppCompatActivity {
                 }
                 statusOfPet  = status.getText().toString();
                 statusPet.setText("Status : " + statusOfPet);
-                updatedValues.put("petName" , name);
+                updatedValues.put("name" , name);
                 updatedValues.put("status" , "Discharged");
                 updatedValues.put("date" , date);
                 updatedValues.put("time" , time);
@@ -305,7 +305,7 @@ public class vet_monitor_update_pet extends AppCompatActivity {
                 }
                 statusOfPet  = status.getText().toString();
                 statusPet.setText("Status : " + statusOfPet);
-                updatedValues.put("petName" , name);
+                updatedValues.put("name" , name);
                 updatedValues.put("status" , "Discharged");
                 updatedValues.put("date" , date);
                 updatedValues.put("time" , time);
