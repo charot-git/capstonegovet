@@ -15,7 +15,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.danasoftprototype.govet.FrontEnd.AddFriend;
 import com.danasoftprototype.govet.FrontEnd.Bookings;
+import com.danasoftprototype.govet.FrontEndAdmin.govethome2;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
@@ -62,22 +64,23 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
 
 
 
+        if (!FirebaseAuth.getInstance().getCurrentUser().getEmail().equals("vetgovet@gmail.com")) {
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context , appointment_confirm.class)
+                            .putExtra("name" , name)
+                            .putExtra("date" , date)
+                            .putExtra("time" , time)
+                            .putExtra("description" , description)
+                            .putExtra("uid" , uid)
+                            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(intent);
 
+                }
+            });
+        }
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context , appointment_confirm.class)
-                        .putExtra("name" , name)
-                        .putExtra("date" , date)
-                        .putExtra("time" , time)
-                        .putExtra("description" , description)
-                        .putExtra("uid" , uid)
-                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(intent);
-
-            }
-        });
 
 
     }

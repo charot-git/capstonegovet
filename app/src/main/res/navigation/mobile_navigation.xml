@@ -83,6 +83,11 @@
         android:name="com.danasoftprototype.govet.FrontEnd.Users"
         android:label="activity_users"
         tools:layout="@layout/activity_users" />
+    <activity
+        android:id="@+id/nav_consultation"
+        android:name="com.danasoftprototype.govet.consultation"
+        android:label="activity_consultation"
+        tools:layout="@layout/activity_consultation" />
 
 
 </navigation>

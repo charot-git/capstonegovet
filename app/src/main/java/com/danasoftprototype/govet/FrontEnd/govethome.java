@@ -3,6 +3,7 @@ package com.danasoftprototype.govet.FrontEnd;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import com.danasoftprototype.govet.FrontEndAdmin.govethome2;
 import com.danasoftprototype.govet.FrontEndVet.govethome3;
 import com.danasoftprototype.govet.R;
+import com.danasoftprototype.govet.chatActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -17,6 +19,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
+import androidx.core.view.GravityCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -52,6 +55,7 @@ public class govethome extends AppCompatActivity {
         binding = ActivityGovethomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        DrawerLayout drawerLayout = (binding.drawerLayout);
 
         ifUserIsAdmin();
         ifUserIsVet();
@@ -88,7 +92,7 @@ public class govethome extends AppCompatActivity {
         announcement = findViewById(R.id.annHome);
 
         getBookingData();
-        ifAdminHasPost();
+        //ifAdminHasPost();
 
         setSupportActionBar(binding.appBarGovethome.toolbar);
         binding.appBarGovethome.fab.setOnClickListener(new View.OnClickListener() {
@@ -105,12 +109,14 @@ public class govethome extends AppCompatActivity {
                 R.id.nav_home,
                 R.id.nav_profile,
                 R.id.nav_users,
+                R.id.nav_consultation,
                 R.id.nav_sched,
                 R.id.nav_shop,
                 R.id.nav_monitor,
                 R.id.nav_settings)
                 .setOpenableLayout(drawer)
                 .build();
+
 
 
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_govethome);
@@ -156,7 +162,7 @@ public class govethome extends AppCompatActivity {
         });
     }
 
-    private void ifAdminHasPost() {
+    /*private void ifAdminHasPost() {
         reference2 = FirebaseDatabase.getInstance().getReference("Posts");
         reference2.child("adminPosts").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
@@ -174,7 +180,7 @@ public class govethome extends AppCompatActivity {
 
             }
         });
-    }
+    }*/
 
 
     @Override

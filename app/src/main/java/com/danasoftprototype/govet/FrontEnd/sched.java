@@ -87,7 +87,7 @@ public class sched extends Fragment {
 
                     }
                     else {
-                        appointmentsText.setText("No appointments yet");
+                        appointmentsText.setText("No appointment yet");
                         appointmentCard.setVisibility(View.INVISIBLE);
                     }
                 }
