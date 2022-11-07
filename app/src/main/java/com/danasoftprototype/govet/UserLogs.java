@@ -62,10 +62,8 @@ public class UserLogs extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 logsList.clear();
                 for (DataSnapshot ds : snapshot.getChildren()){
-                    for (DataSnapshot dataSnapshot : ds.getChildren()){
-                        Logs logs = dataSnapshot.getValue(Logs.class);
+                        Logs logs = ds.getValue(Logs.class);
                         logsList.add(logs);
-                    }
                 }
 
                 logsAdapter = new LogsAdapter(getApplication(), logsList);
