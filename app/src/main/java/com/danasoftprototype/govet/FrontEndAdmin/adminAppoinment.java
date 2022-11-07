@@ -216,9 +216,8 @@ public class adminAppoinment extends AppCompatActivity {
                 bookingsList.clear();
                 for(DataSnapshot ds : snapshot.getChildren()){
                     Bookings bookings = ds.getValue(Bookings.class);
-                    if(!bookings.getName().equals(firebaseUser.getDisplayName())){
+
                         bookingsList.add(bookings);
-                    }
 
                     appointmentAdapter = new AppointmentAdapter(getApplication(), bookingsList);
                     recyclerView.setAdapter(appointmentAdapter);
