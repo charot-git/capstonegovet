@@ -96,7 +96,7 @@
         android:textColor="@color/slightfont"
         android:textColorHint="@color/slightfont" />
 
-    <EditText
+   <!-- <EditText
         android:id="@+id/mobilenum"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -113,13 +113,13 @@
         android:hint="Mobile number"
         android:padding="15dp"
         android:textColor="@color/slightfont"
-        android:textColorHint="@color/slightfont" />
+        android:textColorHint="@color/slightfont" />-->
 
     <EditText
         android:id="@+id/passwordreg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/mobilenum"
+        android:layout_below="@id/emailreg"
         android:layout_marginStart="50dp"
         android:layout_marginTop="5dp"
         android:drawableTint="@color/lightfont"
