@@ -55,7 +55,7 @@ public class chatActivity extends AppCompatActivity {
         name = binding.name;
         userName = binding.userName;
         message = binding.message;
-        dp = binding.dp;
+        dp = binding.dpToolbar;
         progressBar = binding.progressBar2;
         messages = new ArrayList<>();
         name.setText(nameOfRoomate);

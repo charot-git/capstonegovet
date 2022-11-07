@@ -14,7 +14,12 @@ import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -43,6 +48,20 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageH
         holder.TxtMessage.setText(messages.get(position).getContent());
 
         ConstraintLayout constraintLayout = holder.ccll;
+
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getUid());
+        reference.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (task.isSuccessful()){
+                    if (task.getResult().exists()){
+                        DataSnapshot dataSnapshot = task.getResult();
+                        senderImg = String.valueOf(dataSnapshot.child("image").getValue());
+                    }
+                }
+            }
+        });
+
 
         if (messages.get(position).getSender().equals(FirebaseAuth.getInstance().getCurrentUser().getEmail())){
             Glide.with(context).load(senderImg).error(R.drawable.logogv).placeholder(R.drawable.logogv).into(holder.dp);
