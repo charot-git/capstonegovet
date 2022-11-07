@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.danasoftprototype.govet.R;
+import com.danasoftprototype.govet.paypal1;
 
 public class shop extends Fragment {
 
@@ -49,7 +50,7 @@ public class shop extends Fragment {
         addpayment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(), paymentMethod.class));
+                startActivity(new Intent(getContext(), paypal1.class));
             }
         });
 

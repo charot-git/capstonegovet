@@ -46,7 +46,7 @@
         </LinearLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/loginbtnmain"
+        android:id="@+id/loginpaypal"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/textppp"
