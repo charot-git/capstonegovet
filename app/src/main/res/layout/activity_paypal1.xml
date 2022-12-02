@@ -4,46 +4,105 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".paypal1">
+    tools:context=".paypal2">
 
-
-    <ImageView
-        android:id="@+id/logopp"
+    <LinearLayout
+        android:id="@+id/textppp"
         android:layout_width="wrap_content"
-        android:layout_height="140dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="50dp"
-        android:src="@drawable/paypal2"></ImageView>
-        <LinearLayout
-            android:id="@+id/textppp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/logopp"
             android:layout_width="wrap_content"
+            android:layout_height="140dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="30dp"
+            android:src="@drawable/paypal2"/>
+        <TextView
+            android:id="@+id/textpp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:orientation="vertical"
-            android:layout_below="@+id/logopp">
+            android:textAlignment="center"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Connect your Paypal "
+            android:textColor="@color/slightfont"
+            android:textSize="22dp"/>
 
-            <TextView
-                android:id="@+id/textpp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:fontFamily="@font/poppins_medium"
-                android:text="Connect your Paypal "
-                android:textColor="@color/slightfont"
-                android:textSize="24dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:fontFamily="@font/poppins_medium"
+            android:text="account to GoVet"
+            android:textColor="@color/slightfont"
+            android:textSize="22dp"/>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:fontFamily="@font/poppins_medium"
-                android:text="to speed up the process"
-                android:textColor="@color/slightfont"
-                android:textSize="24dp"/>
+        <TextView
+            android:layout_marginTop="10dp"
+            android:textColor="@color/slightfont"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="40dp"
+            android:layout_height="wrap_content"
+            android:text="This lets (Govet)"/>
 
-        </LinearLayout>
+        <TextView
+            android:textSize="12dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="40dp"
+            android:textColor="@color/slightfont"
+            android:fontFamily="@font/popins_light"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Receive personal information"/>
+
+
+        <TextView
+            android:textSize="12dp"
+            android:textColor="@color/slightfont"
+            android:layout_marginLeft="40dp"
+            android:fontFamily="@font/popins_light"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Full name, Email Address"/>
+
+
+        <TextView
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/slightfont"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Access payment methods"/>
+
+
+        <TextView
+            android:textSize="12dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="0dp"
+            android:textColor="@color/slightfont"
+            android:fontFamily="@font/popins_light"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login with email and password"/>
+
+        <TextView
+            android:textSize="12dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:textColor="@color/slightfont"
+            android:fontFamily="@font/popins_light"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="This application is responsible for the use of your information in accordance to its Privacy Statement and Terms and Conditions. You can stop future sharing of your information at any time in your Paypal Profile">
+        </TextView>
+    </LinearLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/loginpaypal"
@@ -61,8 +120,10 @@
         android:paddingTop="10dp"
         android:paddingRight="40dp"
         android:paddingBottom="10dp"
-        android:text="LogIn with paypal"
+        android:text="Proceed"
         android:textColor="@color/white"
         android:textSize="18dp"
         app:cornerRadius="30dp" />
+
+
 </RelativeLayout>

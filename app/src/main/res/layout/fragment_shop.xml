@@ -39,15 +39,15 @@
             android:background="@color/white"
             android:orientation="vertical">
 
-          <!--<TextView
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="PayPal"
-              android:textColor="@color/slightfont"
-              android:fontFamily="@font/poppins_medium"
-              android:textSize="24dp"
-              android:layout_marginTop="15dp"
-              android:layout_marginLeft="230dp"/>-->
+            <!--<TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PayPal"
+                android:textColor="@color/slightfont"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="24dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="230dp"/>-->
             <ImageView
                 android:layout_marginTop="15dp"
                 android:layout_width="150dp"
@@ -78,7 +78,7 @@
         android:backgroundTint="@color/blue"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/poppins_medium"
-        android:text="ADD PAYMENT METHOD"
+        android:text="Payment"
         android:layout_marginTop="5dp"
         android:textColor="@color/white"
         android:textSize="14dp"

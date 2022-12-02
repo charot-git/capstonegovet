@@ -69,4 +69,7 @@ dependencies {
 
     //MultiDex
     implementation 'androidx.multidex:multidex:2.0.1'
+
+    //PayPal
+    implementation 'com.paypal.sdk:paypal-android-sdk:2.14.2'
 }

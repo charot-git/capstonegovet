@@ -15,13 +15,20 @@
         android:theme="@style/Theme.GoVet"
         tools:targetApi="31">
         <activity
-            android:name=".UserLogs"
+            android:name=".PaymentDetails"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
 
+        <activity
+            android:name=".UserLogs"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".consultation"
             android:exported="false">
