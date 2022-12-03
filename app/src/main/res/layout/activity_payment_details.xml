@@ -56,21 +56,21 @@
             android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="payment-ID:"/>
+            android:hint="Payment-ID:"/>
 
         <TextView
             android:id="@+id/textAmount"
             android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="amount:"/>
+            android:hint="Amount:"/>
 
         <TextView
             android:id="@+id/textStatus"
             android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="STATUS:"/>
+            android:hint="Status:"/>
 
     </LinearLayout>
 
