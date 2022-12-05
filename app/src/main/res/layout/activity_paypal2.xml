@@ -64,13 +64,13 @@
         app:layout_constraintTop_toTopOf="parent" />
     <Button
         android:id="@+id/payments"
+        android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="140dp"
         android:layout_marginTop="400dp"
-        android:layout_marginEnd="50dp"
         android:layout_marginBottom="50dp"
-        android:text="Payment "
+        android:text="Payment"
+        android:textSize="14dp"
         app:cornerRadius="50dp"
         app:layout_constraintEnd_toEndOf="@+id/amounts"
         app:layout_constraintStart_toStartOf="@+id/amounts"
