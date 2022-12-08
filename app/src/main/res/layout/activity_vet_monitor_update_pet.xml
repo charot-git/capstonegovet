@@ -83,7 +83,7 @@
 
     </androidx.cardview.widget.CardView>
 
-    <TextView
+    <!--<TextView
         android:id="@+id/monitorDatetxt"
         android:layout_below="@id/status"
         android:layout_width="wrap_content"
@@ -105,7 +105,7 @@
 
     </CalendarView>
 
-    <!--<androidx.cardview.widget.CardView
+    &lt;!&ndash;<androidx.cardview.widget.CardView
         android:id="@+id/monitordate"
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -129,7 +129,7 @@
              android:hint="Date here" />
 
     </androidx.cardview.widget.CardView>
--->
+&ndash;&gt;
     <TextView
         android:id="@+id/monitorTimetxt"
         android:layout_below="@id/monitorCalendar"
@@ -154,10 +154,10 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true">
 
-    </TimePicker>
+    </TimePicker>-->
 
             <LinearLayout
-                android:layout_below="@id/monitorTime"
+                android:layout_marginTop="210dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -168,7 +168,7 @@
                     android:id="@+id/updatevetbut"
                     android:layout_width="120dp"
                     android:layout_height="55dp"
-                    android:layout_below="@id/monitorTime"
+                    android:layout_below="@id/statusPet"
                     android:layout_centerHorizontal="true"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
@@ -185,7 +185,7 @@
                     android:id="@+id/discharge"
                     android:layout_width="wrap_content"
                     android:layout_height="55dp"
-                    android:layout_below="@id/monitorTime"
+                    android:layout_below="@id/statusPet"
                     android:layout_centerHorizontal="true"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
