@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.media.Image;
 import android.os.Build;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.danasoftprototype.govet.AppointmentAdapter;
 import com.danasoftprototype.govet.R;
 import com.danasoftprototype.govet.addPet;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -28,8 +30,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.protobuf.StringValue;
 
 import java.text.SimpleDateFormat;
@@ -82,6 +86,34 @@ public class booking extends AppCompatActivity {
                 monthPicked = String.valueOf(month+1);
                 date = dayPicked + "/" +monthPicked + "/" +yearPicked;
                 dateView.setText(date);
+
+                book.setText("BOOK APPOINTMENT");
+                book.setBackgroundColor(book.getContext().getResources().getColor(R.color.blue));
+                book.setEnabled(true);
+
+
+                DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Bookings").child("bookingDetails");
+
+                ref.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for(DataSnapshot ds : snapshot.getChildren()){
+                            Bookings bookings = ds.getValue(Bookings.class);
+                            if (date.equals(bookings.getDate())){
+                                book.setText("Date Fully Booked");
+                                book.setBackgroundColor(Color.RED);
+                                book.setEnabled(false);
+                            }
+
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
             }
         });
 
@@ -98,6 +130,10 @@ public class booking extends AppCompatActivity {
                 finish();
             }
         });
+
+        DatabaseReference mDatabase =FirebaseDatabase.getInstance().getReference("Bookings");
+        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+
 
     }
 

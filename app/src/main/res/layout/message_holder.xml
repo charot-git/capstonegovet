@@ -25,7 +25,7 @@
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
                 android:src="@drawable/logogv"/>
-            
+
         </androidx.cardview.widget.CardView>
 
         <TextView
@@ -40,6 +40,14 @@
             android:layout_marginHorizontal="9dp"
             android:background="@drawable/background_sent_message"
             tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/imgMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="9dp"
+            android:background="@drawable/background_sent_message"
+            android:padding="8dp"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
